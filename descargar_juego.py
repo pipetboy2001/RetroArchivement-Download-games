@@ -45,7 +45,7 @@ def open_url_in_browser(url: str) -> None:
 
 # Función principal
 def main() -> None:
-    console.print("[bold green]Bienvenido al buscador de hashes![/bold green]")
+    console.print("[bold green]Bienvenido al buscador de juegos de RetroArchivements![/bold green]")
     
     # Descargar el archivo JSON una vez
     console.print(DOWNLOAD_MSG)
