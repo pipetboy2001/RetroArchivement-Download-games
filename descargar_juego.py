@@ -12,6 +12,19 @@ JSON_URL = "https://archive.org/download/retroachievements_collection_v5/TamperM
 # Inicializar consola de Rich
 console = Console()
 
+ascii_art = r"""
+
+             _                             _      _                                            _        
+            | |                           | |    (_)                                          | |       
+  _ __  ___ | |_  _ __  ___    __ _   ___ | |__   _   ___ __   __ ___  _ __ ___    ___  _ __  | |_  ___ 
+ | '__|/ _ \| __|| '__|/ _ \  / _` | / __|| '_ \ | | / _ \\ \ / // _ \| '_ ` _ \  / _ \| '_ \ | __|/ __|
+ | |  |  __/| |_ | |  | (_) || (_| || (__ | | | || ||  __/ \ V /|  __/| | | | | ||  __/| | | || |_ \__ \
+ |_|   \___| \__||_|   \___/  \__,_| \___||_| |_||_| \___|  \_/  \___||_| |_| |_| \___||_| |_| \__||___/
+                                                                                                        
+                                                                                                        
+
+"""
+
 # Mensajes constantes
 DOWNLOAD_MSG = "Descargando archivo JSON..."
 HASH_FOUND_MSG = "Hash encontrado. La URL de descarga es: {}"
@@ -45,6 +58,7 @@ def open_url_in_browser(url: str) -> None:
 
 # Función principal
 def main() -> None:
+    console.print(ascii_art)  # Imprimir arte ASCII
     console.print("[bold green]Bienvenido al buscador de juegos de RetroArchivements![/bold green]")
     
     # Descargar el archivo JSON una vez
