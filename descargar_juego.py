@@ -71,6 +71,7 @@ def find_hash_in_json(json_data: Dict[str, Any], hash_value: str) -> Optional[st
 def get_download_url(rom_path: str) -> str:
     # Definir los prefix URLs para cada tipo de juego
     base_urls = {
+        "ARCADE": "https://archive.org/download/fbnarcade-fullnonmerged/arcade/",
         "SNES": "https://archive.org/download/retroachievements_collection_SNES-Super_Famicom/",
         "NES": "https://archive.org/download/retroachievements_collection_NES-Famicom/",
         "PSP": "https://dn720005.ca.archive.org/0/items/retroachievements_collection_PlayStation_Portable/PlayStation%20Portable/",
@@ -85,6 +86,8 @@ def get_download_url(rom_path: str) -> str:
         return base_urls["SNES"] + rom_path.replace("\\", "/").replace(" ", "%20")
     elif "NES-Famicom" in rom_path:
         return base_urls["NES"] + rom_path.replace("\\", "/").replace(" ", "%20")
+    elif "arcade" in rom_path:
+        return base_urls["ARCADE"] + rom_path.replace("\\", "/").replace(" ", "%20").replace("arcade/", "")
     elif "PlayStation Portable" in rom_path:
         # Descomponemos el rom_path para extraer el nombre del juego
         game_folder = rom_path.split("/")[1]  # Carpeta del juego
