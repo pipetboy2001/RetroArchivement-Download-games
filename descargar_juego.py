@@ -15,7 +15,7 @@ console = Console()
 # Mensajes constantes
 DOWNLOAD_MSG = "Descargando archivo JSON..."
 HASH_FOUND_MSG = "Hash encontrado. La URL de descarga es: {}"
-HASH_NOT_FOUND_MSG = "Hash {} no encontrado en el archivo JSON."
+HASH_NOT_FOUND_MSG = "Hash [bold yellow]{}[/bold yellow] no encontrado en el archivo JSON."
 ERROR_HTTP_MSG = "Error HTTP al descargar el archivo JSON: {}"
 ERROR_MSG = "Error al descargar el archivo JSON: {}"
 
@@ -45,29 +45,33 @@ def open_url_in_browser(url: str) -> None:
 
 # Función principal
 def main() -> None:
-    # Mensaje antes de solicitar el hash
-    console.print("Por favor, ingresa el hash que deseas buscar:", style="bold green")
+    console.print("[bold green]Bienvenido al buscador de hashes![/bold green]")
     
-    # Solicitar al usuario que ingrese un hash
-    hash_value = Prompt.ask("Hash")
-
-    # Descargar el archivo JSON
+    # Descargar el archivo JSON una vez
     console.print(DOWNLOAD_MSG)
     json_data = download_json(JSON_URL)
-    
-    if json_data:
-        # Buscar el hash en el archivo JSON
-        console.print(f"Buscando el hash [bold yellow]{hash_value}[/bold yellow] en el archivo JSON...")
-        rom_path = find_hash_in_json(json_data, hash_value)
 
-        if rom_path:
-            # Si el hash se encuentra, abrimos la URL de descarga en el navegador
-            base_url = "https://archive.org/download/retroachievements_collection_v5/"
-            download_url = base_url + rom_path.replace("\\", "/").replace(" ", "%20")
-            console.print(HASH_FOUND_MSG.format(download_url), style="bold green")
-            open_url_in_browser(download_url)
-        else:
-            console.print(HASH_NOT_FOUND_MSG.format(hash_value), style="bold red")
+    if json_data:
+        while True:
+            # Solicitar al usuario que ingrese un hash
+            hash_value = Prompt.ask("Por favor, ingresa el hash que deseas buscar (o escribe 'salir' para terminar)")
+            
+            if hash_value.lower() == 'salir':
+                console.print("[bold red]Saliendo...[/bold red]")
+                break
+
+            # Buscar el hash en el archivo JSON
+            console.print(f"Buscando el hash [bold yellow]{hash_value}[/bold yellow] en el archivo JSON...")
+            rom_path = find_hash_in_json(json_data, hash_value)
+
+            if rom_path:
+                # Si el hash se encuentra, abrimos la URL de descarga en el navegador
+                base_url = "https://archive.org/download/retroachievements_collection_v5/"
+                download_url = base_url + rom_path.replace("\\", "/").replace(" ", "%20")
+                console.print(HASH_FOUND_MSG.format(download_url), style="bold green")
+                open_url_in_browser(download_url)
+            else:
+                console.print(HASH_NOT_FOUND_MSG.format(hash_value), style="bold red")
     else:
         console.print("No se pudo descargar o procesar el archivo JSON.", style="bold red")
 
