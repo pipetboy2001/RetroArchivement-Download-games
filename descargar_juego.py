@@ -1,60 +1,75 @@
 import json
 import requests
 import webbrowser
+from typing import Optional, Dict, Any
+from rich.console import Console
+from rich.prompt import Prompt
+from rich.text import Text
 
 # URL del archivo JSON que contiene los hashes
 JSON_URL = "https://archive.org/download/retroachievements_collection_v5/TamperMonkeyRetroachievements.json"
 
+# Inicializar consola de Rich
+console = Console()
+
+# Mensajes constantes
+DOWNLOAD_MSG = "Descargando archivo JSON..."
+HASH_FOUND_MSG = "Hash encontrado. La URL de descarga es: {}"
+HASH_NOT_FOUND_MSG = "Hash {} no encontrado en el archivo JSON."
+ERROR_HTTP_MSG = "Error HTTP al descargar el archivo JSON: {}"
+ERROR_MSG = "Error al descargar el archivo JSON: {}"
+
 # Función para descargar el archivo JSON desde archive.org
-def download_json(url):
+def download_json(url: str) -> Optional[Dict[str, Any]]:
     try:
         response = requests.get(url)
         response.raise_for_status()  # Lanza un error para códigos de estado 4xx o 5xx
         return response.json()  # Devolvemos el contenido como un objeto JSON
     except requests.exceptions.HTTPError as http_err:
-        print(f"Error HTTP al descargar el archivo JSON: {http_err}")
+        console.print(ERROR_HTTP_MSG.format(http_err), style="bold red")
     except Exception as err:
-        print(f"Error al descargar el archivo JSON: {err}")
+        console.print(ERROR_MSG.format(err), style="bold red")
     return None
 
 # Función para buscar el hash en el archivo JSON
-def find_hash_in_json(json_data, hash_value):
-    for game_id, hash_list in json_data.items():
-        for item in hash_list:
-            if hash_value.upper() in item:
-                print(f"Hash encontrado: {item}")  # Mensaje de depuración
-                return item[hash_value.upper()]  # Devolver la ruta del archivo ROM
-    return None
+def find_hash_in_json(json_data: Dict[str, Any], hash_value: str) -> Optional[str]:
+    return next(
+        (item[hash_value.upper()] for hash_list in json_data.values() for item in hash_list if hash_value.upper() in item),
+        None
+    )
 
 # Función para abrir la URL en el navegador
-def open_url_in_browser(url):
-    print(f"Abriendo {url} en el navegador...")
+def open_url_in_browser(url: str) -> None:
+    console.print(f"Abriendo [link]{url}[/link] en el navegador...", style="bold blue")
     webbrowser.open(url)
 
 # Función principal
-def main():
-    # Hash predefinido para la depuración
-    hash_value = "eb7c9ef37db8a4269bdb55d7d37d2744"
+def main() -> None:
+    # Mensaje antes de solicitar el hash
+    console.print("Por favor, ingresa el hash que deseas buscar:", style="bold green")
+    
+    # Solicitar al usuario que ingrese un hash
+    hash_value = Prompt.ask("Hash")
 
     # Descargar el archivo JSON
-    print("Descargando archivo JSON...")
+    console.print(DOWNLOAD_MSG)
     json_data = download_json(JSON_URL)
     
     if json_data:
         # Buscar el hash en el archivo JSON
-        print(f"Buscando el hash {hash_value} en el archivo JSON...")
+        console.print(f"Buscando el hash [bold yellow]{hash_value}[/bold yellow] en el archivo JSON...")
         rom_path = find_hash_in_json(json_data, hash_value)
 
         if rom_path:
             # Si el hash se encuentra, abrimos la URL de descarga en el navegador
             base_url = "https://archive.org/download/retroachievements_collection_v5/"
             download_url = base_url + rom_path.replace("\\", "/").replace(" ", "%20")
-            print(f"Hash encontrado. La URL de descarga es: {download_url}")
+            console.print(HASH_FOUND_MSG.format(download_url), style="bold green")
             open_url_in_browser(download_url)
         else:
-            print(f"Hash {hash_value} no encontrado en el archivo JSON.")
+            console.print(HASH_NOT_FOUND_MSG.format(hash_value), style="bold red")
     else:
-        print("No se pudo descargar o procesar el archivo JSON.")
+        console.print("No se pudo descargar o procesar el archivo JSON.", style="bold red")
 
 # Ejecutar el programa
 if __name__ == "__main__":
