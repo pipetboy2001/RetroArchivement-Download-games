@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buscador de Juegos RetroAchievements</title>
+    <!-- Agregar Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center my-4">Buscador de Juegos RetroAchievements</h1>
+
+      <!-- Formulario -->
+      <form
+        id="search-form"
+        action="{{ url_for('search') }}"
+        method="POST"
+        class="text-center mb-4"
+      >
+        <div class="form-group">
+          <label for="hash">Ingresa el Hash:</label>
+          <input
+            type="text"
+            id="hash"
+            name="hash"
+            class="form-control w-50 mx-auto"
+            required
+          />
+        </div>
+        <button type="submit" id="search-btn" class="btn btn-primary">
+          Buscar
+        </button>
+      </form>
+
+      <!-- Área para mostrar los mensajes de estado -->
+      <div
+        id="status"
+        class="text-center mb-3"
+        style="font-size: 1.2em; color: blue"
+      ></div>
+
+      <!-- Spinner y barra de progreso (ocultos al inicio) -->
+      <div id="loading" class="text-center" style="display: none">
+        <!-- Spinner de Bootstrap -->
+        <div class="spinner-border text-primary" role="status">
+          <span class="sr-only">Cargando...</span>
+        </div>
+
+        <!-- Barra de progreso -->
+        <div class="progress my-3" style="height: 25px">
+          <div
+            id="progress-bar"
+            class="progress-bar progress-bar-striped progress-bar-animated"
+            role="progressbar"
+            style="width: 0%"
+            aria-valuenow="0"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
+            0%
+          </div>
+        </div>
+      </div>
+
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %}
+      <ul class="text-center list-unstyled">
+        {% for category, message in messages %}
+        <li class="alert alert-{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %}
+    </div>
+
+    <script>
+      // Selecciona el formulario, el div de estado, y elementos de carga
+      const form = document.getElementById("search-form");
+      const statusDiv = document.getElementById("status");
+      const loadingDiv = document.getElementById("loading");
+      const progressBar = document.getElementById("progress-bar");
+      const searchBtn = document.getElementById("search-btn");
+
+      // Función para resetear el formulario
+      function resetStatus() {
+        statusDiv.innerText = ""; // Limpiar el estado
+        loadingDiv.style.display = "none"; // Ocultar el spinner y la barra de progreso
+        progressBar.style.width = "0%"; // Resetear la barra de progreso
+        progressBar.innerText = "0%"; // Resetear el texto de la barra
+        searchBtn.disabled = false; // Habilitar el botón de búsqueda nuevamente
+      }
+
+      // Evento para cuando se envía el formulario
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevenir el envío inmediato del formulario
+        statusDiv.innerText = "Descargando JSON..."; // Primer mensaje de estado
+        loadingDiv.style.display = "block"; // Mostrar el spinner y la barra de progreso
+        progressBar.style.width = "0%"; // Reiniciar la barra de progreso
+        progressBar.innerText = "0%"; // Reiniciar el texto de la barra
+        searchBtn.disabled = true; // Deshabilitar el botón de búsqueda para evitar clics adicionales
+
+        // Simular el progreso con setTimeout (puedes usar AJAX o WebSockets para mejorar esto)
+        setTimeout(() => {
+          statusDiv.innerText = "Validando hash...";
+          progressBar.style.width = "33%";
+          progressBar.innerText = "33%";
+        }, 1000); // Cambia el mensaje después de 1 segundo
+
+        setTimeout(() => {
+          statusDiv.innerText = "Buscando...";
+          progressBar.style.width = "66%";
+          progressBar.innerText = "66%";
+        }, 2000);
+
+        setTimeout(() => {
+          statusDiv.innerText = "Encontrado, se descargará ahora!";
+          progressBar.style.width = "100%";
+          progressBar.innerText = "100%";
+
+          // Esperar 3 segundos para simular la descarga y luego limpiar el mensaje de estado
+          setTimeout(() => {
+            resetStatus(); // Limpiar el mensaje después de la descarga
+            form.submit(); // Enviar el formulario después de simular el progreso
+          }, 3000); // Aquí simula el tiempo de descarga
+        }, 3000);
+      });
+    </script>
+
+    <script>
+      // Limpiar mensajes flash al recargar la página
+      window.onload = function () {
+        // Al recargar la página, limpia los mensajes flash
+        const messages = document.querySelectorAll(".alert");
+        if (messages.length > 0) {
+          messages.forEach((msg) => {
+            msg.remove(); // Elimina cada mensaje de la vista
+          });
+        }
+
+        // Limpia el div de estado
+        const statusDiv = document.getElementById("status");
+        if (statusDiv) {
+          statusDiv.innerText = "";
+        }
+
+        // También resetear el progreso si es necesario
+        const progressBar = document.getElementById("progress-bar");
+        if (progressBar) {
+          progressBar.style.width = "0%";
+          progressBar.innerText = "0%";
+        }
+
+        // Ocultar el spinner
+        const loadingDiv = document.getElementById("loading");
+        if (loadingDiv) {
+          loadingDiv.style.display = "none";
+        }
+
+        // Habilitar el botón de búsqueda
+        const searchBtn = document.getElementById("search-btn");
+        if (searchBtn) {
+          searchBtn.disabled = false;
+        }
+      };
+    </script>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
