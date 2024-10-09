@@ -1,109 +1,201 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buscar Juego</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .container {
-            margin-top: 100px;
-            max-width: 500px;
-        }
-        .card {
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            margin-bottom: 20px;
-        }
-        .status {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        .spinner-border {
-            display: none; /* Ocultar spinner por defecto */
-        }
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        margin-top: 100px;
+        max-width: 500px;
+      }
+      .card {
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        margin-bottom: 20px;
+      }
+      .status {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+      .spinner-border {
+        display: none; /* Ocultar spinner por defecto */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="card">
-            <h1 class="text-center">Buscar Juego</h1>
-            {% with messages = get_flashed_messages() %}
-              {% if messages %}
-                <div class="alert alert-danger">
-                  {% for message in messages %}
-                    <p>{{ message }}</p>
-                  {% endfor %}
-                </div>
-              {% endif %}
-            {% endwith %}
-            <form id="searchForm">
-                <div class="form-group">
-                    <input type="text" name="search_term" id="searchTerm" class="form-control" placeholder="Introduce el hash del juego" required />
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Buscar</button>
-            </form>
-            <div id="status" class="status text-center"></div>
-            <div class="text-center">
-                <div class="spinner-border" role="status" id="spinner">
-                    <span class="sr-only">Cargando...</span>
-                </div>
-            </div>
+      <div class="card">
+        <h1 class="text-center">Buscar Juego</h1>
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <div class="alert alert-danger">
+          {% for message in messages %}
+          <p>{{ message }}</p>
+          {% endfor %}
         </div>
+        {% endif %} {% endwith %}
+        <form id="searchForm">
+          <div class="form-group">
+            <input
+              type="text"
+              name="search_term"
+              id="searchTerm"
+              class="form-control"
+              placeholder="Introduce el hash del juego"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Buscar
+          </button>
+        </form>
+        <button
+          type="button"
+          class="btn btn-info btn-block"
+          data-toggle="modal"
+          data-target="#instructionsModal"
+        >
+          Cómo encontrar el hash
+        </button>
+        <div id="status" class="status text-center"></div>
+        <div class="text-center">
+          <div class="spinner-border" role="status" id="spinner">
+            <span class="sr-only">Cargando...</span>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- Modal de instrucciones -->
+    <div
+      class="modal fade"
+      id="instructionsModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="instructionsModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="instructionsModalLabel">
+              Instrucciones para encontrar el Hash
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Para encontrar el hash de un juego en RetroAchievements, sigue
+              estos pasos:
+            </p>
+            <ol>
+              <li>Visita el sitio web de RetroAchievements.</li>
+              <li>Busca el juego que deseas.</li>
+              <li>Haz clic en el juego para abrir su página de detalles.</li>
+              <li>Ingresar a Supported Game Files.</li>
+              <li>Encuentra el hash en la sección correspondiente.</li>
+            </ol>
+            <img
+              src="./../static/images/1.png"
+              alt="Imagen 1"
+              class="img-fluid"
+            />
+            <img
+              src="./../static/images/2.png"
+              alt="Imagen 2"
+              class="img-fluid"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center mt-4">
+      <img
+        src="{{ url_for('static', filename='images/retroachievements-logo-large.png') }}"
+        alt="Logo de RetroAchievements"
+        class="img-fluid"
+        style="max-width: 150px"
+      />
+      <p>&copy; 2024 RetroAchievements.org - Todos los derechos reservados.</p>
+      <p>
+        Desarrollado por
+        <a href="https://github.com/pipetboy2001" target="_blank">Pipetboy</a>
+      </p>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script>
-    $(document).ready(function() {
-        $('#searchForm').on('submit', function(event) {
-            event.preventDefault(); // Prevenir el envío del formulario
+      $(document).ready(function () {
+        $("#searchForm").on("submit", function (event) {
+          event.preventDefault(); // Prevenir el envío del formulario
 
-            const searchTerm = $('#searchTerm').val(); // Obtener el valor de búsqueda
-            console.log('Búsqueda iniciada para:', searchTerm); // Log del término de búsqueda
-            $('#status').text('Buscando en la base de datos...'); // Actualizar el estado
-            $('#spinner').show(); // Mostrar spinner
+          const searchTerm = $("#searchTerm").val(); // Obtener el valor de búsqueda
+          console.log("Búsqueda iniciada para:", searchTerm); // Log del término de búsqueda
+          $("#status").text("Buscando en la base de datos..."); // Actualizar el estado
+          $("#spinner").show(); // Mostrar spinner
 
-            $.post('/search', { search_term: searchTerm })
-                .done(function(data) {
-                    console.log('Respuesta recibida del servidor.'); // Log de respuesta exitosa
-                    
-                    if (data.success) {
-                        $('#status').text('Descargando...'); // Actualizar el estado al descargar
+          $.post("/search", { search_term: searchTerm })
+            .done(function (data) {
+              console.log("Respuesta recibida del servidor."); // Log de respuesta exitosa
 
-                        // Simular la descarga con un retraso de 1 segundo
-                        setTimeout(() => {
-                            $('#status').text('Descargado!'); // Actualizar estado a "Descargado!"
-                            console.log('Descarga completada.'); // Log de descarga completada
-                            $('#spinner').hide(); // Ocultar spinner
-                            window.open(data.download_url); // Abrir el navegador con la URL de descarga
-                        }, 1000); // Cambia esto a la lógica real de descarga si es necesario
-                    } else {
-                        $('#status').text(data.message); // Mostrar mensaje de error
-                        console.error(data.message); // Log de error
-                        $('#spinner').hide(); // Ocultar spinner
-                    }
-                })
-                .fail(function(jqXHR) {
-                    let errorMessage = 'Error al buscar el juego.';
-                    if (jqXHR.status === 404) {
-                        errorMessage = 'No se encontró el hash en la base de datos.';
-                    } else if (jqXHR.status === 500) {
-                        errorMessage = 'No se pudo descargar el JSON desde la URL.';
-                    }
-                    console.error('Error al buscar el juego:', errorMessage); // Log de error
-                    $('#status').text(errorMessage); // Mostrar mensaje de error
-                    $('#spinner').hide(); // Ocultar spinner
-                });
+              if (data.success) {
+                $("#status").text("Descargando..."); // Actualizar el estado al descargar
+
+                // Simular la descarga con un retraso de 1 segundo
+                setTimeout(() => {
+                  $("#status").text("Descargado!"); // Actualizar estado a "Descargado!"
+                  console.log("Descarga completada."); // Log de descarga completada
+                  $("#spinner").hide(); // Ocultar spinner
+                  window.open(data.download_url); // Abrir el navegador con la URL de descarga
+                }, 1000); // Cambia esto a la lógica real de descarga si es necesario
+              } else {
+                $("#status").text(data.message); // Mostrar mensaje de error
+                console.error(data.message); // Log de error
+                $("#spinner").hide(); // Ocultar spinner
+              }
+            })
+            .fail(function (jqXHR) {
+              let errorMessage = "Error al buscar el juego.";
+              if (jqXHR.status === 404) {
+                errorMessage = "No se encontró el hash en la base de datos.";
+              } else if (jqXHR.status === 500) {
+                errorMessage = "No se pudo descargar el JSON desde la URL.";
+              }
+              console.error("Error al buscar el juego:", errorMessage); // Log de error
+              $("#status").text(errorMessage); // Mostrar mensaje de error
+
+              $("#spinner").hide(); // Ocultar spinner
+            });
         });
-    });
-</script>
-
-
-</body>
+      });
+    </script>
+  </body>
 </html>
