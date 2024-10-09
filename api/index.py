@@ -6,7 +6,6 @@ from rich.text import Text
 import webbrowser
 
 app = Flask(__name__)
-
 console = Console()
 JSON_URL = "https://archive.org/download/retroachievements_collection_v5/TamperMonkeyRetroachievements.json"
 
@@ -49,22 +48,27 @@ def get_download_url(rom_path: str) -> str:
     elif "arcade" in rom_path:
         return base_urls["ARCADE"] + rom_path.replace("\\", "/").replace(" ", "%20").replace("arcade/", "")
     elif "PlayStation Portable" in rom_path:
-        game_folder = rom_path.split("/")[1]
-        game_file = rom_path.split("/")[-1]
+        # Descomponemos el rom_path para extraer el nombre del juego
+        game_folder = rom_path.split("/")[1]  # Carpeta del juego
+        game_file = rom_path.split("/")[-1]  # Nombre del archivo
         return base_urls["PSP"] + game_folder + "/" + game_file.replace(" ", "%20").replace("!", "%21").replace("(", "%28").replace(")", "%29")
     elif "PlayStation 2" in rom_path:
-        game_folder = rom_path.split("/")[-2]
-        game_file = rom_path.split("/")[-1]
-        first_letter = game_folder[0].upper()
+        # Para juegos de PS2, determinamos la letra inicial del juego
+        game_folder = rom_path.split("/")[-2]  # Carpeta del juego
+        game_file = rom_path.split("/")[-1]  # Nombre del archivo
+        first_letter = game_folder[0].upper()  # Obtener la primera letra del juego
+
+        # Determinar la URL correcta según la letra inicial
         if 'A' <= first_letter <= 'M':
             return base_urls["PS2_A_M"] + game_folder + "/" + game_file.replace("\\", "/").replace(" ", "%20")
         elif 'N' <= first_letter <= 'Z':
             return base_urls["PS2_N_Z"] + game_folder + "/" + game_file.replace("\\", "/").replace(" ", "%20")
     elif "PlayStation" in rom_path:
-        game_folder = rom_path.split("/")[-2]
-        game_file = rom_path.split("/")[-1]
+        # Descomponemos el rom_path para extraer el nombre del juego
+        game_folder = rom_path.split("/")[-2]  # Carpeta del juego
+        game_file = rom_path.split("/")[-1]  # Nombre del archivo
         return base_urls["PS1"] + game_folder + "/" + game_file.replace("\\", "/").replace(" ", "%20")
-    else:
+    else:  # Para Dreamcast u otros
         return base_urls["DC"] + rom_path.replace("\\", "/").replace(" ", "%20")
 
 
@@ -74,21 +78,43 @@ def index():
 
 @app.route('/search', methods=['POST'])
 def search():
-    hash_value = request.form['hash']
+    search_term = request.form['search_term']
     json_data = download_json(JSON_URL)
-
     if json_data:
-        rom_path = find_hash_in_json(json_data, hash_value)
-        if rom_path:
-            download_url = get_download_url(rom_path)
-            flash(f'Hash encontrado. La URL de descarga es: {download_url}', 'success')
-            return redirect(download_url)
+        hash_value = find_hash_in_json(json_data, search_term)
+        if hash_value:
+            download_url = get_download_url(hash_value)
+            return render_template('search_result.html', download_url=download_url)
         else:
-            flash(f'Hash {hash_value} no encontrado.', 'danger')
-            return redirect(url_for('index'))
+            flash(f"No se encontró el hash '{search_term}' en el JSON.", 'error')
     else:
-        flash('Error al descargar el archivo JSON.', 'danger')
-        return redirect(url_for('index'))
+        flash("Error al descargar el JSON.", 'error')
+    return redirect(url_for('index'))
 
-if __name__ == "__main__":
+
+@app.route('/open_browser', methods=['POST'])
+def open_browser():
+    download_url = request.form['download_url']
+    webbrowser.open(download_url)
+    return redirect(url_for('index'))
+
+
+
+@app.route('/open_url', methods=['POST'])
+def open_url():
+    url = request.form['url']
+    webbrowser.open(url)
+    return redirect(url_for('index'))
+
+@app.errorhandler(404)
+def page_not_found(e):
+    console.print(Text("Error 404: Página no encontrada.", style="bold red"))
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def server_error(e):
+    console.print(Text("Error 500: Error interno del servidor.", style="bold red"))
+    return render_template('500.html'), 500
+
+if __name__ == '__main__':
     app.run(debug=True)
