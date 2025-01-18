@@ -52,10 +52,14 @@ def select_game(games: list) -> str:
     console.print("Seleccione un juego para descargar:", style="bold blue")
     for i, game_name in enumerate(games, 1):
         console.print(f"{i}. {game_name}", style="bold cyan")
-    
+    # Agregar la opción para seleccionar "todos"
+    console.print(f"{len(games) + 1}. Todos", style="bold cyan")
+
     choice = Prompt.ask("Ingrese el número del juego que desea seleccionar", default="1", show_default=True)
     
     try:
+        if choice == str(len(games) + 1):  # Si se elige "todos"
+            return "todos"
         game_name = games[int(choice) - 1]
         return game_name
     except (ValueError, IndexError):
@@ -71,6 +75,10 @@ def select_region_and_hash(json_data: dict, game_name: str) -> str:
         console.print(f"- {region}", style="bold cyan")
     
     region = Prompt.ask("Ingrese la región que desea seleccionar", choices=list(regions.keys()))
+    
+    # Convertir la entrada a mayúsculas para hacerla insensible a mayúsculas/minúsculas
+    region = region.strip().upper()
+
     hashes = regions[region]
     
     # Mostrar los hashes disponibles
@@ -106,20 +114,30 @@ def main() -> None:
     
     # Seleccionar un juego
     game_name = select_game(games)
-    
-    # Seleccionar una región y obtener el hash
-    hash_value = select_region_and_hash(json_data, game_name)
 
-    if hash_value:
-        console.print(f"Hash seleccionado: {hash_value}", style="bold green")
-        
-        # Llamar al segundo script (descargar.py) con el hash como argumento
-        try:
-            subprocess.run(["python", "Descargar.py", hash_value], check=True)
-        except subprocess.CalledProcessError as e:
-            console.print(f"[bold red]Error al ejecutar el script de descarga: {e}[/bold red]")
+    if game_name == "todos":  # Si se seleccionó "todos"
+        for game in games:
+            hash_value = select_region_and_hash(json_data, game)
+            if hash_value:
+                console.print(f"Hash seleccionado: {hash_value}", style="bold green")
+                try:
+                    subprocess.run(["python", "Descargar.py", hash_value], check=True)
+                except subprocess.CalledProcessError as e:
+                    console.print(f"[bold red]Error al ejecutar el script de descarga: {e}[/bold red]")
+        return
+    
     else:
-        console.print("[bold red]No se seleccionó un hash válido.[/bold red]")
+        # Seleccionar una región y obtener el hash
+        hash_value = select_region_and_hash(json_data, game_name)
+
+        if hash_value:
+            console.print(f"Hash seleccionado: {hash_value}", style="bold green")
+            
+            # Llamar al segundo script (descargar.py) con el hash como argumento
+            try:
+                subprocess.run(["python", "Descargar.py", hash_value], check=True)
+            except subprocess.CalledProcessError as e:
+                console.print(f"[bold red]Error al ejecutar el script de descarga: {e}[/bold red]")
 
 # Ejecutar el programa
 if __name__ == "__main__":
