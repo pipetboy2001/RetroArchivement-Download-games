@@ -9,6 +9,14 @@ JSON_FILE_PATH = "game_hashes.json"  # Suponemos que este es el archivo JSON gen
 # Inicializar consola de Rich
 console = Console()
 
+PREFERRED_REGIONS = {
+    "ES": 1,  # Español tiene la mayor prioridad
+    "USA": 2,  # Luego USA
+    "WORLD": 3,  # el resto del mundo
+    "EUROPE": 4,  # Luego Europa
+    "JPN": 5  # Por último Japón
+}
+
 # Función para cargar el JSON desde el archivo
 def load_json(file_path: str) -> dict:
     try:
@@ -74,26 +82,46 @@ def select_region_and_hash(json_data: dict, game_name: str) -> str:
     for region in regions:
         console.print(f"- {region}", style="bold cyan")
     
-    region = Prompt.ask("Ingrese la región que desea seleccionar", choices=list(regions.keys()))
-    
+    #region = Prompt.ask("Ingrese la región que desea seleccionar", choices=list(regions.keys()))
     # Convertir la entrada a mayúsculas para hacerla insensible a mayúsculas/minúsculas
-    region = region.strip().upper()
+    #region = region.strip().upper()
 
-    hashes = regions[region]
+    # Intentar seleccionar la región preferida según el orden
+    selected_region = None
+    for preferred_region in PREFERRED_REGIONS:
+        preferred_region = preferred_region.strip().upper()
+        if preferred_region in regions:
+            selected_region = preferred_region
+            break
     
+    if selected_region:
+        console.print(f"Seleccionando la región preferida: {selected_region}", style="bold green")
+        hashes = regions[selected_region]
+    else:
+        # Si no se encuentra la región preferida, seleccionar la primera región disponible
+        selected_region = list(regions.keys())[0]
+        console.print(f"Seleccionando la primera región disponible: {selected_region}", style="bold green")
+        hashes = regions[selected_region]
+
     # Mostrar los hashes disponibles
-    console.print(f"Seleccione un hash para la región {region}:", style="bold blue")
-    for i, hash_data in enumerate(hashes, 1):
-        console.print(f"{i}. {hash_data['name']} - Hash: {hash_data['hash']}", style="bold cyan")
+    console.print(f"Hashes disponibles para la región {selected_region}:", style="bold blue")
+    # Filtrar los hashes según la preferencia de idioma/región (si está disponible)
+    preferred_hash = None
+    for hash_data in hashes:
+        # Verificar si el nombre del hash contiene la región preferida
+        if any(preference in hash_data['name'].upper() for preference in PREFERRED_REGIONS.keys()):
+            preferred_hash = hash_data['hash']
+            console.print(f"Seleccionando hash: {hash_data['name']} - Hash: {preferred_hash}", style="bold green")
+            break
     
-    choice = Prompt.ask("Ingrese el número del hash que desea seleccionar", default="1", show_default=True)
+    if not preferred_hash:
+        # Si no se encuentra un hash que coincida con la preferencia, tomar el primer hash disponible
+        preferred_hash = hashes[0]['hash']
+        console.print(f"[bold red]No se encontró un hash preferido, seleccionando el primer hash disponible: {preferred_hash}[/bold red]")
     
-    try:
-        hash_value = hashes[int(choice) - 1]['hash']
-        return hash_value
-    except (ValueError, IndexError):
-        console.print("[bold red]Selección no válida. Usando el primer hash por defecto.[/bold red]")
-        return hashes[0]['hash']
+    return preferred_hash
+    
+
 
 # Función principal
 def main() -> None:
