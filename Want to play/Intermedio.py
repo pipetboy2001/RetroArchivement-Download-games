@@ -17,6 +17,9 @@ PREFERRED_REGIONS = {
     "JPN": 5  # Por último Japón
 }
 
+# Lista para juegos que no se puedan descargar
+missing_games = []
+
 # Función para cargar el JSON desde el archivo
 def load_json(file_path: str) -> dict:
     try:
@@ -81,10 +84,6 @@ def select_region_and_hash(json_data: dict, game_name: str) -> str:
     
     for region in regions:
         console.print(f"- {region}", style="bold cyan")
-    
-    #region = Prompt.ask("Ingrese la región que desea seleccionar", choices=list(regions.keys()))
-    # Convertir la entrada a mayúsculas para hacerla insensible a mayúsculas/minúsculas
-    #region = region.strip().upper()
 
     # Intentar seleccionar la región preferida según el orden
     selected_region = None
@@ -112,14 +111,15 @@ def select_region_and_hash(json_data: dict, game_name: str) -> str:
         if any(preference in hash_data['name'].upper() for preference in PREFERRED_REGIONS.keys()):
             preferred_hash = hash_data['hash']
             console.print(f"Seleccionando hash: {hash_data['name']} - Hash: {preferred_hash}", style="bold green")
-            break
-    
+        
     if not preferred_hash:
-        # Si no se encuentra un hash que coincida con la preferencia, tomar el primer hash disponible
-        preferred_hash = hashes[0]['hash']
-        console.print(f"[bold red]No se encontró un hash preferido, seleccionando el primer hash disponible: {preferred_hash}[/bold red]")
+        missing_games.append(game_name)
+        console.print(f"[bold red]No se encontró un hash preferido, añadiendo {game_name} a la lista de juegos faltantes.[/bold red]")
+        return None
     
     return preferred_hash
+
+
     
 
 
@@ -150,9 +150,12 @@ def main() -> None:
                 console.print(f"Hash seleccionado: {hash_value}", style="bold green")
                 try:
                     subprocess.run(["python", "Descargar.py", hash_value], check=True)
+                   
                 except subprocess.CalledProcessError as e:
-                    console.print(f"[bold red]Error al ejecutar el script de descarga: {e}[/bold red]")
-        return
+                    # si el hash no es encontrado o hay un error, se añade a la lista de juegos faltantes
+                    console.print(f"[bold red]Error al ejecutar el script de descarga[/bold red]")
+                    missing_games.append(game)
+        
     
     else:
         # Seleccionar una región y obtener el hash
@@ -166,6 +169,20 @@ def main() -> None:
                 subprocess.run(["python", "Descargar.py", hash_value], check=True)
             except subprocess.CalledProcessError as e:
                 console.print(f"[bold red]Error al ejecutar el script de descarga: {e}[/bold red]")
+                missing_games.append(game_name)
+        
+        
+    
+
+    console.print("[bold green]Proceso completado con éxito[/bold green]")
+    if missing_games:
+        #console.print(f"[bold red]Juegos faltantes: {', '.join(missing_games)}[/bold red]")
+        with open("missing_games.txt", "w") as f:
+            f.write("\n".join(missing_games) + "\n")
+
+        console.print(f"[bold red]Lista de juegos faltantes guardada en missing_games.txt[/bold red]")
+        
+
 
 # Ejecutar el programa
 if __name__ == "__main__":

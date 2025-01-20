@@ -127,6 +127,10 @@ def main() -> None:
             open_url_in_browser(download_url)
         else:
             console.print(HASH_NOT_FOUND_MSG.format(hash_value), style="bold red")
+            # Añadir un valor de retorno para indicar que el hash no se encontró
+            sys.exit(1)
+
+            
     else:
         console.print("No se pudo descargar o procesar el archivo JSON.", style="bold red")
 
