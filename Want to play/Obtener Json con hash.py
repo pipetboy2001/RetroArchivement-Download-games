@@ -5,10 +5,11 @@ import time
 # Configuración
 API_KEY = "APIKEY"
 BASE_URL = "https://retroachievements.org/API/"
+PAGE_SIZE = 500  # Máximo número de registros que la API permite obtener por solicitud
 
-# Función para obtener la lista de juegos en "Want to Play"
-def get_want_to_play(username):
-    url = f"{BASE_URL}API_GetUserWantToPlayList.php?u={username}&y={API_KEY}"
+# Función para obtener la lista de juegos en "Want to Play" con paginación
+def get_want_to_play(username, offset=0, count=PAGE_SIZE):
+    url = f"{BASE_URL}API_GetUserWantToPlayList.php?u={username}&y={API_KEY}&c={count}&o={offset}"
     response = requests.get(url)
     print(f"Respuesta de la API para la lista de juegos: {response.status_code}")
     print(f"Contenido de la respuesta: {response.text}")
@@ -35,16 +36,32 @@ def save_to_json(data, filename="game_hashes.json"):
 def main(username):
     # Obtener la lista de juegos "Want to Play"
     print(f"Obteniendo lista de juegos para el usuario: {username}")
-    games = get_want_to_play(username)
     
-    if 'Results' not in games:
-        print("No se pudo obtener la lista de juegos.")
-        return
+    total_games = []
+    offset = 0
+    while True:
+        games = get_want_to_play(username, offset=offset, count=PAGE_SIZE)
+        
+        if 'Results' not in games or not games['Results']:
+            print("No se pudieron obtener más juegos o no hay juegos en la lista.")
+            break
+        
+        total_games.extend(games['Results'])  # Agregar los juegos a la lista total
+        offset += PAGE_SIZE  # Avanzamos el offset para la próxima solicitud
+        
+        # Si ya hemos obtenido todos los juegos, detenemos la paginación
+        if len(total_games) >= games['Total']:
+            break
+        
+        # Esperamos un poco entre las solicitudes para evitar sobrecargar el servidor
+        time.sleep(1)
+    
+    print(f"Se han obtenido un total de {len(total_games)} juegos.")
     
     game_data = {}
 
     # Procesamos cada juego y obtenemos sus hashes y detalles
-    for game in games['Results']:
+    for game in total_games:
         game_id = game['ID']
         game_title = game['Title']
         
@@ -75,6 +92,10 @@ def main(username):
 
         # Clasificamos los hashes por región y idioma
         for result in game_hashes['Results']:
+            # Asegurarse de que result['Name'] no sea None
+            if result['Name'] is None:
+                print(f"Se omitió un hash con 'Name' nulo: {result}")
+                continue  # Saltamos este resultado si el nombre es nulo
             # Inicializar la región y el idioma
             regions = []
             languages = []
@@ -86,6 +107,7 @@ def main(username):
             # Determinar la región (Evitar incluir en USA/EUR si tiene (Ru))
             if '(Ru)' in result['Name']:
                 regions.append("RU")
+                
             elif 'USA' in result['Name']:
                 regions.append("USA")
             elif 'Europe' in result['Name'] or 'EUR' in result['Name']:
