@@ -1,7 +1,18 @@
+# Deployment
 .vercel
+
+# Logs
 *.log
+*.out
+
+# Python
 *.pyc
-__pycache__
+__pycache__/
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg-info/
 
 # Environments 
 .env 
@@ -11,3 +22,28 @@ venv/
 ENV/ 
 env.bak/ 
 venv.bak/ 
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+missing_games.txt
+*.tmp
+*.bak
+migrate.py
+README_REFACTOR.md
+*_new.py
+
+# Environment variables
+.env
+
+# Data files (keep structure but ignore if needed)
+# game_hashes.json
+# Data/*.json 
