@@ -1,26 +1,34 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-import requests
+import json
 import webbrowser
 import time
+import os
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Necesario para usar flash
-JSON_URL = "https://archive.org/download/retroachievements_collection_v5/TamperMonkeyRetroachievements.json"
+
+# Ruta al archivo JSON local
+JSON_FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Data', 'TamperMonkeyRetroachievements.json')
 
 cached_json_data = None
 
-# Descargar el archivo JSON desde la URL
-def download_json(url: str):
+# Cargar el archivo JSON local
+def load_json_file():
     global cached_json_data
     if cached_json_data is None:
         try:
-            print(f"Descargando JSON desde {url}...")
-            response = requests.get(url)
-            response.raise_for_status()
-            cached_json_data = response.json()
-            print("JSON descargado exitosamente.")
-        except requests.exceptions.RequestException as e:
-            print(f"Error al descargar el JSON: {e}")
+            print(f"Cargando JSON desde {JSON_FILE_PATH}...")
+            with open(JSON_FILE_PATH, 'r', encoding='utf-8') as file:
+                cached_json_data = json.load(file)
+            print("JSON cargado exitosamente.")
+        except FileNotFoundError:
+            print(f"Error: No se encontró el archivo JSON en {JSON_FILE_PATH}")
+            return None
+        except json.JSONDecodeError as e:
+            print(f"Error al decodificar el JSON: {e}")
+            return None
+        except Exception as e:
+            print(f"Error al cargar el JSON: {e}")
             return None
     return cached_json_data
 
@@ -81,7 +89,7 @@ def index():
 @app.route('/search', methods=['POST'])
 def search():
     search_term = request.form['search_term']
-    json_data = download_json(JSON_URL)
+    json_data = load_json_file()
     
     if json_data:
         hash_value = find_hash_in_json(json_data, search_term)
@@ -91,7 +99,7 @@ def search():
         else:
             return {'success': False, 'message': f"No se encontró el hash '{search_term}' en la base de datos."}, 404
     else:
-        return {'success': False, 'message': "Error al descargar el JSON desde la URL."}, 500
+        return {'success': False, 'message': "Error al cargar el archivo JSON local."}, 500
 
 
 @app.route('/open_browser', methods=['POST'])
