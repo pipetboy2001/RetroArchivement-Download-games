@@ -34,7 +34,6 @@ pip install requests rich
  ├── 📜 Intermedio.py                 # Procesa la información
  ├── 📜 ObtenerJsonConHash.py         # Genera el archivo JSON con hashes
  ├── 📜 README.md                     # Documentación del proyecto
- ├── 📜 TamperMonkeyRetroachievements.json  # JSON con los hashes
  ├── 🔒 .env                           # Variables de entorno (API Key y Username)` 
 ```
 ## 📜 Descripción de los Archivos

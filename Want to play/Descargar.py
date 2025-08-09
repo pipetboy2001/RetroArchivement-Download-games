@@ -7,7 +7,7 @@ from rich.console import Console
 from rich.prompt import Prompt
 from rich.text import Text
 
-JSON_URL = './TamperMonkeyRetroachievements.json'
+JSON_URL = '../Data/TamperMonkeyRetroachievements.json'
 console = Console()
 
 DOWNLOAD_MSG = "Descargando archivo JSON..."

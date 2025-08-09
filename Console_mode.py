@@ -1,122 +1,42 @@
-import requests
+import json
 from rich.console import Console
 from rich.prompt import Prompt
-from rich.text import Text
 import webbrowser
 from typing import Optional, Dict, Any
-from bs4 import BeautifulSoup
-import os
-from dotenv import load_dotenv
-
 # Inicializar consola de Rich
 console = Console()
-# URLs
-LOGIN_URL = "https://archive.org/account/login"
-JSON_URL = "https://archive.org/download/retroachievements_collection_v5/TamperMonkeyRetroachievements.json"
 
-
-load_dotenv()  # Esto carga las variables del .env en las variables de entorno
-# Obtener credenciales del usuario del .env
-USERNAME = os.getenv("ARCHIVE_USERNAME")
-PASSWORD = os.getenv("ARCHIVE_PASSWORD")
+# Ruta al archivo JSON local
+JSON_FILE_PATH = "Data/TamperMonkeyRetroachievements.json"
 
 # Mensajes constantes
-DOWNLOAD_MSG = "Descargando archivo JSON..."
 HASH_FOUND_MSG = "Hash encontrado. La URL de descarga es: {}"
 HASH_NOT_FOUND_MSG = "Hash [bold yellow]{}[/bold yellow] no encontrado en el archivo JSON."
-ERROR_HTTP_MSG = "Error HTTP al descargar el archivo JSON: {}"
-ERROR_MSG = "Error al descargar el archivo JSON: {}"
+ERROR_MSG = "Error al cargar el archivo JSON: {}"
 
-# Función para iniciar sesión en Archive.org
-def login_to_archive(username: str, password: str) -> Optional[requests.Session]:
-    session = requests.Session()
-    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36'}
-
+# Función para cargar el archivo JSON local
+def load_local_json(file_path: str) -> Optional[Dict[str, Any]]:
     try:
-        # Obtener la página de login para extraer cookies y tokens
-        login_page = session.get(LOGIN_URL, headers=headers)
-        login_page.raise_for_status()
-        
-        # Extraer el token CSRF
-        soup = BeautifulSoup(login_page.text, 'html.parser')
-        csrf_token = soup.find("input", {"name": "csrf"})['value'] if soup.find("input", {"name": "csrf"}) else None
-
-        # Datos del formulario de inicio de sesión
-        payload = {
-            'username': username,
-            'password': password,
-            'submit': 'Log In'
-        }
-        
-        # Si hay un token CSRF, agregarlo al payload
-        if csrf_token:
-            payload['csrf'] = csrf_token
-        
-        # Enviar la petición POST para autenticar al usuario
-        response = session.post(LOGIN_URL, data=payload, headers=headers, allow_redirects=True)
-        response.raise_for_status()
-
-        # Verificar si la autenticación fue exitosa
-        login_response = response.json()
-        if login_response.get("status") == "ok" and login_response.get("message") == "Successful login.":
-            console.print("[bold green]Autenticación exitosa.[/bold green]")
-            return session
-        else:
-            console.print("[bold red]Error de autenticación. Verifica tus credenciales.[/bold red]")
-            return None
-    except requests.exceptions.RequestException as e:
-        console.print(f"[bold red]Error durante la autenticación: {e}[/bold red]")
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        console.print(f"[bold red]Archivo JSON no encontrado: {file_path}[/bold red]")
         return None
-    except ValueError as e:
-        console.print(f"[bold red]Error al procesar la respuesta JSON: {e}[/bold red]")
+    except json.JSONDecodeError as e:
+        console.print(f"[bold red]Error al decodificar el archivo JSON: {e}[/bold red]")
         return None
-
-# Función para descargar el archivo JSON autenticado
-def download_json_with_auth(session: requests.Session, url: str) -> Optional[Dict[str, Any]]:
-    try:
-        response = session.get(url)
-        response.raise_for_status()  # Lanza un error para códigos de estado 4xx o 5xx
-        return response.json()
-    except requests.exceptions.HTTPError as http_err:
-        console.print(f"[bold red]{ERROR_HTTP_MSG.format(http_err)}[/bold red]")
-    except Exception as err:
-        console.print(f"[bold red]{ERROR_MSG.format(err)}[/bold red]")
-
-    return None
-
-# Función para descargar el archivo JSON con reintentos
-def download_json(url: str) -> Optional[Dict[str, Any]]:
-    max_attempts = 5
-    attempt = 0
-
-    while attempt < max_attempts:
-        attempt += 1
-        console.print(f"Intento {attempt}/{max_attempts}: {DOWNLOAD_MSG}")
-        try:
-            response = requests.get(url)
-            response.raise_for_status()
-            return response.json()
-        except requests.exceptions.HTTPError as http_err:
-            console.print(ERROR_HTTP_MSG.format(http_err), style="bold red")
-        except Exception as err:
-            console.print(ERROR_MSG.format(err), style="bold red")
-
-        # Preguntar al usuario si desea continuar con el siguiente intento
-        if attempt < max_attempts:
-            continue_download = Prompt.ask("¿Deseas intentar nuevamente? (s/n)", default="s").lower()
-            if continue_download != "s":
-                console.print("[bold red]Descarga cancelada por el usuario.[/bold red]")
-                return None
-
-    console.print("[bold red]Se alcanzó el número máximo de intentos.[/bold red]")
-    return None
+    except Exception as e:
+        console.print(f"[bold red]{ERROR_MSG.format(e)}[/bold red]")
+        return None
 
 # Función para buscar el hash en el archivo JSON
 def find_hash_in_json(json_data: Dict[str, Any], hash_value: str) -> Optional[str]:
-    return next(
-        (item[hash_value.upper()] for hash_list in json_data.values() for item in hash_list if hash_value.upper() in item),
-        None
-    )
+    hash_upper = hash_value.upper()
+    for console_id, hash_list in json_data.items():
+        for item in hash_list:
+            if hash_upper in item:
+                return item[hash_upper]
+    return None
 
 # Función para obtener la URL de descarga correcta
 def get_download_url(rom_path: str) -> str:
@@ -133,7 +53,26 @@ def get_download_url(rom_path: str) -> str:
 
     if "SNES-Super Famicom" in rom_path:
         return base_urls["SNES"] + rom_path.replace("\\", "/").replace(" ", "%20")
-    # Agregar más casos para otros tipos de juego...
+    elif "NES-Famicom" in rom_path:
+        return base_urls["NES"] + rom_path.replace("\\", "/").replace(" ", "%20")
+    elif "Genesis-Mega Drive" in rom_path or "Sega CD" in rom_path:
+        return base_urls["DC"] + rom_path.replace("\\", "/").replace(" ", "%20")
+    elif "PlayStation Portable" in rom_path:
+        return base_urls["PSP"] + rom_path.replace("\\", "/").replace(" ", "%20")
+    elif "PlayStation 2" in rom_path:
+        # Decidir entre A-M o N-Z basado en el nombre del juego
+        game_name = rom_path.split('/')[-1] if '/' in rom_path else rom_path
+        if game_name and game_name[0].upper() < 'N':
+            return base_urls["PS2_A_M"] + rom_path.replace("\\", "/").replace(" ", "%20")
+        else:
+            return base_urls["PS2_N_Z"] + rom_path.replace("\\", "/").replace(" ", "%20")
+    elif "PlayStation" in rom_path:
+        return base_urls["PS1"] + rom_path.replace("\\", "/").replace(" ", "%20")
+    elif "Arcade" in rom_path:
+        return base_urls["ARCADE"] + rom_path.replace("\\", "/").replace(" ", "%20")
+    else:
+        # URL por defecto
+        return base_urls["DC"] + rom_path.replace("\\", "/").replace(" ", "%20")
 
 # Función para abrir la URL en el navegador
 def open_url_in_browser(url: str) -> None:
@@ -142,38 +81,36 @@ def open_url_in_browser(url: str) -> None:
 
 # Función principal
 def main():
-    # Iniciar sesión con las credenciales almacenadas en las variables
-    session = login_to_archive(USERNAME, PASSWORD)
+    console.print("[bold green]Bienvenido al buscador de juegos de RetroAchievements![/bold green]")
     
-    if session:
-        console.print("[bold green]Bienvenido al buscador de juegos de RetroAchievements![/bold green]")
-        # Descargar el archivo JSON usando la sesión autenticada
-        json_data = download_json_with_auth(session, JSON_URL)
+    # Cargar el archivo JSON local
+    json_data = load_local_json(JSON_FILE_PATH)
 
-        if json_data:
-            console.print("[bold green]Archivo JSON descargado con éxito.[/bold green]")
-            # Aquí continuarías con la lógica de búsqueda de hashes y demás
-            while True:
-                hash_value = Prompt.ask("Por favor, ingresa el hash que deseas buscar (o escribe 'salir' para terminar)")
+    if json_data:
+        console.print("[bold green]Archivo JSON cargado con éxito.[/bold green]")
+        
+        while True:
+            hash_value = Prompt.ask("Por favor, ingresa el hash que deseas buscar (o escribe 'salir' para terminar)")
 
-                if hash_value.lower() == 'salir':
-                    console.print("[bold red]Saliendo...[/bold red]")
-                    break
+            if hash_value.lower() == 'salir':
+                console.print("[bold red]Saliendo...[/bold red]")
+                break
 
-                # Buscar el hash en el archivo JSON
-                rom_path = find_hash_in_json(json_data, hash_value)
+            # Buscar el hash en el archivo JSON
+            rom_path = find_hash_in_json(json_data, hash_value)
 
-                if rom_path:
-                    # Si el hash se encuentra, obtenemos la URL de descarga
-                    download_url = get_download_url(rom_path)
+            if rom_path:
+                # Si el hash se encuentra, obtenemos la URL de descarga
+                download_url = get_download_url(rom_path)
+                if download_url:
                     console.print(HASH_FOUND_MSG.format(download_url), style="bold green")
                     open_url_in_browser(download_url)
                 else:
-                    console.print(HASH_NOT_FOUND_MSG.format(hash_value), style="bold red")
-        else:
-            console.print("[bold red]No se pudo descargar el archivo JSON.[/bold red]")
+                    console.print("[bold red]No se pudo generar la URL de descarga.[/bold red]")
+            else:
+                console.print(HASH_NOT_FOUND_MSG.format(hash_value), style="bold red")
     else:
-        console.print("[bold red]No se pudo iniciar sesión.[/bold red]")
+        console.print("[bold red]No se pudo cargar el archivo JSON local.[/bold red]")
 
 # Ejecutar el programa
 if __name__ == "__main__":
