@@ -15,8 +15,8 @@
         background-color: #f8f9fa;
       }
       .container {
-        margin-top: 100px;
-        max-width: 500px;
+        margin-top: 50px;
+        max-width: 700px;
       }
       .card {
         padding: 20px;
@@ -33,12 +33,131 @@
       .spinner-border {
         display: none; /* Ocultar spinner por defecto */
       }
+      .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-top: none;
+        max-height: 300px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+      }
+      .search-result-item {
+        padding: 10px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee;
+      }
+      .search-result-item:hover {
+        background-color: #f8f9fa;
+      }
+      .search-result-item:last-child {
+        border-bottom: none;
+      }
+      .search-result-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .game-title {
+        font-weight: bold;
+        color: #333;
+      }
+      .version-badge {
+        background: #007bff;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 12px;
+        font-size: 0.8em;
+      }
+      .game-details {
+        font-size: 0.85em;
+        color: #666;
+        margin-top: 2px;
+      }
+      .region-tag {
+        background: #28a745;
+        color: white;
+        padding: 1px 4px;
+        border-radius: 3px;
+        font-size: 0.7em;
+        margin-right: 5px;
+      }
+      .hack-tag {
+        background: #ffc107;
+        color: #333;
+        padding: 1px 4px;
+        border-radius: 3px;
+        font-size: 0.7em;
+        margin-right: 5px;
+      }
+      .versions-modal .modal-dialog {
+        max-width: 700px;
+      }
+      .version-option {
+        padding: 12px;
+        border: 1px solid #ddd;
+        margin-bottom: 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .version-option:hover {
+        background-color: #f8f9fa;
+        border-color: #007bff;
+      }
+      .version-option.recommended {
+        border-color: #28a745;
+        background-color: #f8fff9;
+      }
+      .version-title {
+        font-weight: bold;
+        color: #333;
+      }
+      .version-meta {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 5px;
+      }
+      .search-container {
+        position: relative;
+      }
+      .stats-info {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .search-mode-toggle {
+        margin-bottom: 15px;
+      }
+      .search-mode-toggle .btn {
+        border-radius: 0;
+      }
+      .search-mode-toggle .btn:first-child {
+        border-radius: 8px 0 0 8px;
+      }
+      .search-mode-toggle .btn:last-child {
+        border-radius: 0 8px 8px 0;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="card">
-        <h1 class="text-center">Buscar Juego</h1>
+        <h1 class="text-center">🎮 RetroAchievements Downloader</h1>
+        
+        <!-- Información estadística -->
+        <div class="stats-info">
+          <h4>📊 Base de Datos</h4>
+          <p class="mb-0"><strong>{{ total_games }}</strong> juegos disponibles</p>
+        </div>
+
         {% with messages = get_flashed_messages() %} {% if messages %}
         <div class="alert alert-danger">
           {% for message in messages %}
@@ -46,7 +165,36 @@
           {% endfor %}
         </div>
         {% endif %} {% endwith %}
-        <form id="searchForm">
+
+        <!-- Toggle para modo de búsqueda -->
+        <div class="search-mode-toggle">
+          <div class="btn-group w-100" role="group">
+            <button type="button" class="btn btn-primary" id="nameSearchMode">
+              🔍 Buscar por Nombre
+            </button>
+            <button type="button" class="btn btn-outline-primary" id="hashSearchMode">
+              🔑 Buscar por Hash
+            </button>
+          </div>
+        </div>
+
+        <!-- Formulario de búsqueda por nombre -->
+        <form id="nameSearchForm">
+          <div class="form-group search-container">
+            <input
+              type="text"
+              name="game_name"
+              id="gameName"
+              class="form-control"
+              placeholder="Escribe el nombre del juego (ej: Sonic, Mario, Zelda...)"
+              autocomplete="off"
+            />
+            <div id="searchResults" class="search-results"></div>
+          </div>
+        </form>
+
+        <!-- Formulario de búsqueda por hash (oculto por defecto) -->
+        <form id="hashSearchForm" style="display: none;">
           <div class="form-group">
             <input
               type="text"
@@ -58,21 +206,49 @@
             />
           </div>
           <button type="submit" class="btn btn-primary btn-block">
-            Buscar
+            Buscar por Hash
           </button>
         </form>
+
         <button
           type="button"
           class="btn btn-info btn-block"
           data-toggle="modal"
           data-target="#instructionsModal"
         >
-          Cómo encontrar el hash
+          ❓ Cómo encontrar el hash
         </button>
         <div id="status" class="status text-center"></div>
         <div class="text-center">
           <div class="spinner-border" role="status" id="spinner">
             <span class="sr-only">Cargando...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal para selección de versiones -->
+    <div class="modal fade versions-modal" id="versionsModal" tabindex="-1" role="dialog" aria-labelledby="versionsModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="versionsModalLabel">
+              🎮 Seleccionar Versión del Juego
+            </h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="text-muted">Este juego tiene múltiples versiones disponibles. Selecciona la que prefieras:</p>
+            <div id="versionsContainer">
+              <!-- Las versiones se cargarán dinámicamente aquí -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Cancelar
+            </button>
           </div>
         </div>
       </div>
@@ -156,32 +332,197 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script>
       $(document).ready(function () {
-        $("#searchForm").on("submit", function (event) {
-          event.preventDefault(); // Prevenir el envío del formulario
+        let searchTimeout;
+        let currentSearchMode = 'name'; // 'name' o 'hash'
 
-          const searchTerm = $("#searchTerm").val(); // Obtener el valor de búsqueda
-          console.log("Búsqueda iniciada para:", searchTerm); // Log del término de búsqueda
-          $("#status").text("Buscando en la base de datos..."); // Actualizar el estado
-          $("#spinner").show(); // Mostrar spinner
+        // Toggle entre modos de búsqueda
+        $('#nameSearchMode').on('click', function() {
+          currentSearchMode = 'name';
+          $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+          $('#hashSearchMode').removeClass('btn-primary').addClass('btn-outline-primary');
+          $('#nameSearchForm').show();
+          $('#hashSearchForm').hide();
+          $('#searchResults').hide();
+          $('#status').text('');
+        });
 
-          $.post("/search", { search_term: searchTerm })
+        $('#hashSearchMode').on('click', function() {
+          currentSearchMode = 'hash';
+          $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+          $('#nameSearchMode').removeClass('btn-primary').addClass('btn-outline-primary');
+          $('#hashSearchForm').show();
+          $('#nameSearchForm').hide();
+          $('#searchResults').hide();
+          $('#status').text('');
+        });
+
+        // Búsqueda en tiempo real por nombre
+        $('#gameName').on('input', function() {
+          const searchTerm = $(this).val().trim();
+          
+          clearTimeout(searchTimeout);
+          
+          if (searchTerm.length < 2) {
+            $('#searchResults').hide();
+            return;
+          }
+
+          searchTimeout = setTimeout(() => {
+            $.post('/search_games', { search_term: searchTerm })
+              .done(function(data) {
+                if (data.success && data.games.length > 0) {
+                  let resultsHtml = '';
+                  data.games.forEach(function(game) {
+                    let versionInfo = '';
+                    if (game.total_versions > 1) {
+                      versionInfo = `<span class="version-badge">${game.total_versions} versiones</span>`;
+                    }
+                    
+                    let regionTag = '';
+                    if (game.primary_info.region !== 'Unknown') {
+                      regionTag = `<span class="region-tag">${game.primary_info.region}</span>`;
+                    }
+                    
+                    let hackTag = '';
+                    if (game.primary_info.is_hack) {
+                      hackTag = `<span class="hack-tag">HACK</span>`;
+                    }
+                    
+                    resultsHtml += `
+                      <div class="search-result-item" data-game-id="${game.id}" data-hash="${game.hash}" data-name="${game.name}" data-versions="${game.total_versions}">
+                        <div class="search-result-main">
+                          <span class="game-title">${game.name}</span>
+                          ${versionInfo}
+                        </div>
+                        <div class="game-details">
+                          ${regionTag}${hackTag}
+                          <small class="text-muted">ID: ${game.id} | Hash: ${game.hash.substring(0, 16)}...</small>
+                        </div>
+                      </div>
+                    `;
+                  });
+                  $('#searchResults').html(resultsHtml).show();
+                } else {
+                  $('#searchResults').html('<div class="search-result-item">No se encontraron juegos</div>').show();
+                }
+              })
+              .fail(function() {
+                $('#searchResults').html('<div class="search-result-item">Error en la búsqueda</div>').show();
+              });
+          }, 300);
+        });
+
+        // Seleccionar juego de los resultados
+        $(document).on('click', '.search-result-item', function() {
+          const hash = $(this).data('hash');
+          const gameName = $(this).data('name');
+          const gameId = $(this).data('game-id');
+          const totalVersions = $(this).data('versions');
+          
+          if (hash) {
+            $('#searchResults').hide();
+            $('#gameName').val(gameName);
+            
+            // Si hay múltiples versiones, mostrar modal de selección
+            if (totalVersions > 1) {
+              showVersionsModal(gameId, gameName);
+            } else {
+              // Si solo hay una versión, descargar directamente
+              downloadGame(hash);
+            }
+          }
+        });
+
+        // Función para mostrar modal de versiones
+        function showVersionsModal(gameId, gameName) {
+          $('#versionsModalLabel').text(`🎮 Versiones de: ${gameName}`);
+          $('#versionsContainer').html('<div class="text-center">Cargando versiones...</div>');
+          $('#versionsModal').modal('show');
+          
+          $.post('/get_game_versions', { game_id: gameId })
+            .done(function(data) {
+              if (data.success && data.versions.length > 0) {
+                let versionsHtml = '';
+                data.versions.forEach(function(version, index) {
+                  const isRecommended = index === 0; // La primera es la recomendada
+                  const recommendedClass = isRecommended ? 'recommended' : '';
+                  const recommendedBadge = isRecommended ? '<span class="badge badge-success">✅ Recomendada</span>' : '';
+                  
+                  let regionTag = '';
+                  if (version.info.region !== 'Unknown') {
+                    regionTag = `<span class="region-tag">${version.info.region}</span>`;
+                  }
+                  
+                  let hackTag = '';
+                  if (version.info.is_hack) {
+                    hackTag = `<span class="hack-tag">HACK</span>`;
+                  }
+                  
+                  let translationTag = '';
+                  if (version.info.is_translation) {
+                    translationTag = `<span class="hack-tag">TRADUCCIÓN</span>`;
+                  }
+                  
+                  versionsHtml += `
+                    <div class="version-option ${recommendedClass}" data-hash="${version.hash}">
+                      <div class="version-title">
+                        ${version.info.filename}
+                        ${recommendedBadge}
+                      </div>
+                      <div class="version-meta">
+                        ${regionTag}${hackTag}${translationTag}
+                        <br><small class="text-muted">Hash: ${version.hash}</small>
+                      </div>
+                    </div>
+                  `;
+                });
+                $('#versionsContainer').html(versionsHtml);
+              } else {
+                $('#versionsContainer').html('<div class="alert alert-warning">No se pudieron cargar las versiones</div>');
+              }
+            })
+            .fail(function() {
+              $('#versionsContainer').html('<div class="alert alert-danger">Error al cargar las versiones</div>');
+            });
+        }
+
+        // Seleccionar versión específica del modal
+        $(document).on('click', '.version-option', function() {
+          const hash = $(this).data('hash');
+          $('#versionsModal').modal('hide');
+          downloadGame(hash);
+        });
+
+        // Ocultar resultados al hacer clic fuera
+        $(document).on('click', function(e) {
+          if (!$(e.target).closest('.search-container').length) {
+            $('#searchResults').hide();
+          }
+        });
+
+        // Función para descargar juego
+        function downloadGame(hash) {
+          console.log("Descarga iniciada para hash:", hash);
+          $("#status").text("Buscando en la base de datos...");
+          $("#spinner").show();
+
+          $.post("/search", { search_term: hash })
             .done(function (data) {
-              console.log("Respuesta recibida del servidor."); // Log de respuesta exitosa
+              console.log("Respuesta recibida del servidor.");
 
               if (data.success) {
-                $("#status").text("Descargando..."); // Actualizar el estado al descargar
+                $("#status").text("Descargando...");
 
-                // Simular la descarga con un retraso de 1 segundo
                 setTimeout(() => {
-                  $("#status").text("Descargado!"); // Actualizar estado a "Descargado!"
-                  console.log("Descarga completada."); // Log de descarga completada
-                  $("#spinner").hide(); // Ocultar spinner
-                  window.open(data.download_url); // Abrir el navegador con la URL de descarga
-                }, 1000); // Cambia esto a la lógica real de descarga si es necesario
+                  $("#status").text("¡Descargado!");
+                  console.log("Descarga completada.");
+                  $("#spinner").hide();
+                  window.open(data.download_url);
+                }, 1000);
               } else {
-                $("#status").text(data.message); // Mostrar mensaje de error
-                console.error(data.message); // Log de error
-                $("#spinner").hide(); // Ocultar spinner
+                $("#status").text(data.message);
+                console.error(data.message);
+                $("#spinner").hide();
               }
             })
             .fail(function (jqXHR) {
@@ -191,11 +532,17 @@
               } else if (jqXHR.status === 500) {
                 errorMessage = "No se pudo descargar el JSON desde la URL.";
               }
-              console.error("Error al buscar el juego:", errorMessage); // Log de error
-              $("#status").text(errorMessage); // Mostrar mensaje de error
-
-              $("#spinner").hide(); // Ocultar spinner
+              console.error("Error al buscar el juego:", errorMessage);
+              $("#status").text(errorMessage);
+              $("#spinner").hide();
             });
+        }
+
+        // Búsqueda por hash (funcionalidad original)
+        $("#hashSearchForm").on("submit", function (event) {
+          event.preventDefault();
+          const searchTerm = $("#searchTerm").val();
+          downloadGame(searchTerm);
         });
       });
     </script>
