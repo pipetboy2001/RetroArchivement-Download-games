@@ -1,0 +1,66 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}FAQ y Aviso Legal - RetroAchievements Downloader{% endblock %}
+
+{% block content %}
+    {% include "components/organisms/header.html" %}
+
+    <div class="bg-white rounded-xl shadow-md p-5 card-shadow prose max-w-none">
+        <h2 class="text-xl font-bold mb-3">Preguntas frecuentes (FAQ)</h2>
+
+        <details class="mb-3" open>
+            <summary class="font-semibold cursor-pointer">¿Qué es este proyecto?</summary>
+            <div class="mt-2 text-gray-700">
+                Esta herramienta ayuda a localizar y abrir enlaces de descarga de ROMs compatibles con los logros de RetroAchievements. No aloja ni distribuye archivos; solo redirige a contenidos públicos alojados en archive.org.
+            </div>
+        </details>
+
+        <details class="mb-3" open>
+            <summary class="font-semibold cursor-pointer">Inicio de sesión en archive.org</summary>
+            <div class="mt-2 text-gray-700">
+                Para descargar, primero inicia sesión en <a class="text-retro-blue underline" href="https://archive.org/" target="_blank" rel="noopener">archive.org</a>. Sin sesión activa, las descargas pueden fallar o requerir verificación adicional.
+            </div>
+        </details>
+
+        <details class="mb-3">
+            <summary class="font-semibold cursor-pointer">¿De quién son los juegos/ROMs?</summary>
+            <div class="mt-2 text-gray-700">
+                Todos los archivos referenciados pertenecen a sus respectivos propietarios y están <strong>almacenados en archive.org</strong>. Este proyecto no es propietario de ningún juego ni contenido y no los almacena.
+            </div>
+        </details>
+
+        <details class="mb-3">
+            <summary class="font-semibold cursor-pointer">Compatibilidad con RetroAchievements</summary>
+            <div class="mt-2 text-gray-700">
+                Los enlaces se centran en ROMs que funcionan con los <em>sets</em> de logros de RetroAchievements. No se garantiza compatibilidad universal; sigue las recomendaciones de hashes y versiones publicadas por RetroAchievements.
+            </div>
+        </details>
+
+        <details class="mb-3">
+            <summary class="font-semibold cursor-pointer">¿La app descarga automáticamente?</summary>
+            <div class="mt-2 text-gray-700">
+                No. Abrimos la URL de descarga en tu navegador para que completes el proceso en archive.org.
+            </div>
+        </details>
+
+        <h2 class="text-xl font-bold mt-6 mb-3">Aviso legal</h2>
+        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li>Este proyecto no aloja, modifica, ni redistribuye ROMs. Solo facilita el acceso a enlaces públicos en archive.org.</li>
+            <li>Los juegos, marcas y contenidos son propiedad de sus respectivos titulares. Su uso está sujeto a las leyes de derechos de autor aplicables en tu jurisdicción.</li>
+            <li>El autor/desarrollador <strong>no se responsabiliza</strong> por el uso indebido de la herramienta ni por posibles infracciones de copyright por parte de los usuarios.</li>
+            <li>El usuario es responsable de verificar que posee los derechos para descargar y usar cada archivo (por ejemplo, copias de seguridad de juegos que posee legalmente).</li>
+            <li>RetroAchievements es una plataforma de terceros sin relación oficial con este proyecto.</li>
+        </ul>
+
+        <h2 class="text-xl font-bold mt-6 mb-3">Consejos</h2>
+        <ul class="list-disc pl-5 text-gray-700 space-y-2">
+            <li>Inicia sesión en archive.org antes de usar la búsqueda o abrir enlaces.</li>
+            <li>Prefiere ROMs y hashes listados como compatibles en la página del juego de RetroAchievements.</li>
+            <li>Respeta las leyes locales y los términos de uso de archive.org y RetroAchievements.</li>
+        </ul>
+
+        <div class="mt-6">
+            <a href="{{ url_for('index') }}" class="inline-block px-4 py-2 rounded bg-retro-blue text-white hover:bg-retro-dark">Volver al inicio</a>
+        </div>
+    </div>
+{% endblock %}
