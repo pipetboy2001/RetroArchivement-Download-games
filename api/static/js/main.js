@@ -2,6 +2,22 @@ class RetroDownloader {
     constructor() {
         this.searchTimeout = null;
         this.currentSearchMode = 'name';
+        this.i18n = window.__i18n || {
+            noResults: 'No se encontraron juegos',
+            searchError: 'Error en la búsqueda',
+            versionsOf: 'Versiones de:',
+            loadingVersions: 'Cargando versiones...',
+            recommended: '✅ Recomendada',
+            translation: 'TRADUCCIÓN',
+            searching: 'Buscando en la base de datos...',
+            downloading: 'Descargando...',
+            downloaded: '¡Descargado!',
+            loadVersionsError: 'No se pudieron cargar las versiones',
+            loadVersionsGenericError: 'Error al cargar las versiones',
+            notFoundHash: 'No se encontró el hash en la base de datos.',
+            serverJsonError: 'No se pudo descargar el JSON desde la URL.',
+            searchGameError: 'Error al buscar el juego.'
+        };
         this.init();
     }
 
@@ -154,14 +170,14 @@ class RetroDownloader {
 
     displayNoResults() {
         $('#searchResults')
-            .html('<div class="p-3 text-center text-gray-600 text-sm">No se encontraron juegos</div>')
+            .html(`<div class="p-3 text-center text-gray-600 text-sm">${this.i18n.noResults}</div>`)
             .removeClass('hidden')
             .addClass('fade-in');
     }
 
     displaySearchError() {
         $('#searchResults')
-            .html('<div class="p-3 text-center text-red-600 text-sm">Error en la búsqueda</div>')
+            .html(`<div class="p-3 text-center text-red-600 text-sm">${this.i18n.searchError}</div>`)
             .removeClass('hidden')
             .addClass('fade-in');
     }
@@ -192,12 +208,12 @@ class RetroDownloader {
     async showVersionsModal(gameId, gameName) {
         $('#versionsModalLabel').html(`
             <span class="text-3xl">🎮</span>
-            Versiones de: ${gameName}
+            ${this.i18n.versionsOf} ${gameName}
         `);
         $('#versionsContainer').html(`
             <div class="text-center py-8">
                 <div class="spinner mx-auto mb-4"></div>
-                <p class="text-gray-600">Cargando versiones...</p>
+                <p class="text-gray-600">${this.i18n.loadingVersions}</p>
             </div>
         `);
         
@@ -209,11 +225,11 @@ class RetroDownloader {
             if (response.success && response.versions.length > 0) {
                 this.displayVersions(response.versions);
             } else {
-                this.displayVersionsError('No se pudieron cargar las versiones');
+                this.displayVersionsError(this.i18n.loadVersionsError);
             }
         } catch (error) {
             console.error('Versions loading error:', error);
-            this.displayVersionsError('Error al cargar las versiones');
+            this.displayVersionsError(this.i18n.loadVersionsGenericError);
         }
     }
 
@@ -224,7 +240,7 @@ class RetroDownloader {
             const isRecommended = index === 0;
             const recommendedClass = isRecommended ? 'border-green-500 bg-green-50' : 'border-gray-200';
             const recommendedBadge = isRecommended 
-                ? '<span class="badge-success text-xs">✅ Recomendada</span>' 
+                ? `<span class="badge-success text-xs">${this.i18n.recommended}</span>` 
                 : '';
             
             const regionTag = version.info.region !== 'Unknown'
@@ -236,7 +252,7 @@ class RetroDownloader {
                 : '';
             
             const translationTag = version.info.is_translation
-                ? `<span class="badge-warning text-xs">TRADUCCIÓN</span>`
+                ? `<span class="badge-warning text-xs">${this.i18n.translation}</span>`
                 : '';
             
             versionsHtml += `
@@ -283,17 +299,17 @@ class RetroDownloader {
     async downloadGame(hash) {
         console.log("Descarga iniciada para hash:", hash);
         
-        this.setStatus("Buscando en la base de datos...", 'info');
+    this.setStatus(this.i18n.searching, 'info');
         this.showSpinner();
 
         try {
             const response = await $.post("/search", { search_term: hash });
             
             if (response.success) {
-                this.setStatus("Descargando...", 'info');
+                this.setStatus(this.i18n.downloading, 'info');
                 
                 setTimeout(() => {
-                    this.setStatus("¡Descargado!", 'success');
+                    this.setStatus(this.i18n.downloaded, 'success');
                     this.hideSpinner();
                     window.open(response.download_url);
                 }, 1000);
@@ -304,11 +320,11 @@ class RetroDownloader {
         } catch (error) {
             console.error("Error al buscar el juego:", error);
             
-            let errorMessage = "Error al buscar el juego.";
+            let errorMessage = this.i18n.searchGameError;
             if (error.status === 404) {
-                errorMessage = "No se encontró el hash en la base de datos.";
+                errorMessage = this.i18n.notFoundHash;
             } else if (error.status === 500) {
-                errorMessage = "No se pudo descargar el JSON desde la URL.";
+                errorMessage = this.i18n.serverJsonError;
             }
             
             this.setStatus(errorMessage, 'error');

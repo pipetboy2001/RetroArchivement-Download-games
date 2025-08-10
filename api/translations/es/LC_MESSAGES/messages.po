@@ -1,0 +1,176 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: RetroAchievements Downloader\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "RetroAchievements Downloader"
+msgstr "RetroAchievements Downloader"
+
+msgid "Descarga Juegos"
+msgstr "Descarga Juegos"
+
+msgid "Todos los juegos"
+msgstr "Todos los juegos"
+
+msgid "Ver todos los juegos"
+msgstr "Ver todos los juegos"
+
+msgid "Ver todos los juegos disponibles"
+msgstr "Ver todos los juegos disponibles"
+
+msgid "juegos disponibles"
+msgstr "juegos disponibles"
+
+msgid "Logo de RetroAchievements"
+msgstr "Logo de RetroAchievements"
+
+msgid "Desarrollado por"
+msgstr "Desarrollado por"
+
+msgid "FAQ y Aviso legal"
+msgstr "FAQ y Aviso legal"
+
+msgid "Escribe el nombre del juego (ej: Sonic, Mario, Zelda...)"
+msgstr "Escribe el nombre del juego (ej: Sonic, Mario, Zelda...)"
+
+msgid "Introduce el hash del juego"
+msgstr "Introduce el hash del juego"
+
+msgid "Buscar por Hash"
+msgstr "Buscar por Hash"
+
+msgid "Cómo encontrar el hash"
+msgstr "Cómo encontrar el hash"
+
+msgid "Buscar por Nombre"
+msgstr "Buscar por Nombre"
+
+msgid "Nombre"
+msgstr "Nombre"
+
+msgid "Buscar"
+msgstr "Buscar"
+
+msgid "Nombre del juego..."
+msgstr "Nombre del juego..."
+
+msgid "Consola"
+msgstr "Consola"
+
+msgid "Todas"
+msgstr "Todas"
+
+msgid "Tamaño página"
+msgstr "Tamaño página"
+
+msgid "Listado de juegos"
+msgstr "Listado de juegos"
+
+msgid "Explora todos los juegos disponibles. Filtra por consola y busca por nombre."
+msgstr "Explora todos los juegos disponibles. Filtra por consola y busca por nombre."
+
+msgid "Volver al inicio"
+msgstr "Volver al inicio"
+
+msgid "Página no encontrada"
+msgstr "Página no encontrada"
+
+msgid "Lo sentimos, la página que buscas no existe."
+msgstr "Lo sentimos, la página que buscas no existe."
+
+msgid "Volver a la Página Principal"
+msgstr "Volver a la Página Principal"
+
+msgid "Error del Servidor"
+msgstr "Error del Servidor"
+
+msgid "Lo sentimos, ha ocurrido un error interno. Por favor, inténtalo de nuevo más tarde."
+msgstr "Lo sentimos, ha ocurrido un error interno. Por favor, inténtalo de nuevo más tarde."
+
+msgid "No hay versiones disponibles."
+msgstr "No hay versiones disponibles."
+
+msgid "Página {page} de {total}"
+msgstr "Página {page} de {total}"
+
+msgid "Primera"
+msgstr "Primera"
+
+msgid "Anterior"
+msgstr "Anterior"
+
+msgid "Siguiente"
+msgstr "Siguiente"
+
+msgid "Última"
+msgstr "Última"
+
+msgid "Consolas"
+msgstr "Consolas"
+
+msgid "Versiones"
+msgstr "Versiones"
+
+msgid "Descargar"
+msgstr "Descargar"
+
+msgid "Sin resultados"
+msgstr "Sin resultados"
+
+msgid "{total} juegos encontrados"
+msgstr "{total} juegos encontrados"
+
+msgid "en"
+msgstr "en"
+
+msgid "para"
+msgstr "para"
+
+msgid "Seleccionar Versión del Juego"
+msgstr "Seleccionar Versión del Juego"
+
+msgid "Este juego tiene múltiples versiones disponibles. Selecciona la que prefieras:"
+msgstr "Este juego tiene múltiples versiones disponibles. Selecciona la que prefieras:"
+
+msgid "Cancelar"
+msgstr "Cancelar"
+
+msgid "Instrucciones para encontrar el Hash"
+msgstr "Instrucciones para encontrar el Hash"
+
+msgid "Para encontrar el hash de un juego en RetroAchievements, sigue estos pasos:"
+msgstr "Para encontrar el hash de un juego en RetroAchievements, sigue estos pasos:"
+
+msgid "Visita el sitio web de RetroAchievements."
+msgstr "Visita el sitio web de RetroAchievements."
+
+msgid "Busca el juego que deseas."
+msgstr "Busca el juego que deseas."
+
+msgid "Haz clic en el juego para abrir su página de detalles."
+msgstr "Haz clic en el juego para abrir su página de detalles."
+
+msgid "Ingresar a"
+msgstr "Ingresar a"
+
+msgid "Encuentra el hash en la sección correspondiente."
+msgstr "Encuentra el hash en la sección correspondiente."
+
+msgid "Paso 1 - Página del juego"
+msgstr "Paso 1 - Página del juego"
+
+msgid "Paso 1: Página del juego"
+msgstr "Paso 1: Página del juego"
+
+msgid "Paso 2 - Encontrar el hash"
+msgstr "Paso 2 - Encontrar el hash"
+
+msgid "Paso 2: Encontrar el hash"
+msgstr "Paso 2: Encontrar el hash"
+
+msgid "Cerrar"
+msgstr "Cerrar"

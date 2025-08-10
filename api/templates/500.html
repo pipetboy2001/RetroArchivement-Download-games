@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error Interno del Servidor</title>
+    <title>{{ _('Error del Servidor') }}</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         body {
@@ -23,8 +23,8 @@
 <body>
     <div class="container">
         <div class="card">
-            <h1 class="text-center">500 - Error Interno del Servidor</h1>
-            <p>Algo salió mal. Por favor, intenta más tarde.</p>
+            <h1 class="text-center">500 - {{ _('Error del Servidor') }}</h1>
+            <p>{{ _('Lo sentimos, ha ocurrido un error interno. Por favor, inténtalo de nuevo más tarde.') }}</p>
             <a href="{{ url_for('index') }}" class="btn btn-primary btn-block">Volver a la Página Principal</a>
         </div>
     </div>

@@ -1,9 +1,9 @@
 <div class="mb-4 p-3 rounded-lg bg-blue-50 border border-blue-200 text-blue-900">
   <p class="text-sm">
-    Nota: Para descargar, primero inicia sesión en
+    {{ _('Nota: Para descargar, primero inicia sesión en') }}
     <a href="https://archive.org/" target="_blank" rel="noopener" class="underline text-blue-700">archive.org</a>.
-    Los juegos no son de mi propiedad; todo el contenido está alojado en archive.org.
-    Esta herramienta solo facilita enlaces de ROMs compatibles con RetroAchievements.
-    Consulta la <a href="{{ url_for('faq') }}" class="underline text-blue-700">FAQ y Aviso legal</a>.
+    {{ _('Los juegos no son de mi propiedad; todo el contenido está alojado en archive.org.') }}
+    {{ _('Esta herramienta solo facilita enlaces de ROMs compatibles con RetroAchievements.') }}
+    {{ _('Consulta la') }} <a href="{{ url_for('faq') }}" class="underline text-blue-700">{{ _('FAQ y Aviso legal') }}</a>.
   </p>
 </div>

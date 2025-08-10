@@ -1,15 +1,15 @@
 <header class="text-center mb-6">
     <div class="bg-white rounded-xl shadow-md p-4 card-shadow">
-        <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3 flex items-center justify-center gap-2">
+    <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3 flex items-center justify-center gap-2">
             <span class="text-2xl md:text-3xl">🎮</span>
-            <span class="gradient-bg bg-clip-text text-transparent">RetroAchievements Downloader</span>
+        <span class="gradient-bg bg-clip-text text-transparent">{{ _('RetroAchievements Downloader') }}</span>
         </h1>
         
         <!-- Stats Info Component -->
-    <a href="{{ url_for('games_page') }}" class="block gradient-bg rounded-lg p-3 text-white fade-in hover:opacity-90 transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/60" title="Ver todos los juegos" aria-label="Ver todos los juegos disponibles">
+    <a href="{{ url_for('games_page') }}" class="block gradient-bg rounded-lg p-3 text-white fade-in hover:opacity-90 transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/60" title="{{ _('Ver todos los juegos') }}" aria-label="{{ _('Ver todos los juegos disponibles') }}">
             <div class="flex items-center justify-center gap-2">
                 <span class="text-lg">📊</span>
-                <span class="font-semibold">{{ total_games }} juegos disponibles</span>
+        <span class="font-semibold">{{ total_games }} {{ _('juegos disponibles') }}</span>
             </div>
         </a>
     </div>

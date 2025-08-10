@@ -47,3 +47,6 @@ README_REFACTOR.md
 # Data files (keep structure but ignore if needed)
 # game_hashes.json
 # Data/*.json 
+
+# i18n compiled catalogs (do not version binary .mo files)
+*.mo

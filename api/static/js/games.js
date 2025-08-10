@@ -1,4 +1,5 @@
 (function(){
+  const I = (window.__i18n || {});
   const state = { q: '', console: '', page: 1, page_size: 50, typingTimer: null };
 
   function esc(str) { return (str || '').replace(/[&<>"]/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[s])); }
@@ -53,7 +54,7 @@
     if (!container) return;
     const list = versionsState.all;
     if (!list || list.length === 0){
-      container.innerHTML = '<div class="bg-yellow-50 border border-yellow-200 text-yellow-800 p-4 rounded-lg text-center">No hay versiones disponibles.</div>';
+      container.innerHTML = `<div class="bg-yellow-50 border border-yellow-200 text-yellow-800 p-4 rounded-lg text-center">${I.noVersionsAvailable || 'No hay versiones disponibles.'}</div>`;
       if (pag) pag.innerHTML = '';
       return;
     }
@@ -66,10 +67,10 @@
     container.innerHTML = current.map((v, localIdx) => {
       const idx = start + localIdx;
       const isRecommended = idx === 0;
-      const recommendedBadge = isRecommended ? '<span class="badge-success text-xs">✅ Recomendada</span>' : '';
+  const recommendedBadge = isRecommended ? `<span class="badge-success text-xs">${I.recommended || '✅ Recomendada'}</span>` : '';
       const region = v.info && v.info.region && v.info.region !== 'Unknown' ? `<span class="badge-success text-xs">${v.info.region}</span>` : '';
-      const hack = v.info && v.info.is_hack ? '<span class="badge-warning text-xs">HACK</span>' : '';
-      const trans = v.info && v.info.is_translation ? '<span class="badge-warning text-xs">TRADUCCIÓN</span>' : '';
+  const hack = v.info && v.info.is_hack ? '<span class="badge-warning text-xs">HACK</span>' : '';
+  const trans = v.info && v.info.is_translation ? `<span class="badge-warning text-xs">${I.translation || 'TRADUCCIÓN'}</span>` : '';
       const fname = v.info && v.info.filename ? v.info.filename : v.rom_path;
       return `
         <div class="version-option border ${isRecommended?'border-green-500 bg-green-50':'border-gray-200'} rounded-lg p-3 hover:shadow-md transition-all duration-300 cursor-pointer" data-hash="${v.hash}">
@@ -83,13 +84,13 @@
     }).join('');
 
     if (pag){
-      const btn = (p, label, disabled=false) => `<button ${disabled?'disabled':''} class="px-3 py-1 border rounded ${disabled?'opacity-50 cursor-not-allowed':'hover:bg-gray-100'}" data-vpage="${p}" aria-label="${label}">${label}</button>`;
+      const btn = (p, symbol, aria, disabled=false) => `<button ${disabled?'disabled':''} class="px-3 py-1 border rounded ${disabled?'opacity-50 cursor-not-allowed':'hover:bg-gray-100'}" data-vpage="${p}" aria-label="${aria}">${symbol}</button>`;
       pag.innerHTML = `
-        ${btn(1, '<<', page<=1)}
-        ${btn(page-1, '<', page<=1)}
-        <span class="px-2 text-sm">Página ${page} de ${totalPages}</span>
-        ${btn(page+1, '>', page>=totalPages)}
-        ${btn(totalPages, '>>', page>=totalPages)}
+        ${btn(1, '<<', (I.firstAria || I.first || 'First'), page<=1)}
+        ${btn(page-1, '<', (I.prevAria || I.prev || 'Previous'), page<=1)}
+        <span class="px-2 text-sm">${(I.pageOf||'Página {page} de {total}').replace('{page}', page).replace('{total}', totalPages)}</span>
+        ${btn(page+1, '>', (I.nextAria || I.next || 'Next'), page>=totalPages)}
+        ${btn(totalPages, '>>', (I.lastAria || I.last || 'Last'), page>=totalPages)}
       `;
       pag.querySelectorAll('button[data-vpage]').forEach(b => b.addEventListener('click', () => { versionsState.page = parseInt(b.dataset.vpage); renderVersionsPage(); }));
     }
@@ -98,19 +99,19 @@
   async function openVersionsFor(gameId, gameName){
     const label = document.getElementById('versionsModalLabel');
     const container = document.getElementById('versionsContainer');
-    if (label) label.innerHTML = `<span class="text-3xl">🎮</span> Versiones de: ${gameName || ''}`;
+  if (label) label.innerHTML = `<span class="text-3xl">🎮</span> ${(I.versionsOf || 'Versiones de:')} ${gameName || ''}`;
     if (container) container.innerHTML = `
       <div class="text-center py-8">
         <div class="spinner mx-auto mb-4"></div>
-        <p class="text-gray-600">Cargando versiones...</p>
+    <p class="text-gray-600">${I.loadingVersions || 'Cargando versiones...'}</p>
       </div>`;
     openModal('versionsModal');
     try{
       const res = await fetchVersions(gameId);
-      if (res.success){ renderVersions(res.versions); }
-      else { container.innerHTML = '<div class="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg text-center">No se pudieron cargar las versiones</div>'; }
+  if (res.success){ renderVersions(res.versions); }
+  else { container.innerHTML = `<div class="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg text-center">${I.loadVersionsError || 'No se pudieron cargar las versiones'}</div>`; }
     }catch(e){
-      container.innerHTML = '<div class="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg text-center">Error al cargar las versiones</div>';
+  container.innerHTML = `<div class="bg-red-50 border border-red-200 text-red-800 p-4 rounded-lg text-center">${I.loadVersionsGenericError || 'Error al cargar las versiones'}</div>`;
     }
   }
 
@@ -121,10 +122,11 @@
     list.innerHTML = '';
     pag.innerHTML = '';
 
-    summary.textContent = `${data.total} juegos encontrados` + (state.console ? ` en ${state.console}` : '') + (state.q ? ` para "${state.q}"` : '');
+  const baseTxt = (I.foundGames || '{total} juegos encontrados').replace('{total}', data.total || 0);
+  summary.textContent = `${baseTxt}` + (state.console ? ` ${(I.inWord||'en')} ${state.console}` : '') + (state.q ? ` ${(I.forWord||'para')} "${state.q}"` : '');
 
     if (!data.items || data.items.length === 0){
-      list.innerHTML = '<div class="py-6 text-center text-gray-500">Sin resultados</div>';
+  list.innerHTML = `<div class="py-6 text-center text-gray-500">${I.noResultsList || 'Sin resultados'}</div>`;
       return;
     }
 
@@ -137,22 +139,23 @@
       row.innerHTML = `
         <div>
           <div class="font-medium text-gray-800">${name}</div>
-          <div class="text-xs text-gray-500">Consolas: ${esc(consoles)} • Versiones: ${versions}</div>
+          <div class="text-xs text-gray-500">${(I.consolesLabel||'Consolas')}: ${esc(consoles)} • ${(I.versionsLabel||'Versiones')}: ${versions}</div>
         </div>
         <div class="text-right">
-          <button type="button" class="px-3 py-1 border rounded hover:bg-gray-100 text-gray-700" data-action="placeholder" data-game-id="${esc((g.id || '').toString())}">Descargar</button>
+          <button type="button" class="px-3 py-1 border rounded hover:bg-gray-100 text-gray-700" data-action="placeholder" data-game-id="${esc((g.id || '').toString())}">${I.downloadLabel || 'Descargar'}</button>
         </div>`;
       list.appendChild(row);
     }
 
-    const { page, total_pages } = data;
-    const btn = (p, label, disabled=false) => `<button ${disabled?'disabled':''} class="px-3 py-1 border rounded ${disabled?'opacity-50 cursor-not-allowed':'hover:bg-gray-100'}" data-page="${p}" aria-label="${label}">${label}</button>`;
+    const { page } = data;
+    const totalPages = data.total_pages || 1;
+    const btn = (p, symbol, aria, disabled=false) => `<button ${disabled?'disabled':''} class="px-3 py-1 border rounded ${disabled?'opacity-50 cursor-not-allowed':'hover:bg-gray-100'}" data-page="${p}" aria-label="${aria}">${symbol}</button>`;
     pag.innerHTML = `
-      ${btn(1, '<<', page<=1)}
-      ${btn(page-1, '<', page<=1)}
-      <span class="px-2">Página ${page} de ${total_pages || 1}</span>
-      ${btn(page+1, '>', page>=total_pages)}
-      ${btn(totalPages, '>>', page>=total_pages)}
+      ${btn(1, '<<', (I.firstAria || I.first || 'First'), page<=1)}
+      ${btn(page-1, '<', (I.prevAria || I.prev || 'Previous'), page<=1)}
+      <span class="px-2">${(I.pageOf||'Página {page} de {total}').replace('{page}', page).replace('{total}', totalPages)}</span>
+      ${btn(page+1, '>', (I.nextAria || I.next || 'Next'), page>=totalPages)}
+      ${btn(totalPages, '>>', (I.lastAria || I.last || 'Last'), page>=totalPages)}
     `;
     pag.querySelectorAll('button[data-page]').forEach(b => b.addEventListener('click', () => { state.page = parseInt(b.dataset.page); fetchGames(); }));
   }

@@ -1,12 +1,9 @@
-<header class="text-center mb-6">
-  <div class="bg-white rounded-xl shadow-md p-4 card-shadow">
-    <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3 flex items-center justify-center gap-2">
-      <span class="text-2xl md:text-3xl">📚</span>
-      <span class="gradient-bg bg-clip-text text-transparent">Listado de juegos</span>
-    </h1>
-    <p class="text-gray-600">Explora todos los juegos disponibles. Filtra por consola y busca por nombre.</p>
-    <div class="mt-3">
-      <a href="{{ url_for('index') }}" class="inline-flex items-center gap-1 text-retro-blue hover:underline text-sm" title="Volver al inicio" aria-label="Volver al inicio">← Volver al inicio</a>
-    </div>
+<header class="text-center mb-4">
+  <h1 class="text-2xl md:text-3xl font-bold text-gray-800">📚 {{ _('Listado de juegos') }}</h1>
+</header>
+<div class="text-center mb-4 bg-white rounded-xl shadow p-4">
+  <p class="text-gray-600">{{ _('Explora todos los juegos disponibles. Filtra por consola y busca por nombre.') }}</p>
+  <div class="mt-3">
+    <a href="{{ url_for('index') }}" class="inline-flex items-center gap-1 text-retro-blue hover:underline text-sm" title="{{ _('Volver al inicio') }}" aria-label="{{ _('Volver al inicio') }}">← {{ _('Volver al inicio') }}</a>
   </div>
-  </header>
+</div>

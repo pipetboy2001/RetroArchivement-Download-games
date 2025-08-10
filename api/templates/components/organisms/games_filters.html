@@ -1,19 +1,19 @@
 <div class="flex flex-col md:flex-row gap-3 md:items-end">
   <div class="flex-1">
-    <label class="block text-sm font-medium text-gray-700 mb-1">Buscar</label>
-    <input id="q" type="text" placeholder="Nombre del juego..." class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-retro-blue" />
+    <label class="block text-sm font-medium text-gray-700 mb-1">{{ _('Buscar') }}</label>
+    <input id="q" type="text" placeholder="{{ _('Nombre del juego...') }}" class="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-retro-blue" />
   </div>
   <div>
-    <label class="block text-sm font-medium text-gray-700 mb-1">Consola</label>
+    <label class="block text-sm font-medium text-gray-700 mb-1">{{ _('Consola') }}</label>
     <select id="console" class="border rounded-md px-3 py-2">
-      <option value="">Todas</option>
+      <option value="">{{ _('Todas') }}</option>
       {% for c, count in consoles %}
         <option value="{{ c }}">{{ c }} ({{ count }})</option>
       {% endfor %}
     </select>
   </div>
   <div>
-    <label class="block text-sm font-medium text-gray-700 mb-1">Tamaño página</label>
+    <label class="block text-sm font-medium text-gray-700 mb-1">{{ _('Tamaño página') }}</label>
     <select id="page_size" class="border rounded-md px-3 py-2">
       <option>25</option>
       <option selected>50</option>

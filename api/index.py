@@ -1,9 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, make_response, g
 import json
 import webbrowser
 import time
 import os
 from urllib.parse import quote
+from flask_babel import Babel, gettext as _
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Necesario para usar flash
@@ -13,6 +14,45 @@ JSON_FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Data'
 
 cached_json_data = None
 cached_games_index = None  # Índice cacheado para listados
+
+# Configuración de internacionalización (i18n)
+SUPPORTED_LOCALES = ['es', 'en']
+DEFAULT_LOCALE = 'es'
+
+app.config.update(
+    BABEL_DEFAULT_LOCALE=DEFAULT_LOCALE,
+    BABEL_TRANSLATION_DIRECTORIES=os.path.join(os.path.dirname(__file__), 'translations')
+)
+
+babel = Babel()
+
+def _select_locale():
+    # 1) Cookie explícita
+    lang = request.cookies.get('lang')
+    if lang in SUPPORTED_LOCALES:
+        g.babel_locale = lang
+        return lang
+    # 2) Cabecera Accept-Language
+    best = request.accept_languages.best_match(SUPPORTED_LOCALES)
+    sel = best or DEFAULT_LOCALE
+    g.babel_locale = sel
+    return sel
+
+babel.init_app(app, locale_selector=_select_locale)
+
+@app.context_processor
+def inject_i18n_helpers():
+    # Garantiza que _ esté disponible en todas las plantillas
+    return dict(_=_)
+
+@app.route('/set_lang/<lang>')
+def set_language(lang):
+    if lang not in SUPPORTED_LOCALES:
+        lang = DEFAULT_LOCALE
+    resp = make_response(redirect(request.referrer or url_for('index')))
+    # Persistir preferencia por 180 días
+    resp.set_cookie('lang', lang, max_age=60*60*24*180, path='/')
+    return resp
 
 # Cargar el archivo JSON local
 def load_json_file():

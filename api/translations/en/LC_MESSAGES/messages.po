@@ -1,0 +1,510 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: RetroAchievements Downloader\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-08-10 17:15-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: api/templates/404.html:6 api/templates/404.html:26
+msgid "Página no encontrada"
+msgstr "Page not found"
+
+#: api/templates/404.html:27
+msgid "Lo sentimos, la página que buscas no existe."
+msgstr "Sorry, the page you are looking for does not exist."
+
+#: api/templates/404.html:28
+msgid "Volver a la Página Principal"
+msgstr "Return to the main page"
+
+#: api/templates/500.html:6 api/templates/500.html:26
+msgid "Error del Servidor"
+msgstr "Server Error"
+
+#: api/templates/500.html:27
+msgid ""
+"Lo sentimos, ha ocurrido un error interno. Por favor, inténtalo de nuevo "
+"más tarde."
+msgstr "Sorry, an internal error occurred. Please try again later."
+
+#: api/templates/faq.html:3
+msgid "FAQ y Aviso Legal"
+msgstr "FAQ and Legal Notice"
+
+#: api/templates/faq.html:9
+msgid "Preguntas frecuentes (FAQ)"
+msgstr "Frequently Asked Questions (FAQ)"
+
+#: api/templates/faq.html:12
+msgid "¿Qué es este proyecto?"
+msgstr "What is this project?"
+
+#: api/templates/faq.html:14
+msgid ""
+"Esta herramienta ayuda a localizar y abrir enlaces de descarga de ROMs "
+"compatibles con los logros de RetroAchievements. No aloja ni distribuye "
+"archivos; solo redirige a contenidos públicos alojados en archive.org."
+msgstr ""
+"This tool helps locate and open download links for ROMs compatible with "
+"RetroAchievements achievements. It does not host or distribute files; it "
+"only redirects to public content hosted on archive.org."
+
+#: api/templates/faq.html:19
+msgid "Inicio de sesión en archive.org"
+msgstr "Login on archive.org"
+
+#: api/templates/faq.html:21
+msgid "Para descargar, primero inicia sesión en"
+msgstr "To download, first sign in at"
+
+#: api/templates/faq.html:21
+msgid ""
+"Sin sesión activa, las descargas pueden fallar o requerir verificación "
+"adicional."
+msgstr ""
+"Without an active session, downloads may fail or require additional "
+"verification."
+
+#: api/templates/faq.html:26
+msgid "¿De quién son los juegos/ROMs?"
+msgstr "Who owns the games/ROMs?"
+
+#: api/templates/faq.html:28
+msgid ""
+"Todos los archivos referenciados pertenecen a sus respectivos "
+"propietarios y están"
+msgstr "All referenced files belong to their respective owners and are"
+
+#: api/templates/faq.html:28
+msgid "almacenados en archive.org"
+msgstr "stored on archive.org"
+
+#: api/templates/faq.html:28
+msgid ""
+"Este proyecto no es propietario de ningún juego ni contenido y no los "
+"almacena."
+msgstr "This project does not own any game or content and does not store them."
+
+#: api/templates/faq.html:33
+msgid "Compatibilidad con RetroAchievements"
+msgstr "Compatibility with RetroAchievements"
+
+#: api/templates/faq.html:35
+msgid "Los enlaces se centran en ROMs que funcionan con los"
+msgstr "Links focus on ROMs that work with the"
+
+#: api/templates/faq.html:35
+msgid "sets"
+msgstr "sets"
+
+#: api/templates/faq.html:35
+msgid ""
+"de logros de RetroAchievements. No se garantiza compatibilidad universal;"
+" sigue las recomendaciones de hashes y versiones publicadas por "
+"RetroAchievements."
+msgstr ""
+"of RetroAchievements achievements. Compatibility is not guaranteed; "
+"follow the recommended hashes and versions published by "
+"RetroAchievements."
+
+#: api/templates/faq.html:40
+msgid "¿La app descarga automáticamente?"
+msgstr "Does the app download automatically?"
+
+#: api/templates/faq.html:42
+msgid ""
+"No. Abrimos la URL de descarga en tu navegador para que completes el "
+"proceso en archive.org."
+msgstr ""
+"No. We open the download URL in your browser so you can complete the "
+"process on archive.org."
+
+#: api/templates/faq.html:46
+msgid "Aviso legal"
+msgstr "Legal notice"
+
+#: api/templates/faq.html:48
+msgid ""
+"Este proyecto no aloja, modifica, ni redistribuye ROMs. Solo facilita el "
+"acceso a enlaces públicos en archive.org."
+msgstr ""
+"This project does not host, modify, or redistribute ROMs. It only "
+"provides access to public links on archive.org."
+
+#: api/templates/faq.html:49
+msgid ""
+"Los juegos, marcas y contenidos son propiedad de sus respectivos "
+"titulares. Su uso está sujeto a las leyes de derechos de autor aplicables"
+" en tu jurisdicción."
+msgstr ""
+"Games, trademarks, and content are the property of their respective "
+"owners. Their use is subject to applicable copyright laws in your "
+"jurisdiction."
+
+#: api/templates/faq.html:50
+msgid "El autor/desarrollador"
+msgstr "The author/developer"
+
+#: api/templates/faq.html:50
+msgid "no se responsabiliza"
+msgstr "is not responsible"
+
+#: api/templates/faq.html:50
+msgid ""
+"por el uso indebido de la herramienta ni por posibles infracciones de "
+"copyright por parte de los usuarios."
+msgstr "for misuse of the tool or any potential copyright infringements by users."
+
+#: api/templates/faq.html:51
+msgid ""
+"El usuario es responsable de verificar que posee los derechos para "
+"descargar y usar cada archivo (por ejemplo, copias de seguridad de juegos"
+" que posee legalmente)."
+msgstr ""
+"The user is responsible for verifying they have the rights to download "
+"and use each file (e.g., backups of games they legally own)."
+
+#: api/templates/faq.html:52
+msgid ""
+"RetroAchievements es una plataforma de terceros sin relación oficial con "
+"este proyecto."
+msgstr ""
+"RetroAchievements is a third-party platform with no official affiliation "
+"with this project."
+
+#: api/templates/faq.html:55
+msgid "Consejos"
+msgstr "Tips"
+
+#: api/templates/faq.html:57
+msgid "Inicia sesión en archive.org antes de usar la búsqueda o abrir enlaces."
+msgstr "Sign in to archive.org before using search or opening links."
+
+#: api/templates/faq.html:58
+msgid ""
+"Prefiere ROMs y hashes listados como compatibles en la página del juego "
+"de RetroAchievements."
+msgstr ""
+"Prefer ROMs and hashes listed as compatible on the game's "
+"RetroAchievements page."
+
+#: api/templates/faq.html:59
+msgid ""
+"Respeta las leyes locales y los términos de uso de archive.org y "
+"RetroAchievements."
+msgstr ""
+"Respect local laws and the terms of use of archive.org and "
+"RetroAchievements."
+
+#: api/templates/components/organisms/games_header.html:7
+#: api/templates/faq.html:63
+msgid "Volver al inicio"
+msgstr "Back to home"
+
+#: api/templates/games.html:3
+msgid "Todos los juegos"
+msgstr "All games"
+
+#: api/templates/index.html:3
+msgid "Descarga Juegos"
+msgstr "Download Games"
+
+#: api/templates/components/molecules/footer.html:5
+msgid "Logo de RetroAchievements"
+msgstr "RetroAchievements logo"
+
+#: api/templates/components/molecules/footer.html:11
+msgid "Desarrollado por"
+msgstr "Developed by"
+
+#: api/templates/components/molecules/footer.html:16
+#: api/templates/components/molecules/legal_notice.html:7
+msgid "FAQ y Aviso legal"
+msgstr "FAQ and Legal Notice"
+
+#: api/templates/components/molecules/legal_notice.html:3
+msgid "Nota: Para descargar, primero inicia sesión en"
+msgstr "Note: To download, first sign in at"
+
+#: api/templates/components/molecules/legal_notice.html:5
+msgid ""
+"Los juegos no son de mi propiedad; todo el contenido está alojado en "
+"archive.org."
+msgstr "Games are not my property; all content is hosted on archive.org."
+
+#: api/templates/components/molecules/legal_notice.html:6
+msgid ""
+"Esta herramienta solo facilita enlaces de ROMs compatibles con "
+"RetroAchievements."
+msgstr ""
+"This tool only facilitates links to ROMs compatible with "
+"RetroAchievements."
+
+#: api/templates/components/molecules/legal_notice.html:7
+msgid "Consulta la"
+msgstr "See the"
+
+#: api/templates/components/molecules/search_toggle.html:9
+msgid "Buscar por Nombre"
+msgstr "Search by Name"
+
+#: api/templates/components/molecules/search_toggle.html:10
+msgid "Nombre"
+msgstr "Name"
+
+#: api/templates/components/molecules/search_toggle.html:18
+#: api/templates/components/organisms/search_forms.html:46
+msgid "Buscar por Hash"
+msgstr "Search by Hash"
+
+#: api/templates/components/molecules/search_toggle.html:19
+msgid "Hash"
+msgstr ""
+
+#: api/templates/components/organisms/games_filters.html:3
+msgid "Buscar"
+msgstr "Search"
+
+#: api/templates/components/organisms/games_filters.html:4
+msgid "Nombre del juego..."
+msgstr "Game name..."
+
+#: api/templates/components/organisms/games_filters.html:7
+msgid "Consola"
+msgstr "Console"
+
+#: api/templates/components/organisms/games_filters.html:9
+msgid "Todas"
+msgstr "All"
+
+#: api/templates/components/organisms/games_filters.html:16
+msgid "Tamaño página"
+msgstr "Page size"
+
+#: api/templates/components/organisms/games_header.html:2
+msgid "Listado de juegos"
+msgstr "Games list"
+
+#: api/templates/components/organisms/games_header.html:5
+msgid ""
+"Explora todos los juegos disponibles. Filtra por consola y busca por "
+"nombre."
+msgstr "Explore all available games. Filter by console and search by name."
+
+#: api/templates/components/organisms/header.html:5
+#: api/templates/layouts/base.html:6
+msgid "RetroAchievements Downloader"
+msgstr "RetroAchievements Downloader"
+
+#: api/templates/components/organisms/header.html:9
+msgid "Ver todos los juegos"
+msgstr "See all games"
+
+#: api/templates/components/organisms/header.html:9
+msgid "Ver todos los juegos disponibles"
+msgstr "See all available games"
+
+#: api/templates/components/organisms/header.html:12
+msgid "juegos disponibles"
+msgstr "games available"
+
+#: api/templates/components/organisms/modals.html:8
+msgid "Seleccionar Versión del Juego"
+msgstr "Select Game Version"
+
+#: api/templates/components/organisms/modals.html:21
+msgid ""
+"Este juego tiene múltiples versiones disponibles. Selecciona la que "
+"prefieras:"
+msgstr "This game has multiple versions available. Choose your preferred one:"
+
+#: api/templates/components/organisms/modals.html:35
+msgid "Cancelar"
+msgstr "Cancel"
+
+#: api/templates/components/organisms/modals.html:48
+msgid "Instrucciones para encontrar el Hash"
+msgstr "Instructions to find the Hash"
+
+#: api/templates/components/organisms/modals.html:63
+msgid ""
+"Para encontrar el hash de un juego en RetroAchievements, sigue estos "
+"pasos:"
+msgstr "To find a game's hash on RetroAchievements, follow these steps:"
+
+#: api/templates/components/organisms/modals.html:67
+msgid "Visita el sitio web de RetroAchievements."
+msgstr "Visit the RetroAchievements website."
+
+#: api/templates/components/organisms/modals.html:68
+msgid "Busca el juego que deseas."
+msgstr "Search for the game you want."
+
+#: api/templates/components/organisms/modals.html:69
+msgid "Haz clic en el juego para abrir su página de detalles."
+msgstr "Click the game to open its details page."
+
+#: api/templates/components/organisms/modals.html:70
+msgid "Ingresar a"
+msgstr "Go to"
+
+#: api/templates/components/organisms/modals.html:71
+msgid "Encuentra el hash en la sección correspondiente."
+msgstr "Find the hash in the corresponding section."
+
+#: api/templates/components/organisms/modals.html:78
+msgid "Paso 1 - Página del juego"
+msgstr "Step 1 - Game page"
+
+#: api/templates/components/organisms/modals.html:81
+msgid "Paso 1: Página del juego"
+msgstr "Step 1: Game page"
+
+#: api/templates/components/organisms/modals.html:86
+msgid "Paso 2 - Encontrar el hash"
+msgstr "Step 2 - Find the hash"
+
+#: api/templates/components/organisms/modals.html:89
+msgid "Paso 2: Encontrar el hash"
+msgstr "Step 2: Find the hash"
+
+#: api/templates/components/organisms/modals.html:102
+msgid "Cerrar"
+msgstr "Close"
+
+#: api/templates/components/organisms/search_forms.html:11
+msgid "Escribe el nombre del juego (ej: Sonic, Mario, Zelda...)"
+msgstr "Type the game name (e.g., Sonic, Mario, Zelda...)"
+
+#: api/templates/components/organisms/search_forms.html:35
+msgid "Introduce el hash del juego"
+msgstr "Enter the game hash"
+
+#: api/templates/components/organisms/search_forms.html:62
+msgid "Cómo encontrar el hash"
+msgstr "How to find the hash"
+
+#: api/templates/layouts/base.html:56
+#, fuzzy
+msgid "No se encontraron juegos"
+msgstr "Step 2: Find the hash"
+
+#: api/templates/layouts/base.html:57
+msgid "Error en la búsqueda"
+msgstr ""
+
+#: api/templates/layouts/base.html:58
+#, fuzzy
+msgid "Versiones de:"
+msgstr "Versions"
+
+#: api/templates/layouts/base.html:59
+#, fuzzy
+msgid "Cargando versiones..."
+msgstr "Versions"
+
+#: api/templates/layouts/base.html:60
+msgid "✅ Recomendada"
+msgstr ""
+
+#: api/templates/layouts/base.html:61
+msgid "TRADUCCIÓN"
+msgstr ""
+
+#: api/templates/layouts/base.html:62
+msgid "Buscando en la base de datos..."
+msgstr ""
+
+#: api/templates/layouts/base.html:63
+#, fuzzy
+msgid "Descargando..."
+msgstr "Download"
+
+#: api/templates/layouts/base.html:64
+#, fuzzy
+msgid "¡Descargado!"
+msgstr "Download"
+
+#: api/templates/layouts/base.html:65
+msgid "No se pudieron cargar las versiones"
+msgstr ""
+
+#: api/templates/layouts/base.html:66
+msgid "Error al cargar las versiones"
+msgstr ""
+
+#: api/templates/layouts/base.html:67
+msgid "No se encontró el hash en la base de datos."
+msgstr ""
+
+#: api/templates/layouts/base.html:68
+msgid "No se pudo descargar el JSON desde la URL."
+msgstr ""
+
+#: api/templates/layouts/base.html:69
+msgid "Error al buscar el juego."
+msgstr ""
+
+#: api/templates/layouts/base.html:70
+msgid "No hay versiones disponibles."
+msgstr "No versions available."
+
+#: api/templates/layouts/base.html:71
+#, python-brace-format
+msgid "Página {page} de {total}"
+msgstr "Page {page} of {total}"
+
+#: api/templates/layouts/base.html:72
+msgid "Primera"
+msgstr "First"
+
+#: api/templates/layouts/base.html:73
+msgid "Anterior"
+msgstr "Previous"
+
+#: api/templates/layouts/base.html:74
+msgid "Siguiente"
+msgstr "Next"
+
+#: api/templates/layouts/base.html:75
+msgid "Última"
+msgstr "Last"
+
+#: api/templates/layouts/base.html:76
+msgid "Consolas"
+msgstr "Consoles"
+
+#: api/templates/layouts/base.html:77
+msgid "Versiones"
+msgstr "Versions"
+
+#: api/templates/layouts/base.html:78
+msgid "Descargar"
+msgstr "Download"
+
+#: api/templates/layouts/base.html:79
+msgid "Sin resultados"
+msgstr "No results"
+
+#: api/templates/layouts/base.html:80
+#, python-brace-format
+msgid "{total} juegos encontrados"
+msgstr "{total} games found"
+
+#: api/templates/layouts/base.html:81
+msgid "en"
+msgstr "in"
+
+#: api/templates/layouts/base.html:82
+msgid "para"
+msgstr "for"
+

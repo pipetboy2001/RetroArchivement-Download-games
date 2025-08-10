@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{ (g.babel_locale if g and g.babel_locale else 'es') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}RetroAchievements Downloader{% endblock %}</title>
+    <title>{% block title %}{{ _('RetroAchievements Downloader') }}{% endblock %}</title>
     
     <!-- Favicon -->
     <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/x-icon">
@@ -34,6 +34,12 @@
     {% block extra_head %}{% endblock %}
 </head>
 <body class="bg-gray-50 min-h-screen">
+    <!-- Language Switcher -->
+    <div class="container mx-auto px-4 pt-3 max-w-2xl text-right text-sm">
+        <a href="{{ url_for('set_language', lang='es') }}" class="underline text-retro-blue hover:text-retro-dark">ES</a>
+        ·
+        <a href="{{ url_for('set_language', lang='en') }}" class="underline text-retro-blue hover:text-retro-dark">EN</a>
+    </div>
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-4 max-w-2xl">
         {% block content %}{% endblock %}
@@ -45,6 +51,45 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
+        <script id="i18n-json" type="application/json">
+            {
+                "noResults": {{ _('No se encontraron juegos')|tojson }},
+                "searchError": {{ _('Error en la búsqueda')|tojson }},
+                "versionsOf": {{ _('Versiones de:')|tojson }},
+                "loadingVersions": {{ _('Cargando versiones...')|tojson }},
+                "recommended": {{ _('✅ Recomendada')|tojson }},
+                "translation": {{ _('TRADUCCIÓN')|tojson }},
+                "searching": {{ _('Buscando en la base de datos...')|tojson }},
+                "downloading": {{ _('Descargando...')|tojson }},
+                "downloaded": {{ _('¡Descargado!')|tojson }},
+                "loadVersionsError": {{ _('No se pudieron cargar las versiones')|tojson }},
+                "loadVersionsGenericError": {{ _('Error al cargar las versiones')|tojson }},
+                "notFoundHash": {{ _('No se encontró el hash en la base de datos.')|tojson }},
+                "serverJsonError": {{ _('No se pudo descargar el JSON desde la URL.')|tojson }},
+                "searchGameError": {{ _('Error al buscar el juego.')|tojson }},
+                "noVersionsAvailable": {{ _('No hay versiones disponibles.')|tojson }},
+                "pageOf": {{ _('Página {page} de {total}')|tojson }},
+                "first": {{ _('Primera')|tojson }},
+                "prev": {{ _('Anterior')|tojson }},
+                "next": {{ _('Siguiente')|tojson }},
+                "last": {{ _('Última')|tojson }},
+                "consolesLabel": {{ _('Consolas')|tojson }},
+                "versionsLabel": {{ _('Versiones')|tojson }},
+                "downloadLabel": {{ _('Descargar')|tojson }},
+                "noResultsList": {{ _('Sin resultados')|tojson }},
+                "foundGames": {{ _('{total} juegos encontrados')|tojson }},
+                "inWord": {{ _('en')|tojson }},
+                "forWord": {{ _('para')|tojson }}
+            }
+        </script>
+        <script>
+            (function(){
+                try {
+                    var el = document.getElementById('i18n-json');
+                    if (el) { window.__i18n = JSON.parse(el.textContent); }
+                } catch (e) { /* noop */ }
+            })();
+        </script>
     {% block scripts %}{% endblock %}
 </body>
 </html>

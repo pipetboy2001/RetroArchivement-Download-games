@@ -2,17 +2,17 @@
     <div class="flex justify-center mb-2">
         <img
             src="{{ url_for('static', filename='images/retroachievements-logo-large.png') }}"
-            alt="Logo de RetroAchievements"
+            alt="{{ _('Logo de RetroAchievements') }}"
             class="h-10 w-auto"
         />
     </div>
     <p class="text-gray-600 text-sm mb-1">&copy; 2025 RetroAchievements.org</p>
     <p class="text-gray-600 text-sm">
-        Desarrollado por
+        {{ _('Desarrollado por') }}
         <a href="https://github.com/pipetboy2001" target="_blank" class="text-retro-blue hover:text-retro-dark underline">
             Pipetboy
         </a>
     ·
-    <a href="{{ url_for('faq') }}" class="text-retro-blue hover:text-retro-dark underline">FAQ y Aviso legal</a>
+    <a href="{{ url_for('faq') }}" class="text-retro-blue hover:text-retro-dark underline">{{ _('FAQ y Aviso legal') }}</a>
     </p>
 </footer>
