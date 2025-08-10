@@ -140,7 +140,7 @@
           <div class="text-xs text-gray-500">Consolas: ${esc(consoles)} • Versiones: ${versions}</div>
         </div>
         <div class="text-right">
-          <button type="button" class="px-3 py-1 border rounded hover:bg-gray-100 text-gray-700" data-action="placeholder" data-game-id="${esc((g.id || '').toString())}">Acción</button>
+          <button type="button" class="px-3 py-1 border rounded hover:bg-gray-100 text-gray-700" data-action="placeholder" data-game-id="${esc((g.id || '').toString())}">Descargar</button>
         </div>`;
       list.appendChild(row);
     }
