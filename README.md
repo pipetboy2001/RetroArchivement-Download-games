@@ -67,8 +67,9 @@ No, la aplicación abre la URL de descarga en tu navegador. Desde ahí puedes de
 
 ### Versión Web
 1. **Accede a la web**: [RetroAchievements Downloader](https://retroachievements.vercel.app/)
-2. **Introduce el hash**: Ingresa el hash del juego en el campo correspondiente
-3. **Descarga**: Si el hash es encontrado, se abrirá la URL de descarga
+2. **Inicia sesión en archive.org**: Antes de descargar, inicia sesión en <https://archive.org/>
+3. **Introduce el hash**: Ingresa el hash del juego en el campo correspondiente
+4. **Descarga**: Si el hash es encontrado, se abrirá la URL de descarga en archive.org
 
 ### Versión de Consola
 
@@ -217,6 +218,16 @@ No, la aplicación abre la URL de descarga en tu navegador. Desde ahí puedes de
 ##  🙏 Agradecimientos
 
 Este proyecto está basado en el archivo JSON de **RetroAchievements** disponible en [archive.org](https://archive.org/download/retroachievements_collection_v5).
+
+## ⚖️ Aviso legal
+
+- Este proyecto no aloja, modifica ni redistribuye ROMs. Solo facilita el acceso a enlaces públicos en archive.org.
+- Los juegos, marcas y contenidos pertenecen a sus respectivos titulares. Su uso está sujeto a las leyes de derechos de autor aplicables.
+- El autor/desarrollador no se responsabiliza por el uso indebido de la herramienta ni por eventuales infracciones de copyright por parte de los usuarios.
+- El usuario es responsable de verificar que posee los derechos para descargar y usar cada archivo (por ejemplo, copias de seguridad de juegos que posee legalmente).
+- RetroAchievements es una plataforma de terceros sin relación oficial con este proyecto.
+
+Consulta también la página de **[FAQ y Aviso legal](/faq)** para más detalles (en la versión desplegada, la encontrarás en el pie de página como "FAQ y Aviso legal").
 
 ## 🤝 Contribuciones
 
