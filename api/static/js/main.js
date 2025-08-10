@@ -327,6 +327,7 @@ class RetroDownloader {
         const statusClass = type === 'success' ? 'status-success' : 
                            type === 'error' ? 'status-error' : 'status-info';
         
+        $('#statusWrapper').removeClass('hidden');
         $('#status')
             .removeClass('status-success status-error status-info')
             .addClass(statusClass)
@@ -335,14 +336,21 @@ class RetroDownloader {
 
     clearStatus() {
         $('#status').text('').removeClass('status-success status-error status-info');
+        if ($('#spinner').hasClass('hidden')) {
+            $('#statusWrapper').addClass('hidden');
+        }
     }
 
     showSpinner() {
+        $('#statusWrapper').removeClass('hidden');
         $('#spinner').removeClass('hidden').addClass('flex');
     }
 
     hideSpinner() {
         $('#spinner').addClass('hidden').removeClass('flex');
+        if (!$('#status').text().trim()) {
+            $('#statusWrapper').addClass('hidden');
+        }
     }
 
     openModal(modalId) {

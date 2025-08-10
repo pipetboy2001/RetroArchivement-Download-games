@@ -193,3 +193,6 @@
 
 /* Long names inside version cards should wrap nicely */
 .version-option h4 { word-break: break-word; overflow-wrap: anywhere; }
+
+/* Optional helper to compact vertical spacing when needed */
+.compact-space { margin-bottom: 0.25rem !important; }
