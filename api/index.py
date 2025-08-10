@@ -504,5 +504,11 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500
 
+# Página de FAQ y Aviso legal
+@app.route('/faq')
+def faq():
+    total_games = len(build_games_index()) if build_games_index() else 0
+    return render_template('faq.html', total_games=total_games)
+
 if __name__ == '__main__':
     app.run(debug=True)
