@@ -1,6 +1,6 @@
 <!-- Versions Modal -->
-<div id="versionsModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-hidden fade-in">
+<div id="versionsModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-2 sm:p-4 modal-overlay">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-lg sm:max-w-2xl overflow-hidden fade-in flex flex-col modal-panel modal-max-h">
         <!-- Modal Header -->
         <div class="gradient-bg text-white p-4 flex items-center justify-between">
             <h2 id="versionsModalLabel" class="text-lg font-bold flex items-center gap-2">
@@ -17,12 +17,12 @@
         </div>
         
         <!-- Modal Body -->
-        <div class="p-4 max-h-[55vh] overflow-y-auto custom-scrollbar">
+        <div class="p-4 flex-1 overflow-y-auto custom-scrollbar modal-body">
             <p class="text-gray-600 mb-4 text-sm">Este juego tiene múltiples versiones disponibles. Selecciona la que prefieras:</p>
             <div id="versionsContainer" class="space-y-2">
                 <!-- Versions will be loaded here -->
             </div>
-            <div id="versionsPagination" class="flex items-center justify-center gap-2 mt-3"></div>
+            <div id="versionsPagination" class="flex flex-wrap items-center justify-center gap-2 mt-3 modal-pagination"></div>
         </div>
         
         <!-- Modal Footer -->
@@ -39,8 +39,8 @@
 </div>
 
 <!-- Instructions Modal -->
-<div id="instructionsModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-    <div class="bg-white rounded-xl shadow-2xl max-w-3xl w-full max-h-[85vh] overflow-hidden fade-in">
+<div id="instructionsModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-2 sm:p-4 modal-overlay">
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-2xl sm:max-w-3xl overflow-hidden fade-in flex flex-col modal-panel modal-max-h">
         <!-- Modal Header -->
         <div class="gradient-bg text-white p-4 flex items-center justify-between">
             <h2 class="text-lg font-bold flex items-center gap-2">
@@ -57,7 +57,7 @@
         </div>
         
         <!-- Modal Body -->
-        <div class="p-4 max-h-[65vh] overflow-y-auto custom-scrollbar">
+        <div class="p-4 flex-1 overflow-y-auto custom-scrollbar modal-body">
             <div class="prose max-w-none">
                 <p class="text-gray-700 mb-4 text-sm">
                     Para encontrar el hash de un juego en RetroAchievements, sigue estos pasos:

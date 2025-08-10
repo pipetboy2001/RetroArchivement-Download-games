@@ -83,13 +83,13 @@
     }).join('');
 
     if (pag){
-      const btn = (p, label, disabled=false) => `<button ${disabled?'disabled':''} class="px-3 py-1 border rounded ${disabled?'opacity-50 cursor-not-allowed':'hover:bg-gray-100'}" data-vpage="${p}">${label}</button>`;
+      const btn = (p, label, disabled=false) => `<button ${disabled?'disabled':''} class="px-3 py-1 border rounded ${disabled?'opacity-50 cursor-not-allowed':'hover:bg-gray-100'}" data-vpage="${p}" aria-label="${label}">${label}</button>`;
       pag.innerHTML = `
-        ${btn(1, '« Primero', page<=1)}
-        ${btn(page-1, '‹ Anterior', page<=1)}
+        ${btn(1, '<<', page<=1)}
+        ${btn(page-1, '<', page<=1)}
         <span class="px-2 text-sm">Página ${page} de ${totalPages}</span>
-        ${btn(page+1, 'Siguiente ›', page>=totalPages)}
-        ${btn(totalPages, 'Último »', page>=totalPages)}
+        ${btn(page+1, '>', page>=totalPages)}
+        ${btn(totalPages, '>>', page>=totalPages)}
       `;
       pag.querySelectorAll('button[data-vpage]').forEach(b => b.addEventListener('click', () => { versionsState.page = parseInt(b.dataset.vpage); renderVersionsPage(); }));
     }
@@ -146,13 +146,13 @@
     }
 
     const { page, total_pages } = data;
-    const btn = (p, label, disabled=false) => `<button ${disabled?'disabled':''} class="px-3 py-1 border rounded ${disabled?'opacity-50 cursor-not-allowed':'hover:bg-gray-100'}" data-page="${p}">${label}</button>`;
+    const btn = (p, label, disabled=false) => `<button ${disabled?'disabled':''} class="px-3 py-1 border rounded ${disabled?'opacity-50 cursor-not-allowed':'hover:bg-gray-100'}" data-page="${p}" aria-label="${label}">${label}</button>`;
     pag.innerHTML = `
-      ${btn(1, '« Primero', page<=1)}
-      ${btn(page-1, '‹ Anterior', page<=1)}
+      ${btn(1, '<<', page<=1)}
+      ${btn(page-1, '<', page<=1)}
       <span class="px-2">Página ${page} de ${total_pages || 1}</span>
-      ${btn(page+1, 'Siguiente ›', page>=total_pages)}
-      ${btn(total_pages, 'Último »', page>=total_pages)}
+      ${btn(page+1, '>', page>=total_pages)}
+      ${btn(totalPages, '>>', page>=total_pages)}
     `;
     pag.querySelectorAll('button[data-page]').forEach(b => b.addEventListener('click', () => { state.page = parseInt(b.dataset.page); fetchGames(); }));
   }
@@ -167,8 +167,11 @@
     const q = document.getElementById('q');
     const c = document.getElementById('console');
     const ps = document.getElementById('page_size');
-  // Asegurar clase overlay en modales para poder detectar clic fuera
-  ['versionsModal','instructionsModal'].forEach(id => { const el = document.getElementById(id); if (el) el.classList.add('modal-overlay'); });
+    // Asegurar clase overlay en modales para poder detectar clic fuera en móvil
+    ['versionsModal','instructionsModal'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('modal-overlay');
+    });
     if (q) q.addEventListener('input', () => {
       clearTimeout(state.typingTimer);
       state.typingTimer = setTimeout(() => { state.q = q.value.trim(); state.page = 1; fetchGames(); }, 300);

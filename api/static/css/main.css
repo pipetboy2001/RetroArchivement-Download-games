@@ -139,6 +139,9 @@
     .mobile-text-sm {
         font-size: 0.875rem;
     }
+
+    /* Modal spacing tweaks on very small screens */
+    .modal-panel { border-radius: 0.75rem; }
 }
 
 /* Focus states for accessibility */
@@ -174,3 +177,19 @@
     font-size: 0.75rem;
     font-weight: 500;
 }
+
+/* Modal helpers */
+.modal-overlay { display: none; }
+.modal-overlay.flex { display: flex; }
+
+/* Use dynamic viewport for mobile toolbars; fallback to 85vh for older browsers */
+.modal-max-h { max-height: 85vh; }
+@supports (max-height: 90dvh) {
+    .modal-max-h { max-height: 90dvh; }
+}
+
+.modal-body img { height: auto; max-width: 100%; }
+.modal-pagination { row-gap: 0.5rem; }
+
+/* Long names inside version cards should wrap nicely */
+.version-option h4 { word-break: break-word; overflow-wrap: anywhere; }
