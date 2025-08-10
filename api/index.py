@@ -325,6 +325,19 @@ def api_games():
         'total_pages': total_pages
     }
 
+@app.route('/dl')
+def dl_redirect():
+    """Redirige al enlace de descarga a partir de un hash."""
+    hash_value = request.args.get('hash', '', type=str)
+    data = load_json_file()
+    if not data or not hash_value:
+        return "Hash no provisto o base de datos no disponible", 400
+    rom_path = find_hash_in_json(data, hash_value)
+    if not rom_path:
+        return f"No se encontró el hash '{hash_value}'", 404
+    url = get_download_url(rom_path)
+    return redirect(url)
+
 @app.route('/get_game_versions', methods=['POST'])
 def get_game_versions():
     game_id = request.form.get('game_id', '')
