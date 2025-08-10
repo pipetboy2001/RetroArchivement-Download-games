@@ -3,6 +3,7 @@ import json
 import webbrowser
 import time
 import os
+from urllib.parse import quote
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Necesario para usar flash
@@ -311,6 +312,19 @@ def find_hash_in_json(json_data, hash_value):
 
 # Función para obtener la URL de descarga
 def get_download_url(rom_path: str) -> str:
+    # Helpers locales (alineados con src/factories/url_factory.py)
+    def _normalize_slashes(path: str) -> str:
+        return path.replace("\\", "/").lstrip("/")
+
+    def _encode_rel_path(path: str) -> str:
+        return quote(path, safe="/-_.")
+
+    def _strip_first_segment_if_matches(path: str, segment: str) -> str:
+        norm = _normalize_slashes(path)
+        if norm.lower().startswith(segment.lower() + "/"):
+            return norm.split("/", 1)[1]
+        return norm
+
     # Definir los prefix URLs para cada tipo de juego
     base_urls = {
         "ARCADE": "https://archive.org/download/fbnarcade-fullnonmerged/arcade/",
@@ -325,27 +339,29 @@ def get_download_url(rom_path: str) -> str:
 
     # Determinar el tipo de juego a partir del rom_path
     print(f"Obteniendo URL de descarga para: {rom_path}")  # Log de descarga
-    if "SNES-Super Famicom" in rom_path:
-        return base_urls["SNES"] + rom_path.replace("\\", "/").replace(" ", "%20")
-    elif "NES-Famicom" in rom_path:
-        return base_urls["NES"] + rom_path.replace("\\", "/").replace(" ", "%20")
-    elif "arcade" in rom_path:
-        return base_urls["ARCADE"] + rom_path.replace("\\", "/").replace(" ", "%20").replace("arcade/", "")
-    elif "PlayStation Portable" in rom_path:
-        game_folder, game_file = rom_path.split("/")[1], rom_path.split("/")[-1]
-        return base_urls["PSP"] + game_folder + "/" + game_file.replace(" ", "%20").replace("!", "%21").replace("(", "%28").replace(")", "%29")
-    elif "PlayStation 2" in rom_path:
-        game_folder, game_file = rom_path.split("/")[-2], rom_path.split("/")[-1]
-        first_letter = game_folder[0].upper()
-        if 'A' <= first_letter <= 'M':
-            return base_urls["PS2_A_M"] + game_folder + "/" + game_file.replace("\\", "/").replace(" ", "%20")
-        elif 'N' <= first_letter <= 'Z':
-            return base_urls["PS2_N_Z"] + game_folder + "/" + game_file.replace("\\", "/").replace(" ", "%20")
-    elif "PlayStation" in rom_path:
-        game_folder, game_file = rom_path.split("/")[-2], rom_path.split("/")[-1]
-        return base_urls["PS1"] + game_folder + "/" + game_file.replace("\\", "/").replace(" ", "%20")
+    norm = _normalize_slashes(rom_path)
+
+    if "SNES-Super Famicom" in norm:
+        return base_urls["SNES"] + _encode_rel_path(norm)
+    elif "NES-Famicom" in norm:
+        return base_urls["NES"] + _encode_rel_path(norm)
+    # Arcade: si el primer segmento es 'arcade', quitarlo
+    elif (norm.split("/", 1)[0].lower() == "arcade"):
+        rel = norm.split("/", 1)[1] if "/" in norm else ""
+        return base_urls["ARCADE"] + _encode_rel_path(rel)
+    elif "playstation portable" in norm.lower():
+        rel = _strip_first_segment_if_matches(norm, "PlayStation Portable")
+        return base_urls["PSP"] + _encode_rel_path(rel)
+    elif "playstation 2" in norm.lower():
+        rel = _strip_first_segment_if_matches(norm, "PlayStation 2")
+        game_name = rel.split('/')[-1] if '/' in rel else rel
+        base = base_urls["PS2_A_M"] if (game_name and game_name[0].upper() < 'N') else base_urls["PS2_N_Z"]
+        return base + _encode_rel_path(rel)
+    elif "playstation" in norm.lower():
+        rel = _strip_first_segment_if_matches(norm, "PlayStation")
+        return base_urls["PS1"] + _encode_rel_path(rel)
     else:
-        return base_urls["DC"] + rom_path.replace("\\", "/").replace(" ", "%20")
+        return base_urls["DC"] + _encode_rel_path(norm)
 
 @app.route('/')
 def index():
