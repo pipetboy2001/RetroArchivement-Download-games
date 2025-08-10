@@ -1,0 +1,20 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Todos los juegos ({{ total_games }}) - RetroAchievements{% endblock %}
+
+{% block content %}
+  {% include "components/organisms/games_header.html" %}
+
+  <div class="bg-white rounded-xl shadow-md p-4 card-shadow">
+    {% include "components/organisms/games_filters.html" %}
+    {% include "components/molecules/games_summary.html" %}
+    {% include "components/organisms/games_list.html" %}
+  </div>
+
+  {% include "components/atoms/scroll_top_button.html" %}
+  {% include "components/organisms/modals.html" %}
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/games.js') }}"></script>
+{% endblock %}
