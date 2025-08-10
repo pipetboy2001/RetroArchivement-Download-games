@@ -105,47 +105,121 @@ def analyze_rom_info(rom_path):
 
 # Deducir consola a partir de la carpeta raíz del rom_path
 def get_console_from_rom_path(rom_path: str) -> str:
+    """Devuelve el nombre canónico de consola a partir de la carpeta raíz.
+    Unifica alias, abreviaturas y variaciones (p.ej. nes/NES, megadriv -> Genesis/Mega Drive, npg -> Neo Geo Pocket).
+    """
     norm = rom_path.replace('\\', '/').strip()
-    root = norm.split('/')[:1][0] if '/' in norm else norm
-    root_l = root.lower()
+    root = norm.split('/', 1)[0] if '/' in norm else norm
+    raw = root.strip()
+
+    # Normalización básica del texto del root
+    t = raw.lower()
+    for ch in ['_', '-', '&', '(', ')', '[', ']', ',', '.']:
+        t = t.replace(ch, ' ')
+    t = ' '.join(t.split())  # compactar espacios
+
+    # Mapa de alias -> nombre canónico
     aliases = {
-        'snes-super famicom': 'SNES',
-        'nes-famicom': 'NES',
+        # Arcade
+        'arcade': 'ARCADE',
+
+        # Nintendo
+        'snes': 'SNES',
+        'snes super famicom': 'SNES',
+        'super nintendo': 'SNES',
+        'nes': 'NES',
+        'nes famicom': 'NES',
         'nintendo 64': 'N64',
-        'genesis-mega drive': 'Genesis/Mega Drive',
-        'mega drive-genesis': 'Genesis/Mega Drive',
+        'n64': 'N64',
+        'nintendo ds': 'Nintendo DS',
+        'nds': 'Nintendo DS',
+        'game boy': 'Game Boy',
+        'gb': 'Game Boy',
+        'game boy color': 'Game Boy Color',
+        'gbc': 'Game Boy Color',
+        'game boy advance': 'Game Boy Advance',
+        'gba': 'Game Boy Advance',
+
+        # Sega
+        'genesis': 'Genesis/Mega Drive',
+        'mega drive': 'Genesis/Mega Drive',
+        'megadrive': 'Genesis/Mega Drive',
+        'megadriv': 'Genesis/Mega Drive',
+        'md': 'Genesis/Mega Drive',
+        'genesis mega drive': 'Genesis/Mega Drive',
+        'mega drive genesis': 'Genesis/Mega Drive',
         'sega master system': 'Master System',
+        'master system': 'Master System',
+        'sms': 'Master System',
         'game gear': 'Game Gear',
+        'gg': 'Game Gear',
         'sega cd': 'Sega CD',
         'sega 32x': 'Sega 32X',
-        'playstation': 'PS1',
-        'playstation 2': 'PS2',
-        'playstation portable': 'PSP',
+        '32x': 'Sega 32X',
         'dreamcast': 'Dreamcast',
-        'nintendo ds': 'Nintendo DS',
-        'game boy': 'Game Boy',
-        'game boy color': 'Game Boy Color',
-        'game boy advance': 'Game Boy Advance',
-        'arcade': 'ARCADE',
+        'dc': 'Dreamcast',
+
+        # PlayStation
+        'playstation': 'PS1',
+        'psx': 'PS1',
+        'ps1': 'PS1',
+        'playstation 2': 'PS2',
+        'ps2': 'PS2',
+        'playstation portable': 'PSP',
+        'psp': 'PSP',
+
+        # NEC / PC Engine family
         'pc engine': 'PC Engine',
-        'turbo grafx-16': 'TurboGrafx-16',
-        'turbografx-16': 'TurboGrafx-16',
+        'pcengine': 'PC Engine',
+        'pce': 'PC Engine',
+        'turbo grafx 16': 'TurboGrafx-16',
+        'turbografx 16': 'TurboGrafx-16',
+        'tg16': 'TurboGrafx-16',
         'supergrafx': 'SuperGrafx',
+        'super grafx': 'SuperGrafx',
+
+        # SNK Neo Geo Pocket
         'neo geo pocket': 'Neo Geo Pocket',
+    'npg': 'Neo Geo Pocket',  # posible typo invertido
+    'ngp': 'Neo Geo Pocket',
         'neo geo pocket color': 'Neo Geo Pocket Color',
+        'ngpc': 'Neo Geo Pocket Color',
+
+        # Atari
         'atari 2600': 'Atari 2600',
         'atari 7800': 'Atari 7800',
         'atari lynx': 'Atari Lynx',
         'atari jaguar': 'Atari Jaguar',
+
+        # MSX
         'msx': 'MSX',
         'msx2': 'MSX2',
+
+        # WonderSwan
         'wonderswan': 'WonderSwan',
+        'ws': 'WonderSwan',
         'wonderswan color': 'WonderSwan Color',
+        'wsc': 'WonderSwan Color',
+
+        # Otros
         '3do': '3DO',
         'amiga': 'Amiga',
         'amiga cd32': 'Amiga CD32',
+    # Sega SG-1000
+    'sg 1000': 'SG-1000',
+    'sg1000': 'SG-1000',
+    'sg': 'SG-1000',  # solo si raíz es exactamente "sg", poco probable pero inofensivo
+    'sega 1000': 'SG-1000',
+    'sega1000': 'SG-1000',
     }
-    return aliases.get(root_l, root)
+
+    # Devolver mapeo canónico si existe, si no, devolver la raíz original "bonita"
+    if t in aliases:
+        return aliases[t]
+
+    # Como fallback, capitalizar palabras (evita duplicados por mayúsculas/minúsculas)
+    pretty = ' '.join(w.capitalize() for w in t.split()) if t else raw
+    return pretty or raw
 
 # Construir índice de juegos para listados/filtrado
 def build_games_index():
