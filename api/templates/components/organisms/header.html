@@ -6,11 +6,11 @@
         </h1>
         
         <!-- Stats Info Component -->
-        <div class="gradient-bg rounded-lg p-3 text-white fade-in">
+    <a href="{{ url_for('games_page') }}" class="block gradient-bg rounded-lg p-3 text-white fade-in hover:opacity-90 transition cursor-pointer focus:outline-none focus:ring-2 focus:ring-white/60" title="Ver todos los juegos" aria-label="Ver todos los juegos disponibles">
             <div class="flex items-center justify-center gap-2">
                 <span class="text-lg">📊</span>
                 <span class="font-semibold">{{ total_games }} juegos disponibles</span>
             </div>
-        </div>
+        </a>
     </div>
 </header>

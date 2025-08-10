@@ -11,6 +11,7 @@ app.secret_key = 'your_secret_key'  # Necesario para usar flash
 JSON_FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Data', 'TamperMonkeyRetroachievements.json')
 
 cached_json_data = None
+cached_games_index = None  # Índice cacheado para listados
 
 # Cargar el archivo JSON local
 def load_json_file():
@@ -39,11 +40,27 @@ def count_total_games(json_data):
 
 # Función para extraer el nombre del juego de la ruta
 def extract_game_name(rom_path):
-    # Extraer el nombre del juego de la ruta del ROM
-    parts = rom_path.split('/')
-    if len(parts) >= 2:
-        return parts[1]  # El nombre del juego está en la segunda posición
-    return rom_path
+    # Extraer nombre del juego usando la carpeta inmediatamente anterior al archivo;
+    # si no es válida (p.ej. !_flycast o consola raíz), usar el nombre del archivo sin extensión.
+    path = rom_path.replace('\\', '/').strip()
+    parts = [p for p in path.split('/') if p]
+    if not parts:
+        return rom_path
+    filename = parts[-1]
+    root = parts[0]
+    folder = parts[-2] if len(parts) >= 2 else ''
+
+    def clean(name: str) -> str:
+        # Quitar extensión y normalizar espacios/guiones bajos
+        base = name.rsplit('.', 1)[0]
+        base = base.replace('_', ' ').strip()
+        # Compactar múltiples espacios
+        return ' '.join(base.split())
+
+    invalid_folder_names = {root.lower(), 'arcade'}
+    is_invalid = (not folder) or folder.lower() in invalid_folder_names or folder.startswith('!_')
+    candidate = folder if not is_invalid else clean(filename)
+    return candidate
 
 # Función para extraer información detallada de un ROM
 def analyze_rom_info(rom_path):
@@ -85,6 +102,85 @@ def analyze_rom_info(rom_path):
         'is_original': is_original,
         'priority': priority
     }
+
+# Deducir consola a partir de la carpeta raíz del rom_path
+def get_console_from_rom_path(rom_path: str) -> str:
+    norm = rom_path.replace('\\', '/').strip()
+    root = norm.split('/')[:1][0] if '/' in norm else norm
+    root_l = root.lower()
+    aliases = {
+        'snes-super famicom': 'SNES',
+        'nes-famicom': 'NES',
+        'nintendo 64': 'N64',
+        'genesis-mega drive': 'Genesis/Mega Drive',
+        'mega drive-genesis': 'Genesis/Mega Drive',
+        'sega master system': 'Master System',
+        'game gear': 'Game Gear',
+        'sega cd': 'Sega CD',
+        'sega 32x': 'Sega 32X',
+        'playstation': 'PS1',
+        'playstation 2': 'PS2',
+        'playstation portable': 'PSP',
+        'dreamcast': 'Dreamcast',
+        'nintendo ds': 'Nintendo DS',
+        'game boy': 'Game Boy',
+        'game boy color': 'Game Boy Color',
+        'game boy advance': 'Game Boy Advance',
+        'arcade': 'ARCADE',
+        'pc engine': 'PC Engine',
+        'turbo grafx-16': 'TurboGrafx-16',
+        'turbografx-16': 'TurboGrafx-16',
+        'supergrafx': 'SuperGrafx',
+        'neo geo pocket': 'Neo Geo Pocket',
+        'neo geo pocket color': 'Neo Geo Pocket Color',
+        'atari 2600': 'Atari 2600',
+        'atari 7800': 'Atari 7800',
+        'atari lynx': 'Atari Lynx',
+        'atari jaguar': 'Atari Jaguar',
+        'msx': 'MSX',
+        'msx2': 'MSX2',
+        'wonderswan': 'WonderSwan',
+        'wonderswan color': 'WonderSwan Color',
+        '3do': '3DO',
+        'amiga': 'Amiga',
+        'amiga cd32': 'Amiga CD32',
+    }
+    return aliases.get(root_l, root)
+
+# Construir índice de juegos para listados/filtrado
+def build_games_index():
+    global cached_games_index
+    if cached_games_index is not None:
+        return cached_games_index
+    data = load_json_file()
+    if not data:
+        cached_games_index = []
+        return cached_games_index
+    games = []
+    for game_id, hash_list in data.items():
+        game_name = None
+        consoles = set()
+        total_versions = 0
+        sample_rom_path = None
+        for item in hash_list:
+            for _hash, rom_path in item.items():
+                if sample_rom_path is None:
+                    sample_rom_path = rom_path
+                total_versions += 1
+                current_name = extract_game_name(rom_path)
+                if not game_name:
+                    game_name = current_name
+                consoles.add(get_console_from_rom_path(rom_path))
+        games.append({
+            'id': game_id,
+            'name': game_name or f'Game {game_id}',
+            'consoles': sorted(list(consoles)),
+            'versions': total_versions,
+            'sample_rom_path': sample_rom_path
+        })
+    games.sort(key=lambda g: (g['name'] or '').lower())
+    cached_games_index = games
+    return cached_games_index
 
 # Función para buscar juegos por nombre (mejorada con múltiples versiones)
 def search_games_by_name(json_data, search_term):
@@ -182,6 +278,52 @@ def index():
     json_data = load_json_file()
     total_games = count_total_games(json_data) if json_data else 0
     return render_template('index.html', total_games=total_games)
+
+# Página de listado de juegos con filtros
+@app.route('/games')
+def games_page():
+    games = build_games_index()
+    # Consolas disponibles y conteos
+    console_counts = {}
+    for g in games:
+        for c in g['consoles']:
+            console_counts[c] = console_counts.get(c, 0) + 1
+    consoles = sorted(console_counts.items(), key=lambda x: x[0])
+    total = len(games)
+    return render_template('games.html', consoles=consoles, total_games=total)
+
+# API para obtener juegos filtrados/paginados
+@app.route('/api/games')
+def api_games():
+    games = build_games_index()
+    q = request.args.get('q', '', type=str).strip().lower()
+    console = request.args.get('console', '', type=str).strip()
+    page = max(1, request.args.get('page', 1, type=int))
+    page_size = min(400, max(10, request.args.get('page_size', 50, type=int)))
+
+    filtered = games
+    if console:
+        c_l = console.lower()
+        filtered = [g for g in filtered if any((cc or '').lower() == c_l for cc in g['consoles'])]
+    if q:
+        filtered = [g for g in filtered if q in (g['name'] or '').lower()]
+
+    total = len(filtered)
+    total_pages = (total + page_size - 1) // page_size if page_size else 1
+    if page > total_pages and total_pages > 0:
+        page = total_pages
+    start = (page - 1) * page_size
+    end = start + page_size
+    items = filtered[start:end]
+
+    return {
+        'success': True,
+        'items': items,
+        'page': page,
+        'page_size': page_size,
+        'total': total,
+        'total_pages': total_pages
+    }
 
 @app.route('/get_game_versions', methods=['POST'])
 def get_game_versions():
