@@ -53,8 +53,21 @@ Self-contained Flask app that **reimplements** the hash lookup and URL-generatio
 
 `Data/TamperMonkeyRetroachievements.json` is the canonical dataset: `{ game_id: [ { HASH: rom_path, ... }, ... ], ... }`. `rom_path`'s root folder encodes the console (e.g. `SNES-Super Famicom/...`, `PlayStation 2/...`); this convention is what both `src/` and `api/index.py` parse against instead of an explicit console field.
 
+## Workflow
+
+- Rama de integración: `dev`. Las ramas de trabajo salen de `dev` y hacen PR hacia `dev` (no a `main`). `main` se actualiza solo cuando se corta un release con las mejoras ya probadas en `dev`.
+- Mensajes de commit en formato Conventional Commits: `tipo(scope): descripción` (`fix`, `feat`, `refactor`, `docs`, etc).
+
+## Gotchas de Vercel (ya resueltos, pero quedan para no repetirlos)
+
+- **`vercel.json` → `config.includeFiles` debe ser un string (glob), nunca un array.** Un array pasa la validación local pero Vercel lo rechaza silenciosamente y cae a un build "zero-config" que falla en <1s sin log útil. Hoy está en `"**"` (incluye todo el repo en el bundle de `api/index.py`, que ahora importa de `src/`).
+- **El proyecto en Vercel (dashboard → Project Settings) tenía `Node.js Version: 20.x`**, descontinuado — rompía el build antes de llegar siquiera a la parte de Python. Se subió a `24.x` vía `vercel project update retroachievements --node-version 24.x --scope pipetboys-projects`.
+- **Existía un `api/requirements.txt` corrupto (UTF-16, de un commit viejo "Fixes #1")** que el builder de Python prioriza sobre el `requirements.txt` de la raíz cuando ambos existen. Se borró — la raíz es la única fuente de verdad de dependencias.
+- Para depurar un deploy fallido: `gh pr checks <n>` para ver si Vercel falló, luego `vercel inspect <deployment-url-o-dpl_id> --logs --scope pipetboys-projects` para el log real (requiere `vercel link` una vez por máquina).
+
 ## Working log
 
 Running notes on in-progress/planned work on this repo. Add an entry when starting non-trivial work; mark it done (or drop it) when finished.
 
-- (empty — nothing logged yet)
+- **Hecho**: consolidar lógica duplicada de consola/nombre/URL entre `src/` y `api/index.py` en `src/core/rom_info.py` (PR #13 → `dev`). Ver commits `21c6e39`, `83c8fdf`, `55a84fa`.
+- **Pendiente / ideas del usuario para más adelante** (sin decidir stack todavía): verificación de un hash insertado por el usuario, integración con la API de RetroAchievements para traer metadata de juegos, chequeo de compatibilidad contra sitios de terceros (ej. CoolROMs). Cuando se arranque esto, evaluar backend Python + frontend TS (Next.js zero-config con funciones Python en `api/*.py`, o "Vercel Services" si se necesitan servicios separados) — no crear la estructura de monorepo hasta que haya código TS real que la justifique.
