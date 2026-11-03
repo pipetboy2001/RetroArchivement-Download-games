@@ -69,5 +69,11 @@ Self-contained Flask app that **reimplements** the hash lookup and URL-generatio
 
 Running notes on in-progress/planned work on this repo. Add an entry when starting non-trivial work; mark it done (or drop it) when finished.
 
-- **Hecho**: consolidar lógica duplicada de consola/nombre/URL entre `src/` y `api/index.py` en `src/core/rom_info.py` (PR #13 → `dev`). Ver commits `21c6e39`, `83c8fdf`, `55a84fa`.
-- **Pendiente / ideas del usuario para más adelante** (sin decidir stack todavía): verificación de un hash insertado por el usuario, integración con la API de RetroAchievements para traer metadata de juegos, chequeo de compatibilidad contra sitios de terceros (ej. CoolROMs). Cuando se arranque esto, evaluar backend Python + frontend TS (Next.js zero-config con funciones Python en `api/*.py`, o "Vercel Services" si se necesitan servicios separados) — no crear la estructura de monorepo hasta que haya código TS real que la justifique.
+- **Hecho**: consolidar lógica duplicada de consola/nombre/URL entre `src/` y `api/index.py` en `src/core/rom_info.py` (PR #13 → `dev`).
+- **Hecho**: limpiar constantes muertas de `config.py` (PR #14).
+- **Hecho**: auto-generar `game_hashes.json` desde la API de RetroAchievements (`sync_want_to_play.py`, PR #15).
+- **Pendiente** (cada uno con su issue para no perder el contexto si se pierde la sesión):
+  - [#16](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/16) — enriquecer `/games` con datos de la API de RA (títulos reales, carátula, logros). Siguiente en la cola.
+  - [#17](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/17) — verificar si un hash insertado por el usuario funciona de verdad.
+  - [#18](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/18) — explorar compatibilidad con sitios de terceros (CoolROMs). Menor prioridad.
+  - [#19](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/19) — decidir stack TS / si vale un monorepo. Diferido hasta que haya una razón concreta.
