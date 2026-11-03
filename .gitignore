@@ -45,5 +45,6 @@ README_REFACTOR.md
 .env
 
 # Data files (keep structure but ignore if needed)
-# game_hashes.json
-# Data/*.json 
+game_hashes.json
+# Data/*.json
+.env*

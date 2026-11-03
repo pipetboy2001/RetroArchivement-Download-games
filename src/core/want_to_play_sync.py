@@ -6,6 +6,7 @@ region quedo.
 """
 import json
 import os
+import sys
 import time
 
 from dotenv import load_dotenv
@@ -17,6 +18,13 @@ from .rom_info import analyze_rom_info
 from ..utils.helpers import UIHelper
 
 DELAY_BETWEEN_GAMES = 0.4  # shortcut: pausa fija sin backoff, ver plan
+
+
+def _safe_console_text(text: str) -> str:
+    """Evita UnicodeEncodeError en consolas Windows (cp1252) con titulos
+    que traen caracteres fuera de ese charset (acentos japoneses, etc)."""
+    encoding = sys.stdout.encoding or "utf-8"
+    return text.encode(encoding, errors="replace").decode(encoding)
 
 
 def _bucket_region(rom_path: str) -> str:
@@ -68,18 +76,22 @@ class WantToPlaySync:
             self.ui.display_error_message(f"No se pudo obtener la lista 'Want to Play': {e}")
             return
 
+        self.ui.display_info_message(f"{len(want_to_play)} juegos en la lista. Consultando hashes...")
+
         result = {}
         games_without_hashes = []
+        total = len(want_to_play)
 
         for i, game in enumerate(want_to_play):
             if i > 0:
                 time.sleep(DELAY_BETWEEN_GAMES)
 
             title = game.get("Title", f"Game {game.get('ID')}")
+            print(f"[{i + 1}/{total}] {_safe_console_text(title)}")
             try:
                 hashes = client.get_game_hashes(game["ID"])
             except RetroAchievementsAPIError as e:
-                self.ui.display_error_message(f"{title}: {e}")
+                self.ui.display_error_message(_safe_console_text(f"{title}: {e}"))
                 games_without_hashes.append(title)
                 continue
 
@@ -108,7 +120,7 @@ class WantToPlaySync:
         if games_without_hashes:
             self.ui.display_info_message(
                 f"{len(games_without_hashes)} juegos sin ningun hash descargable: "
-                + ", ".join(games_without_hashes)
+                + _safe_console_text(", ".join(games_without_hashes))
             )
 
 
