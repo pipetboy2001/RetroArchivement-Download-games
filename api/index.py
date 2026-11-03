@@ -1,9 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-import json
 import webbrowser
-import time
 import os
-from urllib.parse import quote
+import sys
+
+# Permite importar el paquete src/ (core de dominio compartido con la app de
+# consola) cuando este archivo corre como función serverless en Vercel.
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from src.core.data_manager import RetroAchievementsDataManager
+from src.core.rom_info import get_console_from_rom_path, extract_game_name, analyze_rom_info
+from src.factories.url_factory import URLGeneratorFactory
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Necesario para usar flash
@@ -11,216 +17,17 @@ app.secret_key = 'your_secret_key'  # Necesario para usar flash
 # Ruta al archivo JSON local
 JSON_FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Data', 'TamperMonkeyRetroachievements.json')
 
-cached_json_data = None
+data_manager = RetroAchievementsDataManager(json_file_path=JSON_FILE_PATH)
 cached_games_index = None  # Índice cacheado para listados
 
 # Cargar el archivo JSON local
 def load_json_file():
-    global cached_json_data
-    if cached_json_data is None:
-        try:
-            print(f"Cargando JSON desde {JSON_FILE_PATH}...")
-            with open(JSON_FILE_PATH, 'r', encoding='utf-8') as file:
-                cached_json_data = json.load(file)
-            print("JSON cargado exitosamente.")
-        except FileNotFoundError:
-            print(f"Error: No se encontró el archivo JSON en {JSON_FILE_PATH}")
-            return None
-        except json.JSONDecodeError as e:
-            print(f"Error al decodificar el JSON: {e}")
-            return None
-        except Exception as e:
-            print(f"Error al cargar el JSON: {e}")
-            return None
-    return cached_json_data
+    return data_manager.load_data()
 
 # Función para contar total de juegos en la base de datos (optimizada)
 def count_total_games(json_data):
     # Simplemente contar el número de IDs únicos de juegos
     return len(json_data) if json_data else 0
-
-# Función para extraer el nombre del juego de la ruta
-def extract_game_name(rom_path):
-    # Extraer nombre del juego usando la carpeta inmediatamente anterior al archivo;
-    # si no es válida (p.ej. !_flycast o consola raíz), usar el nombre del archivo sin extensión.
-    path = rom_path.replace('\\', '/').strip()
-    parts = [p for p in path.split('/') if p]
-    if not parts:
-        return rom_path
-    filename = parts[-1]
-    root = parts[0]
-    folder = parts[-2] if len(parts) >= 2 else ''
-
-    def clean(name: str) -> str:
-        # Quitar extensión y normalizar espacios/guiones bajos
-        base = name.rsplit('.', 1)[0]
-        base = base.replace('_', ' ').strip()
-        # Compactar múltiples espacios
-        return ' '.join(base.split())
-
-    invalid_folder_names = {root.lower(), 'arcade'}
-    is_invalid = (not folder) or folder.lower() in invalid_folder_names or folder.startswith('!_')
-    candidate = folder if not is_invalid else clean(filename)
-    return candidate
-
-# Función para extraer información detallada de un ROM
-def analyze_rom_info(rom_path):
-    parts = rom_path.split('/')
-    filename = parts[-1] if parts else rom_path
-    
-    # Determinar tipo de ROM
-    is_hack = "[Hack]" in filename
-    is_translation = "[T+" in filename
-    is_original = "[!]" in filename
-    
-    # Extraer región
-    region = "Unknown"
-    if "(U)" in filename:
-        region = "USA"
-    elif "(E)" in filename:
-        region = "Europe"
-    elif "(J)" in filename:
-        region = "Japan"
-    elif "(UE)" in filename:
-        region = "USA/Europe"
-    
-    # Determinar prioridad (menor número = mayor prioridad)
-    priority = 0
-    if is_original and not is_hack and not is_translation:
-        priority = 1  # ROMs originales tienen máxima prioridad
-    elif is_original and is_translation:
-        priority = 2  # Traducciones oficiales
-    elif is_hack:
-        priority = 3  # Hacks tienen menor prioridad
-    else:
-        priority = 4  # Otros
-    
-    return {
-        'filename': filename,
-        'region': region,
-        'is_hack': is_hack,
-        'is_translation': is_translation,
-        'is_original': is_original,
-        'priority': priority
-    }
-
-# Deducir consola a partir de la carpeta raíz del rom_path
-def get_console_from_rom_path(rom_path: str) -> str:
-    """Devuelve el nombre canónico de consola a partir de la carpeta raíz.
-    Unifica alias, abreviaturas y variaciones (p.ej. nes/NES, megadriv -> Genesis/Mega Drive, npg -> Neo Geo Pocket).
-    """
-    norm = rom_path.replace('\\', '/').strip()
-    root = norm.split('/', 1)[0] if '/' in norm else norm
-    raw = root.strip()
-
-    # Normalización básica del texto del root
-    t = raw.lower()
-    for ch in ['_', '-', '&', '(', ')', '[', ']', ',', '.']:
-        t = t.replace(ch, ' ')
-    t = ' '.join(t.split())  # compactar espacios
-
-    # Mapa de alias -> nombre canónico
-    aliases = {
-        # Arcade
-        'arcade': 'ARCADE',
-
-        # Nintendo
-        'snes': 'SNES',
-        'snes super famicom': 'SNES',
-        'super nintendo': 'SNES',
-        'nes': 'NES',
-        'nes famicom': 'NES',
-        'nintendo 64': 'N64',
-        'n64': 'N64',
-        'nintendo ds': 'Nintendo DS',
-        'nds': 'Nintendo DS',
-        'game boy': 'Game Boy',
-        'gb': 'Game Boy',
-        'game boy color': 'Game Boy Color',
-        'gbc': 'Game Boy Color',
-        'game boy advance': 'Game Boy Advance',
-        'gba': 'Game Boy Advance',
-
-        # Sega
-        'genesis': 'Genesis/Mega Drive',
-        'mega drive': 'Genesis/Mega Drive',
-        'megadrive': 'Genesis/Mega Drive',
-        'megadriv': 'Genesis/Mega Drive',
-        'md': 'Genesis/Mega Drive',
-        'genesis mega drive': 'Genesis/Mega Drive',
-        'mega drive genesis': 'Genesis/Mega Drive',
-        'sega master system': 'Master System',
-        'master system': 'Master System',
-        'sms': 'Master System',
-        'game gear': 'Game Gear',
-        'gg': 'Game Gear',
-        'sega cd': 'Sega CD',
-        'sega 32x': 'Sega 32X',
-        '32x': 'Sega 32X',
-        'dreamcast': 'Dreamcast',
-        'dc': 'Dreamcast',
-
-        # PlayStation
-        'playstation': 'PS1',
-        'psx': 'PS1',
-        'ps1': 'PS1',
-        'playstation 2': 'PS2',
-        'ps2': 'PS2',
-        'playstation portable': 'PSP',
-        'psp': 'PSP',
-
-        # NEC / PC Engine family
-        'pc engine': 'PC Engine',
-        'pcengine': 'PC Engine',
-        'pce': 'PC Engine',
-        'turbo grafx 16': 'TurboGrafx-16',
-        'turbografx 16': 'TurboGrafx-16',
-        'tg16': 'TurboGrafx-16',
-        'supergrafx': 'SuperGrafx',
-        'super grafx': 'SuperGrafx',
-
-        # SNK Neo Geo Pocket
-        'neo geo pocket': 'Neo Geo Pocket',
-    'npg': 'Neo Geo Pocket',  # posible typo invertido
-    'ngp': 'Neo Geo Pocket',
-        'neo geo pocket color': 'Neo Geo Pocket Color',
-        'ngpc': 'Neo Geo Pocket Color',
-
-        # Atari
-        'atari 2600': 'Atari 2600',
-        'atari 7800': 'Atari 7800',
-        'atari lynx': 'Atari Lynx',
-        'atari jaguar': 'Atari Jaguar',
-
-        # MSX
-        'msx': 'MSX',
-        'msx2': 'MSX2',
-
-        # WonderSwan
-        'wonderswan': 'WonderSwan',
-        'ws': 'WonderSwan',
-        'wonderswan color': 'WonderSwan Color',
-        'wsc': 'WonderSwan Color',
-
-        # Otros
-        '3do': '3DO',
-        'amiga': 'Amiga',
-        'amiga cd32': 'Amiga CD32',
-    # Sega SG-1000
-    'sg 1000': 'SG-1000',
-    'sg1000': 'SG-1000',
-    'sg': 'SG-1000',  # solo si raíz es exactamente "sg", poco probable pero inofensivo
-    'sega 1000': 'SG-1000',
-    'sega1000': 'SG-1000',
-    }
-
-    # Devolver mapeo canónico si existe, si no, devolver la raíz original "bonita"
-    if t in aliases:
-        return aliases[t]
-
-    # Como fallback, capitalizar palabras (evita duplicados por mayúsculas/minúsculas)
-    pretty = ' '.join(w.capitalize() for w in t.split()) if t else raw
-    return pretty or raw
 
 # Construir índice de juegos para listados/filtrado
 def build_games_index():
@@ -300,68 +107,11 @@ def search_games_by_name(json_data, search_term):
 
 # Función para buscar por hash
 def find_hash_in_json(json_data, hash_value):
-    hash_value = hash_value.upper()
-    print(f"Buscando hash: {hash_value}")  # Log de búsqueda
-    for hash_list in json_data.values():
-        for item in hash_list:
-            if hash_value in item:
-                print(f"Hash encontrado: {item[hash_value]}")  # Log si se encuentra el hash
-                return item[hash_value]
-    print("Hash no encontrado.")  # Log si no se encuentra
-    return None
+    return data_manager.find_hash(hash_value)
 
 # Función para obtener la URL de descarga
 def get_download_url(rom_path: str) -> str:
-    # Helpers locales (alineados con src/factories/url_factory.py)
-    def _normalize_slashes(path: str) -> str:
-        return path.replace("\\", "/").lstrip("/")
-
-    def _encode_rel_path(path: str) -> str:
-        return quote(path, safe="/-_.")
-
-    def _strip_first_segment_if_matches(path: str, segment: str) -> str:
-        norm = _normalize_slashes(path)
-        if norm.lower().startswith(segment.lower() + "/"):
-            return norm.split("/", 1)[1]
-        return norm
-
-    # Definir los prefix URLs para cada tipo de juego
-    base_urls = {
-        "ARCADE": "https://archive.org/download/fbnarcade-fullnonmerged/arcade/",
-        "SNES": "https://archive.org/download/retroachievements_collection_SNES-Super_Famicom/",
-        "NES": "https://archive.org/download/retroachievements_collection_NES-Famicom/",
-        "PSP": "https://dn720005.ca.archive.org/0/items/retroachievements_collection_PlayStation_Portable/PlayStation%20Portable/",
-        "PS1": "https://archive.org/download/retroachievements_collection_PlayStation/PlayStation/",
-        "PS2_A_M": "https://archive.org/download/retroachievements_collection_PlayStation_2_A-M/PlayStation%202/",
-        "PS2_N_Z": "https://archive.org/download/retroachievements_collection_PlayStation_2_N-Z/PlayStation%202/",
-        "DC": "https://archive.org/download/retroachievements_collection_v5/"
-    }
-
-    # Determinar el tipo de juego a partir del rom_path
-    print(f"Obteniendo URL de descarga para: {rom_path}")  # Log de descarga
-    norm = _normalize_slashes(rom_path)
-
-    if "SNES-Super Famicom" in norm:
-        return base_urls["SNES"] + _encode_rel_path(norm)
-    elif "NES-Famicom" in norm:
-        return base_urls["NES"] + _encode_rel_path(norm)
-    # Arcade: si el primer segmento es 'arcade', quitarlo
-    elif (norm.split("/", 1)[0].lower() == "arcade"):
-        rel = norm.split("/", 1)[1] if "/" in norm else ""
-        return base_urls["ARCADE"] + _encode_rel_path(rel)
-    elif "playstation portable" in norm.lower():
-        rel = _strip_first_segment_if_matches(norm, "PlayStation Portable")
-        return base_urls["PSP"] + _encode_rel_path(rel)
-    elif "playstation 2" in norm.lower():
-        rel = _strip_first_segment_if_matches(norm, "PlayStation 2")
-        game_name = rel.split('/')[-1] if '/' in rel else rel
-        base = base_urls["PS2_A_M"] if (game_name and game_name[0].upper() < 'N') else base_urls["PS2_N_Z"]
-        return base + _encode_rel_path(rel)
-    elif "playstation" in norm.lower():
-        rel = _strip_first_segment_if_matches(norm, "PlayStation")
-        return base_urls["PS1"] + _encode_rel_path(rel)
-    else:
-        return base_urls["DC"] + _encode_rel_path(norm)
+    return URLGeneratorFactory.generate_url(rom_path)
 
 @app.route('/')
 def index():
