@@ -132,12 +132,21 @@
       const consoles = (g.consoles || []).join(', ');
       const name = esc(g.name);
       const versions = g.versions || 0;
+      const icon = g.image_icon
+        ? `<img src="${esc(g.image_icon)}" alt="" class="w-10 h-10 rounded object-cover flex-shrink-0" loading="lazy">`
+        : `<div class="w-10 h-10 rounded bg-gray-100 flex-shrink-0"></div>`;
+      const achievementsBadge = (g.achievements != null)
+        ? `<span class="ml-2 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded px-1.5 py-0.5">🏆 ${g.achievements}</span>`
+        : '';
       const row = document.createElement('div');
       row.className = 'py-3 flex flex-col md:flex-row md:items-center md:justify-between gap-2';
       row.innerHTML = `
-        <div>
-          <div class="font-medium text-gray-800">${name}</div>
-          <div class="text-xs text-gray-500">Consolas: ${esc(consoles)} • Versiones: ${versions}</div>
+        <div class="flex items-center gap-3">
+          ${icon}
+          <div>
+            <div class="font-medium text-gray-800">${name}${achievementsBadge}</div>
+            <div class="text-xs text-gray-500">Consolas: ${esc(consoles)} • Versiones: ${versions}</div>
+          </div>
         </div>
         <div class="text-right">
           <button type="button" class="px-3 py-1 border rounded hover:bg-gray-100 text-gray-700" data-action="placeholder" data-game-id="${esc((g.id || '').toString())}">Descargar</button>

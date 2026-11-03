@@ -10,19 +10,36 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.core.data_manager import RetroAchievementsDataManager
 from src.core.rom_info import get_console_from_rom_path, extract_game_name, analyze_rom_info
 from src.factories.url_factory import URLGeneratorFactory
+from src.core.link_checker import is_download_url_reachable, is_hash_recognized_by_ra
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Necesario para usar flash
 
 # Ruta al archivo JSON local
 JSON_FILE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Data', 'TamperMonkeyRetroachievements.json')
+RA_METADATA_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Data', 'retroachievements_metadata.json')
 
 data_manager = RetroAchievementsDataManager(json_file_path=JSON_FILE_PATH)
 cached_games_index = None  # Índice cacheado para listados
+cached_ra_metadata = None  # {game_id: {id, title, image_icon, achievements}}, generado por sync_games_metadata.py
 
 # Cargar el archivo JSON local
 def load_json_file():
     return data_manager.load_data()
+
+def load_ra_metadata():
+    """Carga Data/retroachievements_metadata.json (titulos/caratulas/logros reales).
+    Si no existe todavia (no se corrio sync_games_metadata.py), /games sigue
+    funcionando sin esos datos."""
+    global cached_ra_metadata
+    if cached_ra_metadata is None:
+        try:
+            import json
+            with open(RA_METADATA_FILE, 'r', encoding='utf-8') as f:
+                cached_ra_metadata = json.load(f).get('games', {})
+        except (FileNotFoundError, ValueError):
+            cached_ra_metadata = {}
+    return cached_ra_metadata
 
 # Función para contar total de juegos en la base de datos (optimizada)
 def count_total_games(json_data):
@@ -38,6 +55,7 @@ def build_games_index():
     if not data:
         cached_games_index = []
         return cached_games_index
+    ra_metadata = load_ra_metadata()
     games = []
     for game_id, hash_list in data.items():
         game_name = None
@@ -53,12 +71,15 @@ def build_games_index():
                 if not game_name:
                     game_name = current_name
                 consoles.add(get_console_from_rom_path(rom_path))
+        ra_info = ra_metadata.get(game_id)
         games.append({
             'id': game_id,
             'name': game_name or f'Game {game_id}',
             'consoles': sorted(list(consoles)),
             'versions': total_versions,
-            'sample_rom_path': sample_rom_path
+            'sample_rom_path': sample_rom_path,
+            'image_icon': ra_info.get('image_icon') if ra_info else None,
+            'achievements': ra_info.get('achievements') if ra_info else None,
         })
     games.sort(key=lambda g: (g['name'] or '').lower())
     cached_games_index = games
@@ -232,7 +253,12 @@ def search():
         hash_value = find_hash_in_json(json_data, search_term)
         if hash_value:
             download_url = get_download_url(hash_value)
-            return {'success': True, 'download_url': download_url}  # Devuelve URL si se encuentra el hash
+            return {
+                'success': True,
+                'download_url': download_url,
+                'link_ok': is_download_url_reachable(download_url),
+                'ra_recognized': is_hash_recognized_by_ra(search_term),
+            }
         else:
             return {'success': False, 'message': f"No se encontró el hash '{search_term}' en la base de datos."}, 404
     else:
