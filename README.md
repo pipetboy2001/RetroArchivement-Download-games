@@ -131,6 +131,7 @@ RetroArchivement-Download-games/
 ├── 📄 main.py                 # Punto de entrada unificado
 ├── 📄 console_mode.py         # Modo hash directo
 ├── 📄 want_to_play.py         # Modo lista de deseos
+├── 📄 sync_want_to_play.py    # Genera game_hashes.json desde la API de RA
 ├── 📄 config.py               # Configuraciones centralizadas
 ├── 📄 game_hashes.json        # Lista de juegos deseados
 ├── 📄 .env                    # Variables de entorno
@@ -145,8 +146,16 @@ Asegúrate de que existe `Data/TamperMonkeyRetroachievements.json` con los hashe
 
 ### Lista de deseos
 Para usar el modo "Want to Play":
-1. **Archivo de juegos**: `game_hashes.json` con tus juegos deseados
+1. **Archivo de juegos**: `game_hashes.json` con tus juegos deseados — se genera automáticamente con `python sync_want_to_play.py` (ver abajo), o se puede armar a mano.
 2. **Variables de entorno**: Configura `.env` con tu API Key de RetroAchievements
+
+#### Generar game_hashes.json automáticamente
+
+```bash
+python sync_want_to_play.py
+```
+
+Trae tu lista real de "Want to Play" desde la API de RetroAchievements, cruza cada hash contra `Data/TamperMonkeyRetroachievements.json` para quedarse solo con los que sí se pueden descargar, y sobreescribe `game_hashes.json`. Requiere `API_KEY` y `RETROACHIEVEMENTS_USERNAME` en `.env`.
 
 ### Configuración de API RetroAchievements (para modo "Want to Play")
 
@@ -167,7 +176,7 @@ cp ejemplo.env .env
 
 # 2. Edita .env con tus credenciales
 API_KEY=tu_api_key_de_retroachievements_aqui
-USERNAME=tu_nombre_de_usuario_de_retroachievements
+RETROACHIEVEMENTS_USERNAME=tu_nombre_de_usuario_de_retroachievements
 ```
 
 #### 📋 **Ejemplo de archivo .env:**
@@ -175,7 +184,7 @@ USERNAME=tu_nombre_de_usuario_de_retroachievements
 ```bash
 # Credenciales de RetroAchievements
 API_KEY=AbCdEf123456789
-USERNAME=MiUsuarioRetroAchievements
+RETROACHIEVEMENTS_USERNAME=MiUsuarioRetroAchievements
 ```
 
 > **💡 Nota**: La API Key es **opcional** para la búsqueda directa por hash. Solo se necesita para generar y gestionar tu lista personal de "Want to Play".
