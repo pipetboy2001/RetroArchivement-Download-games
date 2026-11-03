@@ -2,3 +2,4 @@ requests
 rich
 python-dotenv
 beautifulsoup4
+flask
