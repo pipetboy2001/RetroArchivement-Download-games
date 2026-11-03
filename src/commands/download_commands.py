@@ -6,6 +6,7 @@ from typing import List
 from rich.console import Console
 
 from ..core.interfaces import DownloadCommand, GameInfo
+from ..core.link_checker import is_download_url_reachable, is_hash_recognized_by_ra
 from ..factories.url_factory import URLGeneratorFactory
 
 
@@ -20,16 +21,28 @@ class OpenInBrowserCommand(DownloadCommand):
         """Ejecuta la apertura en el navegador."""
         try:
             download_url = URLGeneratorFactory.generate_url(self.game_info.rom_path)
-            
+
             self.console.print(
-                f"Hash encontrado. La URL de descarga es: {download_url}", 
+                f"Hash encontrado. La URL de descarga es: {download_url}",
                 style="bold green"
             )
+
+            link_ok = is_download_url_reachable(download_url)
             self.console.print(
-                f"Abriendo [link]{download_url}[/link] en el navegador...", 
+                f"{'✅' if link_ok else '⚠️'} Link de descarga {'verificado' if link_ok else 'no responde (puede estar roto)'}",
+                style="bold green" if link_ok else "bold yellow"
+            )
+            ra_recognized = is_hash_recognized_by_ra(self.game_info.hash_value)
+            self.console.print(
+                f"{'✅' if ra_recognized else 'ℹ️'} Hash {'reconocido' if ra_recognized else 'no encontrado'} en el catálogo de RetroAchievements",
+                style="bold green" if ra_recognized else "dim"
+            )
+
+            self.console.print(
+                f"Abriendo [link]{download_url}[/link] en el navegador...",
                 style="bold blue"
             )
-            
+
             webbrowser.open(download_url)
             return True
             

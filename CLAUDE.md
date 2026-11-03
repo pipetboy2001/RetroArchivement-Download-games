@@ -65,9 +65,21 @@ Self-contained Flask app that **reimplements** the hash lookup and URL-generatio
 - **Existía un `api/requirements.txt` corrupto (UTF-16, de un commit viejo "Fixes #1")** que el builder de Python prioriza sobre el `requirements.txt` de la raíz cuando ambos existen. Se borró — la raíz es la única fuente de verdad de dependencias.
 - Para depurar un deploy fallido: `gh pr checks <n>` para ver si Vercel falló, luego `vercel inspect <deployment-url-o-dpl_id> --logs --scope pipetboys-projects` para el log real (requiere `vercel link` una vez por máquina).
 
+## API de RetroAchievements
+
+- `src/core/retroachievements_api.py`: `RetroAchievementsClient`, wrapper fino sobre `requests` para la Web API de RA (`API_KEY` en `.env`). Reintenta automáticamente (3 intentos, 1s de pausa) errores de red, no de HTTP status — útil porque la API a veces se queda colgada varios segundos sin devolver ni un 429 explícito.
+- `sync_want_to_play.py` → genera `game_hashes.json` (personal, gitignored) desde tu lista "Want to Play".
+- `sync_games_metadata.py` → genera `Data/retroachievements_metadata.json` (público, se commitea) cruzando **todo** el catálogo por hash exacto vía `GetGameList(consoleId, h=1)` (trae todos los hashes de una consola en una sola llamada — no hace falta pedirlos juego por juego). Usado por `/games` (carátulas/logros) y por `src/core/link_checker.py` (¿RA reconoce este hash?).
+- **No existe un endpoint público hash→GameID** en la Web API de RA (confirmado contra la doc oficial). Por eso `sync_games_metadata.py` matchea consolas por nombre normalizado (con una tabla chica de alias a mano para NES/SNES/PS1/PS2/PSP/N64/etc, que no matchean por nombre normalizado contra RA) y dentro de cada consola matchea por hash exacto, no por título.
+- **Rate limiting real**: no hay un número publicado, pero en la práctica la API empieza a devolver timeouts de lectura (no un 429 limpio) después de un uso intenso en poco tiempo (ej. correr `sync_want_to_play.py` sobre 428 juegos y después `sync_games_metadata.py` varias veces seguidas). Si `sync_games_metadata.py` falla con `ReadTimeoutError` repetido, esperar un rato antes de reintentar — no es un bug, es la API limitándonos.
+- `archive.org` devuelve **401** (no 404) para archivos que existen pero requieren login en el navegador — `link_checker.is_download_url_reachable` solo cuenta 404/410 como "roto", 401/403 cuenta como alcanzable.
+
 ## Working log
 
 Running notes on in-progress/planned work on this repo. Add an entry when starting non-trivial work; mark it done (or drop it) when finished.
 
-- **Hecho**: consolidar lógica duplicada de consola/nombre/URL entre `src/` y `api/index.py` en `src/core/rom_info.py` (PR #13 → `dev`). Ver commits `21c6e39`, `83c8fdf`, `55a84fa`.
-- **Pendiente / ideas del usuario para más adelante** (sin decidir stack todavía): verificación de un hash insertado por el usuario, integración con la API de RetroAchievements para traer metadata de juegos, chequeo de compatibilidad contra sitios de terceros (ej. CoolROMs). Cuando se arranque esto, evaluar backend Python + frontend TS (Next.js zero-config con funciones Python en `api/*.py`, o "Vercel Services" si se necesitan servicios separados) — no crear la estructura de monorepo hasta que haya código TS real que la justifique.
+- **Hecho**: consolidar lógica duplicada de consola/nombre/URL entre `src/` y `api/index.py` en `src/core/rom_info.py` (PR #13 → `dev`).
+- **Hecho**: limpiar constantes muertas de `config.py` (PR #14).
+- **Hecho**: auto-generar `game_hashes.json` desde la API de RA (PR #15).
+- **Hecho** (código completo, dato pendiente de generar): issues [#16](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/16) + [#17](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/17) juntas — metadata de RA en `/games` + verificación de hash/link. El código está probado (smoke checks, `/search` y `/games` funcionan sin el archivo de metadata presente, degradan a `None`/`False`), pero **`Data/retroachievements_metadata.json` todavía no se generó** porque la API de RA empezó a devolver timeouts por uso intenso durante las pruebas de hoy. Falta: correr `python sync_games_metadata.py` cuando la API esté respondiendo normal, y commitear el archivo resultante.
+- **Pendiente**: [#18](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/18) compatibilidad con terceros (CoolROMs, menor prioridad), [#19](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/19) decidir stack TS/monorepo (diferido hasta que haya una razón concreta).
