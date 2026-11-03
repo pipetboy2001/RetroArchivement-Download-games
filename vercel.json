@@ -5,7 +5,7 @@
       "src": "api/index.py",
       "use": "@vercel/python",
       "config": {
-        "includeFiles": ["src/**", "config.py", "Data/**"]
+        "includeFiles": "**"
       }
     }
   ],
