@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import GameCard from "./GameCard";
 import { useCart } from "./CartContext";
-import { SearchIcon } from "./icons";
+import { BoltIcon, SearchIcon } from "./icons";
 import type { ConsoleCount, Game, GamesResponse, SearchResult } from "./types";
 
 const PAGE_SIZE = 50;
@@ -161,14 +161,19 @@ export default function GamesView() {
                   {verify.link_ok ? "enlace verificado" : "enlace no verificado"}
                 </span>
               </div>
-              <button
-                type="button"
-                className="btn-ghost"
-                disabled={cart.has(verifyHash)}
-                onClick={addVerifyToCart}
-              >
-                {cart.has(verifyHash) ? "En el carrito" : "Agregar al carrito"}
-              </button>
+              <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+                <a href={`/dl?hash=${encodeURIComponent(verifyHash)}`} className="btn-ghost">
+                  <BoltIcon /> Descargar
+                </a>
+                <button
+                  type="button"
+                  className="btn-ghost"
+                  disabled={cart.has(verifyHash)}
+                  onClick={addVerifyToCart}
+                >
+                  {cart.has(verifyHash) ? "En el carrito" : "Agregar al carrito"}
+                </button>
+              </div>
             </div>
           )}
         </>
@@ -185,19 +190,20 @@ export default function GamesView() {
             >
               Todo
             </button>
-            {topConsoles.map((c) => (
-              <button
-                key={c.name}
-                type="button"
-                className={`pill${consoleFilter === c.name ? " active" : ""}`}
-                onClick={() => {
-                  setConsoleFilter(c.name);
-                  setPage(1);
-                }}
-              >
-                {c.name}
-              </button>
-            ))}
+            {!filterInRest &&
+              topConsoles.map((c) => (
+                <button
+                  key={c.name}
+                  type="button"
+                  className={`pill${consoleFilter === c.name ? " active" : ""}`}
+                  onClick={() => {
+                    setConsoleFilter(c.name);
+                    setPage(1);
+                  }}
+                >
+                  {c.name}
+                </button>
+              ))}
             {restConsoles.length > 0 && (
               <div className={`pill pill-more${filterInRest ? " active" : ""}`}>
                 <span>{filterInRest ? consoleFilter : `+${restConsoles.length} más`}</span>

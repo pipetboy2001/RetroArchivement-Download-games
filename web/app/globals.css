@@ -100,7 +100,11 @@ main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding
 
 .btn-primary { height: 36px; padding: 0 16px; background: var(--text-bright); color: var(--ground); border: none; border-radius: 8px; font-size: 13px; font-weight: 700; cursor: pointer; flex-shrink: 0; white-space: nowrap; }
 .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn-ghost { height: 30px; padding: 0 12px; border: 1px solid var(--rule-strong); background: transparent; color: var(--text); border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer; }
+.btn-ghost {
+  height: 30px; padding: 0 12px; border: 1px solid var(--rule-strong); background: transparent;
+  color: var(--text); border-radius: 6px; font-size: 12px; font-weight: 600; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; white-space: nowrap;
+}
 .btn-ghost:hover { border-color: var(--accent-border); color: var(--accent); }
 .remove { background: none; border: none; color: var(--faint); font-size: 13px; cursor: pointer; flex-shrink: 0; }
 .remove:hover { color: var(--negative); }
@@ -115,7 +119,11 @@ main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding
 .pill:hover { color: var(--text-bright); border-color: var(--accent-border); }
 .pill.active { background: var(--accent); border-color: var(--accent); color: var(--ground); }
 .pill-more { position: relative; display: inline-flex; align-items: center; justify-content: center; }
-.pill-more select { position: absolute; inset: 0; width: 100%; opacity: 0; cursor: pointer; border: none; background: none; }
+.pill-more select {
+  position: absolute; inset: 0; width: 100%; opacity: 0; cursor: pointer; border: none;
+  background-color: var(--surface); color: var(--text);
+}
+.pill-more select option { background-color: var(--surface); color: var(--text); }
 
 /* --- Grid de juegos (cards) --- */
 .grid-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; font-size: 13px; color: var(--muted); }
@@ -160,7 +168,7 @@ main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding
 }
 
 .gcard-actions { display: flex; align-items: center; gap: 6px; margin-top: auto; }
-.gcard-actions .btn-ghost { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.gcard-actions .btn-ghost { flex: 1; }
 .icon-btn {
   width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
   border-radius: 6px; border: 1px solid var(--rule-strong); background: transparent; color: var(--muted); cursor: pointer;
