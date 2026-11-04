@@ -1,7 +1,10 @@
 {
   "services": {
     "web": { "root": "web/" },
-    "api": { "root": ".", "entrypoint": "api/index:app", "includeFiles": "**" }
+    "api": {
+      "root": ".",
+      "entrypoint": "api.index:app"
+    }
   },
   "rewrites": [
     { "source": "/next-poc(.*)", "destination": { "service": "web" } },

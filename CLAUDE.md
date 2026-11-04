@@ -58,12 +58,31 @@ Self-contained Flask app that **reimplements** the hash lookup and URL-generatio
 - Rama de integración: `dev`. Las ramas de trabajo salen de `dev` y hacen PR hacia `dev` (no a `main`). `main` se actualiza solo cuando se corta un release con las mejoras ya probadas en `dev`.
 - Mensajes de commit en formato Conventional Commits: `tipo(scope): descripción` (`fix`, `feat`, `refactor`, `docs`, etc).
 
+## Arquitectura — frontend TS (`web/`)
+
+Decisión del issue #19: cuando se migre una página real a TypeScript, es **Next.js** (App Router, Tailwind). `web/` ya existe como esqueleto mínimo probado en producción (`app/next-poc/page.tsx`), sin ninguna página real migrada todavía — no agregar features ahí hasta que haya una razón concreta (ver Working log). Convive con el backend Flask vía **Vercel Services** (`vercel.json`): `web` y `api` son dos servicios independientes en el mismo deploy, ruteados por `rewrites` de nivel superior. El catch-all de Flask (`/`, `/games`, `/dl`, `/faq`, etc.) sigue intacto; Next.js solo recibe los paths que se le asignen explícitamente (hoy, `/next-poc`).
+
 ## Gotchas de Vercel (ya resueltos, pero quedan para no repetirlos)
 
-- **`vercel.json` → `config.includeFiles` debe ser un string (glob), nunca un array.** Un array pasa la validación local pero Vercel lo rechaza silenciosamente y cae a un build "zero-config" que falla en <1s sin log útil. Hoy está en `"**"` (incluye todo el repo en el bundle de `api/index.py`, que ahora importa de `src/`).
+- **El modelo de deploy es `services`** (no el `builds`/`routes` legacy, no `experimentalServices` que ya está superado). Ejemplo mínimo funcionando:
+  ```json
+  {
+    "services": {
+      "web": { "root": "web/" },
+      "api": { "root": ".", "entrypoint": "api.index:app" }
+    },
+    "rewrites": [
+      { "source": "/next-poc(.*)", "destination": { "service": "web" } },
+      { "source": "/(.*)", "destination": { "service": "api" } }
+    ]
+  }
+  ```
+- **El `entrypoint` de un servicio Python usa notación de módulo con puntos, no de filesystem.** Para `api/index.py` con `root: "."`, es `"api.index:app"` — **no** `"api/index:app"` ("path does not exist") ni `"api/index.py:app"` (lo interpreta como paquete `index/py.py`, mismo error). Es el mismo formato que el ejemplo oficial `"main:app"` para un `main.py` en la raíz del servicio, solo que acá hay que incluir el paquete (`api.`) porque el archivo no está en la raíz del servicio.
+- **Con `root: "."` para el servicio Python, NO hace falta `includeFiles`**: a diferencia del builder legacy `@vercel/python` (que solo empaquetaba el directorio de la función salvo que se declarara explícitamente), Services con `root: "."` incluye todo el árbol del repo por defecto. `src/`, `config.py`, `Data/*.json` quedan disponibles sin configuración extra.
 - **El proyecto en Vercel (dashboard → Project Settings) tenía `Node.js Version: 20.x`**, descontinuado — rompía el build antes de llegar siquiera a la parte de Python. Se subió a `24.x` vía `vercel project update retroachievements --node-version 24.x --scope pipetboys-projects`.
 - **Existía un `api/requirements.txt` corrupto (UTF-16, de un commit viejo "Fixes #1")** que el builder de Python prioriza sobre el `requirements.txt` de la raíz cuando ambos existen. Se borró — la raíz es la única fuente de verdad de dependencias.
-- Para depurar un deploy fallido: `gh pr checks <n>` para ver si Vercel falló, luego `vercel inspect <deployment-url-o-dpl_id> --logs --scope pipetboys-projects` para el log real (requiere `vercel link` una vez por máquina).
+- Para depurar un deploy fallido: `gh pr checks <n>` para ver si Vercel falló. Para el detalle real: `vercel deploy --scope pipetboys-projects --yes` local (reproduce el error de build/schema al instante, mucho más rápido que esperar el preview de GitHub) y, para errores en runtime (ej. `FUNCTION_INVOCATION_FAILED`), `vercel logs <deployment-url> --scope pipetboys-projects` (no `vercel inspect --logs`, que solo trae logs de build).
+- Las preview deployments tienen **Vercel Authentication** activado por default — `curl` directo da 401. Usar `vercel curl <url> --scope pipetboys-projects` (genera un bypass token automáticamente) para probarlas desde la terminal.
 
 ## API de RetroAchievements
 
@@ -82,4 +101,5 @@ Running notes on in-progress/planned work on this repo. Add an entry when starti
 - **Hecho**: limpiar constantes muertas de `config.py` (PR #14).
 - **Hecho**: auto-generar `game_hashes.json` desde la API de RA (PR #15).
 - **Hecho** (código completo, dato pendiente de generar): issues [#16](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/16) + [#17](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/17) juntas — metadata de RA en `/games` + verificación de hash/link. El código está probado (smoke checks, `/search` y `/games` funcionan sin el archivo de metadata presente, degradan a `None`/`False`), pero **`Data/retroachievements_metadata.json` todavía no se generó** porque la API de RA empezó a devolver timeouts por uso intenso durante las pruebas de hoy. Falta: correr `python sync_games_metadata.py` cuando la API esté respondiendo normal, y commitear el archivo resultante.
-- **Pendiente**: [#18](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/18) compatibilidad con terceros (CoolROMs, menor prioridad), [#19](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/19) decidir stack TS/monorepo (diferido hasta que haya una razón concreta).
+- **Hecho**: [#19](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/19) decidir stack TS + probar el patrón en un deploy real de Vercel (`web/` + Vercel Services). Ver sección "Arquitectura — frontend TS" arriba. No se migró ninguna página real todavía — próxima vez que se toque esto, candidato natural: `/games`.
+- **Pendiente**: [#18](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/18) compatibilidad con terceros (CoolROMs, menor prioridad).
