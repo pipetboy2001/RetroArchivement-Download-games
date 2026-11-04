@@ -4,13 +4,20 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, type FormEvent, type ReactNode } from "react";
 import { CartProvider, useCart } from "./CartContext";
+import CartDrawer from "./CartDrawer";
+import HasherModal from "./HasherModal";
 import NoticeModal from "./NoticeModal";
+import RaAccountModal from "./RaAccountModal";
+import { CartIcon, FingerprintIcon, SearchIcon, UserIcon } from "./icons";
 
 function Shell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const { items } = useCart();
   const [q, setQ] = useState("");
+  const [cartOpen, setCartOpen] = useState(false);
+  const [hasherOpen, setHasherOpen] = useState(false);
+  const [raOpen, setRaOpen] = useState(false);
 
   function onSearchSubmit(e: FormEvent) {
     e.preventDefault();
@@ -32,19 +39,16 @@ function Shell({ children }: { children: ReactNode }) {
           <Link href="/" className={pathname === "/" ? "active" : undefined}>
             <span>Buscar</span>
           </Link>
-          <Link href="/carrito" className={pathname === "/carrito" ? "active" : undefined}>
+          <button type="button" onClick={() => setCartOpen(true)}>
             <span>Carrito</span>
             {items.length > 0 && <span className="count">{items.length}</span>}
-          </Link>
+          </button>
         </nav>
       </aside>
 
       <header className="topbar">
         <form className="search" onSubmit={onSearchSubmit}>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
+          <SearchIcon />
           <input
             type="text"
             placeholder="Buscar por nombre o hash…"
@@ -52,10 +56,26 @@ function Shell({ children }: { children: ReactNode }) {
             onChange={(e) => setQ(e.target.value)}
           />
         </form>
+
+        <div className="header-actions">
+          <button type="button" className="icon-btn-labeled" onClick={() => setHasherOpen(true)}>
+            <FingerprintIcon /> <span>Verificar ROM</span>
+          </button>
+          <button type="button" className="icon-btn-labeled" onClick={() => setRaOpen(true)}>
+            <UserIcon /> <span>Conectar RA</span>
+          </button>
+          <button type="button" className="cart-trigger" onClick={() => setCartOpen(true)} aria-label="Abrir carrito">
+            <CartIcon />
+            {items.length > 0 && <span className="count">{items.length}</span>}
+          </button>
+        </div>
       </header>
 
       <main className="app-main">{children}</main>
       <NoticeModal />
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
+      <HasherModal open={hasherOpen} onClose={() => setHasherOpen(false)} />
+      <RaAccountModal open={raOpen} onClose={() => setRaOpen(false)} />
     </div>
   );
 }

@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import VersionsModal from "./VersionsModal";
+import GameCard from "./GameCard";
 import { useCart } from "./CartContext";
 import type { ConsoleCount, Game, GamesResponse, SearchResult } from "./types";
 
 const PAGE_SIZE = 50;
+const PILL_COUNT = 6;
 const HASH_RE = /^[0-9a-f]{8,}$/i;
 
 export default function GamesView() {
@@ -40,9 +41,6 @@ export default function GamesView() {
   const [verifyHash, setVerifyHash] = useState("");
   const [verifyLoading, setVerifyLoading] = useState(false);
   const [verifyError, setVerifyError] = useState("");
-
-  const [activeGame, setActiveGame] = useState<{ id: string; name: string } | null>(null);
-  const [addingId, setAddingId] = useState<string | null>(null);
 
   const typingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isHash = HASH_RE.test(q);
@@ -108,30 +106,6 @@ export default function GamesView() {
     typingTimer.current = setTimeout(() => runSearch(value), 300);
   }
 
-  async function addRowToCart(g: Game) {
-    setAddingId(g.id);
-    try {
-      const form = new FormData();
-      form.append("game_id", g.id);
-      const res = await fetch("/get_game_versions", { method: "POST", body: form });
-      const data = await res.json();
-      if (data.success && data.versions?.length) {
-        const v = data.versions[0];
-        cart.add({
-          id: g.id,
-          name: g.name,
-          consoles: g.consoles,
-          image_icon: g.image_icon,
-          achievements: g.achievements,
-          hash: v.hash,
-          rom_path: v.rom_path,
-        });
-      }
-    } finally {
-      setAddingId(null);
-    }
-  }
-
   function addVerifyToCart() {
     if (!verify) return;
     cart.add({
@@ -145,9 +119,7 @@ export default function GamesView() {
     });
   }
 
-  const sortedConsoles = [...consoles].sort((a, b) => b.count - a.count);
-  const topConsoles = sortedConsoles.slice(0, 4);
-  const restConsoles = sortedConsoles.slice(4);
+  const sortedConsoles = [...consoles].sort((a, b) => b.count - a.count).slice(0, PILL_COUNT);
 
   return (
     <>
@@ -201,124 +173,65 @@ export default function GamesView() {
         </>
       ) : (
         <>
-          <div className="filters">
+          <div className="pill-row">
             <button
               type="button"
-              className={`fcard${consoleFilter === "" ? " selected" : ""}`}
+              className={`pill${consoleFilter === "" ? " active" : ""}`}
               onClick={() => {
                 setConsoleFilter("");
                 setPage(1);
               }}
             >
-              <div className="flabel">Todas</div>
-              <div className="fvalue num">{allTotal}</div>
+              Todo
             </button>
-            {topConsoles.map((c) => (
+            {sortedConsoles.map((c) => (
               <button
                 key={c.name}
                 type="button"
-                className={`fcard${consoleFilter === c.name ? " selected" : ""}`}
+                className={`pill${consoleFilter === c.name ? " active" : ""}`}
                 onClick={() => {
                   setConsoleFilter(c.name);
                   setPage(1);
                 }}
               >
-                <div className="flabel">{c.name}</div>
-                <div className="fvalue num">{c.count}</div>
+                {c.name}
               </button>
             ))}
-            {restConsoles.length > 0 && (
-              <div className="fcard more" style={{ position: "relative" }}>
-                <span>{restConsoles.some((c) => c.name === consoleFilter) ? consoleFilter : `+${restConsoles.length} más`}</span>
-                <select
-                  value={restConsoles.some((c) => c.name === consoleFilter) ? consoleFilter : ""}
-                  onChange={(e) => {
-                    setConsoleFilter(e.target.value);
-                    setPage(1);
-                  }}
-                  style={{ position: "absolute", inset: 0, opacity: 0, cursor: "pointer" }}
-                >
-                  <option value="">+{restConsoles.length} más</option>
-                  {restConsoles.map((c) => (
-                    <option key={c.name} value={c.name}>
-                      {c.name} ({c.count})
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
           </div>
 
-          <div className="list-card">
-            <div className="list-head">
-              <span>
-                {total} juegos{consoleFilter ? ` en ${consoleFilter}` : ""}
+          <div className="grid-head">
+            <span>
+              {total} juegos{consoleFilter ? ` en ${consoleFilter}` : ""}
+            </span>
+            <div className="pager">
+              <button type="button" disabled={page <= 1} onClick={() => setPage(1)}>
+                «
+              </button>
+              <button type="button" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
+                ‹
+              </button>
+              <span className="num">
+                {page} / {totalPages}
               </span>
-              <div className="pager">
-                <button type="button" disabled={page <= 1} onClick={() => setPage(1)}>
-                  «
-                </button>
-                <button type="button" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
-                  ‹
-                </button>
-                <span className="num">
-                  {page} / {totalPages}
-                </span>
-                <button type="button" disabled={page >= totalPages} onClick={() => setPage((p) => p + 1)}>
-                  ›
-                </button>
-                <button type="button" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>
-                  »
-                </button>
-              </div>
+              <button type="button" disabled={page >= totalPages} onClick={() => setPage((p) => p + 1)}>
+                ›
+              </button>
+              <button type="button" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>
+                »
+              </button>
             </div>
-
-            {items.length === 0 && (
-              <div className="row">
-                <div className="meta">Sin resultados.</div>
-              </div>
-            )}
-
-            {items.map((g) => (
-              <div className="row" key={g.id}>
-                {g.image_icon ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src={g.image_icon} alt="" className="icon" loading="lazy" />
-                ) : (
-                  <div className="icon" />
-                )}
-                <div className="meta">
-                  <div className="name">
-                    {g.name}
-                    {g.achievements != null && (
-                      <span className="badge gold" style={{ marginLeft: 8 }}>
-                        logros · {g.achievements}
-                      </span>
-                    )}
-                  </div>
-                  <div className="sub">
-                    {g.consoles.join(", ")} · {g.versions} versión{g.versions === 1 ? "" : "es"}
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  className="btn-ghost"
-                  disabled={cart.has(g.id) || addingId === g.id}
-                  onClick={() => addRowToCart(g)}
-                >
-                  {cart.has(g.id) ? "En el carrito" : addingId === g.id ? "Agregando…" : "Agregar al carrito"}
-                </button>
-                <button type="button" className="btn-ghost" onClick={() => setActiveGame({ id: g.id, name: g.name })}>
-                  Descargar
-                </button>
-              </div>
-            ))}
           </div>
-        </>
-      )}
 
-      {activeGame && (
-        <VersionsModal gameId={activeGame.id} gameName={activeGame.name} onClose={() => setActiveGame(null)} />
+          {items.length === 0 ? (
+            <p className="empty-hint">Sin resultados.</p>
+          ) : (
+            <div className="games-grid">
+              {items.map((g) => (
+                <GameCard key={g.id} game={g} />
+              ))}
+            </div>
+          )}
+        </>
       )}
     </>
   );

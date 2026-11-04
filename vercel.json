@@ -8,7 +8,6 @@
   },
   "rewrites": [
     { "source": "/", "destination": { "service": "web" } },
-    { "source": "/carrito", "destination": { "service": "web" } },
     { "source": "/(.*)", "destination": { "service": "api" } }
   ]
 }
