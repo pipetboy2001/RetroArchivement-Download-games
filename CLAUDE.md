@@ -4,24 +4,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A Python tool to find download URLs for RetroAchievements-compatible ROMs on archive.org, given a RetroAchievements hash. Two independent front ends share the same underlying JSON dataset but **do not share code**:
+A Python tool to find download URLs for RetroAchievements-compatible ROMs on archive.org, given a RetroAchievements hash. Three surfaces:
 
 - **Console app** (`main.py`, `Console_mode.py`, `want_to_play.py`) — layered OOP app under `src/`.
-- **Web app** (`api/index.py`) — a single-file Flask app, deployed to Vercel via `vercel.json` (routes everything to `api/index.py`). Templates in `api/templates/`, static assets in `api/static/`.
+- **Web backend** (`api/index.py`) — Flask, deployed to Vercel as the `api` service (`vercel.json`, Vercel Services model). Still server-renders most pages (`/`, `/faq`) from `api/templates/`, and exposes the JSON endpoints (`/api/games`, `/get_game_versions`, `/dl`) that both the legacy templates' JS and the new Next.js frontend consume.
+- **Web frontend, growing** (`web/`) — Next.js/TypeScript, deployed as the `web` service. Only pages migrated so far get routed here (see `vercel.json` `rewrites`); everything else still falls through to Flask's catch-all.
 
 ## Commands
 
 ```bash
 pip install -r requirements.txt
+npm install              # root devDependencies (concurrently) for the dev scripts below
+cd web && npm install     # Next.js deps
 
 python main.py            # unified console entry point, prompts for mode
 python Console_mode.py    # direct hash search only (no credentials needed)
 python want_to_play.py    # "want to play" list mode (needs .env, see below)
 
-python api/index.py       # run the Flask web app locally (debug=True)
+npm run dev:api           # Flask alone, http://localhost:5000
+npm run dev:web           # Next.js alone, http://localhost:3000 (proxies /api/*, /get_game_versions, /dl to :5000 in dev — see web/next.config.ts)
+npm run dev                # both together (concurrently) — this is the real local dev loop for the web app
 ```
 
-No test suite, linter, or type-checker config exists in this repo.
+No test suite, linter, or type-checker config exists in this repo. `vercel dev` (the official way to run multi-service Vercel projects locally) does **not** work for this repo yet — Vercel Services' local dev doesn't support the Flask service (`No dev server available for service "api"`), confirmed by testing; that's why the root `package.json` + Next.js rewrite-proxy exist instead.
 
 `.env` (copy from `ejemplo.env`) is only required for the "want to play" mode: `API_KEY` and `RETROACHIEVEMENTS_USERNAME` for the RetroAchievements Web API. Direct hash search needs no credentials.
 
@@ -45,7 +50,7 @@ Self-contained Flask app that **reimplements** the hash lookup and URL-generatio
 - `load_json_file()` caches `Data/TamperMonkeyRetroachievements.json` in a global; `build_games_index()` caches a derived per-game index (name, consoles, version count) for the `/games` and `/api/games` listing/filter endpoints.
 - `get_console_from_rom_path()` maps raw root-folder names to canonical console labels via an alias table (handles abbreviations/typos like `megadriv`, `npg`).
 - `get_download_url()` duplicates `URLGeneratorFactory`'s branching (SNES/NES/Arcade/PSP/PS2 A-M vs N-Z/PS1/default) using local `_normalize_slashes` / `_encode_rel_path` / `_strip_first_segment_if_matches` helpers that mirror `src/factories/url_factory.py` byte-for-byte in intent.
-- Routes: `/` (home), `/games` + `/api/games` (paginated/filterable listing), `/dl?hash=` (redirects straight to the resolved download URL), `/get_game_versions`, `/search_games`, `/search` (JSON endpoints used by the frontend JS), `/faq`.
+- Routes: `/` (home), `/api/games` (paginated/filterable listing JSON — consumed by `web/app/games/page.tsx`, not just legacy JS), `/dl?hash=` (redirects straight to the resolved download URL), `/get_game_versions`, `/search_games`, `/search` (JSON endpoints), `/faq`. `/games` itself is no longer a Flask route — Vercel's `services` rewrite sends it straight to the `web` (Next.js) service; see "Arquitectura — frontend TS" below.
 
 **Consistency hazard:** any change to region/console detection, path normalization, or per-console base URLs must be made in both `src/factories/url_factory.py` (+ `config.py`) and `api/index.py`'s `get_download_url` / `get_console_from_rom_path` — they are not shared and will silently drift otherwise.
 
@@ -60,7 +65,11 @@ Self-contained Flask app that **reimplements** the hash lookup and URL-generatio
 
 ## Arquitectura — frontend TS (`web/`)
 
-Decisión del issue #19: cuando se migre una página real a TypeScript, es **Next.js** (App Router, Tailwind). `web/` ya existe como esqueleto mínimo probado en producción (`app/next-poc/page.tsx`), sin ninguna página real migrada todavía — no agregar features ahí hasta que haya una razón concreta (ver Working log). Convive con el backend Flask vía **Vercel Services** (`vercel.json`): `web` y `api` son dos servicios independientes en el mismo deploy, ruteados por `rewrites` de nivel superior. El catch-all de Flask (`/`, `/games`, `/dl`, `/faq`, etc.) sigue intacto; Next.js solo recibe los paths que se le asignen explícitamente (hoy, `/next-poc`).
+Decisión del issue #19: **Next.js** (App Router, Tailwind) para páginas migradas. Convive con el backend Flask vía **Vercel Services** (`vercel.json`): `web` y `api` son dos servicios independientes en el mismo deploy, ruteados por `rewrites` de nivel superior evaluados en orden (primer match gana) — el catch-all `/(.*) → api` va último, así que solo hace falta agregar una entrada explícita por cada página que se migre.
+
+- **`/next-poc`**: página de prueba de la infraestructura, sin uso real.
+- **`/games`** (PR #23): primera página real migrada, port 1:1 de la UI que antes vivía en `games.html`/`games.js` (ya borrados). `web/app/games/page.tsx` + `VersionsModal.tsx` hacen `fetch` directo a los mismos endpoints JSON de Flask (`/api/games`, `/get_game_versions`) — mismo origen en producción (Vercel Services), sin CORS ni env vars. El único cambio de backend que requirió: `/api/games` ahora también devuelve `consoles` (antes ese dato solo se inyectaba server-side vía Jinja en la ruta `/games`, que ya no existe).
+- Próxima candidata a migrar: a definir — no hay más páginas en la cola todavía.
 
 ## Gotchas de Vercel (ya resueltos, pero quedan para no repetirlos)
 
@@ -83,6 +92,7 @@ Decisión del issue #19: cuando se migre una página real a TypeScript, es **Nex
 - **Existía un `api/requirements.txt` corrupto (UTF-16, de un commit viejo "Fixes #1")** que el builder de Python prioriza sobre el `requirements.txt` de la raíz cuando ambos existen. Se borró — la raíz es la única fuente de verdad de dependencias.
 - Para depurar un deploy fallido: `gh pr checks <n>` para ver si Vercel falló. Para el detalle real: `vercel deploy --scope pipetboys-projects --yes` local (reproduce el error de build/schema al instante, mucho más rápido que esperar el preview de GitHub) y, para errores en runtime (ej. `FUNCTION_INVOCATION_FAILED`), `vercel logs <deployment-url> --scope pipetboys-projects` (no `vercel inspect --logs`, que solo trae logs de build).
 - Las preview deployments tienen **Vercel Authentication** activado por default — `curl` directo da 401. Usar `vercel curl <url> --scope pipetboys-projects` (genera un bypass token automáticamente) para probarlas desde la terminal.
+- **`vercel dev` no sirve para desarrollo local todavía** con este `services` setup: detecta bien ambos servicios (`web` Next.js, `api` Flask) pero falla con `[DEV_SERVICE_START_FAILED] No dev server available for service "api" (framework: flask)` — soporte de dev-server local para Python en `services` (Beta) todavía no existe. Por eso el `package.json` de la raíz + el rewrite-proxy de `web/next.config.ts` (ver Commands arriba): simulan el mismo-origen que Vercel da gratis en producción, corriendo Flask y Next.js como dos procesos separados.
 
 ## API de RetroAchievements
 
@@ -101,5 +111,7 @@ Running notes on in-progress/planned work on this repo. Add an entry when starti
 - **Hecho**: limpiar constantes muertas de `config.py` (PR #14).
 - **Hecho**: auto-generar `game_hashes.json` desde la API de RA (PR #15).
 - **Hecho** (código completo, dato pendiente de generar): issues [#16](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/16) + [#17](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/17) juntas — metadata de RA en `/games` + verificación de hash/link. El código está probado (smoke checks, `/search` y `/games` funcionan sin el archivo de metadata presente, degradan a `None`/`False`), pero **`Data/retroachievements_metadata.json` todavía no se generó** porque la API de RA empezó a devolver timeouts por uso intenso durante las pruebas de hoy. Falta: correr `python sync_games_metadata.py` cuando la API esté respondiendo normal, y commitear el archivo resultante.
-- **Hecho**: [#19](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/19) decidir stack TS + probar el patrón en un deploy real de Vercel (`web/` + Vercel Services). Ver sección "Arquitectura — frontend TS" arriba. No se migró ninguna página real todavía — próxima vez que se toque esto, candidato natural: `/games`.
-- **Pendiente**: [#18](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/18) compatibilidad con terceros (CoolROMs, menor prioridad).
+- **Hecho**: [#19](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/19) decidir stack TS + probar el patrón en un deploy real de Vercel (`web/` + Vercel Services, PR #22).
+- **Hecho**: migrar `/games` a Next.js, port 1:1 sin rediseño (PR #23). Ver "Arquitectura — frontend TS" arriba.
+- **Hecho**: comandos de dev local `dev:api`/`dev:web`/`dev` (root `package.json` + proxy en `web/next.config.ts`), porque `vercel dev` no soporta Flask en `services` todavía.
+- **Pendiente**: rediseño de `/games` (decidido explícitamente como paso aparte, después del port 1:1 — sin fecha todavía). [#18](https://github.com/pipetboy2001/RetroArchivement-Download-games/issues/18) compatibilidad con terceros (CoolROMs, menor prioridad).
