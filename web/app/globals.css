@@ -126,7 +126,10 @@ main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding
 .pill-more select option { background-color: var(--surface); color: var(--text); }
 
 /* --- Grid de juegos (cards) --- */
-.grid-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; font-size: 13px; color: var(--muted); }
+.grid-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; font-size: 13px; color: var(--muted); flex-wrap: wrap; gap: 12px; }
+.page-size { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); }
+.page-size select { background: var(--surface); border: 1px solid var(--rule-strong); border-radius: 6px; padding: 4px 8px; color: var(--text); font-size: 12px; }
+.grid-foot { display: flex; justify-content: center; margin-top: 24px; }
 .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
 
 .gcard { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }

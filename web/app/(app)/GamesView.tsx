@@ -7,9 +7,31 @@ import { useCart } from "./CartContext";
 import { BoltIcon, SearchIcon } from "./icons";
 import type { ConsoleCount, Game, GamesResponse, SearchResult } from "./types";
 
-const PAGE_SIZE = 50;
+const PAGE_SIZES = [10, 20, 50, 100];
 const PILL_COUNT = 6;
 const HASH_RE = /^[0-9a-f]{8,}$/i;
+
+function Pager({ page, totalPages, onChange }: { page: number; totalPages: number; onChange: (page: number) => void }) {
+  return (
+    <div className="pager">
+      <button type="button" disabled={page <= 1} onClick={() => onChange(1)}>
+        «
+      </button>
+      <button type="button" disabled={page <= 1} onClick={() => onChange(page - 1)}>
+        ‹
+      </button>
+      <span className="num">
+        {page} / {totalPages}
+      </span>
+      <button type="button" disabled={page >= totalPages} onClick={() => onChange(page + 1)}>
+        ›
+      </button>
+      <button type="button" disabled={page >= totalPages} onClick={() => onChange(totalPages)}>
+        »
+      </button>
+    </div>
+  );
+}
 
 export default function GamesView() {
   const router = useRouter();
@@ -20,6 +42,7 @@ export default function GamesView() {
   const [q, setQ] = useState("");
   const [consoleFilter, setConsoleFilter] = useState("");
   const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(50);
 
   // Sincroniza con ?q= de la URL: en el primer montaje (deep link) y cuando
   // otro componente (el buscador del topbar) navega a /?q=... mientras
@@ -58,7 +81,7 @@ export default function GamesView() {
     if (q) params.set("q", q);
     if (consoleFilter) params.set("console", consoleFilter);
     params.set("page", String(page));
-    params.set("page_size", String(PAGE_SIZE));
+    params.set("page_size", String(pageSize));
 
     fetch(`/api/games?${params.toString()}`)
       .then((res) => res.json() as Promise<GamesResponse>)
@@ -68,7 +91,7 @@ export default function GamesView() {
         setTotalPages(data.total_pages || 1);
         setConsoles(data.consoles || []);
       });
-  }, [q, consoleFilter, page, isHash]);
+  }, [q, consoleFilter, page, pageSize, isHash]);
 
   useEffect(() => {
     if (!isHash) {
@@ -230,33 +253,41 @@ export default function GamesView() {
             <span>
               {total} juegos{consoleFilter ? ` en ${consoleFilter}` : ""}
             </span>
-            <div className="pager">
-              <button type="button" disabled={page <= 1} onClick={() => setPage(1)}>
-                «
-              </button>
-              <button type="button" disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
-                ‹
-              </button>
-              <span className="num">
-                {page} / {totalPages}
-              </span>
-              <button type="button" disabled={page >= totalPages} onClick={() => setPage((p) => p + 1)}>
-                ›
-              </button>
-              <button type="button" disabled={page >= totalPages} onClick={() => setPage(totalPages)}>
-                »
-              </button>
+            <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <div className="page-size">
+                <label htmlFor="page-size-select">Mostrar</label>
+                <select
+                  id="page-size-select"
+                  value={pageSize}
+                  onChange={(e) => {
+                    setPageSize(Number(e.target.value));
+                    setPage(1);
+                  }}
+                >
+                  {PAGE_SIZES.map((s) => (
+                    <option key={s} value={s}>
+                      {s}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <Pager page={page} totalPages={totalPages} onChange={setPage} />
             </div>
           </div>
 
           {items.length === 0 ? (
             <p className="empty-hint">Sin resultados.</p>
           ) : (
-            <div className="games-grid">
-              {items.map((g) => (
-                <GameCard key={g.id} game={g} />
-              ))}
-            </div>
+            <>
+              <div className="games-grid">
+                {items.map((g) => (
+                  <GameCard key={g.id} game={g} />
+                ))}
+              </div>
+              <div className="grid-foot">
+                <Pager page={page} totalPages={totalPages} onChange={setPage} />
+              </div>
+            </>
           )}
         </>
       )}
