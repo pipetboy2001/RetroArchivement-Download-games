@@ -8,6 +8,7 @@
   },
   "rewrites": [
     { "source": "/next-poc(.*)", "destination": { "service": "web" } },
+    { "source": "/games", "destination": { "service": "web" } },
     { "source": "/(.*)", "destination": { "service": "api" } }
   ]
 }
