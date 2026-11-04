@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import GameCard from "./GameCard";
 import { useCart } from "./CartContext";
+import { SearchIcon } from "./icons";
 import type { ConsoleCount, Game, GamesResponse, SearchResult } from "./types";
 
 const PAGE_SIZE = 50;
@@ -119,7 +120,10 @@ export default function GamesView() {
     });
   }
 
-  const sortedConsoles = [...consoles].sort((a, b) => b.count - a.count).slice(0, PILL_COUNT);
+  const sortedConsoles = [...consoles].sort((a, b) => b.count - a.count);
+  const topConsoles = sortedConsoles.slice(0, PILL_COUNT);
+  const restConsoles = sortedConsoles.slice(PILL_COUNT);
+  const filterInRest = restConsoles.some((c) => c.name === consoleFilter);
 
   return (
     <>
@@ -133,10 +137,7 @@ export default function GamesView() {
       </div>
 
       <div className="search" style={{ marginBottom: 24, maxWidth: 420 }}>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <circle cx="11" cy="11" r="8" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
+        <SearchIcon />
         <input type="text" placeholder="Nombre o hash…" value={input} onChange={(e) => onInputChange(e.target.value)} />
       </div>
 
@@ -184,7 +185,7 @@ export default function GamesView() {
             >
               Todo
             </button>
-            {sortedConsoles.map((c) => (
+            {topConsoles.map((c) => (
               <button
                 key={c.name}
                 type="button"
@@ -197,6 +198,26 @@ export default function GamesView() {
                 {c.name}
               </button>
             ))}
+            {restConsoles.length > 0 && (
+              <div className={`pill pill-more${filterInRest ? " active" : ""}`}>
+                <span>{filterInRest ? consoleFilter : `+${restConsoles.length} más`}</span>
+                <select
+                  value={filterInRest ? consoleFilter : ""}
+                  onChange={(e) => {
+                    setConsoleFilter(e.target.value);
+                    setPage(1);
+                  }}
+                  aria-label="Más consolas"
+                >
+                  <option value="">+{restConsoles.length} más</option>
+                  {restConsoles.map((c) => (
+                    <option key={c.name} value={c.name}>
+                      {c.name} ({c.count})
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
           </div>
 
           <div className="grid-head">

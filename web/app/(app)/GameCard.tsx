@@ -92,9 +92,6 @@ export default function GameCard({ game }: { game: Game }) {
           <div className="mirror-row">
             <span className="mirror-chip active">archive.org</span>
             <button type="button" className="mirror-chip" disabled title="Próximamente">
-              Propio
-            </button>
-            <button type="button" className="mirror-chip" disabled title="Próximamente">
               CoolROM
             </button>
           </div>

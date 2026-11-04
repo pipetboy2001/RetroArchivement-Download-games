@@ -27,32 +27,34 @@ function Shell({ children }: { children: ReactNode }) {
   return (
     <div className="app-shell">
       <header className="topbar">
-        <Link href="/" className="brand">
-          <div className="mark">R</div>
-          <div className="name">RA Downloader</div>
-        </Link>
+        <div className="topbar-inner">
+          <Link href="/" className="brand">
+            <div className="mark">R</div>
+            <div className="name">RA Downloader</div>
+          </Link>
 
-        <form className="search" onSubmit={onSearchSubmit}>
-          <SearchIcon />
-          <input
-            type="text"
-            placeholder="Buscar por nombre o hash…"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-          />
-        </form>
+          <form className="search" onSubmit={onSearchSubmit}>
+            <SearchIcon />
+            <input
+              type="text"
+              placeholder="Buscar por nombre o hash…"
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+            />
+          </form>
 
-        <div className="header-actions">
-          <button type="button" className="icon-btn-labeled" onClick={() => setHasherOpen(true)}>
-            <FingerprintIcon /> <span>Verificar ROM</span>
-          </button>
-          <button type="button" className="icon-btn-labeled" onClick={() => setRaOpen(true)}>
-            <UserIcon /> <span>Conectar RA</span>
-          </button>
-          <button type="button" className="cart-trigger" onClick={() => setCartOpen(true)} aria-label="Abrir carrito">
-            <CartIcon />
-            {items.length > 0 && <span className="count">{items.length}</span>}
-          </button>
+          <div className="header-actions">
+            <button type="button" className="icon-btn-labeled" onClick={() => setHasherOpen(true)}>
+              <FingerprintIcon /> <span>Verificar ROM</span>
+            </button>
+            <button type="button" className="icon-btn-labeled" onClick={() => setRaOpen(true)}>
+              <UserIcon /> <span>Conectar RA</span>
+            </button>
+            <button type="button" className="cart-trigger" onClick={() => setCartOpen(true)} aria-label="Abrir carrito">
+              <CartIcon />
+              {items.length > 0 && <span className="count">{items.length}</span>}
+            </button>
+          </div>
         </div>
       </header>
 
