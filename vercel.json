@@ -1,18 +1,14 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python",
-      "config": {
-        "includeFiles": "**"
-      }
+  "services": {
+    "web": { "root": "web/" },
+    "api": {
+      "root": ".",
+      "entrypoint": "api.index:app"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/api/index.py"
-    }
+  },
+  "rewrites": [
+    { "source": "/next-poc(.*)", "destination": { "service": "web" } },
+    { "source": "/games", "destination": { "service": "web" } },
+    { "source": "/(.*)", "destination": { "service": "api" } }
   ]
 }
