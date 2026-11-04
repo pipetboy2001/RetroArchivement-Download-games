@@ -140,21 +140,13 @@ def index():
     total_games = count_total_games(json_data) if json_data else 0
     return render_template('index.html', total_games=total_games)
 
-# Consolas disponibles y conteos (usado por /games y /api/games)
+# Consolas disponibles y conteos (usado por /api/games)
 def _console_counts(games):
     console_counts = {}
     for g in games:
         for c in g['consoles']:
             console_counts[c] = console_counts.get(c, 0) + 1
     return sorted(console_counts.items(), key=lambda x: x[0])
-
-# Página de listado de juegos con filtros
-@app.route('/games')
-def games_page():
-    games = build_games_index()
-    consoles = _console_counts(games)
-    total = len(games)
-    return render_template('games.html', consoles=consoles, total_games=total)
 
 # API para obtener juegos filtrados/paginados
 @app.route('/api/games')
