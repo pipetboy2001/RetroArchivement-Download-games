@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState, type FormEvent, type ReactNode } from "react";
 import { CartProvider, useCart } from "./CartContext";
 import CartDrawer from "./CartDrawer";
@@ -11,7 +11,6 @@ import RaAccountModal from "./RaAccountModal";
 import { CartIcon, FingerprintIcon, SearchIcon, UserIcon } from "./icons";
 
 function Shell({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
   const router = useRouter();
   const { items } = useCart();
   const [q, setQ] = useState("");
@@ -27,26 +26,12 @@ function Shell({ children }: { children: ReactNode }) {
 
   return (
     <div className="app-shell">
-      <aside className="sidebar">
+      <header className="topbar">
         <Link href="/" className="brand">
           <div className="mark">R</div>
-          <div>
-            <div className="name">RA Downloader</div>
-            <div className="sub">roms para RetroAchievements</div>
-          </div>
+          <div className="name">RA Downloader</div>
         </Link>
-        <nav className="primary">
-          <Link href="/" className={pathname === "/" ? "active" : undefined}>
-            <span>Buscar</span>
-          </Link>
-          <button type="button" onClick={() => setCartOpen(true)}>
-            <span>Carrito</span>
-            {items.length > 0 && <span className="count">{items.length}</span>}
-          </button>
-        </nav>
-      </aside>
 
-      <header className="topbar">
         <form className="search" onSubmit={onSearchSubmit}>
           <SearchIcon />
           <input

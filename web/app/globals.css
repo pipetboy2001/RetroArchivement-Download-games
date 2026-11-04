@@ -43,29 +43,17 @@ body {
 .num { font-variant-numeric: tabular-nums; }
 
 /* --- Shell --- */
-.app-shell {
-  display: grid;
-  grid-template-columns: 224px 1fr;
-  grid-template-rows: 64px 1fr;
-  grid-template-areas: "sidebar topbar" "sidebar main";
-}
-.sidebar { grid-area: sidebar; border-right: 1px solid var(--rule); padding: 20px 16px; display: flex; flex-direction: column; }
-.brand { display: flex; align-items: center; gap: 9px; padding: 0 6px 20px; margin-bottom: 14px; border-bottom: 1px solid var(--rule); text-decoration: none; }
-.brand .mark { width: 24px; height: 24px; border-radius: 5px; background: var(--accent); color: var(--ground); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 12px; flex-shrink: 0; }
-.brand .name { font-size: 13px; font-weight: 600; color: var(--text-bright); letter-spacing: -0.01em; }
-.brand .sub { font-size: 11px; color: var(--faint); margin-top: 1px; }
-nav.primary { display: flex; flex-direction: column; }
-nav.primary a, nav.primary button {
-  display: flex; align-items: center; justify-content: space-between; width: 100%; height: 34px;
-  padding: 0 6px; color: var(--muted); text-decoration: none; font-size: 13px; border-radius: 6px;
-  border: none; background: none; text-align: left; cursor: pointer;
-}
-nav.primary a.active { color: var(--text-bright); font-weight: 600; }
-nav.primary a:hover, nav.primary button:hover { color: var(--text-bright); }
-nav.primary .count { font-size: 11px; color: var(--ground); background: var(--accent); border-radius: 999px; padding: 1px 7px; font-weight: 700; }
-.sidebar-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--rule); font-size: 11px; color: var(--faint); }
+.app-shell { display: flex; flex-direction: column; min-height: 100vh; }
 
-.topbar { grid-area: topbar; border-bottom: 1px solid var(--rule); display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 28px; }
+.topbar {
+  position: sticky; top: 0; z-index: 30;
+  flex-shrink: 0; height: 64px; background: var(--ground); border-bottom: 1px solid var(--rule);
+  display: flex; align-items: center; gap: 20px; padding: 0 28px;
+}
+.brand { display: flex; align-items: center; gap: 9px; flex-shrink: 0; text-decoration: none; }
+.brand .mark { width: 28px; height: 28px; border-radius: 6px; background: var(--accent); color: var(--ground); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+.brand .name { font-size: 14px; font-weight: 700; color: var(--text-bright); letter-spacing: -0.01em; white-space: nowrap; }
+
 .search { display: flex; align-items: center; gap: 8px; flex: 1; max-width: 420px; height: 36px; background: var(--surface); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 0 12px; }
 .search input { flex: 1; background: none; border: none; outline: none; color: var(--text); font-size: 13px; }
 .search input::placeholder { color: var(--faint); }
@@ -91,11 +79,11 @@ nav.primary .count { font-size: 11px; color: var(--ground); background: var(--ac
   font-weight: 700; display: flex; align-items: center; justify-content: center;
 }
 
-main.app-main { grid-area: main; padding: 29px 32px 60px; max-width: 1312px; }
+main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding: 29px 32px 60px; }
 
 @media (max-width: 860px) {
-  .app-shell { grid-template-columns: 1fr; grid-template-areas: "topbar" "main"; grid-template-rows: 64px auto; }
-  .sidebar { display: none; }
+  .topbar { gap: 12px; padding: 0 16px; }
+  .brand .name { display: none; }
   main.app-main { padding: 20px 16px 48px; }
   .search { max-width: none; }
   .icon-btn-labeled span { display: none; }
