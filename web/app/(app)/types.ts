@@ -42,3 +42,13 @@ export interface VersionsResponse {
   success: boolean;
   versions: Version[];
 }
+
+export interface SearchResult {
+  success: boolean;
+  download_url?: string;
+  link_ok?: boolean;
+  ra_recognized?: boolean;
+  name?: string;
+  console?: string;
+  message?: string;
+}
