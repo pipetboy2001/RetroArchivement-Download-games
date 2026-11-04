@@ -39,6 +39,12 @@ venv.bak/
 *.swp
 *.swo
 
+# Claude Code: skills de uso personal, no para el repo
+.agents/
+.claude/
+.taste-skill/
+skills-lock.json
+
 # OS
 .DS_Store
 Thumbs.db

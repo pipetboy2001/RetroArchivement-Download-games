@@ -246,14 +246,16 @@ def search():
     json_data = load_json_file()
     
     if json_data:
-        hash_value = find_hash_in_json(json_data, search_term)
-        if hash_value:
-            download_url = get_download_url(hash_value)
+        rom_path = find_hash_in_json(json_data, search_term)
+        if rom_path:
+            download_url = get_download_url(rom_path)
             return {
                 'success': True,
                 'download_url': download_url,
                 'link_ok': is_download_url_reachable(download_url),
                 'ra_recognized': is_hash_recognized_by_ra(search_term),
+                'name': extract_game_name(rom_path),
+                'console': get_console_from_rom_path(rom_path),
             }
         else:
             return {'success': False, 'message': f"No se encontró el hash '{search_term}' en la base de datos."}, 404
