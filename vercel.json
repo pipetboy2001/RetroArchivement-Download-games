@@ -8,6 +8,10 @@
   },
   "rewrites": [
     { "source": "/", "destination": { "service": "web" } },
+    { "source": "/_next/:path*", "destination": { "service": "web" } },
+    { "source": "/favicon.ico", "destination": { "service": "web" } },
+    { "source": "/opengraph-image", "destination": { "service": "web" } },
+    { "source": "/twitter-image", "destination": { "service": "web" } },
     { "source": "/(.*)", "destination": { "service": "api" } }
   ]
 }
