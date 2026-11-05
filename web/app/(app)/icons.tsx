@@ -6,6 +6,7 @@ import {
   ShoppingCart,
   Trash2,
   Trophy,
+  Upload,
   User,
   X,
   Zap,
@@ -22,3 +23,4 @@ export const XIcon = (props: LucideProps) => <X size={18} {...props} />;
 export const FingerprintIcon = (props: LucideProps) => <Fingerprint size={14} {...props} />;
 export const UserIcon = (props: LucideProps) => <User size={14} {...props} />;
 export const CopyIcon = (props: LucideProps) => <Copy size={13} {...props} />;
+export const UploadIcon = (props: LucideProps) => <Upload size={28} {...props} />;
