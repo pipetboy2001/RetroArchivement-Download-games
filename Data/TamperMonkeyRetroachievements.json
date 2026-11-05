@@ -896,10 +896,8 @@
   "228": [
     {
       "38BB405BA6C6714697B48FB0AD15A2A1": "SNES-Super Famicom/Super Mario World/Super Mario World (U) [!] [T+Spa_Wave].zip",
-      "B7D331E7CA1B882B281974689B4A47FA": "SNES-Super Famicom/Super Mario World/Super Mario World (U) [!] (MSU) [v1.5_PCM set by ColinesKiddo].zip",
       "CDD3C8C37322978CA8669B34BC89C804": "SNES-Super Famicom/Super Mario World/Super Mario World (U) [!].zip",
-      "D3F9BD5C50C0273A58E8ADF1F2E93487": "SNES-Super Famicom/Super Mario World/Super Mario World (U) [T+Spa_Logarithmika Magus].zip",
-      "4E4F8F4CFDAABFFDDE20C8053202D4F0": "SNES-Super Famicom/Super Mario World/Super Mario World - Super Mario Bros. 4 (J) [!].zip"
+      "D3F9BD5C50C0273A58E8ADF1F2E93487": "SNES-Super Famicom/Super Mario World/Super Mario World (U) [T+Spa_Logarithmika Magus].zip"
     }
   ],
   "230": [
@@ -914,7 +912,6 @@
   ],
   "232": [
     {
-      "1844A58F85CC3A729000FB419275F8C9": "SNES-Super Famicom/Super Mario Kart/Super Mario Kart (U) [!] (MSU) [v1.2].zip",
       "7F25CE5A283D902694C52FB1152FA61A": "SNES-Super Famicom/Super Mario Kart/Super Mario Kart (U) [!].zip",
       "F7AFA112D7EC1D532636703E4B02700A": "SNES-Super Famicom/Super Mario Kart/Super Mario Kart (J) [!].zip",
       "F9FE266E91632E68B558D6B43393EABA": "SNES-Super Famicom/Super Mario Kart/Super Mario Kart (E) [!].zip"
@@ -928,13 +925,6 @@
   "234": [
     {
       "18B5E9F9D628FD23CC0ED31CE7089737": "SNES-Super Famicom/Road Runner's Death Valley Rally/Road Runner's Death Valley Rally (U) [!].zip"
-    }
-  ],
-  "236": [
-    {
-      "21F3E98DF4780EE1C667B84E57D88675": "SNES-Super Famicom/Super Metroid/Super Metroid (JU) (M2) [!].zip",
-      "79A6560441CB7045E514EF71875B1FC7": "SNES-Super Famicom/Super Metroid/Super Metroid (MSU) [Symphony - Darkshock, Blake Robinson, Qwertymodo Audio Fix].zip",
-      "82094CA2DB9D6E78C91C88D31D7C0D06": "SNES-Super Famicom/Super Metroid/Super Metroid (MSU) [Emulator Version].zip"
     }
   ],
   "237": [
@@ -971,7 +961,6 @@
   "242": [
     {
       "02F21F536CCAD02A316837B4D6A8FB25": "SNES-Super Famicom/Terranigma/Terranigma (S) [f1].zip",
-      "22913A3A2144007E40B0A87E1565F018": "SNES-Super Famicom/Terranigma/Terranigma (Europe) (MSU) [NTSC].zip",
       "249147DAE42E78F57D95C87AC884A414": "SNES-Super Famicom/Terranigma/Terranigma (E) [T+Swe1.0_MThorelli].zip",
       "2A9F7EAA7DEFA0ACFAC3DAF0263FCDC2": "SNES-Super Famicom/Terranigma/Terranigma (E) [T+Swe1.0_MThorelli] [NTSC].zip",
       "2E6319F2B0697784F87FDE4091696D36": "SNES-Super Famicom/Terranigma/Terranigma - 8x16 Font Width v1.0 by MopoZ (Hack) [f1] (NTSC v1.0 by BFeely).zip",
@@ -987,7 +976,6 @@
       "810C9D84C9B6C5B7BE9EBB87860A7851": "SNES-Super Famicom/Terranigma/Terranigma (E) [T+Pol100].zip",
       "83C9FFC6BBA2A297BAE9EF4AFC3989A8": "SNES-Super Famicom/Terranigma/Terranigma (E) [T+Bra_Adriano].zip",
       "8995FFE9FA821AA54A7C17BFF7647F66": "SNES-Super Famicom/Terranigma/Terranigma (F) [!].zip",
-      "8E3C12B70CB0B84E92B4B84F9E822F02": "SNES-Super Famicom/Terranigma/Terranigma (Europe)(narrowfont)(MSU)[Orchestral Set presented by JUD6MENT].zip",
       "988EF692078D136BB1A41737F54CFF50": "SNES-Super Famicom/Terranigma/Terranigma (G) (V1.1) [!][headered][ntsc].zip",
       "9C243B533B3558C09EB9A48CC504370A": "SNES-Super Famicom/Terranigma/Terranigma (E) [T+Kor] [NTSC].zip",
       "B28057B05057D106303910FFA806FE48": "SNES-Super Famicom/Terranigma/Terranigma (E) [T+Pol100] [NTSC].zip",
@@ -1026,15 +1014,12 @@
   ],
   "252": [
     {
-      "15EF4C1CBE9BAC8013AF65C091C1DE2B": "SNES-Super Famicom/F-Zero/F-Zero Age of SNES (MSU) [Shiryu, Darkshock].zip",
       "6F334790120E1FE1A972FF184D2CFC50": "SNES-Super Famicom/F-Zero/F-Zero (U) [!].zip",
-      "9CBCBB4E10469E068B5C5A2DB24C65A6": "SNES-Super Famicom/F-Zero/F-Zero (USA) [tr Fr v1.0 TT].zip",
-      "A3E3313D6695C7FB93B18C26E31C292A": "SNES-Super Famicom/F-Zero/F-Zero GX (MSU) [Extended v1.1 Conn et al, Colines v2 Audio].zip"
+      "9CBCBB4E10469E068B5C5A2DB24C65A6": "SNES-Super Famicom/F-Zero/F-Zero (USA) [tr Fr v1.0 TT].zip"
     }
   ],
   "253": [
     {
-      "2063C5A948C825BB40D5686B6D7EFB7F": "SNES-Super Famicom/Super Mario All-Stars/Super Mario All-Stars (MSU) [SMA Orchestral set presented by JUD6MENT v6].zip",
       "25310B2B5ADD818992BE3084922ABD38": "SNES-Super Famicom/Super Mario All-Stars/Super Mario All-Stars (U) [T+Spa100_Emu4ever].zip",
       "53C038150BA00D5F8D8574B4D36283F2": "SNES-Super Famicom/Super Mario All-Stars/Super Mario All-Stars (U) [!].zip",
       "669EFC8AA7365B5854D3653AB5598DC9": "SNES-Super Famicom/Super Mario All-Stars/Super Mario All-Stars (E) [!].zip"
@@ -1065,8 +1050,7 @@
   "259": [
     {
       "27D02A4F03E172E029C9B82AC3DB79F7": "SNES-Super Famicom/Final Fantasy II/Final Fantasy II (U) (V1.1) [!].zip",
-      "4FA9E542B954DCB954D5CE38188D9D41": "SNES-Super Famicom/Final Fantasy II/Final Fantasy II (U) (V1.0) [!].zip",
-      "A63816F5431EBBF51F8463A46F863E7A": "SNES-Super Famicom/Final Fantasy II/Final Fantasy II (MSU) [Kurrono V3].zip"
+      "4FA9E542B954DCB954D5CE38188D9D41": "SNES-Super Famicom/Final Fantasy II/Final Fantasy II (U) (V1.0) [!].zip"
     }
   ],
   "261": [
@@ -1099,7 +1083,6 @@
       "69777CD39A2372B5FAD71D1A05C29D6C": "SNES-Super Famicom/EarthBound/Earth Bound - The War Against Giygas! (U) [T+Fre1.1_Mambo].zip",
       "A5EE470AD753D22A1C493C7B4BAE6779": "SNES-Super Famicom/EarthBound/Earthbound (U) [!] [T-BR] [T-G-Earthbound Brasil] [V-1.0 A-2015].zip",
       "A864B2E5C141D2DEC1C4CBED75A42A85": "SNES-Super Famicom/EarthBound/Earth Bound - The War Against Giygas! (U) [!].zip",
-      "D137F359DF28265E83456A88FA5EF58D": "SNES-Super Famicom/EarthBound/EarthBound (MSU) (USA) [v2 Conn, v2 ShadowOne333].zip",
       "48E4E915B176D4BCF8DFE686DAB49D0D": "SNES-Super Famicom/EarthBound/Earth Bound - The War Against Giygas! (U) [!][Hack][MOTHER 2 Perfect Edition v1.5].zip",
       "21EC9F49D3D55DCBE965B584AFA5DA1A": "SNES-Super Famicom/EarthBound/EarthBound (USA) (De) (v1.2.2) (GlostU) (New Controls) (v1.0) (Herringway).zip",
       "B6519EDCBD2BFB23BE0632D125D250BA": "SNES-Super Famicom/EarthBound/EarthBound (USA) (De) (v1.2.2) (GlostU).zip",
@@ -1113,9 +1096,7 @@
       "16A1BE10C1D1CB56EB066262A59E3BC5": "SNES-Super Famicom/EarthBound/EarthBound (USA) (Pl) (v1.1) (Voxar).zip",
       "FEE41FDDCE971A28EF0678E744CDA1CD": "SNES-Super Famicom/EarthBound/EarthBound (USA) (Pt) (v1.0) (EarthBound Brasil) (New Controls) (v1.0) (Herringway).zip",
       "3B31F76AD20E7596A0E21FDC89D31A02": "SNES-Super Famicom/EarthBound/EarthBound (USA) (Ru) (v20230715) (MAGNAT2645) (New Controls) (v1.0) (Herringway).zip",
-      "4EBE57EDA051DA24A5D32C5F221B579D": "SNES-Super Famicom/EarthBound/EarthBound (USA) (Ru) (v20230715) (MAGNAT2645).zip",
-      "240BA4C884339EC2875D64E7EFF93B4F": "SNES-Super Famicom/EarthBound/EarthBound (USA) (It) (v1.47) (Vecna).zip",
-      "C6AC7A0F906A5EDA0B3CBE93826CB474": "SNES-Super Famicom/EarthBound/EarthBound (USA) (It) (v1.47) (Vecna) (New Controls) (v1.0) (Herringway).zip"
+      "4EBE57EDA051DA24A5D32C5F221B579D": "SNES-Super Famicom/EarthBound/EarthBound (USA) (Ru) (v20230715) (MAGNAT2645).zip"
     }
   ],
   "265": [
@@ -1125,7 +1106,6 @@
   ],
   "267": [
     {
-      "628941371D079353ADABE00364FB0EF5": "SNES-Super Famicom/Pilotwings/Pilotwings (MSU) [v5 Kurrono].zip",
       "8DCB216BEED58C798B25DF55F62218D0": "SNES-Super Famicom/Pilotwings/Pilotwings (U) [!].zip",
       "B1E59F8246F1AB07670E5F1015189B3A": "SNES-Super Famicom/Pilotwings/Pilotwings (E) [!].zip"
     }
@@ -1133,7 +1113,6 @@
   "268": [
     {
       "288555A2AAFB42B3D44D7B2663D1A00B": "SNES-Super Famicom/Toy Story/Toy Story (E) (M3) [!].zip",
-      "CCE80B0C56D01FD0F5C667155C66B3BC": "SNES-Super Famicom/Toy Story/Toy Story (MSU) [PC Redbook OST Enmet v1.0B4 PepilloPEV 2018-01-22].zip",
       "DF1D99115CE4A386054B511B62CD5CC6": "SNES-Super Famicom/Toy Story/Toy Story (U) [!].zip",
       "FBCE0804AA393EE5B6155B1E7553A5C1": "SNES-Super Famicom/Toy Story/Toy Story (J).zip"
     }
@@ -1141,13 +1120,11 @@
   "269": [
     {
       "5EF8E1F3E88C86F149838C569A0C0328": "SNES-Super Famicom/Batman Returns/Batman Returns (U) [!].zip",
-      "672B5C06058EE8D1C28AE36B44EB1D12": "SNES-Super Famicom/Batman Returns/Batman Returns (J) [!].zip",
-      "8EEF2EE384DC35849D5DD6A41DCB57C0": "SNES-Super Famicom/Batman Returns/Batman Returns (USA) (MSU) [Hack by Kurrono v1.0].zip"
+      "672B5C06058EE8D1C28AE36B44EB1D12": "SNES-Super Famicom/Batman Returns/Batman Returns (J) [!].zip"
     }
   ],
   "270": [
     {
-      "079D3E448C3EE99444710C12D903FFB0": "SNES-Super Famicom/ActRaiser/Actraiser (MSU) [Abyss Rebirth OST, MSU v1 Darkshock].zip",
       "635D5D7DD2AAD4768412FBAE4A32FD6E": "SNES-Super Famicom/ActRaiser/ActRaiser (U) [!].zip"
     }
   ],
@@ -1166,15 +1143,13 @@
       "01E6AA7E19F19F0FD48D378EDF09D80D": "SNES-Super Famicom/Alien 3/Alien 3 (U) [T+Rus].zip",
       "09120BA8C0052997481117683B4E70DB": "SNES-Super Famicom/Alien 3/Alien 3 (U) [!].zip",
       "0F10EC520FBDBB009F97333B59FF8D49": "SNES-Super Famicom/Alien 3/Alien 3 (E) [!].zip",
-      "69B9D3DD018E52F17F10AA92B7C2FC51": "SNES-Super Famicom/Alien 3/Alien 3 (USA) (MSU) [Hack by Conn & PepilloPev v11-26-2018].zip",
       "7F027688341EB52B84C613D452781F2D": "SNES-Super Famicom/Alien 3/Alien 3 (U) [T+Spa100%_MMM].zip",
       "FA334AFB7485E478EE7471718F8DEF9B": "SNES-Super Famicom/Alien 3/Alien 3 (E) [T+Bra].zip"
     }
   ],
   "274": [
     {
-      "AFFECAF49A6BD32188F62D9AD1F833EA": "SNES-Super Famicom/U.N. Squadron/U.N. Squadron (U) [!].zip",
-      "E5156BBD19C27E4000A3371DB4DBA04B": "SNES-Super Famicom/U.N. Squadron/UN Squadron (MSU) [Arcade OST Relikk, v1 PepilloPEV 2017-12-22].zip"
+      "AFFECAF49A6BD32188F62D9AD1F833EA": "SNES-Super Famicom/U.N. Squadron/U.N. Squadron (U) [!].zip"
     }
   ],
   "276": [
@@ -1189,8 +1164,7 @@
   ],
   "279": [
     {
-      "C9B698CF98F1AEDE7A87C1E449384632": "SNES-Super Famicom/Killer Instinct/Killer Instinct (U) (V1.1) [!].zip",
-      "CA82555080C37D8D59AAF60764606489": "SNES-Super Famicom/Killer Instinct/Killer Instinct (MSU) (Rev 1) [Arcade OST+All KI Project Patches v2 gizaha +video, 2019-12-08].zip"
+      "C9B698CF98F1AEDE7A87C1E449384632": "SNES-Super Famicom/Killer Instinct/Killer Instinct (U) (V1.1) [!].zip"
     }
   ],
   "281": [
@@ -1246,7 +1220,6 @@
   "292": [
     {
       "5927C98CDB4E31D580712223359BDC15": "SNES-Super Famicom/Knights of the Round/Knights of the Round (E) [!].zip",
-      "6261688F58531544189CB8448E2AAF9E": "SNES-Super Famicom/Knights of the Round/Knights of the Round (USA) (MSU) [Patch by PepilloPeV, Arcade PCM Pack by Relikk, v7].zip",
       "823F3EC75C327C8ADDB854FF7F646C22": "SNES-Super Famicom/Knights of the Round/Knights of the Round (J) [!].zip",
       "E2C47C0754F874B2B16D5F06BE3DBE34": "SNES-Super Famicom/Knights of the Round/Knights of the Round (U) [!].zip"
     }
@@ -1283,7 +1256,6 @@
   "300": [
     {
       "8633F40194D4EF61458AB8C24C14DBB5": "SNES-Super Famicom/Castlevania - Dracula X ! Castlevania - Vampire's Kiss/Akumajou Dracula XX (J).zip",
-      "B6F4EB1F8EF112982EDE66075BC48BFD": "SNES-Super Famicom/Castlevania - Dracula X ! Castlevania - Vampire's Kiss/Castlevania - Dracula X (USA)(MSU)[v1.6 PCM Pack by Kurrono fixed by edale v2.0].zip",
       "DC629BE2EE515461315CDE57210E36C0": "SNES-Super Famicom/Castlevania - Dracula X ! Castlevania - Vampire's Kiss/Castlevania - Dracula X (U) [!].zip"
     }
   ],
@@ -1311,7 +1283,6 @@
   "306": [
     {
       "25079AE8CF72ED2138E6CA781A2210E9": "SNES-Super Famicom/Mickey Mania - The Timeless Adventures of Mickey Mouse/Mickey Mania (E) [!].zip",
-      "4441D7C6DC0B43B769B620AC4DC950E8": "SNES-Super Famicom/Mickey Mania - The Timeless Adventures of Mickey Mouse/Mickey Mania (MSU) [Sega Saturn OST v1 PepilloPEV 2018-04-01].zip",
       "E3F9CC6D8321FA661A30CABE5DCE141A": "SNES-Super Famicom/Mickey Mania - The Timeless Adventures of Mickey Mouse/Mickey Mania (U) [!].zip"
     }
   ],
@@ -1323,17 +1294,7 @@
   "308": [
     {
       "77C5CB84C9768756C13FA8F956BFB11E": "SNES-Super Famicom/Indiana Jones' Greatest Adventures/Indiana Jones' Greatest Adventures (U) [!].zip",
-      "81D92BD000F16015C2C031B9AAEC0589": "SNES-Super Famicom/Indiana Jones' Greatest Adventures/Indiana Jones' Greatest Adventures (J).zip",
-      "D25A66477E644B12D8089DC06F19DDB3": "SNES-Super Famicom/Indiana Jones' Greatest Adventures/Indiana Jones' Greatest Adventures (MSU) [OST Movie - By Kurrono, Conn].zip"
-    }
-  ],
-  "309": [
-    {
-      "02C9C7E7914F9808487704E122554D4C": "SNES-Super Famicom/Super Street Fighter II - The New Challengers/Super Street Fighter II - The New Challengers (U) (V1.0) [!].zip",
-      "0E9AC29D22FA4B3FAAB2B453CA7D369F": "SNES-Super Famicom/Super Street Fighter II - The New Challengers/Super Street Fighter II - The New Challengers (U) (V1.0) (MSU) [v5 - Fixed Bonus Game & Intro by Conn].zip",
-      "39FC79B790656E145AF9B53CC91A038A": "SNES-Super Famicom/Super Street Fighter II - The New Challengers/Super Street Fighter II - The New Challengers (E) [T+Bra99%_Gorah SSJ2].zip",
-      "3A3EE93DB76E2C5CA85DF45564F9A9B0": "SNES-Super Famicom/Super Street Fighter II - The New Challengers/Super Street Fighter II - The New Challengers (J) [!].zip",
-      "68F9192F7D9553327A976662AF9C331D": "SNES-Super Famicom/Super Street Fighter II - The New Challengers/Super Street Fighter II - The New Challengers (E) [!].zip"
+      "81D92BD000F16015C2C031B9AAEC0589": "SNES-Super Famicom/Indiana Jones' Greatest Adventures/Indiana Jones' Greatest Adventures (J).zip"
     }
   ],
   "310": [
@@ -1360,7 +1321,6 @@
   ],
   "315": [
     {
-      "D7F8505280EB38EA52C8D1E3712F7C6A": "SNES-Super Famicom/Death and Return of Superman, The/Death and Return of Superman, The (USA) (MSU) [v3 Conn, Kurrono].zip",
       "DBF576310985B10FA48C6A1C8915B19D": "SNES-Super Famicom/Death and Return of Superman, The/Death and Return of Superman, The (U) (V1.0) [!].zip"
     }
   ],
@@ -1382,28 +1342,22 @@
       "3F0EA63C080A5503BD7DFBE59A1DBA00": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (U) [T+Ger0.95_TransNation].zip",
       "4AC1842287C3DB4172148B90AAF90127": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (U) [T+Spa101%_Magno].zip",
       "57AC2F1AE3D9612F2E13F450F88F6170": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (USA) [tr Fr v1.0 Kogami].zip",
-      "591582B6066DD57E7B0EE3338019F602": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (MSU) [Symphony Black Robinson v1 DarkShock].zip",
-      "855DC0F809B2E6B615B3CC705C42DC25": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (MSU) [Audio v1.0 by DarkShock [2015-09-12], Blake Robinson Chrono Symphony].zip",
-      "9D56FB54AF198D43DCD62550767999DF": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (J) [!].zip",
       "A2BC447961E52FD2227BAED164F729DC": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (U) [!].zip",
       "A326A96684E8E96F262EBA4A729C16DE": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (U) [T+Rus.0817a].zip",
       "BA44E14BE4455F016E077A66BF126D8C": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (U) [T+Rus_Chief-NET].zip",
       "BC55726C265DFFF1FA23B4996FD94437": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (U) [T+Bra].zip",
       "D226D3C38D068CFCAB552CE5B64B105C": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (BR).zip",
       "D555A230F7FDFAA2518DE2EDFE6CA726": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (U) [T-Rus].zip",
-      "DEDB5794E3B00473777852A75520278A": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (USA) (MSU) (Native FMV+Music Version).zip",
       "F65B12390CA5C55BA37D2EEFBC4F737B": "SNES-Super Famicom/Chrono Trigger/Chrono Trigger (U) [T+Ger2.00_manuloewe].zip"
     }
   ],
   "320": [
     {
-      "5ECE56F9A92F4C243AE9311B9E1965F0": "SNES-Super Famicom/Maui Mallard in Cold Shadow/Maui Mallard in Cold Shadow (U) [!].zip",
-      "9E87EC65114C37B4AD6362C80FC28B89": "SNES-Super Famicom/Maui Mallard in Cold Shadow/Maui Mallard in Cold Shadow (MSU) (USA) [v1 Conn, PepilloPEV].zip"
+      "5ECE56F9A92F4C243AE9311B9E1965F0": "SNES-Super Famicom/Maui Mallard in Cold Shadow/Maui Mallard in Cold Shadow (U) [!].zip"
     }
   ],
   "321": [
     {
-      "0D1A11295F79BE9B15DDAD53AB55BC1E": "SNES-Super Famicom/Spider-Man/Spider-Man (U) [!] (MSU) [Kurrono].zip",
       "73199B27FE52CAA56B12E42122DF1FC8": "SNES-Super Famicom/Spider-Man/Spider-Man (U) [!].zip",
       "83B92FBB05FC2418266365F891E8FB57": "SNES-Super Famicom/Spider-Man/Spider-Man (E).zip"
     }
@@ -1413,8 +1367,7 @@
       "1288DE058352D6F9C3BA146A61581555": "SNES-Super Famicom/Final Fight 3/Final Fight 3 (U) [!].zip",
       "3561D8252459E3296DE17E81F1C00D35": "SNES-Super Famicom/Final Fight 3/Final Fight Tough (J).zip",
       "4B78F90A4363E63208C3B8D7A1DB39DB": "SNES-Super Famicom/Final Fight 3/Final Fight 3 (U) [T+Spa100_Tanero].zip",
-      "D3345C674DEE52C654F6859ACDE2ED1F": "SNES-Super Famicom/Final Fight 3/Final Fight 3 (E) [!].zip",
-      "F6F08F33E3A5B92F30A5C47DB9EDA75A": "SNES-Super Famicom/Final Fight 3/Final Fight 3 (USA) (MSU) [PCM Pack by Kurrono, v1.2].zip"
+      "D3345C674DEE52C654F6859ACDE2ED1F": "SNES-Super Famicom/Final Fight 3/Final Fight 3 (E) [!].zip"
     }
   ],
   "324": [
@@ -1453,8 +1406,7 @@
   ],
   "333": [
     {
-      "1E1B47D5E5B0D9FAA5447273A52FC6EA": "SNES-Super Famicom/Sunset Riders/Sunset Riders (U) [!].zip",
-      "75E33DEF568C439803994EF286E2FC3F": "SNES-Super Famicom/Sunset Riders/Sunset Riders (MSU) [Arcade OST v1 PepilloPEV].zip"
+      "1E1B47D5E5B0D9FAA5447273A52FC6EA": "SNES-Super Famicom/Sunset Riders/Sunset Riders (U) [!].zip"
     }
   ],
   "335": [
@@ -1475,7 +1427,6 @@
       "30C5F292FF4CBBFCC00FD8FA96C2DE3B": "SNES-Super Famicom/Donkey Kong Country/Donkey Kong Country (U) (V1.0) [!].zip",
       "323A37CCBA32104BEEF7FF7DFC7CE894": "SNES-Super Famicom/Donkey Kong Country/Donkey Kong Country (U) (V1.1) [!].zip",
       "5D4890ACE4F1ACE435CBE9B74B0B16CD": "SNES-Super Famicom/Donkey Kong Country/Super Donkey Kong (J) (V1.1) [!].zip",
-      "9FA0DCC7025EF673DFF8B2DA0DAB5A2A": "SNES-Super Famicom/Donkey Kong Country/Donkey Kong Country (U) (V1.2) [!] (MSU) [OST Restoration by Sam Miller].zip",
       "A9B65F074001E139D42E80FA8E8BB023": "SNES-Super Famicom/Donkey Kong Country/Super Donkey Kong (J) (V1.0) [!].zip",
       "CD502DADDCC7EA3FB2E86C1F0F8B93C8": "SNES-Super Famicom/Donkey Kong Country/Donkey Kong Country (E) (M3) (V1.0) [!].zip"
     }
@@ -1487,37 +1438,28 @@
   ],
   "340": [
     {
-      "4A84B24F08BE0FD67C4CFE3E30FD432D": "SNES-Super Famicom/Wild Guns/Wild Guns (USA) (MSU) [Hack by PepilloPev v1.0].zip",
       "94D30063D9B17567D32079E766251569": "SNES-Super Famicom/Wild Guns/Wild Guns (U) [!].zip"
     }
   ],
   "341": [
     {
-      "08D9E93B66B6627AD6C52B2782C112B3": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (USA) (MSU)(TWUE v3.03).zip",
-      "0E34137CDBA5C7048B4AE1E98100C6EA": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (USA) (MSU)(TWUE v3.01).zip",
-      "30A85BD42AD1C4814FAC58A6E0435584": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (USA) (MSU)(TWUE v3.0).zip",
       "32EB28DDA06AD069EA941DB9EC14E143": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy VI (TWUE 3.02) + Bug Fixes, Updated Opera, & Add-Ons.zip",
       "3CBEE627005DDA6FA2CEF38A4D78CE57": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy VI (TWUE 3.01) + Bug Fixes, Updated Opera, & Add-Ons.zip",
       "544311E104805E926083ACF29EC664DA": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (U) (V1.1) [!].zip",
-      "695D6BAE61FEB55A732C294FDA2B3BCD": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (USA) (MSU)(TWUE v3.02).zip",
       "8B449C1A94EA898F5C33CCAC4CDA432D": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (U) (V1.0) [T+Ita].zip",
       "A94E06A558756FE8D8088330DA3AEB52": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy VI - Ted Woolsey Uncensored Edition (Final Fantasy III modification) (3.0) (Bug fixes, updated opera & add-ons).zip",
       "AAD61F72F56198A3C982293D0F43B363": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (U) (V1.1) [T+Spa100_Sayans].zip",
       "BE2EE147AB0416660F5982E8AC2AF233": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy VI (TWUE 3.03) + Bug Fixes, Updated Opera, & Add-Ons.zip",
       "EA12D01BEEB8BC3376D0A91A80FDC201": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (U) (V1.0) [T-Bra].zip",
       "F3334DF6425F78C34BEF9AFBC8118150": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (U) (V1.1) [T+Fre3.1final_Terminus].zip",
-      "732F1C5CCAA4C158DAB933E27933A24E": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (USA) (MSU)(TWUE v3.04).zip",
       "7E88E307FBE38BCD6C990A8C48B7C36C": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy VI (TWUE 3.04) + Bug Fixes, Updated Opera, & Add-Ons.zip",
       "5D9A4D9B8F947948B0F10ECA0E6D1A2E": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy VI (TWUE 3.05) + Bug Fixes, Updated Opera, & Add-Ons.zip",
-      "E96F2C755378B481A8F7591CB9B93923": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (USA) (MSU)(TWUE v3.05).zip",
-      "01409D22BCEED018394079CD86D7B50E": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (USA)[Hack][ Final Fantasy VI (TWUE 3.06) + Bug Fixes, Updated Opera, & Add-Ons].zip",
-      "2CE3C879155241BF3CD1768D9287B63D": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (USA) (Rev 1)(MSU)(TWUE v3.06).zip"
+      "01409D22BCEED018394079CD86D7B50E": "SNES-Super Famicom/Final Fantasy VI/Final Fantasy III (USA)[Hack][ Final Fantasy VI (TWUE 3.06) + Bug Fixes, Updated Opera, & Add-Ons].zip"
     }
   ],
   "342": [
     {
       "059C8D6B72D95EDB9FC619BEE864EF3E": "SNES-Super Famicom/Gradius III/Gradius III (J) [!].zip",
-      "8C70E7DE02F2056A646511731B4ECDF4": "SNES-Super Famicom/Gradius III/Gradius III (MSU) [Kurrono Kai Mix MSU v1.4b PepilloPEV, Conn].zip",
       "EA30C4F341F6B7A6E290699460BA6C51": "SNES-Super Famicom/Gradius III/Gradius III (U) [!].zip"
     }
   ],
@@ -1528,8 +1470,6 @@
   ],
   "344": [
     {
-      "01E10D6AFDD0C4A3E160EBB7286C18BA": "SNES-Super Famicom/Contra III - The Alien Wars ! Super Probotector - Alien Rebels/Contra 3 - The Alien Wars (MSU) [v1 PepilloPEV].zip",
-      "438E5496DC5DC09D0FF3693B2AEA2F96": "SNES-Super Famicom/Contra III - The Alien Wars ! Super Probotector - Alien Rebels/Contra 3 - The Alien Wars (MSU) [v131].zip",
       "4531C7AED14908A432F175351508F8E7": "SNES-Super Famicom/Contra III - The Alien Wars ! Super Probotector - Alien Rebels/Contra Spirits (J) [!].zip",
       "EDE82658DAFDD6FEBBFBE6A9C9082500": "SNES-Super Famicom/Contra III - The Alien Wars ! Super Probotector - Alien Rebels/Contra III - The Alien Wars (U) [!].zip"
     }
@@ -1556,7 +1496,6 @@
   ],
   "350": [
     {
-      "45EC2656D6D074C18F1642E663ED97E7": "SNES-Super Famicom/Teenage Mutant Ninja Turtles IV - Turtles in Time/Teenage Mutant Ninja Turtles IV - Turtles in Time (USA) (MSU) [Hack by DarkShock v1.0].zip",
       "807009D25EB31559974DAA3E39EECCD7": "SNES-Super Famicom/Teenage Mutant Ninja Turtles IV - Turtles in Time/Teenage Mutant Ninja Turtles IV - Turtles in Time (U) [!].zip",
       "D61A2B7F57A1C944D5B6B7DEEBF90131": "SNES-Super Famicom/Teenage Mutant Ninja Turtles IV - Turtles in Time/Teenage Mutant Hero Turtles IV - Turtles in Time (E) [!].zip"
     }
@@ -1571,22 +1510,17 @@
   "352": [
     {
       "067AD2453B32CB6FE595FC822B780700": "SNES-Super Famicom/Final Fight Guy/Final Fight Guy (U) [!].zip",
-      "36D4ABA59259DAB4144AFA655E44CF25": "SNES-Super Famicom/Final Fight Guy/Final Fight Guy (J).zip",
-      "9AEFFE095448FB3BFC05B876F7EEC3C5": "SNES-Super Famicom/Final Fight Guy/Final Fight Guy (USA) (MSU) [Sega CD OST v1 PepilloPEV 2017-12-23].zip",
-      "B34EF86F2386144FC2B73BDF0F9AFADC": "SNES-Super Famicom/Final Fight Guy/Final Fight Guy (USA) (MSU) [psalmsamuel Double Impact Remix Pack v2019-06-03].zip"
+      "36D4ABA59259DAB4144AFA655E44CF25": "SNES-Super Famicom/Final Fight Guy/Final Fight Guy (J).zip"
     }
   ],
   "353": [
     {
       "52A381970B31BA9D8A8E7E5FB660A888": "SNES-Super Famicom/Rushing Beat/Rushing Beat (Japan) [T-En by FlashPV v1.0].zip",
-      "56525A387F310DCF6DB750CBCFEC5926": "SNES-Super Famicom/Rushing Beat/Rushing Beat (MSU) [T.En, kurrono].zip",
       "822335A339952DC6F5FA16762DB81648": "SNES-Super Famicom/Rushing Beat/Rushing Beat (J) [!] [T-Pt v1.0.1 by ripman].zip"
     }
   ],
   "355": [
     {
-      "4EFE30A6D447C87E59E14528281D0D17": "SNES-Super Famicom/Legend of Zelda, The - A Link to the Past/Legend of Zelda, The - A Link to the Past (MSU) [Audio + Intro Video by Conn [2015-07-04]].zip",
-      "57FE0FEF7777F18AE67447E8C44E26A2": "SNES-Super Famicom/Legend of Zelda, The - A Link to the Past/Legend of Zelda, The - A Link to the Past (USA)(MSU)[Dracula9AntiChapel pcm and video by qwertymodo].zip",
       "608C22B8FF930C62DC2DE54BCD6EBA72": "SNES-Super Famicom/Legend of Zelda, The - A Link to the Past/Legend of Zelda, The - A Link to the Past (U) [!].zip",
       "D00AFB3BFB75E7B3E2DAB6736FA05F62": "SNES-Super Famicom/Legend of Zelda, The - A Link to the Past/Legend of Zelda, The - A Link to the Past (U) [T+Bra1.1_CBT].zip",
       "EDDDC1B166B93DF7D3BE1E72B541B0A4": "SNES-Super Famicom/Legend of Zelda, The - A Link to the Past/Legend of Zelda, The - A Link to the Past (U) [!] [T+ES1.11_D_Skywalk].zip",
@@ -1668,12 +1602,10 @@
     {
       "1183EE757A8654B1E5382722EEEDC7B9": "SNES-Super Famicom/Aladdin/Aladdin (U) [T+Spa1.0_Gogito].zip",
       "4D426A7ED36CD7EF896E31CDD48ED24E": "SNES-Super Famicom/Aladdin/Aladdin (E).zip",
-      "603BC3C8D523DB5D58F4F536962E7312": "SNES-Super Famicom/Aladdin/Aladdin (MSU) [Film OST PepilloPEV & Kurrono v1.0B1 2018-01-19].zip",
       "61A86AEE5792EAF64A04BCB30257D985": "SNES-Super Famicom/Aladdin/Aladdin (F).zip",
       "6B09F8C51E5C989D950F9510F1F73224": "SNES-Super Famicom/Aladdin/Aladdin (S) [!].zip",
       "720BF027B3CF93D58BAFCFD8E86EC6C1": "SNES-Super Famicom/Aladdin/Aladdin (U) [T+Fre100_Dream].zip",
       "8E00910312B30663768D907114D301C2": "SNES-Super Famicom/Aladdin/Aladdin (U) [!].zip",
-      "9852918C1DA7B69FA111F79B4381052C": "SNES-Super Famicom/Aladdin/Aladdin (MSU) [Film OST v1.1 PepilloPEV & Kurrono v1.1 2018-02-01].zip",
       "B432E0AF61A58C934B702B18CE05650C": "SNES-Super Famicom/Aladdin/Aladdin (U) [!] [I-BR T-Doidao66 e Nemesis A-2000].zip"
     }
   ],
@@ -1710,10 +1642,7 @@
   ],
   "388": [
     {
-      "CEFE028852135A1695ED9F6E692BC0CA": "SNES-Super Famicom/Arcana ! Card Master/Arcana (U) [!].zip",
-      "16953EE13696216C402CC173A8469B2F": "SNES-Super Famicom/Arcana ! Card Master/Arcana (USA) (Es) (v1.2) (Andre Mena Calavia,Lukas).zip",
-      "B5F794116BE109BD68B9D4458978268C": "SNES-Super Famicom/Arcana ! Card Master/Arcana (USA) (Gl) (v1.0) (Andre Mena Calavia).zip",
-      "E506AE74C43107B7EA811B99C6116331": "SNES-Super Famicom/Arcana ! Card Master/Arcana (U) [T+Bra_Hexagon].zip"
+      "CEFE028852135A1695ED9F6E692BC0CA": "SNES-Super Famicom/Arcana ! Card Master/Arcana (U) [!].zip"
     }
   ],
   "390": [
@@ -1745,15 +1674,12 @@
   ],
   "395": [
     {
-      "699BBDFFAB13C41FA8D4A9B3C25D60E7": "SNES-Super Famicom/Axelay/Axelay (U) [!].zip",
-      "9DAA4A217E94D155E34849B9D1F84966": "SNES-Super Famicom/Axelay/Axelay (USA) (MSU) [Hack by PepilloPEV v1.0].zip",
-      "CBFF9306A73D40037D872988B3AD3E65": "SNES-Super Famicom/Axelay/Axelay (USA) (MSU) [Hack by PepilloPEV v1.1].zip"
+      "699BBDFFAB13C41FA8D4A9B3C25D60E7": "SNES-Super Famicom/Axelay/Axelay (U) [!].zip"
     }
   ],
   "399": [
     {
-      "38129CF359C7BC93A82358FA305B07AE": "SNES-Super Famicom/Super Double Dragon/Super Double Dragon (U) [!].zip",
-      "82582408C84C681385C625CFCF9BDB4F": "SNES-Super Famicom/Super Double Dragon/Super Double Dragon (USA) (MSU) [Hack by Conn & Kurrono v1.0].zip"
+      "38129CF359C7BC93A82358FA305B07AE": "SNES-Super Famicom/Super Double Dragon/Super Double Dragon (U) [!].zip"
     }
   ],
   "400": [
@@ -1763,20 +1689,10 @@
       "35AFB723A7A1166D894549519D78622C": "SNES-Super Famicom/Secret of Mana/Secret of Mana (F) (V1.0).zip",
       "446E2B99DBC2BF9850DE1CE708801CA7": "SNES-Super Famicom/Secret of Mana/Secret of Mana (USA) [T-En by FuSoYa v1.00 VWF] [Add by Timbo v1.7] [Relocalized].zip",
       "5E1602019D4E337B9C6A714A6224BA1D": "SNES-Super Famicom/Secret of Mana/Secret of Mana (F) (V1.1) [!].zip",
-      "980B3B2397835BEC7EF81B0D9EB17F1D": "SNES-Super Famicom/Secret of Mana/Secret of Mana (MSU) [v1.0 Darkshock, Qwertymodo Audio Fix].zip",
       "B57303407986C0D28F2D78F931EFC59C": "SNES-Super Famicom/Secret of Mana/Secret of Mana (G) [!].zip",
       "5E6F0713D4732A191BE6FF941849932B": "SNES-Super Famicom/Secret of Mana/Secret of Mana (U) [!](MSU)[T+Spa101.2_Magno, Remastered PCM set by emuandco].zip",
       "3CA66FD0F88B2601E591776C2F097DF6": "SNES-Super Famicom/Secret of Mana/Secret of Mana (U) [T+Bra1.4_Samurai Pizza].zip",
       "0836745A2275BAD48E0F98A7925FE4A2": "SNES-Super Famicom/Secret of Mana/Seiken Densetsu 2 (J) (V1.0) [!].zip"
-    }
-  ],
-  "401": [
-    {
-      "32FCFB6358DA10EBCEA6BB9FC99E4C8B": "SNES-Super Famicom/Super Star Wars/Super Star Wars (E) (V1.0) [!].zip",
-      "676638E83EA0FD79EBDE24674FCB948E": "SNES-Super Famicom/Super Star Wars/Super Star Wars (E) (V1.1) [!].zip",
-      "744B9D1A382ADFABF0515D6D0E5DFED7": "SNES-Super Famicom/Super Star Wars/Super Star Wars (U) (V1.1) [!].zip",
-      "7672E7004036A6DE6B349E0B6342A058": "SNES-Super Famicom/Super Star Wars/Super Star Wars A New Hope (MSU) [John Williams OST - By  Relikk, Conn].zip",
-      "EA840D3722F90DEE824F5064E171E510": "SNES-Super Famicom/Super Star Wars/Super Star Wars (U) (V1.0) [!].zip"
     }
   ],
   "402": [
@@ -1808,7 +1724,6 @@
   ],
   "409": [
     {
-      "24EFE7AF3432FDE7D765BDF2F06F6C1E": "SNES-Super Famicom/Hagane - The Final Conflict/Hagane The Final Conflict (MSU) [Patch & Set PCM by PepilloPEV].zip",
       "36B0EF888D3E7352EEEE792E173426DC": "SNES-Super Famicom/Hagane - The Final Conflict/Hagane (E).zip",
       "44CB6BBBB233BC5D602D54FD418232F1": "SNES-Super Famicom/Hagane - The Final Conflict/Hagane (U) [!].zip",
       "E589BC57614B0F70E833A89C15C2BB09": "SNES-Super Famicom/Hagane - The Final Conflict/Hagane (J).zip"
@@ -1850,14 +1765,12 @@
       "3126B05549A3730A1BE69BDF029F18E2": "SNES-Super Famicom/Battletoads and Double Dragon - The Ultimate Team/Battletoads & Double Dragon - The Ultimate Team (U) [T+Rus0.9h_Shedevr].zip",
       "3C433A8AA73986E1361423303E92785B": "SNES-Super Famicom/Battletoads and Double Dragon - The Ultimate Team/Battletoads & Double Dragon - The Ultimate Team (U) [!].zip",
       "C4C7E54B8FE38760D56EFA929E798D83": "SNES-Super Famicom/Battletoads and Double Dragon - The Ultimate Team/Battletoads & Double Dragon - The Ultimate Team (U) [T+Spa100%_Sayans].zip",
-      "C69CFC6D8F52631ECE2A3041B1DE0223": "SNES-Super Famicom/Battletoads and Double Dragon - The Ultimate Team/Battletoads And Double Dragon (MSU) [v1.9 Kurrono , Conn, PepilloPEV].zip",
       "DE0460F8DEECE08313EC509B6BE192A9": "SNES-Super Famicom/Battletoads and Double Dragon - The Ultimate Team/Battletoads & Double Dragon - The Ultimate Team (U) [T+Bra].zip",
       "E4327313C7AD91CF435B96BCEA2D19D4": "SNES-Super Famicom/Battletoads and Double Dragon - The Ultimate Team/Battletoads & Double Dragon - The Ultimate Team (E) [!].zip"
     }
   ],
   "424": [
     {
-      "0833F8A2E93EFC4ED15202585EEF8462": "SNES-Super Famicom/Battletoads in Battlemaniacs/Battletoads in Battlemaniacs (USA) (MSU) [Hack by Conn & Kurrono v3].zip",
       "866B25CC8A348525A6CE344DC37916BF": "SNES-Super Famicom/Battletoads in Battlemaniacs/Battletoads in Battlemaniacs (E) [!].zip",
       "E44B9987E33EF7237B24457A6C997723": "SNES-Super Famicom/Battletoads in Battlemaniacs/Battletoads in Battlemaniacs (U) [!].zip",
       "EB6C366429A928AE6978E6C8A7478A61": "SNES-Super Famicom/Battletoads in Battlemaniacs/Battletoads in Battlemaniacs (U) [T+Rus_Shedevr].zip"
@@ -1945,8 +1858,7 @@
   ],
   "457": [
     {
-      "6AC508BDDBABC699F181D7858CCFCF0F": "SNES-Super Famicom/Bubsy in Claws Encounters of the Furred Kind/Bubsy in Claws Encounters of the Furred Kind (U) [!].zip",
-      "B373B0CC47B3487343EA0A32D97F6384": "SNES-Super Famicom/Bubsy in Claws Encounters of the Furred Kind/Bubsy in Claws Encounters of the Furred Kind (MSU) [Patch by Kurrono, Pev].zip"
+      "6AC508BDDBABC699F181D7858CCFCF0F": "SNES-Super Famicom/Bubsy in Claws Encounters of the Furred Kind/Bubsy in Claws Encounters of the Furred Kind (U) [!].zip"
     }
   ],
   "460": [
@@ -1962,8 +1874,6 @@
   ],
   "464": [
     {
-      "2BCA7C39496DD6F8D09EB1C8237F35FA": "SNES-Super Famicom/Final Fight/Final Fight (USA) (MSU) [Relikk Arcade Pack v2019-06-03].zip",
-      "85360C27567CAAD1A33967B513789C45": "SNES-Super Famicom/Final Fight/Final Fight (USA) (MSU) [Sega CD By Pepillopev].zip",
       "F638224CE95E2101C2948EDF7569AC73": "SNES-Super Famicom/Final Fight/Final Fight (U) [!].zip"
     }
   ],
@@ -1978,12 +1888,10 @@
     {
       "2AE8161CB714F2DAD38F845674553A4B": "SNES-Super Famicom/Donkey Kong Country 2 - Diddy's Kong Quest/Donkey Kong Country 2 - Diddy's Kong Quest (G) (M2) (V1.1) [!].zip",
       "6FF526F388A179EC6EBA9907EB8E3254": "SNES-Super Famicom/Donkey Kong Country 2 - Diddy's Kong Quest/Donkey Kong Country 2 - Diddy's Kong Quest (E) (M2) (V1.1) [!].zip",
-      "83B97937EB3926446589B4AB9EE9C700": "SNES-Super Famicom/Donkey Kong Country 2 - Diddy's Kong Quest/Donkey Kong Country 2 (MSU) [RemixPack v3 Matrizzle, Daniel Reimer].zip",
       "98458530599B9DFF8A7414A7F20B777A": "SNES-Super Famicom/Donkey Kong Country 2 - Diddy's Kong Quest/Donkey Kong Country 2 - Diddy's Kong Quest (U) (M2) (V1.0) [!].zip",
       "9D6A4985C77A132B0E8CDF57DCDF5D03": "SNES-Super Famicom/Donkey Kong Country 2 - Diddy's Kong Quest/Donkey Kong Country 2 - Diddy's Kong Quest (U) (M2) (V1.0) [T-Bra].zip",
       "B285148DF1712ACF50162BDBEFDCF1E0": "SNES-Super Famicom/Donkey Kong Country 2 - Diddy's Kong Quest/Super Donkey Kong 2 - Dixie & Diddy (J) (V1.1) [!].zip",
       "D323E6BB4CCC85FD7B416F58350BC1A2": "SNES-Super Famicom/Donkey Kong Country 2 - Diddy's Kong Quest/Donkey Kong Country 2 - Diddy's Kong Quest (U) (M2) (V1.1) [!].zip",
-      "DEB3EC76B71419A4E793C70B49F105DD": "SNES-Super Famicom/Donkey Kong Country 2 - Diddy's Kong Quest/Donkey Kong Country 2 - Diddy's Kong Quest (U) [!] (MSU) [Orchestral Set presented by JUD6MENT].zip",
       "F39D026F5BB47B1E8C72B36DCA524849": "SNES-Super Famicom/Donkey Kong Country 2 - Diddy's Kong Quest/Donkey Kong Country 2 - Diddy's Kong Quest (G) (M2) (V1.0) [!].zip",
       "F65BDE686BDA6226AEA555858A74BB7D": "SNES-Super Famicom/Donkey Kong Country 2 - Diddy's Kong Quest/Super Donkey Kong 2 - Dixie & Diddy (J) (V1.0) [!].zip"
     }
@@ -1992,14 +1900,12 @@
     {
       "649C377A7479C898B1933962C4BADAAD": "SNES-Super Famicom/Magical Quest starring Mickey Mouse, The/Magical Quest Starring Mickey Mouse, The (U) [!].zip",
       "C954A0E17237E073DE42A2C86D3BEF36": "SNES-Super Famicom/Magical Quest starring Mickey Mouse, The/Magical Quest Starring Mickey Mouse, The (E) (V1.0).zip",
-      "F57921C59512C5785F5D0AE16E43843E": "SNES-Super Famicom/Magical Quest starring Mickey Mouse, The/Magical Quest Starring Mickey Mouse (MSU) (USA) [v1.2 Kurrono, PepilloPEV].zip",
       "FFA59D36484BFFD65C39A0498A8541C6": "SNES-Super Famicom/Magical Quest starring Mickey Mouse, The/Magical Quest Starring Mickey Mouse, The (U) [T+Fre_Generation IX].zip"
     }
   ],
   "468": [
     {
       "262616F80A6C194527D41E2C72B61ACA": "SNES-Super Famicom/Final Fight 2/Final Fight 2 (U) [!].zip",
-      "940FB1D47FEB3CED3987EC6DD55ED73F": "SNES-Super Famicom/Final Fight 2/Final Fight 2 (USA) (MSU) [Hack by Kurrono & PepilloPev v1.1].zip",
       "C48173FB44998AE5F6E74575D0B09182": "SNES-Super Famicom/Final Fight 2/Final Fight 2 (J) [!].zip",
       "E81E2C9108AD0D23E8CC8CFF277B48F6": "SNES-Super Famicom/Final Fight 2/Final Fight 2 (E).zip"
     }
@@ -2019,8 +1925,6 @@
     {
       "13E9DA8D0F10133C81588F9B6D4E9EA1": "SNES-Super Famicom/Super Mario RPG - Legend of the Seven Stars/Super Mario RPG - Legend of the Seven Stars (U) [T+Spa100_Pkt][a1].zip",
       "521C005FD3A8C57AF795F96760C0FF29": "SNES-Super Famicom/Super Mario RPG - Legend of the Seven Stars/Super Mario RPG - Legend of the Seven Stars (U) [T+Ger0.99a_Alemanic].zip",
-      "960AE5101E63C6EAF8F370C360AF7AF5": "SNES-Super Famicom/Super Mario RPG - Legend of the Seven Stars/Super Mario RPG - Legend of the Seven Stars (USA) (MSU) [Hack by Conn & JUD6MENT v01-08-2019].zip",
-      "BA69F7A7E29B1AC5D05AFA61597551BE": "SNES-Super Famicom/Super Mario RPG - Legend of the Seven Stars/Super Mario RPG (MSU) [By JUD6MENT and Conn].zip",
       "D0B68D68D9EFC0558242F5476D1C5B81": "SNES-Super Famicom/Super Mario RPG - Legend of the Seven Stars/Super Mario RPG - Legend of the Seven Stars (U) [!].zip"
     }
   ],
@@ -2032,8 +1936,7 @@
   ],
   "473": [
     {
-      "120ABF304F0C40FE059F6A192ED4F947": "SNES-Super Famicom/Donkey Kong Country 3 - Dixie Kong's Double Trouble!/Donkey Kong Country 3 - Dixie Kong's Double Trouble (U) (M2) [!].zip",
-      "F8DC16289A2AA1C6144B841AD505164C": "SNES-Super Famicom/Donkey Kong Country 3 - Dixie Kong's Double Trouble!/Donkey Kong Country 3 - Dixie Kong's Double Trouble! (USA) (MSU) [Hack by Conn & daniloroxette v1.0].zip"
+      "120ABF304F0C40FE059F6A192ED4F947": "SNES-Super Famicom/Donkey Kong Country 3 - Dixie Kong's Double Trouble!/Donkey Kong Country 3 - Dixie Kong's Double Trouble (U) (M2) [!].zip"
     }
   ],
   "476": [
@@ -2088,9 +1991,7 @@
   ],
   "498": [
     {
-      "23EFA445CC013CAB7906F34F062577C2": "SNES-Super Famicom/Ninja Gaiden Trilogy/Ninja Gaiden Trilogy (MSU) [Arranged Conspiracy83 OST v1, MSU PepilloPEV v2.1 2018-03-05].zip",
-      "A641A33A829154F656CA00AB1EF35500": "SNES-Super Famicom/Ninja Gaiden Trilogy/Ninja Gaiden Trilogy (U) [b1].zip",
-      "F2AE4374717F4E39DF97FC0FD2A2BD92": "SNES-Super Famicom/Ninja Gaiden Trilogy/Ninja Gaiden Trilogy (MSU) [Loop Fixed Hybrid v2.3, Conspiracy83, HPendragon, NES].zip"
+      "A641A33A829154F656CA00AB1EF35500": "SNES-Super Famicom/Ninja Gaiden Trilogy/Ninja Gaiden Trilogy (U) [b1].zip"
     }
   ],
   "500": [
@@ -2106,9 +2007,7 @@
   ],
   "502": [
     {
-      "24504179425A8B89CD8CE3ED2D99B514": "SNES-Super Famicom/Top Gear/Top Gear (USA) (MSU) [Hack by Kurrono v3].zip",
       "A072455FA9AD963D09AFA353E5C65793": "SNES-Super Famicom/Top Gear/Top Racer (J) [T-Bra].zip",
-      "B1BDC9CAF5BB8191EBAF3F2F42410969": "SNES-Super Famicom/Top Gear/Top Gear (USA) (MSU) [Kurrono Kei].zip",
       "E5040A079FF03EB93747424AF9BE75F4": "SNES-Super Famicom/Top Gear/Top Gear (U) [!].zip"
     }
   ],
@@ -2208,7 +2107,6 @@
   ],
   "518": [
     {
-      "3D2BF0696342A31E50F1D81DE49721F8": "SNES-Super Famicom/Ninja Warriors, The/Ninja Warriors, The (MSU) [Revenant].zip",
       "A8711C9185C7A6C52B863567B188CE1E": "SNES-Super Famicom/Ninja Warriors, The/Ninja Warriors, The (U) [!].zip",
       "C86C99D1454426B908C89FD1CAA858DC": "SNES-Super Famicom/Ninja Warriors, The/Ninja Warriors Again, The (J).zip"
     }
@@ -2324,11 +2222,6 @@
       "0B2D342A98A3436FACEAF539CBEDF698": "Genesis-Mega Drive/Double Dragon V - The Shadow Falls/Double Dragon V - The Shadow Falls (U) [!].zip"
     }
   ],
-  "539": [
-    {
-      "97FE7D7D2A1017F8480E60A365A373F0": "SNES-Super Famicom/Super Punch-Out!!/Super Punch-Out!! (U) [!].zip"
-    }
-  ],
   "540": [
     {
       "1D2C316F9F32727261328C7A49B22E2C": "Game Boy/Super Mario Land 2 - 6 Golden Coins/Super Mario Land 2 - 6 Golden Coins (UE) (V1.1) [!].zip",
@@ -2379,7 +2272,6 @@
     {
       "3B74C6E1887B1CBF4B5B9EE10E7C2B3C": "SNES-Super Famicom/Shin Kidou Senki Gundam W - Endless Duel/Shin Kidou Senki Gundam W - Endless Duel (J) [T+Eng1.00_Aeon Genesis].zip",
       "53B2C91892B09C47AC4408BECCAC5C66": "SNES-Super Famicom/Shin Kidou Senki Gundam W - Endless Duel/Shin Kidou Senki Gundam W - Endless Duel (J) [T+Swe020].zip",
-      "AC39BCC1C19813048903098D0C1E4935": "SNES-Super Famicom/Shin Kidou Senki Gundam W - Endless Duel/Shin Kidou Senki Gundam W - Endless Duel (MSU) [T.En, pepillopev v3].zip",
       "E2C3CC007C2C1C358BFE50EAD5C8B9AC": "SNES-Super Famicom/Shin Kidou Senki Gundam W - Endless Duel/Shin Kidou Senki Gundam W - Endless Duel (J).zip"
     }
   ],
@@ -2399,10 +2291,7 @@
   ],
   "558": [
     {
-      "39A55FA140D4966D2CD58CC60B2A0194": "SNES-Super Famicom/Super Mario World 2 - Yoshi's Island/Super Mario World 2 - Yoshi's Island (USA) (MSU) [v18].zip",
-      "CB472164C5A71CCD3739963390EC6A50": "SNES-Super Famicom/Super Mario World 2 - Yoshi's Island/Super Mario World 2 - Yoshi's Island (U) (V1.0) [!].zip",
-      "CE1E3E33B6E39D37B43D7DE599F9E785": "SNES-Super Famicom/Super Mario World 2 - Yoshi's Island/Super Mario World 2 - Yoshi's Island (U) (V1.1) [!].zip",
-      "F1F6C8B4A853748D7DD0F1B9028BED16": "SNES-Super Famicom/Super Mario World 2 - Yoshi's Island/Super Mario World 2 - Yoshis Island (USA)(MSU)[Orchestral PCM Set by JUD6MENT].zip"
+      "CE1E3E33B6E39D37B43D7DE599F9E785": "SNES-Super Famicom/Super Mario World 2 - Yoshi's Island/Super Mario World 2 - Yoshi's Island (U) (V1.1) [!].zip"
     }
   ],
   "559": [
@@ -2439,8 +2328,7 @@
     {
       "094F035993E9724647B61DDCBA1E9A7A": "SNES-Super Famicom/Super Castlevania IV/Super Castlevania IV (U) [!].zip",
       "3470065E780B127323DA7BF950306F9E": "SNES-Super Famicom/Super Castlevania IV/Akumajou Dracula (J) [!].zip",
-      "75E904E769A99FE3C5207CFE13B5F52B": "SNES-Super Famicom/Super Castlevania IV/Super Castlevania IV (U) [T+Fre100_Xam][o1].zip",
-      "E36878C7D6C7ECBB090DE659E5F3893C": "SNES-Super Famicom/Super Castlevania IV/Super Castlevania IV (USA) (MSU).zip"
+      "75E904E769A99FE3C5207CFE13B5F52B": "SNES-Super Famicom/Super Castlevania IV/Super Castlevania IV (U) [T+Fre100_Xam][o1].zip"
     }
   ],
   "565": [
@@ -2523,9 +2411,7 @@
   ],
   "582": [
     {
-      "0644DA71F79D405A22934DAA1474CEFC": "SNES-Super Famicom/Ultimate Mortal Kombat 3/Ultimate Mortal Kombat 3 (U) [!].zip",
-      "6668441D698E928546291FFC01CB1A3A": "SNES-Super Famicom/Ultimate Mortal Kombat 3/Ultimate Mortal Kombat 3 (USA) (MSU) [Hack by Conn & Kurrono & Relikk v1.0].zip",
-      "DCCED4B3E90725218D4A5ECA90528130": "SNES-Super Famicom/Ultimate Mortal Kombat 3/Ultimate Mortal Kombat 3 (USA) (MSU) [Arcade Relikk MSU v1 Conn].zip"
+      "0644DA71F79D405A22934DAA1474CEFC": "SNES-Super Famicom/Ultimate Mortal Kombat 3/Ultimate Mortal Kombat 3 (U) [!].zip"
     }
   ],
   "583": [
@@ -2596,9 +2482,7 @@
   ],
   "605": [
     {
-      "AA3C90FA7D89EB3DC3389A9436BD0CF8": "SNES-Super Famicom/Street Fighter Alpha 2/Street Fighter Alpha 2 (U) [!].zip",
-      "E1850EF86958EFD01B1B16D53FC7B6D3": "SNES-Super Famicom/Street Fighter Alpha 2/Street Fighter Alpha 2 (MSU) [CPS2 Arcade Pack by Relikk].zip",
-      "0A938455715CF8128B06CD0579872E28": "SNES-Super Famicom/Street Fighter Alpha 2/Street Fighter Alpha 2 (MSU) [CPS2 Arcade Pack by Relikk, gizaha - v.20210621].zip"
+      "AA3C90FA7D89EB3DC3389A9436BD0CF8": "SNES-Super Famicom/Street Fighter Alpha 2/Street Fighter Alpha 2 (U) [!].zip"
     }
   ],
   "611": [
@@ -2640,8 +2524,6 @@
   "624": [
     {
       "4ABEA08C9AADAE963DE8F4CA142BCA99": "SNES-Super Famicom/Mega Man X3/Megaman X 3 (U) [T+Fre].zip",
-      "61088A45F3E561D15DD114E27D6D779E": "SNES-Super Famicom/Mega Man X3/Mega Man X3 (MSU) [Genesis OST vacantplanets Attenuated Volume].zip",
-      "97098A55A0F87A2C6A555C0338C10AC4": "SNES-Super Famicom/Mega Man X3/Mega Man X3 (MSU) [PSX-Saturn NTI Audio Remake - v1.1 DarkShock, NTI].zip",
       "CFE8C11F0DCE19E4FA5F3FD75775E47C": "SNES-Super Famicom/Mega Man X3/Megaman X 3 (U) [!].zip",
       "E81BEDD2FC6B013538CDF4BD22FDEFF6": "SNES-Super Famicom/Mega Man X3/Megaman X 3 (E) [!].zip",
       "1E54AB48A1F02FFED9BE46EE820F06DA": "SNES-Super Famicom/Mega Man X3/Mega Man X 3 (USA) (Pt) (DarthKyle,G-Emuway).zip"
@@ -2663,7 +2545,6 @@
   ],
   "628": [
     {
-      "34C791F3E69B7FB8081EEA0E8B8AD0B2": "SNES-Super Famicom/Demon's Crest/Demon's Crest (USA) (MSU) [Hack by Conn & Relikk & ArcadeTV v2.0].zip",
       "E990AE600A8326EDA25489BDDDFFCA55": "SNES-Super Famicom/Demon's Crest/Demon's Crest (U) [!].zip"
     }
   ],
@@ -2684,7 +2565,6 @@
   ],
   "633": [
     {
-      "33197DCDD3E6ED3396B894A2301D45D8": "SNES-Super Famicom/Fighter's History/Fighter's History (USA) (Rev 1) (MSU) [Hack by Conn & Kurrono v7].zip",
       "4181E243AE146D471DC5C292DCE772AC": "SNES-Super Famicom/Fighter's History/Fighter's History (U) [!].zip"
     }
   ],
@@ -2693,9 +2573,6 @@
       "19BF3AC320754AE21B586CE112B19EC5": "SNES-Super Famicom/Mega Man X/Rockman X (J) (V1.1).zip",
       "1D9D56CDF7A1B6654F69063FD7AEFE50": "SNES-Super Famicom/Mega Man X/Megaman X (U) (V1.0) [T+Fre].zip",
       "1E11A6C21B7885512F83844470C87DDF": "SNES-Super Famicom/Mega Man X/Megaman X (U) (V1.0) [T+Fre.1_BessaB].zip",
-      "797FD8E6EAB44EA597AED9F44D4E1669": "SNES-Super Famicom/Mega Man X/Mega Man X (MSU) [Guitar Playthrough - Krzysztof Slowikowski, Qwertymodo Audio Fix].zip",
-      "7ABDAC1EB51BAEBD9996E45A0C05A232": "SNES-Super Famicom/Mega Man X/Mega Man X (USA) (Rev 1)(MSU)[Krzysztof Slowikowski Guitar Playthrough, v16, 2020-07-07].zip",
-      "82870D3FD437AE8280A7C6C23874B737": "SNES-Super Famicom/Mega Man X/Mega Man X (USA) (MSU) [Savaged Regime YM2612 Style PCM set by Relikk v2 - DarkShock v2015-03-06].zip",
       "DF1CC0C8C8C4B61E3B834CC03366611C": "SNES-Super Famicom/Mega Man X/Megaman X (U) (V1.1) [!].zip",
       "7899D1A6D3DDCD99E6CBD7B223392D18": "SNES-Super Famicom/Mega Man X/Megaman X (U) (V1.0) [T+Bra_brgames].zip"
     }
@@ -2709,7 +2586,6 @@
   "645": [
     {
       "36F54352E7ABA538529913707A734F9E": "SNES-Super Famicom/Captain Commando/Captain Commando (E) [!].zip",
-      "37CFC64A6EA22B7914EA443E2BF2BF0C": "SNES-Super Famicom/Captain Commando/Captain Commando (USA) (MSU) [PS1 OST v1 PeV, Relikk OST].zip",
       "7090BE7DB70304CEA034BFD77E4D1886": "SNES-Super Famicom/Captain Commando/Captain Commando (J).zip",
       "FA1ACA992A1BBE309651FFF64541866F": "SNES-Super Famicom/Captain Commando/Captain Commando (U) [!].zip"
     }
@@ -2717,15 +2593,12 @@
   "647": [
     {
       "9873C45BF77EB06262E9B8D8C4B841B4": "SNES-Super Famicom/Mortal Kombat II/Mortal Kombat II (U) (V1.0) [!].zip",
-      "A0B9BEBBC80958E36292ABD9B8FB758E": "SNES-Super Famicom/Mortal Kombat II/Mortal Kombat II (U) (V1.1) [!].zip",
-      "AC0DA762C2D05B6B041E55B21A4007AE": "SNES-Super Famicom/Mortal Kombat II/Mortal Kombat 2 (MSU) [Arcade OST Relikk v1.1 Kurrono, Conn 2018-04-01].zip"
+      "A0B9BEBBC80958E36292ABD9B8FB758E": "SNES-Super Famicom/Mortal Kombat II/Mortal Kombat II (U) (V1.1) [!].zip"
     }
   ],
   "648": [
     {
       "014863E139F5A9E9FC8ECF59A133223B": "SNES-Super Famicom/Street Fighter II - Turbo - Hyper Fighting/Street Fighter II Turbo - Hyper Fighting (U) (V1.1).zip",
-      "1992EE0CD0593C7A57D1E7A9E771D70A": "SNES-Super Famicom/Street Fighter II - Turbo - Hyper Fighting/Street Fighter II Turbo (USA) (Rev 1)(MSU)[Arcade CPS by Relikk, heavy damage].zip",
-      "6030E02F113EBE6C18E2708BC9D36E2B": "SNES-Super Famicom/Street Fighter II - Turbo - Hyper Fighting/Street Fighter II Turbo - Hyper Fighting (U) (MSU) [Arcade CPS pack by Relikk v5].zip",
       "A92B83FF868B8972C3DD12A4F2BD4AF3": "SNES-Super Famicom/Street Fighter II - Turbo - Hyper Fighting/Street Fighter II Turbo - Hyper Fighting (J) (V1.0) [!].zip",
       "AC63BD5085B0F8F35E2CFF59E9C34456": "SNES-Super Famicom/Street Fighter II - Turbo - Hyper Fighting/Street Fighter II Turbo - Hyper Fighting (U) (V1.0) [!].zip",
       "CC7E42A7725D18CEFB54A26EB5EB7A73": "SNES-Super Famicom/Street Fighter II - Turbo - Hyper Fighting/Street Fighter II Turbo - Hyper Fighting (E) (V1.0) [!].zip"
@@ -2756,10 +2629,8 @@
   ],
   "658": [
     {
-      "10365ACC8F7C602864F85C3EA295916F": "SNES-Super Famicom/Mortal Kombat 3/Mortal Kombat 3 (MSU) [Non Arcade Relikk v1 Conn].zip",
       "AFA64DD1C92D2138B2D723D136B1EB76": "SNES-Super Famicom/Mortal Kombat 3/Mortal Kombat 3 (E) [!].zip",
-      "EC6FA27BFC201DD0EF0000F4C65FB57A": "SNES-Super Famicom/Mortal Kombat 3/Mortal Kombat 3 (U) [!].zip",
-      "FCB0EFBE5C4B3372A7DC3575979FB8F3": "SNES-Super Famicom/Mortal Kombat 3/Mortal Kombat 3 (MSU) [Arcade Relikk v1 Conn].zip"
+      "EC6FA27BFC201DD0EF0000F4C65FB57A": "SNES-Super Famicom/Mortal Kombat 3/Mortal Kombat 3 (U) [!].zip"
     }
   ],
   "664": [
@@ -3461,13 +3332,11 @@
   ],
   "813": [
     {
-      "201E7658F6194458A3869DDE36BF8EC2": "SNES-Super Famicom/Kirby's Dream Land 3/Kirby's Dream Land 3 (U) [!].zip",
-      "83FF848A5793805423EEF5F09A09292F": "SNES-Super Famicom/Kirby's Dream Land 3/Kirby's Dreamland 3 (MSU) [Hacked by Conn, PepilloPEV].zip"
+      "201E7658F6194458A3869DDE36BF8EC2": "SNES-Super Famicom/Kirby's Dream Land 3/Kirby's Dream Land 3 (U) [!].zip"
     }
   ],
   "814": [
     {
-      "566AE8DC85175CF01A44D006437EA7F8": "SNES-Super Famicom/Kirby Super Star ! Kirby's Fun Pak/Kirby Super Star (U) [!] (MSU) [JUD6MENT and Conn].zip",
       "CB76EA8AC989E71210C89102D91C6C57": "SNES-Super Famicom/Kirby Super Star ! Kirby's Fun Pak/Kirby Super Star (U) [!].zip"
     }
   ],
@@ -3492,19 +3361,12 @@
       "9055814B1782CADD538C78AE773826B8": "SNES-Super Famicom/Shin Megami Tensei/Shin Megami Tensei (J) (V1.0) [!].zip"
     }
   ],
-  "820": [
-    {
-      "A21571C7F21E68DEE9A4D78BBC1CFD6A": "SNES-Super Famicom/~Hack~ Super Metroid - Redesign/Super Metroid - Redesign V2.1 by Drewseph (Hack).zip"
-    }
-  ],
   "821": [
     {
       "0D131FF1D7896D6994B03FE2751D820B": "SNES-Super Famicom/Secret of Evermore/Secret of Evermore (G) [!].zip",
       "1C02824BDD165BACB52597551C3C87C5": "SNES-Super Famicom/Secret of Evermore/Secret of Evermore (E) [!].zip",
-      "2DC88F4FDE9F3DBC4F6EA61C4152F5EE": "SNES-Super Famicom/Secret of Evermore/Secret of Evermore (MSU) [v1 RedScorpion, Conn].zip",
       "4C33B3B733B2CBD63295446B14654652": "SNES-Super Famicom/Secret of Evermore/Secret of Evermore (F) [!].zip",
       "6E9C94511D04FAC6E0A1E582C170BE3A": "SNES-Super Famicom/Secret of Evermore/Secret of Evermore (U) [!].zip",
-      "89C712CF078EB8B4AE82010343156406": "SNES-Super Famicom/Secret of Evermore/Secret of Evermore (MSU) [RedScorpion OST, v3 Conn 2017-11-30].zip",
       "F6516A3B18C262EC00CD4348921C3897": "SNES-Super Famicom/Secret of Evermore/Secret of Evermore (S).zip",
       "FC2B89E02D0D02712A3F918FAEC671D4": "SNES-Super Famicom/Secret of Evermore/Secret of Evermore - 2 Player Edition v1.02 by FuSoYa (Hack).zip"
     }
@@ -3608,7 +3470,6 @@
   ],
   "867": [
     {
-      "58D6F28D4D8AF6C473D53648728D0B96": "SNES-Super Famicom/Cybernator ! Assault Suits Valken/Assault Suits Valken (J)(MSU) [T+Eng1.00_Aeon Genesis, PepilloPEV v.1].zip",
       "8376C1BFAC08F6FBBF99F26ABAEE6DA0": "SNES-Super Famicom/Cybernator ! Assault Suits Valken/Cybernator (U) [!].zip",
       "9F4F827317F507B0AC4702245F161687": "SNES-Super Famicom/Cybernator ! Assault Suits Valken/Assault Suits Valken (J) [!].zip"
     }
@@ -3616,9 +3477,7 @@
   "868": [
     {
       "07CE711DB81BD94433F59C8477320081": "SNES-Super Famicom/Darius Twin/Darius Twin (E) [!].zip",
-      "0E7C6781A6AE15D36A5885A03C132898": "SNES-Super Famicom/Darius Twin/Darius Twin (U) [!].zip",
-      "8AA76A8FB3E47CC0D1D092558C1C667D": "SNES-Super Famicom/Darius Twin/Darius Twin (USA) (MSU) [Dariusburst OST v1.0b1 PepilloPEV 2018-01-10].zip",
-      "B03A4ED17026896552D001BDA15DD1B6": "SNES-Super Famicom/Darius Twin/Darius Twin (USA) (MSU) [Hack by Conn & PepilloPev v1.2].zip"
+      "0E7C6781A6AE15D36A5885A03C132898": "SNES-Super Famicom/Darius Twin/Darius Twin (U) [!].zip"
     }
   ],
   "870": [
@@ -3634,8 +3493,6 @@
   ],
   "878": [
     {
-      "036BEED13A2C8C8F7A99F0DBF33FFDC1": "SNES-Super Famicom/Lion King, The/Lion King (MSU) [Film OST v2 kurrono 2018-03-24].zip",
-      "18C4EA37118850C18084C9993EF93165": "SNES-Super Famicom/Lion King, The/Lion King (MSU) [Film OST v3].zip",
       "6A5B2F9BDE72F7D72DB7DFE9AFD0F47A": "SNES-Super Famicom/Lion King, The/Lion King, The (U) [!].zip",
       "F674143B37CC0F7914D6858D864394B0": "SNES-Super Famicom/Lion King, The/Lion King, The (U) [T+Fre].zip"
     }
@@ -3656,13 +3513,11 @@
     {
       "07504CCF489368208E472CD2B61259EB": "SNES-Super Famicom/E.V.O. - Search for Eden/E.V.O. Search for Eden (U) [T+Bra_POBRE].zip",
       "116B082005E47A83D3E87FF97C525530": "SNES-Super Famicom/E.V.O. - Search for Eden/46 Okunen Monogatari - Harukanaru Eden he (J).zip",
-      "2FFD5027D32F0EC5326981EE1BE1CA32": "SNES-Super Famicom/E.V.O. - Search for Eden/E.V.O. Search for Eden (U) [!].zip",
-      "62C4BD2072C818F026072049CA114D33": "SNES-Super Famicom/E.V.O. - Search for Eden/E.V.O. - Search for Eden (MSU) (USA) [v2 Conn].zip"
+      "2FFD5027D32F0EC5326981EE1BE1CA32": "SNES-Super Famicom/E.V.O. - Search for Eden/E.V.O. Search for Eden (U) [!].zip"
     }
   ],
   "888": [
     {
-      "65E27C7058DD251E86B1EA154E497A9B": "SNES-Super Famicom/Earthworm Jim 2/Earthworm Jim 2 (USA) (MSU) [Hack by PepilloPev v1.4].zip",
       "C3FF5FD4E3F46653FEC94BA60D70281D": "SNES-Super Famicom/Earthworm Jim 2/Earthworm Jim 2 (U) [!].zip"
     }
   ],
@@ -3670,9 +3525,7 @@
     {
       "25FDEBDEC0E83132D8F24E9AC5BFC45F": "SNES-Super Famicom/Earthworm Jim/Earthworm Jim (U) [!].zip",
       "34A3D2A256C774A5F412CEF5AB4E6370": "SNES-Super Famicom/Earthworm Jim/Earthworm Jim (J).zip",
-      "358D35B9E1468706F53B375A3DC6F6ED": "SNES-Super Famicom/Earthworm Jim/Earthworm Jim (USA) (MSU) [Hack by PepilloPev v1.1].zip",
-      "92A672F453D6B2DE0A201FE612C73302": "SNES-Super Famicom/Earthworm Jim/Earthworm Jim (E) [!].zip",
-      "B6EE6EBC6847C93F50B6F2E3F4794A89": "SNES-Super Famicom/Earthworm Jim/Earthworm Jim (USA) (MSU) [Sega CD OST v1 PepilloPEV 2018-04-01].zip"
+      "92A672F453D6B2DE0A201FE612C73302": "SNES-Super Famicom/Earthworm Jim/Earthworm Jim (E) [!].zip"
     }
   ],
   "904": [
@@ -3689,8 +3542,7 @@
   ],
   "906": [
     {
-      "44A0E420744A8C77A0832D079DD25476": "SNES-Super Famicom/Fatal Fury/Fatal Fury (U) [!].zip",
-      "ACF51D76D7747FB539D1106FBE3D1F85": "SNES-Super Famicom/Fatal Fury/Fatal Fury (USA) (MSU) [Patch v4 By PepilloPeV,ArcadeNeo Geo PCM Pack By Relikk].zip"
+      "44A0E420744A8C77A0832D079DD25476": "SNES-Super Famicom/Fatal Fury/Fatal Fury (U) [!].zip"
     }
   ],
   "908": [
@@ -3760,8 +3612,7 @@
   ],
   "938": [
     {
-      "87447E71A602B02797054A4D80349C20": "SNES-Super Famicom/Home Alone/Home Alone (U) [!].zip",
-      "CDD6A34FA961218A9024EAFFC02968B6": "SNES-Super Famicom/Home Alone/Home Alone (USA)(MSU)[Movie OST].zip"
+      "87447E71A602B02797054A4D80349C20": "SNES-Super Famicom/Home Alone/Home Alone (U) [!].zip"
     }
   ],
   "939": [
@@ -3773,8 +3624,7 @@
     {
       "0EF6C11FEA085AAC5E313111A8E6FFC8": "SNES-Super Famicom/Hook/Hook (E) [T+Rus1.0_Lin].zip",
       "1A0A3A079DB7A848EE019161CBDB1788": "SNES-Super Famicom/Hook/Hook (U) [!].zip",
-      "7693F2AC4BA870378BBD26935F24AFE2": "SNES-Super Famicom/Hook/Hook (E) [!].zip",
-      "C647EAD8B0FCAB4761182C6F60DEBAB8": "SNES-Super Famicom/Hook/Hook (MSU) [Kurrono].zip"
+      "7693F2AC4BA870378BBD26935F24AFE2": "SNES-Super Famicom/Hook/Hook (E) [!].zip"
     }
   ],
   "941": [
@@ -3794,7 +3644,6 @@
       "45EF39D209AF53EB7ABCCD763445F202": "SNES-Super Famicom/Illusion of Gaia/Illusion of Time (F) [!].zip",
       "A7C7A76B4D6F6DF389BD631757B91B76": "SNES-Super Famicom/Illusion of Gaia/Illusion of Gaia (U) [!].zip",
       "A9D5368F701016D00003118A9616F1CE": "SNES-Super Famicom/Illusion of Gaia/Illusion of Time (E) [!].zip",
-      "B2A35F6F99D0CD44B5CA3FA71BD3145C": "SNES-Super Famicom/Illusion of Gaia/Illusion of Gaia (U) [!] (MSU) [Remastered themes by thepsynergist].zip",
       "FAF4D7C79DAF445D2CA286D8B2F81CAB": "SNES-Super Famicom/Illusion of Gaia/Illusion of Time (S).zip"
     }
   ],
@@ -3838,7 +3687,6 @@
   "963": [
     {
       "0C3875BE5D33B7BE8216E27D3F466027": "SNES-Super Famicom/Joe & Mac - Caveman Ninja/Joe & Mac (U) [T+Spa100%_Tanero].zip",
-      "3A5ADE3C906B8329D6F0DE16DE7B4CC1": "SNES-Super Famicom/Joe & Mac - Caveman Ninja/Joe and Mac (MSU) [Kurrono].zip",
       "CC902DE2EFA54DF4D2C27ACD7F4A6BF4": "SNES-Super Famicom/Joe & Mac - Caveman Ninja/Joe & Mac (U) [!].zip",
       "DCA9B3FCC00E3F7B1868C4207DABEC7B": "SNES-Super Famicom/Joe & Mac - Caveman Ninja/Joe & Mac - Caveman Ninja (E) (M6) [!].zip"
     }
@@ -3867,17 +3715,14 @@
   ],
   "971": [
     {
-      "4F7C769289780BFAFFFDF90A9F9B41E6": "SNES-Super Famicom/Jurassic Park/Jurassic Park (MSU) [Patch by PepilloPEV, Conn].zip",
       "BB9C2F667CED16A2E605B385C041C744": "SNES-Super Famicom/Jurassic Park/Jurassic Park (U) (V1.0) [!].zip",
       "D4F063F065BD06935DC3F75732DF9450": "SNES-Super Famicom/Jurassic Park/Jurassic Park (G).zip",
-      "EBFD33826ACA72CE98AC0ED9B293F94D": "SNES-Super Famicom/Jurassic Park/Jurassic Park (MSU) [Patch by PepilloPEV, Conn v2].zip",
       "FA583B9D1A2DCC270A8FC91259B89C96": "SNES-Super Famicom/Jurassic Park/Jurassic Park (E).zip"
     }
   ],
   "972": [
     {
-      "2078B064BDF300EB656971946C26430F": "SNES-Super Famicom/Justice League Task Force/Justice League Task Force (U) [!].zip",
-      "4E8C8B8B547E20453520D6EEC0D5B610": "SNES-Super Famicom/Justice League Task Force/Justice League Task Force (USA) (MSU) [Kurrono, v2].zip"
+      "2078B064BDF300EB656971946C26430F": "SNES-Super Famicom/Justice League Task Force/Justice League Task Force (U) [!].zip"
     }
   ],
   "976": [
@@ -3926,7 +3771,6 @@
   "990": [
     {
       "BF6DA6F13729C8925D8725D7DD25B420": "SNES-Super Famicom/Legend of the Mystical Ninja, The ! Ganbare Goemon - Yukihime Kyuushutsu Emaki/Legend of The Mystical Ninja, The (U) [!].zip",
-      "EC25BA881050BAAE5261CE82EBAD8277": "SNES-Super Famicom/Legend of the Mystical Ninja, The ! Ganbare Goemon - Yukihime Kyuushutsu Emaki/Legend of the Mystical Ninja (MSU) [v1 Kurrono, Conn].zip",
       "605208D037C654524B8D5484C2C73D8D": "SNES-Super Famicom/Legend of the Mystical Ninja, The ! Ganbare Goemon - Yukihime Kyuushutsu Emaki/Legend of The Mystical Ninja, The (U) [!] [T-Spa by jackic v0.9c].zip",
       "8596EEBAAD7AC1D0DA3772628E436D72": "SNES-Super Famicom/Legend of the Mystical Ninja, The ! Ganbare Goemon - Yukihime Kyuushutsu Emaki/Legend of The Mystical Ninja, The (U) [!] [Hack] [Goemon v1.02].zip"
     }
@@ -3945,7 +3789,6 @@
   ],
   "993": [
     {
-      "02A11CC95BF9F62C601A4909E9B22E95": "SNES-Super Famicom/Lemmings/Lemmings (USA) (Rev 1) (MSU).zip",
       "283C2E794C1EAE82A31DFAC608E76222": "SNES-Super Famicom/Lemmings/Lemmings (U) (V1.0).zip",
       "A702074D3315BBC5081ECCBA932ECAD1": "SNES-Super Famicom/Lemmings/Lemmings (E).zip",
       "AFF500AE36D63BB253FD36E8300CC812": "SNES-Super Famicom/Lemmings/Lemmings (J) [!].zip",
@@ -3993,27 +3836,20 @@
   "1004": [
     {
       "4BBAAD6ABDFC9F05D2D8DDE47DF8B15D": "SNES-Super Famicom/Lufia & The Fortress of Doom/Lufia & The Fortress of Doom (U) [!].zip",
-      "C909E6FCB5E8214A5ABA163761C05D42": "SNES-Super Famicom/Lufia & The Fortress of Doom/Lufia & the Fortress of Doom (MSU) (USA) [v1 Conn, JUD6MENT].zip",
-      "453360902F93FFA1CF6AF3BEC6E2F6AC": "SNES-Super Famicom/Lufia & The Fortress of Doom/Lufia & The Fortress of Doom (U) [!] (MSU)[Restored v2.4.1, PCM by JUD6MENT].zip",
-      "6521446CE6A8267020A41D00BF854B45": "SNES-Super Famicom/Lufia & The Fortress of Doom/Lufia & The Fortress of Doom (U) [!] (MSU)[Restored VANILLA FONT v2.4.1, PCM by JUD6MENT].zip",
       "406073AFBF106EE755A217D1A5711BF0": "SNES-Super Famicom/Lufia & The Fortress of Doom/Lufia - Restored OGFont (v2.4.6).zip",
       "939AD2EAB5152BCA0B6C7CD35D88C2CD": "SNES-Super Famicom/Lufia & The Fortress of Doom/Lufia - Restored L2Font (v2.4.6).zip"
     }
   ],
   "1005": [
     {
-      "0F1353CFFEB2AA3E6557A369EF598E74": "SNES-Super Famicom/Lufia II - Rise of the Sinistrals/Lufia II - Rise of the Sinistrals (MSU) (USA) (Frue Lufia) [SourJovis Arranged by Relikk].zip",
       "6EFC477D6203ED2B3B9133C1CD9E9C5D": "SNES-Super Famicom/Lufia II - Rise of the Sinistrals/Lufia II - Rise of the Sinistrals (U) [b1].zip",
       "BF57E03293D2A09ECE8A83177DD78A99": "SNES-Super Famicom/Lufia II - Rise of the Sinistrals/Lufia II - Frue Lufia v4.0.zip",
-      "D7B17796C17749485FEAC614A2598344": "SNES-Super Famicom/Lufia II - Rise of the Sinistrals/Lufia II - Rise of the Sinistrals (MSU) (USA) [v1 Conn, JUD6MENT].zip",
       "F81AF0A9E66E1AA0119419A9F57BF8A7": "SNES-Super Famicom/Lufia II - Rise of the Sinistrals/Lufia II - Frue Lufia v5.2.zip",
-      "ED37FC950EF8BE02FC7F66CB37424063": "SNES-Super Famicom/Lufia II - Rise of the Sinistrals/Lufia II - Rise of the Sinistrals (USA) (Frue Lufia) (v6.0) (Artemis).zip",
-      "9877B2B1B6B0F32DB434947D0B910523": "SNES-Super Famicom/Lufia II - Rise of the Sinistrals/Lufia II - Rise of the Sinistrals (USA) (Frue Lufia) (v7.0) (Artemis).zip"
+      "ED37FC950EF8BE02FC7F66CB37424063": "SNES-Super Famicom/Lufia II - Rise of the Sinistrals/Lufia II - Rise of the Sinistrals (USA) (Frue Lufia) (v6.0) (Artemis).zip"
     }
   ],
   "1012": [
     {
-      "A5867837A80E91C4B65D9F2B2E801E2D": "SNES-Super Famicom/Magic Sword/Magic Sword (MSU) (USA) [Arcade PCM Pack by Relikk, PepilloPeV v3].zip",
       "AD7349EB7AFD3D809161EE70BD2C361D": "SNES-Super Famicom/Magic Sword/Magic Sword (U) [!].zip",
       "D043CCC5B99BDAFCDF26E4FE971EF910": "SNES-Super Famicom/Magic Sword/Magic Sword (E).zip"
     }
@@ -4112,8 +3948,6 @@
   "1038": [
     {
       "0934878BB5EF33F25C1FCABA18A1105B": "SNES-Super Famicom/Mortal Kombat/Mortal Kombat (U) [!].zip",
-      "33F0B1B8B0663FDB691F9D02C0F3F692": "SNES-Super Famicom/Mortal Kombat/Mortal Kombat (MSU) [Arcade OST Relikk v1 Kurrono, Conn 2018-04-02].zip",
-      "B78B3B12BB835CE4DCA5A3C5DB0BBC59": "SNES-Super Famicom/Mortal Kombat/Mortal Kombat (USA) (Rev 1) (MSU) [Red Blood, Arcade PCM's by Relikk].zip",
       "BCF52B016559D371EEFCD216781F40CD": "SNES-Super Famicom/Mortal Kombat/Mortal Kombat (E) (V1.0) [!].zip",
       "BF433B35BBF9FDF1373BF6999E09D9A8": "SNES-Super Famicom/Mortal Kombat/Mortal Kombat (E) (V1.0) (with Blood Patch) (Hack).zip"
     }
@@ -4156,11 +3990,6 @@
       "EAEADF3718805132AC2348C6BC093563": "SNES-Super Famicom/Nigel Mansell's World Championship Racing/Nigel Mansell's World Championship Racing (U) [!].zip"
     }
   ],
-  "1071": [
-    {
-      "E4D7CA6333E7A05ACFD409B169F1A1C2": "SNES-Super Famicom/Nobunaga's Ambition/Nobunaga's Ambition (U) [!].zip"
-    }
-  ],
   "1072": [
     {
       "83304AD8B3C16E6042ECEBE5E07FE41D": "SNES-Super Famicom/~Hack~ Final Fantasy IV - Ultima/Final Fantasy II (U) (V1.1) [!] [Hack][Ultima v2022rev13][sylph-bloodfeast fix].zip",
@@ -4195,20 +4024,13 @@
   ],
   "1081": [
     {
-      "8B8ACDEC1C2345477DDEC5516413C2A1": "SNES-Super Famicom/Out of This World ! Another World/Out of This World (U) [!].zip",
-      "ECA6CE2559706E1DDFB23E933818A465": "SNES-Super Famicom/Out of This World ! Another World/Out of this World (MSU) [Patch By Conn, Relikk, JUD6MENT, Polargames, PepilloPEV].zip"
+      "8B8ACDEC1C2345477DDEC5516413C2A1": "SNES-Super Famicom/Out of This World ! Another World/Out of This World (U) [!].zip"
     }
   ],
   "1082": [
     {
       "5B795B62C101C12026257644FD813359": "SNES-Super Famicom/Pierre le Chef is Out to Lunch/Out to Lunch (U) [!].zip",
       "630AF84D172B4BAAE8B0E70C1E0EA793": "SNES-Super Famicom/Pierre le Chef is Out to Lunch/Out to Lunch (E).zip"
-    }
-  ],
-  "1086": [
-    {
-      "28584F11A658883E23C01DF728645023": "SNES-Super Famicom/Pac-Attack/Pac-Attack (E).zip",
-      "DD7DAC19618D89C1735885B65A1EFCDD": "SNES-Super Famicom/Pac-Attack/Pac-Attack (U) [!].zip"
     }
   ],
   "1089": [
@@ -4229,8 +4051,7 @@
   "1099": [
     {
       "02CAE4C360567CD228E4DC951BE6CB85": "SNES-Super Famicom/Pitfall - The Mayan Adventure/Pitfall - The Mayan Adventure (U) [!].zip",
-      "6AFD4437A7B62528E0FFF7A5BDA5EF92": "SNES-Super Famicom/Pitfall - The Mayan Adventure/Pitfall - The Mayan Adventure (E) [!].zip",
-      "6DC07497523535392D1141812835C1B8": "SNES-Super Famicom/Pitfall - The Mayan Adventure/Pitfall - The Mayan Adventure (MSU) [v3 Kurrono].zip"
+      "6AFD4437A7B62528E0FFF7A5BDA5EF92": "SNES-Super Famicom/Pitfall - The Mayan Adventure/Pitfall - The Mayan Adventure (E) [!].zip"
     }
   ],
   "1101": [
@@ -4282,8 +4103,7 @@
     {
       "6F49DF735CD2CF9D351D549F1CBFDAA9": "SNES-Super Famicom/Prince of Persia/Prince of Persia (J) [!].zip",
       "8FFC8D34BC75BC049122894B4292EB85": "SNES-Super Famicom/Prince of Persia/Prince of Persia (U) [!].zip",
-      "ABCA51C8ED56D15AA25C8C3EEBE5F65C": "SNES-Super Famicom/Prince of Persia/Prince of Persia (U) [T+Bra].zip",
-      "AFB0AC757692243BE9FE1725C98141DB": "SNES-Super Famicom/Prince of Persia/Prince Of Persia (MSU) [Sega CD OST v1 Conn, Relikk].zip"
+      "ABCA51C8ED56D15AA25C8C3EEBE5F65C": "SNES-Super Famicom/Prince of Persia/Prince of Persia (U) [T+Bra].zip"
     }
   ],
   "1116": [
@@ -4328,11 +4148,6 @@
       "E85702F5D32E03A7CBAE1154EE5083CE": "SNES-Super Famicom/Robotrek/Robotrek (U) [!].zip"
     }
   ],
-  "1137": [
-    {
-      "08DD2DF63A638D46AC30C83E1530AE7E": "SNES-Super Famicom/Rocko's Modern Life - Spunky's Dangerous Day/Rocko's Modern Life - Spunky's Dangerous Day (U) [!].zip"
-    }
-  ],
   "1138": [
     {
       "BB457A174348E3E0D6A05026C1C57F22": "SNES-Super Famicom/Rocky Rodent/Rocky Rodent (U) [!].zip"
@@ -4340,7 +4155,6 @@
   ],
   "1143": [
     {
-      "7135D26A7D25BC0175858347A1EEF8DC": "SNES-Super Famicom/R-Type III - The Third Lightning/R-Type III (MSU) [Kurrono & PepilloPEV].zip",
       "CB4A282E8A7BDE5E16103C4136F9491E": "SNES-Super Famicom/R-Type III - The Third Lightning/R-Type III - The Third Lightning (U) [!].zip",
       "E5CB261F53BCA5A8BF70EC05C2A9E3DB": "SNES-Super Famicom/R-Type III - The Third Lightning/R-Type III - The Third Lightning (J).zip"
     }
@@ -4350,16 +4164,10 @@
       "E49AE43BED71C1F9DC568936C83D28EE": "SNES-Super Famicom/SOS ! Septentrion/SOS (U) [!].zip"
     }
   ],
-  "1145": [
-    {
-      "8E9E2D07222DCEFA13ADF2BAB05B1776": "SNES-Super Famicom/SWAT Kats - The Radical Squadron/SWAT Kats - The Radical Squadron (U) [!].zip"
-    }
-  ],
   "1146": [
     {
       "59361B30B09DC94163A654616E328185": "SNES-Super Famicom/Saturday Night Slam Masters/Saturday Night Slam Masters (E) [!].zip",
-      "C8DD52B075E1681F590D2F97AB5B4D7E": "SNES-Super Famicom/Saturday Night Slam Masters/Saturday Night Slam Masters (U) [!].zip",
-      "DB823809BA2853E17AA202EC1A9E57D5": "SNES-Super Famicom/Saturday Night Slam Masters/Saturday Night Slam Masters (MSU) [FM Towns Arranged Pack by Conn, PepilloPEV, Relikk].zip"
+      "C8DD52B075E1681F590D2F97AB5B4D7E": "SNES-Super Famicom/Saturday Night Slam Masters/Saturday Night Slam Masters (U) [!].zip"
     }
   ],
   "1147": [
@@ -4375,8 +4183,7 @@
   "1150": [
     {
       "72EA79D6DA4349EEFFF22E5D990BA368": "SNES-Super Famicom/Shaq-Fu/Shaq Fu (E) [!].zip",
-      "9AD77707DA7C7E4913A1644B3B6CDFD8": "SNES-Super Famicom/Shaq-Fu/Shaq Fu (U) [!].zip",
-      "D28B7B7270BA79011E7224B979DE109F": "SNES-Super Famicom/Shaq-Fu/Shaq Fu (MSU) [kurrono].zip"
+      "9AD77707DA7C7E4913A1644B3B6CDFD8": "SNES-Super Famicom/Shaq-Fu/Shaq Fu (U) [!].zip"
     }
   ],
   "1151": [
@@ -4408,7 +4215,6 @@
     {
       "23715FC7EF700B3999384D5BE20F4DB5": "SNES-Super Famicom/SimCity/Sim City (U) [!].zip",
       "2F1C1A70F2268B4C37E2A095A9BE0058": "SNES-Super Famicom/SimCity/Sim City (F) [!].zip",
-      "4832FBA3682437EA96BCE0AF5C08930D": "SNES-Super Famicom/SimCity/SimCity (MSU) [Patch by PepilloPEV - PCM Set by FullGameZone, CarFlightGames].zip",
       "7190C6764031E2E8A208D47BD0E25CAA": "SNES-Super Famicom/SimCity/Sim City (E) [T+Bra].zip",
       "D0142F63A3DEE58F97C21D939B6DBD60": "SNES-Super Famicom/SimCity/Sim City (G) [!].zip",
       "FBB0966E5F977AF9E3F475C3DA667526": "SNES-Super Famicom/SimCity/Sim City (J) [!].zip"
@@ -4416,7 +4222,6 @@
   ],
   "1158": [
     {
-      "46F0592D48E056B8008C72D64A3AA8EA": "SNES-Super Famicom/Simpsons, The - Bart's Nightmare/Simpsons, The - Barts Nightmare (MSU) [v1 Kurrono, PepilloPEV].zip",
       "5F8C3FD37130D9B80F1D98D1B7034161": "SNES-Super Famicom/Simpsons, The - Bart's Nightmare/Simpsons, The - Bart's Nightmare (U) [!].zip",
       "FB992889669C10F98854B1C816B65E9D": "SNES-Super Famicom/Simpsons, The - Bart's Nightmare/Simpsons, The - Bart's Nightmare (E).zip"
     }
@@ -4433,10 +4238,7 @@
   ],
   "1168": [
     {
-      "4FEE6A2421A55FDA96040ABB17E147C6": "SNES-Super Famicom/Soul Blazer/Soul Blazer (MSU) [Arranged OST Shiryu & Walter10h v2 MSU v1 Conn 2018-04-08].zip",
-      "83CF41D53A1B94AEEA1A645037A24004": "SNES-Super Famicom/Soul Blazer/Soul Blazer (U) [!].zip",
-      "47711F0773AC31490EB52F1AD5AE2683": "SNES-Super Famicom/Soul Blazer/Soul Blazer (F).zip",
-      "5421E92FA9A070A2207D38832D07BD4F": "SNES-Super Famicom/Soul Blazer/Soul Blazer (G).zip"
+      "83CF41D53A1B94AEEA1A645037A24004": "SNES-Super Famicom/Soul Blazer/Soul Blazer (U) [!].zip"
     }
   ],
   "1172": [
@@ -4507,7 +4309,6 @@
   ],
   "1192": [
     {
-      "7CA258CC2AE3712986017777164FAF1C": "SNES-Super Famicom/Street Fighter II - The World Warrior/Street Fighter II - The World Warrior (MSU) [Relikk Arcade PCM Pack].zip",
       "A5ADB1AB3DAA665A58AD6AD1111D8F5B": "SNES-Super Famicom/Street Fighter II - The World Warrior/Street Fighter II - The World Warrior (E) [!].zip",
       "BE7FC84AC1151B99AD48329327E2AAA7": "SNES-Super Famicom/Street Fighter II - The World Warrior/Street Fighter II - The World Warrior (U) [!].zip"
     }
@@ -4521,8 +4322,7 @@
   "1198": [
     {
       "206E6C5C05AC1A83DDE21400325A4A7D": "SNES-Super Famicom/Super Adventure Island/Super Adventure Island (U) [!].zip",
-      "947F2B011533F99FE33FD2ACFFD35875": "SNES-Super Famicom/Super Adventure Island/Super Adventure Island (E) [!].zip",
-      "BA0E1FDA3B6A6BDFE788FA85F5A13B8C": "SNES-Super Famicom/Super Adventure Island/Super Adventure Island (MSU) [PepilloPEV & Kurrono v1.2 2018-01-02].zip"
+      "947F2B011533F99FE33FD2ACFFD35875": "SNES-Super Famicom/Super Adventure Island/Super Adventure Island (E) [!].zip"
     }
   ],
   "1199": [
@@ -4569,15 +4369,13 @@
   "1215": [
     {
       "935C5B4E37904435042B3EE17A77950D": "SNES-Super Famicom/Super E.D.F. - Earth Defense Force/Super Earth Defense Force (J).zip",
-      "96326E88743992D3D7FB71436A55978F": "SNES-Super Famicom/Super E.D.F. - Earth Defense Force/Earth Defense Force (MSU) (USA) [v1 Kurrono].zip",
       "C0E5D653D0BEC492117FA4F53CFCB619": "SNES-Super Famicom/Super E.D.F. - Earth Defense Force/Super Earth Defense Force (U) [!].zip"
     }
   ],
   "1216": [
     {
       "18D84019BF24EB0B33221A7236E10D09": "SNES-Super Famicom/Super Ghouls 'n Ghosts/Super Ghouls 'N Ghosts (E) [!].zip",
-      "19B2D7A555ECEF4C453A819E67E61574": "SNES-Super Famicom/Super Ghouls 'n Ghosts/Super Ghouls 'N Ghosts (U) [!].zip",
-      "FD2B81BB70D82894021DE5A08E2B2FB3": "SNES-Super Famicom/Super Ghouls 'n Ghosts/Super Ghouls N Ghosts (USA)(MSU)[flex Kurrono PCM Pack fixed v2017-11-19].zip"
+      "19B2D7A555ECEF4C453A819E67E61574": "SNES-Super Famicom/Super Ghouls 'n Ghosts/Super Ghouls 'N Ghosts (U) [!].zip"
     }
   ],
   "1218": [
@@ -4597,73 +4395,19 @@
       "46FE82F2B73B4CFBC517CDE1BD367693": "SNES-Super Famicom/Super Nova ! Darius Force/Super Nova (U) [!].zip"
     }
   ],
-  "1225": [
-    {
-      "BBA4B5494FEE0BC353EA691804B4991F": "SNES-Super Famicom/Super Pinball - Behind the Mask/Super Pinball - Behind the Mask (U) (V1.0) [!].zip"
-    }
-  ],
   "1226": [
     {
       "999654092D72821EF56A7C8DE260CC64": "Nintendo DS/Osu! Tatakae! Ouendan/Osu! Tatakae! Ouendan (Japan).zip"
     }
   ],
-  "1229": [
-    {
-      "04B0C8978CBB3313112E0647B24336FB": "SNES-Super Famicom/Super R-Type/Super R-Type (MSU) [Dimensions OST fullgamezone, v1 PepilloPEV 2017-12-24].zip",
-      "07ED293977B29DFFEF1B30DD90531CCA": "SNES-Super Famicom/Super R-Type/Super R-Type (J) [!].zip",
-      "CFCD1FF3DA5309E5021EFAA58012058D": "SNES-Super Famicom/Super R-Type/Super R-Type (U) [!].zip"
-    }
-  ],
-  "1233": [
-    {
-      "5B5FD4B8DF731AAF0E80AA67D8EFF420": "SNES-Super Famicom/Super Smash T.V/Super Smash T.V. (E) [!].zip",
-      "975074B66B9A993648142E2BCD8A02CF": "SNES-Super Famicom/Super Smash T.V/Super Smash T.V. (U) [!].zip"
-    }
-  ],
   "1234": [
     {
-      "37AC79B4BF8148BF1B80C36CC8C5F853": "SNES-Super Famicom/~Homebrew~ New Super Mario Land/New Super Mario Land (J) (V1.5).zip",
-      "CA2DFE299B2012033B9D607EEFD3B1A0": "SNES-Super Famicom/~Homebrew~ New Super Mario Land/New Super Mario Land (J) (V1.5)(MSU)[Arranged Pack by PepilloPeV].zip"
-    }
-  ],
-  "1236": [
-    {
-      "2810C6F1191E23ED158AE4237D0519FE": "SNES-Super Famicom/Super Solitaire/Super Solitaire (U) (M5) [!].zip"
-    }
-  ],
-  "1237": [
-    {
-      "06AA5B85ED1D3BC61D94ECE1F96A050E": "SNES-Super Famicom/Super Star Wars - Return of the Jedi/Super Star Wars - Return of the Jedi (U) (V1.0) [!].zip",
-      "11BC951A9AC8AC1B073F8D9D55F44639": "SNES-Super Famicom/Super Star Wars - Return of the Jedi/Super Star Wars Return of the Jedi (MSU) [John Williams OST - By  Relikk, Conn].zip"
-    }
-  ],
-  "1240": [
-    {
-      "122AC9AFC134DF090BFBDE77D5377A13": "SNES-Super Famicom/Super Tennis/Super Tennis (E) (V1.0).zip",
-      "17ACCF8A0B3D514561CADBDB03715A71": "SNES-Super Famicom/Super Tennis/Super Tennis (U) [!].zip",
-      "C09B97C956BC42E3B942F9D8A3196686": "SNES-Super Famicom/Super Tennis/Super Tennis (E) (V1.1) [!].zip",
-      "C9D0FDD7D03A1FDCA9F91157A22819C5": "SNES-Super Famicom/Super Tennis/Super Tennis (USA) (MSU) [Hack by Conn & Kurrono v1.0].zip"
-    }
-  ],
-  "1242": [
-    {
-      "635243459310D48BF42E27E5F692E236": "SNES-Super Famicom/Super Turrican 2/Super Turrican 2 (U) [!].zip"
+      "37AC79B4BF8148BF1B80C36CC8C5F853": "SNES-Super Famicom/~Homebrew~ New Super Mario Land/New Super Mario Land (J) (V1.5).zip"
     }
   ],
   "1243": [
     {
       "9E3610E0781A59E908283024C20F9C87": "Saturn/SimCity 2000/SimCity 2000 (USA).zip"
-    }
-  ],
-  "1244": [
-    {
-      "578DC3B0205DEAB136AB5F57D4B4F6CA": "SNES-Super Famicom/Super Valis IV/Super Valis - Akaki Tsuki no Otome (J) [!].zip",
-      "84285A12FDA6A466DF3490A3726724A1": "SNES-Super Famicom/Super Valis IV/Super Valis IV (U) [!].zip"
-    }
-  ],
-  "1245": [
-    {
-      "618ABBF00946B60DA33971199CAB5BAD": "SNES-Super Famicom/Super Widget/Super Widget (U) [!].zip"
     }
   ],
   "1247": [
@@ -4692,7 +4436,6 @@
   "1256": [
     {
       "1B7851989F649BCFAA3257B78BD3B1A2": "SNES-Super Famicom/Teenage Mutant Ninja Turtles - Tournament Fighters/Teenage Mutant Ninja Turtles - Mutant Warriors (J) [!].zip",
-      "7FF74456E38BD6031989891111D5C594": "SNES-Super Famicom/Teenage Mutant Ninja Turtles - Tournament Fighters/Teenage Mutant Ninja Turtles - Tournament Fighters (USA) (MSU) [Hack by Kurrono v1.0].zip",
       "878E95BCA6B94B3FA0E72FEF1867434C": "SNES-Super Famicom/Teenage Mutant Ninja Turtles - Tournament Fighters/Teenage Mutant Ninja Turtles - Tournament Fighters (U) [!].zip",
       "F009F85C09B421748C8944957F7EFEB7": "SNES-Super Famicom/Teenage Mutant Ninja Turtles - Tournament Fighters/Teenage Mutant Hero Turtles - Tournament Fighters (E) [!].zip"
     }
@@ -4705,8 +4448,7 @@
   ],
   "1259": [
     {
-      "73CF4163C3C2B3F8A38775A5D132C448": "SNES-Super Famicom/Tetris and Dr. Mario/Tetris & Dr. Mario (U) [!].zip",
-      "D1101752B5BAB443C83DB4AF936B5AE3": "SNES-Super Famicom/Tetris and Dr. Mario/Tetris & Dr. Mario (U) [!] (MSU).zip"
+      "73CF4163C3C2B3F8A38775A5D132C448": "SNES-Super Famicom/Tetris and Dr. Mario/Tetris & Dr. Mario (U) [!].zip"
     }
   ],
   "1260": [
@@ -4766,15 +4508,12 @@
   ],
   "1277": [
     {
-      "4704F212BE4FF8AFB99F2B77FF9FE3CD": "SNES-Super Famicom/Top Gear 2/Top Gear 2 (MSU) [Amiga CD32 v1.1 DarkShock].zip",
-      "5615595C240A5161B531AB30DAD96C83": "SNES-Super Famicom/Top Gear 2/Top Gear 2 (USA) (MSU) (More Racing Tracks Hack).zip",
       "C9FC87528511770DB888B28A4C506F46": "SNES-Super Famicom/Top Gear 2/Top Gear 2 (U) [!].zip"
     }
   ],
   "1278": [
     {
-      "23EAA07E3F3315FA43F4B4D94EC97A7B": "SNES-Super Famicom/Top Gear 3000/Top Gear 3000 (U) [!].zip",
-      "D7DAF47DF1D1C3F63595968A9EE4B234": "SNES-Super Famicom/Top Gear 3000/Top Gear 3000 (MSU) [v2 Kurrono, Conn 2017-10-18].zip"
+      "23EAA07E3F3315FA43F4B4D94EC97A7B": "SNES-Super Famicom/Top Gear 3000/Top Gear 3000 (U) [!].zip"
     }
   ],
   "1282": [
@@ -4813,11 +4552,6 @@
       "6FE8DB7C73BB14F322CA6045C2FDE46A": "SNES-Super Famicom/Uncharted Waters - New Horizons/Uncharted Waters - New Horizons (U) [!].zip"
     }
   ],
-  "1294": [
-    {
-      "39E2CAE94022E26CAE42CC1856430F20": "SNES-Super Famicom/Uncharted Waters/Uncharted Waters (U) [!].zip"
-    }
-  ],
   "1295": [
     {
       "1066CFD0C6BE4DBDFEDE796751E801C5": "SNES-Super Famicom/Uniracers ! Unirally/Uniracers (U) [!].zip"
@@ -4830,7 +4564,6 @@
   ],
   "1302": [
     {
-      "02F161518E4B756A5F86E3EB7A0FCEF0": "SNES-Super Famicom/Ys III - Wanderers from Ys/Ys III Wanderers from Ys - Oath in Felghana (MSU) [PC-OST v1.1 MSU v1.2.1 PepilloPEV 2018-04-22].zip",
       "C8236962FD9F85F6D1961934166D6BD5": "SNES-Super Famicom/Ys III - Wanderers from Ys/Ys III - Wanderers from Ys (U) [!].zip"
     }
   ],
@@ -4889,8 +4622,7 @@
   ],
   "1322": [
     {
-      "19C9A9F9E6835BD2879D8C9BAD3830AD": "SNES-Super Famicom/Wing Commander/Wing Commander (U) [!].zip",
-      "EB0647748E431BCA07572CBE13FB2F37": "SNES-Super Famicom/Wing Commander/Wing Commander (USA) (MSU) [FM Towns Arranged by Relikk, Patch by Conn & PepilloPeV].zip"
+      "19C9A9F9E6835BD2879D8C9BAD3830AD": "SNES-Super Famicom/Wing Commander/Wing Commander (U) [!].zip"
     }
   ],
   "1323": [
@@ -4915,14 +4647,12 @@
   ],
   "1327": [
     {
-      "514B537D3431A1F4A35B48E744D9BC13": "SNES-Super Famicom/Wolfchild/Wolfchild (MSU) [PepilloPEV  v1.3].zip",
       "A7541F6554A7FA1AAB250039CE24BCD8": "SNES-Super Famicom/Wolfchild/Wolf Child (U) [!].zip"
     }
   ],
   "1328": [
     {
       "418034D574EBDAEA7659B3A90EEBEF58": "SNES-Super Famicom/Wolfenstein 3-D/Wolfenstein 3D (U) [!].zip",
-      "44977D39DF8C91B4DBBCA9B3AAC9C027": "SNES-Super Famicom/Wolfenstein 3-D/Wolfenstein 3-D (USA) (MSU) [Hack by Conn & DarkSamus993 & PepilloPev & Polargames v1.2].zip",
       "E807372E95281D5268579283EC3D115F": "SNES-Super Famicom/Wolfenstein 3-D/Wolfenstein 3D (E).zip"
     }
   ],
@@ -4975,28 +4705,6 @@
   "1340": [
     {
       "815629AC8614ABE5DAF02BDB669595C3": "SNES-Super Famicom/WWF WrestleMania - The Arcade Game/WWF WrestleMania - The Arcade Game (U) [!].zip"
-    }
-  ],
-  "1341": [
-    {
-      "A316475DFCA41B864B7BE021AFBCAD00": "SNES-Super Famicom/X-Zone/X Zone (JU) [!].zip"
-    }
-  ],
-  "1342": [
-    {
-      "4369249D5F53FB9D70B1915CF533AF03": "SNES-Super Famicom/Xardion/Xardion (U) [!].zip",
-      "6595DB032BF24945DF534415FE376625": "SNES-Super Famicom/Xardion/Xardion (USA) (MSU) [Hack by Conn & Kurrono & PepilloPev v1.5].zip"
-    }
-  ],
-  "1343": [
-    {
-      "BABBDCD3BE4F6B4806E129E0740AEFCE": "SNES-Super Famicom/X-Kaliber 2097/X-Kaliber 2097 (U) [!].zip"
-    }
-  ],
-  "1344": [
-    {
-      "0C8D8FD7E695499B86D39CC75E166671": "SNES-Super Famicom/X-Men - Mutant Apocalypse/X-Men - Mutant Apocalypse (U) [!].zip",
-      "630BE0968AB1C7DA7EC78725873EA20E": "SNES-Super Famicom/X-Men - Mutant Apocalypse/X-Men - Mutant Apocalypse (J).zip"
     }
   ],
   "1346": [
@@ -5062,8 +4770,7 @@
       "9DFA4403D205D4A1F7F09FF597729D5E": "SNES-Super Famicom/Bishoujo Senshi Sailor Moon - Another Story/Bishoujo Senshi Sailor Moon - Another Story (J) [T+Rus1.5(14.06.2015)_Armeniac+GrekRus].zip",
       "D485BF5E99A2FA8F6AFEF8E1049AAB26": "SNES-Super Famicom/Bishoujo Senshi Sailor Moon - Another Story/Bishoujo Senshi Sailor Moon - Another Story (J) [T+Eng1.00_BishoujoST,RHFix1.0_mteam].zip",
       "5F776488E366B6D6B44F6E8A01D9953D": "SNES-Super Famicom/Bishoujo Senshi Sailor Moon - Another Story/Bishoujo Senshi Sailor Moon - Another Story (J).zip",
-      "4F64812F43E95D56330C70C646D0DBE5": "SNES-Super Famicom/Bishoujo Senshi Sailor Moon - Another Story/Bishoujo Senshi Sailor Moon - Another Story (J) [T-Eng_v2.08].zip",
-      "0B06D76D0DE2359656C9B3E5AC0B102C": "SNES-Super Famicom/Bishoujo Senshi Sailor Moon - Another Story/Bishoujo Senshi Sailor Moon - Another Story (J) (MSU)[T-Eng_v2.08_patch v1.1].zip"
+      "4F64812F43E95D56330C70C646D0DBE5": "SNES-Super Famicom/Bishoujo Senshi Sailor Moon - Another Story/Bishoujo Senshi Sailor Moon - Another Story (J) [T-Eng_v2.08].zip"
     }
   ],
   "1373": [
@@ -5094,10 +4801,8 @@
     {
       "5245A6ED780D896F416CC8824AA36182": "SNES-Super Famicom/Final Fantasy V/Final Fantasy V (J) [T+Eng1.1_RPGe].zip",
       "9304A04AB5AAB54A7B978F8F2658166A": "SNES-Super Famicom/Final Fantasy V/Final Fantasy V - GBA Script Port v15_Bugfixes.zip",
-      "B80F8F1EAAD71E8E7D5EE22ED121AA20": "SNES-Super Famicom/Final Fantasy V/Final Fantasy V (MSU) [GBA Script Port 1.15, Bugfixes, Galuf Ginger patch, PCM set by darthvaderx, v.4].zip",
       "CA3969D5047DBA8794E82CF9BD905F79": "SNES-Super Famicom/Final Fantasy V/Final Fantasy V - GBA Script Port v15.zip",
       "D69B2115E17D1CF2CB3590D3F75FEBB9": "SNES-Super Famicom/Final Fantasy V/Final Fantasy V (J) [!].zip",
-      "F4CB9D7DFE369F2D49BB7E475B9886E3": "SNES-Super Famicom/Final Fantasy V/Final Fantasy V (MSU) [T.Eng -RPGe v1.10, PCM set by darthvaderx, v.4].zip",
       "202164A0C9C7FAA2F64D7699CBAC305D": "SNES-Super Famicom/Final Fantasy V/Final Fantasy V (J) [!] [Hack][GBA Script Port, Bugfixes].zip",
       "4811B6BE7FB2934C71342D66706D787E": "SNES-Super Famicom/Final Fantasy V/Final Fantasy V (J) [!] [Hack][GBA Script Port].zip",
       "08388E4F59CA8EC1EF2114F5E5B53E85": "SNES-Super Famicom/Final Fantasy V/Final Fantasy V (J) [T-Bra].zip",
@@ -5114,12 +4819,10 @@
     {
       "124EFBBC96ED6C987E2E8C46D7C84DEA": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Seiken Densetsu 3 - 3 Players v1.0 by Parlance (Hack) [T+Eng1.01_NCorlett+LNFT+SoM2Freak].zip",
       "1ED584F4807AD62948EB82B7B5D5CA0D": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Seiken Densetsu 3 (J) [T+Ger2.03_G-Trans] [2015-09-30].zip",
-      "2EF86D15F198F18FBA109454B1BC1F3C": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Trials of Mana (World)(MSU)[Remastered PCM Set by RedScorpion, v6].zip",
       "3CA8D4F59367F906C911B9F76BCB30F9": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Seiken Densetsu 3 (J) [T+Eng1.01_NCorlett+LNFT][f1].zip",
       "4DE680BC7D4877A27B0F538B456B7994": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Seiken Densetsu 3 (J) [T+FreRC_Terminus][a1].zip",
       "5A0A3460ED4F02E649DBCD42089F9E03": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Seiken Densetsu 3 (J) [T+Eng1.01_NCorlett+LNFT].zip",
       "C9829D76E25F8C4BF459CF77A8306825": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Trials of Mana (World).zip",
-      "D7FFF8A9BAE88417922419E40C003441": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Secret of Mana 2 (MSU) [PC RedScorpion MSU v1 Conn 2018-01-31].zip",
       "EC876E654A1358D1DEB5A0D868680311": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Seiken Densetsu 3 (J) [T+Spa100.2_Magno].zip",
       "FD911993992A685D491440D59BE009DC": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Seiken Densetsu 3 (J) [T-Eng1.00_NCorlett+LNFT].zip",
       "3523A3B3D9898A583F5B20C4A6416D20": "SNES-Super Famicom/Trials of Mana ! Seiken Densetsu 3/Seiken Densetsu 3 (J) [T-Spa_Magno].zip"
@@ -5128,12 +4831,10 @@
   "1392": [
     {
       "217A97E694FB916AD26C8A471F6C0E84": "SNES-Super Famicom/Star Ocean/Star Ocean (J) [T+Eng1.0_DeJap].zip",
-      "3A9127DF7780161875769DAACF82F118": "SNES-Super Famicom/Star Ocean/Star Ocean (MSU) [T.Eng, First Departure R (Remake SwitchPS4) PCM Set by RedScorpion (-18 db fixed by darthvaderx)].zip",
       "56DAE36934BBD68444F0AF7156EB2CAB": "SNES-Super Famicom/Star Ocean/Star Ocean (U) [T+Rus_bybyc9lc9l].zip",
       "D686BA6DF942084216393ADA009126DC": "SNES-Super Famicom/Star Ocean/Star Ocean (J) [!].zip",
       "D5E4D3AD82936CDC4124E418F9035698": "SNES-Super Famicom/Star Ocean/Star Ocean (J) [!][T-Esp].zip",
-      "9998EE7AB55E1589933C550CF39A609B": "SNES-Super Famicom/Star Ocean/Star Ocean (Japan) [T+Ger1.00_snes-projects.de].zip",
-      "D2A9522229E0CD96D800057AB7122765": "SNES-Super Famicom/Star Ocean/Star Ocean (J) [!][T-FR].zip"
+      "9998EE7AB55E1589933C550CF39A609B": "SNES-Super Famicom/Star Ocean/Star Ocean (Japan) [T+Ger1.00_snes-projects.de].zip"
     }
   ],
   "1394": [
@@ -5204,12 +4905,6 @@
   "1420": [
     {
       "37FF7A1DE0322B72A6B41DEA0BA53673": "Game Boy Advance/Super Ghouls 'n Ghosts/Super Ghouls 'N Ghosts (U) [!].zip"
-    }
-  ],
-  "1424": [
-    {
-      "362F44CB1EE4021CF1148A7EEAA81A59": "SNES-Super Famicom/Super Star Wars - The Empire Strikes Back/Super Star Wars The Empire Strikes Back (MSU) [John Williams OST - By  Relikk, Conn].zip",
-      "9E9286F8971ABE77F34B0FCDA8391E8F": "SNES-Super Famicom/Super Star Wars - The Empire Strikes Back/Super Star Wars - The Empire Strikes Back (U) (V1.0) [!].zip"
     }
   ],
   "1426": [
@@ -8154,8 +7849,7 @@
   "2117": [
     {
       "3F70DA88558C674577544EEDB93D00A5": "SNES-Super Famicom/Ys IV - Mask of the Sun/Ys IV - Mask of the Sun (J) [T+Eng2.10(28.11.20013)_Aeon Genesis].zip",
-      "A4E5ED2DBD1E3612917B91AB58E6FEEA": "SNES-Super Famicom/Ys IV - Mask of the Sun/Ys IV - Mask of the Sun (J) [!].zip",
-      "334A99ECEDD2560563F14EBE6BBDA5AF": "SNES-Super Famicom/Ys IV - Mask of the Sun/Ys IV - Mask of the Sun (J) [!] (MSU) [Perfect Collection Album].zip"
+      "A4E5ED2DBD1E3612917B91AB58E6FEEA": "SNES-Super Famicom/Ys IV - Mask of the Sun/Ys IV - Mask of the Sun (J) [!].zip"
     }
   ],
   "2118": [
@@ -9772,11 +9466,6 @@
       "65EEE07271C3B9E16C292F2DE99A9E64": "PlayStation 2/Mega Man X8/Mega Man X8 (USA).zip"
     }
   ],
-  "2681": [
-    {
-      "D3CDDDC43E37BAB6C458DA3E4A6A8D92": "SNES-Super Famicom/Battle Zeque Den/Battle Zeque Den (J).zip"
-    }
-  ],
   "2685": [
     {
       "929A39DB345A0F4383F5EAF54B148F87": "PlayStation 2/Wild Arms 3/Wild Arms 3 (USA).zip"
@@ -9905,7 +9594,6 @@
   ],
   "2732": [
     {
-      "BA6DE54BD247CFC74D4ED8E67A6170E4": "SNES-Super Famicom/Choujikuu Yousai Macross - Scrambled Valkyrie/Choujikuu Yousai Macross (Japan) (MSU) [v1.1 PeV Scrambled Valkyrie RocketBlast OST].zip",
       "E11C1D923EA1B2F6A00E5886AA6B6202": "SNES-Super Famicom/Choujikuu Yousai Macross - Scrambled Valkyrie/Choujikuu Yousai Macross - Scrambled Valkyrie (J).zip"
     }
   ],
@@ -9922,16 +9610,6 @@
   "2740": [
     {
       "343C90719C67EB68863D9E6F8216B0B9": "SNES-Super Famicom/Coron Land/Coron Land (J).zip"
-    }
-  ],
-  "2741": [
-    {
-      "6CF131FB538E9F08D5D06B597972C3A6": "SNES-Super Famicom/Cosmo Gang - The Puzzle/Cosmo Gang - The Puzzle (J).zip"
-    }
-  ],
-  "2742": [
-    {
-      "23DBCD94FF68CEE59DA091F3EFD9BEB9": "SNES-Super Famicom/Cosmo Gang - The Video/Cosmo Gang - The Video (J).zip"
     }
   ],
   "2743": [
@@ -10082,7 +9760,6 @@
   ],
   "2817": [
     {
-      "8A7177724F3E537F7ABAFEDF575776B9": "SNES-Super Famicom/Super Buster Bros. ! Super Pang/Super Pang (J).zip",
       "CD3B82704652014771AD1B86798676A2": "SNES-Super Famicom/Super Buster Bros. ! Super Pang/Super Buster Bros. (U) (V1.1).zip"
     }
   ],
@@ -10713,11 +10390,6 @@
       "D2D5BE92E9009530DB18ED11FADBAA11": "PlayStation 2/Valkyrie Profile 2 - Silmeria/Valkyrie Profile 2 - Silmeria (USA).zip"
     }
   ],
-  "3144": [
-    {
-      "B0E3ED4E8B207B56292874DC3085F42E": "SNES-Super Famicom/~Hack~ Panga's Kaizo Kindergarten (For Dummies)/Kaizo Kindergarten (For Dummies) (V1.09) by PangaeaPanga [2019-06-04] (SMW Hack).zip"
-    }
-  ],
   "3145": [
     {
       "F1351E7E4BD0F9EE2C921826E2107A91": "PlayStation/Tetris Plus/Tetris Plus (USA).zip"
@@ -10988,7 +10660,6 @@
   ],
   "3234": [
     {
-      "AB93C401A780ABFF73C529CF81DD5C7A": "SNES-Super Famicom/Mask, The/Mask, The (MSU) (USA) [v2 Conn, Kurrono].zip",
       "B76D8CC24A6965823B42D546F528730F": "SNES-Super Famicom/Mask, The/Mask, The (E).zip",
       "C918A40BB2B3F44F3468D6A1BA0A5F88": "SNES-Super Famicom/Mask, The/Mask, The (U) [!].zip"
     }
@@ -11271,9 +10942,7 @@
     {
       "32CFE65F6DD6E4B58839729A3B1DBD60": "SNES-Super Famicom/ActRaiser 2/ActRaiser 2 (U) [!].zip",
       "8CB9D2D478BE4B4CDF949778FBC88286": "SNES-Super Famicom/ActRaiser 2/ActRaiser 2 (U) [T+Bra].zip",
-      "9698AC310BC4A2A35999638AFD2D23B8": "SNES-Super Famicom/ActRaiser 2/ActRaiser 2 - Chinmoku e no Seisen (J) [!].zip",
-      "B0EB38111B14367E73649D96674A0266": "SNES-Super Famicom/ActRaiser 2/ActRaiser 2 (USA) (MSU) [Hack by Conn & Kurrono v4].zip",
-      "D670ABC190F671E20CC407689DDD78EB": "SNES-Super Famicom/ActRaiser 2/ActRaiser 2 (USA) (MSU) [Hack by Kurrono, Conn 2018-03-25 v1].zip"
+      "9698AC310BC4A2A35999638AFD2D23B8": "SNES-Super Famicom/ActRaiser 2/ActRaiser 2 - Chinmoku e no Seisen (J) [!].zip"
     }
   ],
   "3409": [
@@ -11302,8 +10971,7 @@
   ],
   "3418": [
     {
-      "057F03C63B9CDB4B1E7DD340982F2640": "SNES-Super Famicom/Rendering Ranger - R2/Rendering Ranger R2 (J).zip",
-      "A2D374D766F9FA05A79BD8C41BA439D4": "SNES-Super Famicom/Rendering Ranger - R2/Rendering Ranger R2 (MSU) [T.En, Patch v1.0b6 by PepilloPeV].zip"
+      "057F03C63B9CDB4B1E7DD340982F2640": "SNES-Super Famicom/Rendering Ranger - R2/Rendering Ranger R2 (J).zip"
     }
   ],
   "3419": [
@@ -11495,11 +11163,6 @@
       "0B15228C0D6EBA24D2117E4B50DB2F24": "SNES-Super Famicom/~Hack~ Mega Man X - Alpha Kaizo/Megaman X (U) (V1.0) [!] [Hack][Alpha Kaizo beta].zip"
     }
   ],
-  "3501": [
-    {
-      "83C3C2B5980E33C4BCD5ED9AF2677164": "SNES-Super Famicom/~Hack~ Super Mario World - Remix/Super Mario World Remix (V1.1) by Maddy (YMM) [2020-12-24] (SMW Hack).zip"
-    }
-  ],
   "3504": [
     {
       "5773BF1BE85AFFE875D2DCFF5AB4B483": "Dreamcast/Dino Crisis/Dino Crisis (USA).zip"
@@ -11556,12 +11219,10 @@
   ],
   "3528": [
     {
-      "7981C47E3B3E957BE5B352F8508C3F6E": "SNES-Super Famicom/Final Fantasy IV/Final Fantasy IV (Namingway Edition v1.98c) (MSU) [kurrono pcm pack V2].zip",
       "7F2C8D00101BD3EE2F4EF739E499A302": "SNES-Super Famicom/Final Fantasy IV/Final Fantasy IV [Namingway Edition (v1.98c)].zip",
       "936CE8C534346E61D8E21EFBA9177184": "SNES-Super Famicom/Final Fantasy IV/Final Fantasy IV Namingway Edition (1.98b) (Rodimus Primal).zip",
       "A2959AD8C1FF5F2719264AB4C7E40464": "SNES-Super Famicom/Final Fantasy IV/Final Fantasy IV (J) (V1.1) [!].zip",
-      "E2DC34549DB609189D8ED989C58C77F9": "SNES-Super Famicom/Final Fantasy IV/Final Fantasy IV Namingway Edition (1.98d) (Rodimus Primal).zip",
-      "7D5B022D2E0F89F22989A4DCE79539CD": "SNES-Super Famicom/Final Fantasy IV/Final Fantasy IV (Rev 1) - Namingway Edition (v1.98d) (Rodimus Primal) (MSU) (v3).zip"
+      "E2DC34549DB609189D8ED989C58C77F9": "SNES-Super Famicom/Final Fantasy IV/Final Fantasy IV Namingway Edition (1.98d) (Rodimus Primal).zip"
     }
   ],
   "3529": [
@@ -11622,11 +11283,6 @@
   "3558": [
     {
       "0DA2AE976F1C4B08243D2419812AB3A4": "SNES-Super Famicom/Spark World/Spark World (J).zip"
-    }
-  ],
-  "3559": [
-    {
-      "9D59F3DEF2B1A8D87F7E97CEF41A04C0": "SNES-Super Famicom/Spider-Man and the X-Men in Arcade's Revenge/Spider-Man and the X-Men in Arcade's Revenge (U) [!].zip"
     }
   ],
   "3562": [
@@ -12145,28 +11801,13 @@
   ],
   "3795": [
     {
-      "4C61D9D28AE33222AF9AC2BC8656E224": "SNES-Super Famicom/Super Morph/Super Morph (E) [T+Fre_Generation IX].zip",
-      "5AFBBA346D499FA38552C500478DF101": "SNES-Super Famicom/Super Morph/Super Morph (E) [!].zip",
-      "DA609FCED0053FA65D8D50ADCA4E1EBF": "SNES-Super Famicom/Super Morph/Super Morph (E) [T+Spa100%_Sayans].zip"
+      "4C61D9D28AE33222AF9AC2BC8656E224": "SNES-Super Famicom/Super Morph/Super Morph (E) [T+Fre_Generation IX].zip"
     }
   ],
   "3797": [
     {
       "BF4658E6AB66EC4F5388E17D63B33157": "SNES-Super Famicom/Super Nazo Puyo - Ruruu no Ruu/Super Nazo Puyo - Ruruu no Ruu (J) [!].zip",
-      "9B1F1436BE089D3266161F5E1A516CBF": "SNES-Super Famicom/Super Nazo Puyo - Ruruu no Ruu/Super Nazo Puyo - Lulu no Luu (J) (BS) [!].zip",
-      "B1A3813F78D54AC5302EBBF307BAF746": "SNES-Super Famicom/Super Nazo Puyo - Ruruu no Ruu/Super Nazo Puyo - Rulue no Roux (Japan) (En) (v1.1) (Momochi).zip"
-    }
-  ],
-  "3799": [
-    {
-      "4BDA93614CE9C505AF9C0BC22A18590F": "SNES-Super Famicom/Super Scope 6/Super Scope 6 (USA) (MSU) [Hack by Kurrono v1.0].zip",
-      "A17D52680CC29E46CE41DA360E8FEBE3": "SNES-Super Famicom/Super Scope 6/Super Scope 6 (U) [!].zip"
-    }
-  ],
-  "3804": [
-    {
-      "EBBF4D87C6BF5256398D9B028BB0B9AB": "SNES-Super Famicom/Super Ninja-kun/Super Ninja-kun (J).zip",
-      "AF7582ECC80E950295D5A9F3FB8ECC48": "SNES-Super Famicom/Super Ninja-kun/Super Ninja-kun (J) (BS).zip"
+      "9B1F1436BE089D3266161F5E1A516CBF": "SNES-Super Famicom/Super Nazo Puyo - Ruruu no Ruu/Super Nazo Puyo - Lulu no Luu (J) (BS) [!].zip"
     }
   ],
   "3805": [
@@ -12224,25 +11865,10 @@
       "3F18B4CFC9D286DF11DB970F2E894392": "Genesis-Mega Drive/Haunting Starring Polterguy/Haunting Starring Polterguy (UE) [!].zip"
     }
   ],
-  "3825": [
-    {
-      "6B840C23B83C4675F25618ACBAF2CB43": "SNES-Super Famicom/Super Pinball II - The Amazing Odyssey/Super Pinball II - The Amazing Odyssey (J).zip"
-    }
-  ],
-  "3834": [
-    {
-      "0DC4EFAC96B9E965009E9C613913C6F8": "SNES-Super Famicom/Super Puyo Puyo 2 Remix/Super Puyo Puyo Tsuu Remix (J).zip"
-    }
-  ],
   "3843": [
     {
       "2C410E5E0FC8DA40725739A86C733AE2": "PlayStation/Mickey's Wild Adventure/Mickey's Wild Adventure (Europe) (EDC).zip",
       "1638F88007B38B0DF1F1B0918A1A2667": "PlayStation/Mickey's Wild Adventure/Mickey's Wild Adventure (Europe) (EDC) [NTSC patch].zip"
-    }
-  ],
-  "3851": [
-    {
-      "96C38A14F55C58B51435E9BDB0235998": "SNES-Super Famicom/Super Tekkyuu Fight!/Super Tekkyuu Fight! (J).zip"
     }
   ],
   "3857": [
@@ -12254,11 +11880,6 @@
     {
       "3894B9EED7B8C559DF96475645EEB262": "Dreamcast/Resident Evil 2/Resident Evil 2 (USA) (Disc 2).zip",
       "B88A34974E0E3229E612D996EB6863B6": "Dreamcast/Resident Evil 2/Resident Evil 2 (USA) (Disc 1).zip"
-    }
-  ],
-  "3861": [
-    {
-      "10E13BD9987FD6152015C6047E67DD16": "SNES-Super Famicom/Super V.G/Super V.G. (J).zip"
     }
   ],
   "3866": [
@@ -12289,12 +11910,6 @@
       "DD42A2C178F4065D9DEE8ED4923B4543": "Dreamcast/Resident Evil CODE - Veronica X ! BIOHAZARD CODE - Veronica Kanzenban/Resident_Evil_-_Code_-_Veronica_X_(Japan)_(Fr)(Final)(Fafadou)(Widescreen)(Disc_2).zip"
     }
   ],
-  "3870": [
-    {
-      "0D3595A81C50D5DDA714CD2FD66164B2": "SNES-Super Famicom/Sutte Hakkun/Sutte Hakkun (J) (NP).zip",
-      "47A7E4DD19C55DA717105E1ACDD2D4A1": "SNES-Super Famicom/Sutte Hakkun/Sutte Hakkun (Japan) [tr En v1.0].zip"
-    }
-  ],
   "3871": [
     {
       "6C989727488E33B6EF4C9F5E7A24FDA1": "Nintendo DS/Ni no Kuni - The Jet-Black Mage/Ni no Kuni - Shikkoku no Madoushi (Japan)[T+Eng anjiera v1.0].zip",
@@ -12309,7 +11924,6 @@
   ],
   "3886": [
     {
-      "09476787133F97BB57FF8F0F4536B184": "SNES-Super Famicom/~Hack~ Legend of Zelda, The - A Link to the Islands/Legend of Zelda, The - A Link to the Past (USA)(MSU) [Hack] [A Link to the Islands].zip",
       "A516D1A4C4413BCE5D4DB0EA37ED882B": "SNES-Super Famicom/~Hack~ Legend of Zelda, The - A Link to the Islands/Legend of Zelda, The - A Link to the Past (USA)(MSU) [Hack] [A Link to the Islands v25].zip"
     }
   ],
@@ -12540,12 +12154,6 @@
       "00F641F6A633517BF624E713F5DDA73D": "SNES-Super Famicom/Wrecking Crew '98/Wrecking Crew '98 (J) [!] [T-Eng v2.0 ShadowOne333].zip"
     }
   ],
-  "3988": [
-    {
-      "1E6D224DD2A2BC8678B7AA5817C7DB96": "SNES-Super Famicom/Xak - The Art of Visual Stage/Xak - The Art of Visual Stage (J) [!].zip",
-      "5B867100A2EE7619C55FF23F69BB4F51": "SNES-Super Famicom/Xak - The Art of Visual Stage/Xak - The Art of Visual Stage (Japan) [T-En by Dynamic Designs v1.10].zip"
-    }
-  ],
   "3993": [
     {
       "A430FCB187389594BEF88E6DD67373F1": "PlayStation Portable/LEGO Indiana Jones - The Original Adventures/LEGO Indiana Jones - The Original Adventures (USA) (En,Fr,Es) (v1.01).zip"
@@ -12570,7 +12178,6 @@
   "4002": [
     {
       "B27591AD95C4904E584C5B2523DE4B0D": "SNES-Super Famicom/Ys V - Ushinawareta Suna no Miyako Kefin/Ys V - Ushinawareta Suna no Miyako Kefin (J) [T+Eng1.00(28.11.2013)_AGTP].zip",
-      "F05E59AE38AED40DE271E7AA8E392FE8": "SNES-Super Famicom/Ys V - Ushinawareta Suna no Miyako Kefin/Ys V - Kefin, Lost Kingdom of Sand (Japan) (MSU) [T-En by Aeon Genesis v1.00] [Hack by Conn & PepilloPev v1.0] [n].zip",
       "F630C6E0F11FD53D112F3DD004EA7184": "SNES-Super Famicom/Ys V - Ushinawareta Suna no Miyako Kefin/Ys V - Ushinawareta Suna no Miyako Kefin (J).zip"
     }
   ],
@@ -13751,11 +13358,6 @@
       "E3B7B3649E52EE6AA6FD98BAF88D50DE": "Game Boy/Pac-in-Time/Pac-in-Time (UE) (Beta) [S].zip"
     }
   ],
-  "4590": [
-    {
-      "700F0A4B0D161669EA4A7E7385C6C16F": "SNES-Super Famicom/Star Fox - Super Weekend - Competition Edition/Star Fox - Super Weekend Competition (U).zip"
-    }
-  ],
   "4592": [
     {
       "7315E30FD09AFD126D917F6358C797C7": "SNES-Super Famicom/~Hack~ Super Mario Bros - The Hunt for the Magical Key/Super Mario World (USA) - The Hunt for the Magical Key (V1.4) by Alexander Aanvik (Alex No) [2014-11-21].zip"
@@ -14804,11 +14406,6 @@
       "5E477CDEA0B3266B505AC5938DDC5E5C": "Game Boy/Kaeru no Tame ni Kane wa Naru ! For the Frog the Bell Tolls/Kaeru no Tame ni Kane wa Naru (english translation).zip"
     }
   ],
-  "5050": [
-    {
-      "E5A1E8BACC73213087EAFDEF666E5D0D": "SNES-Super Famicom/~Hack~ Super Metroid - Green Peace/Super Metroid (Japan, USA) (En,Ja) - Green Peace.zip"
-    }
-  ],
   "5051": [
     {
       "47F483766AA1284228791F4443552241": "NES-Famicom/U-four-ia - The Saga ! Hebereke/Hebereke (J) [T+Eng1.0_BMF54123].zip",
@@ -15207,7 +14804,6 @@
   ],
   "5211": [
     {
-      "8F8283F737B4FF84E309EA6264725641": "SNES-Super Famicom/BS F-Zero Grand Prix 2 - Practice/BS F-Zero Grand Prix 2 (Japan) (MSU) [Hack by Conn & Ice Man v1.0].zip",
       "C1008DB81315057BE63C2901A39EB1FB": "SNES-Super Famicom/BS F-Zero Grand Prix 2 - Practice/BS F-Zero Grand Prix 2 (BS).zip"
     }
   ],
@@ -15917,7 +15513,6 @@
   "5629": [
     {
       "0C9D4BCF530DC77E07308B7FD201389C": "SNES-Super Famicom/~Unlicensed~ Hong Kong 97 ! Hong Kong 1997/Hong Kong '97 (Japan) (En,Ja,Zh-Hant) (CM) (Unl).zip",
-      "8794AEE468E8B32BB6768D087B65D209": "SNES-Super Famicom/~Unlicensed~ Hong Kong 97 ! Hong Kong 1997/Hong Kong '97 (MSU) [v2 Revenant].zip",
       "8CB1CFE8F847FE073C3609415ADC2A19": "SNES-Super Famicom/~Unlicensed~ Hong Kong 97 ! Hong Kong 1997/Hong Kong 97 (PD).zip"
     }
   ],
@@ -17557,11 +17152,6 @@
       "196CE465A2E60EBFA68F377577E6B4AA": "Game Boy/~Homebrew~ Disco Elysium - Game Boy Edition/Disco Elysium - Game Boy Edition (World) (Music) (GB Compatible) (Aftermarket) (Unl).zip"
     }
   ],
-  "6714": [
-    {
-      "703CB689E846ACBD074DFBFB8BCFEE3D": "SNES-Super Famicom/Super Tennis [Subset - Bonus]/Super Tennis (U) [!] (Bonus).zip"
-    }
-  ],
   "6718": [
     {
       "644DCD9AE972B6B63FCE63C17D12620D": "Genesis-Mega Drive/Barney's Hide and Seek Game/Barney's Hide & Seek Game (U) [!].zip"
@@ -17893,7 +17483,6 @@
   "6997": [
     {
       "41024F8470EDCD682702D535DB63DD84": "SNES-Super Famicom/~Hack~ Mega Man X - Hard-Type/Mega Man X (USA) - Hard Type (Rev1) (2.2.2) (Hart-Hunt).zip",
-      "C1343E798E6BB0CB15059B5B5BF6DB98": "SNES-Super Famicom/~Hack~ Mega Man X - Hard-Type/Megaman X (MSU) [Guitar Legends by JUD6MENT].zip",
       "E09728D226394F22A6BCA489427FBB96": "SNES-Super Famicom/~Hack~ Mega Man X - Hard-Type/Mega Man X (USA) - Hard Type (2.2.2) (Hart-Hunt).zip"
     }
   ],
@@ -18522,18 +18111,10 @@
   "7465": [
     {
       "09746D3E9BE9703D09CDBDB3331D20C3": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda - AST - Week 4 (J) [T+Eng] (BSZHP) [2015-08-18].zip",
-      "1B5082CCC496908F268856FFC3AD7D5A": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-2-wa (Japan) (T-Eng, Dub)(MSU)[Conn, Trovsky and Scratcher].zip",
       "2ABC914F715036B3969D3C4BE7E125F0": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/Zelda no Densetsu - Inishie no Sekiban - Dai-1-Hanashi (Japan) (BS-X) (En) (1.0).zip",
-      "3D75BF39556509AD57A9BF91D6744FBB": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-1-wa (Japan) (T-Eng, Dub)(MSU)[Conn, Trovsky and Scratcher].zip",
-      "434C89F8F94374F84CEB1088E29FD2E1": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-3-wa (Japan)(MSU)[ALBW,Parallel Worlds, qwertymodo].zip",
-      "57B6FD6915F528E9CBAA3CD860045AAD": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-4-wa (Japan) (T-Eng, Dub)(MSU)[Conn, Trovsky and Scratcher].zip",
       "59CEE44354ED6FD664236BA9F6B18A63": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-3-wa (BS).zip",
-      "660603FAABF58FD507C246F5781E1BC4": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-3-wa (Japan) (T-Eng, Dub)(MSU)[Conn, Trovsky and Scratcher].zip",
       "7DE3CF6032B9BA94A41BAA4A229CAD51": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/Zelda no Densetsu - Inishie no Sekiban - Dai-2-Hanashi (Japan) (BS-X) (En) (1.0).zip",
       "A90F92A606E342B35AA4BC070CFE3F78": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-1-wa (BS).zip",
-      "B6AA051FE3534D7B9EE72E483BF37E19": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-2-wa (Japan)(MSU)[ALBW,Parallel Worlds, qwertymodo].zip",
-      "C35269AD3657C8B19E3A902EF0882772": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-1-wa (Japan)(MSU)[ALBW,Parallel Worlds, qwertymodo].zip",
-      "CA9223F2F436E7C9AD7E44F7CF8ACEA6": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-4-wa (Japan)(MSU)[ALBW,Parallel Worlds, qwertymodo].zip",
       "D5CE2AD741ADB7263B4DACC91BC7BAE7": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/Zelda no Densetsu - Inishie no Sekiban - Dai-4-Hanashi (Japan) (BS-X) (En) (1.0).zip",
       "DA4D548E54A593E635E023BBF7DB72B1": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/BS Zelda no Densetsu - Inishie no Sekiban - Dai-4-wa (BS).zip",
       "E9D7770A1973F2B3ECD331870F7E9018": "SNES-Super Famicom/BS The Legend of Zelda - Ancient Stone Tablets/Zelda no Densetsu - Inishie no Sekiban - Dai-3-Hanashi (Japan) (BS-X) (En) (1.0).zip",
@@ -19015,12 +18596,6 @@
       "5870755E1652C3C62BF21C319853FB15": "NES-Famicom/~Unlicensed~ Super Mario World/Super Mario World (Unl).zip"
     }
   ],
-  "8021": [
-    {
-      "CEE7922A2C1BCBF204DF4AD4412FB223": "SNES-Super Famicom/~Hack~ Super Vanilla World/Super Mario World (USA) - Super Vanilla World (En).zip",
-      "373EC2D0DE2ED6F03D36898CE67FD39D": "SNES-Super Famicom/~Hack~ Super Vanilla World/Super Vanilla World (V1.1) (German) by Mario Brand (Mario_B) [2019-01-06] (SMW Hack).zip"
-    }
-  ],
   "8031": [
     {
       "1EF4318232C4A1B6B23BAF805C1F4F94": "Saturn/Rabbit/Rabbit (Japan).zip"
@@ -19378,8 +18953,7 @@
   "8463": [
     {
       "FC60E9C5C44E2531AF2C3BBE51F44648": "SNES-Super Famicom/~Hack~ Mega Man X3 - Zero Project/Megaman X 3 (U) [!] [Hack] [Zero Project v4.4].zip",
-      "7E25E5DE94B4CD4145608E6AC50B0F06": "SNES-Super Famicom/~Hack~ Mega Man X3 - Zero Project/Megaman X 3 (U) [!] [Hack] [Zero Project v4.6].zip",
-      "7F19AD2614422FACC3AB975CF4144A84": "SNES-Super Famicom/~Hack~ Mega Man X3 - Zero Project/Megaman X 3 (U) [!] [Hack] [Zero Project v4.8].zip"
+      "7E25E5DE94B4CD4145608E6AC50B0F06": "SNES-Super Famicom/~Hack~ Mega Man X3 - Zero Project/Megaman X 3 (U) [!] [Hack] [Zero Project v4.6].zip"
     }
   ],
   "8465": [
@@ -19674,7 +19248,6 @@
   ],
   "8702": [
     {
-      "1E436FF6F74AA0BEAB11B19D3B8163AA": "SNES-Super Famicom/Strike Gunner S.T.G/Strike Gunner (E).zip",
       "6041D861AE1E590DEE99E45A3EEABD49": "SNES-Super Famicom/Strike Gunner S.T.G/Strike Gunner (U) [!].zip",
       "B427922FF0310F11E5B88EFA4D51692E": "SNES-Super Famicom/Strike Gunner S.T.G/Strike Gunner (J).zip"
     }
@@ -19700,11 +19273,6 @@
     {
       "B75CCDF07133E5D0EC85FA97556CBFEA": "PlayStation/Command & Conquer - Red Alert/Command & Conquer - Red Alert (USA) (Disc 2) (Soviet).zip",
       "BC4FDF0D5AD1378BDBADB434289F4613": "PlayStation/Command & Conquer - Red Alert/Command & Conquer - Red Alert (USA) (Disc 1) (Allies).zip"
-    }
-  ],
-  "8714": [
-    {
-      "371AF0905202F6FEF76785B5581A2193": "SNES-Super Famicom/~Hack~ Sure Shot ~ DELUXE EDITION [Subset - featuring Miles Tails Prower]/Super Mario World (U) [!] [Hack][featuring Sonic the Hedgehog DELUXE EDITION v1.3 Maddy, Margo][Subset - featuring Miles 'Tails' Prower].zip"
     }
   ],
   "8716": [
@@ -19792,11 +19360,6 @@
       "58C80A8A4B5F5B25C7C3088889E417A6": "NES-Famicom/~Hack~ Mega Man CX/Rockman CX (Rockman 2 - Dr Wily No Nazo Hack) (J) [!].zip",
       "950E50B3D6AEA80D579C1F5BDC3C5A77": "NES-Famicom/~Hack~ Mega Man CX/Mega Man CX English (Rockman 2 Hack) v1.1 pacnsacdave CX Himajin.zip",
       "BF5FA7363C17B9D5C1DF8576D447F674": "NES-Famicom/~Hack~ Mega Man CX/Rockman_CXbeta5.zip"
-    }
-  ],
-  "8811": [
-    {
-      "872C1A1686BB982C4E8F374963C187A7": "SNES-Super Famicom/~Hack~ Super Mario World Bros/Super Mario World (USA) - Super Mario World Bros.zip"
     }
   ],
   "8813": [
@@ -20886,12 +20449,6 @@
   "9725": [
     {
       "4E1A5F02CCE49842D4717A8B0CE501F5": "Game Boy Color/Wendy - Every Witch Way/Wendy - Every Witch Way (U) [C][!].zip"
-    }
-  ],
-  "9727": [
-    {
-      "24D31806DD79E6E2BE36EF27B51C8858": "SNES-Super Famicom/Super Turrican/Super Turrican (U) [!].zip",
-      "90C9FE8386A7F69DE475C58BB8DE01F7": "SNES-Super Famicom/Super Turrican/Super Turrican (E) [!].zip"
     }
   ],
   "9733": [
@@ -26953,12 +26510,6 @@
       "3A3E92C106A8674642E0EE3C0C793A9F": "Game Boy Color/Detective Conan - The Mechanical Temple Murder Case/Meitantei Conan - Karakuri Jiin Satsujin Jiken (J) [C][!].zip"
     }
   ],
-  "12809": [
-    {
-      "67DB4F612102C79AA21FFE8D361C7C73": "SNES-Super Famicom/~Hack~ Super Metroid - Retroid/Super Metroid (JU) (M2) [!](MSU)[Hack][Milton Guasti's OST by Retroplay v2].zip",
-      "FF4DF76CB605DDB4882FFE45BCFE2392": "SNES-Super Famicom/~Hack~ Super Metroid - Retroid/Super Metroid - Retroid (hack) v1.01 ProjectXVIII.zip"
-    }
-  ],
   "12813": [
     {
       "C1CB228470A87BEB5F36E90AC745DA26": "Atari 2600/Chopper Command/Chopper Command (1982) (Activision) [!].zip"
@@ -27013,11 +26564,6 @@
       "E5DF696DCFBC46E2B664DEDF1DC0BE52": "Genesis-Mega Drive/Mamono Hunter Yohko - Dai-7 no Keisho/Mamono Hunter Yohko - Makai Kara no Tenkosei (J) [!].zip"
     }
   ],
-  "12823": [
-    {
-      "D088F2E3671E644C1004EFB701D3073B": "SNES-Super Famicom/~Homebrew~ Super Road Blaster/SuperRoadBlaster (MSU).zip"
-    }
-  ],
   "12824": [
     {
       "6394145312CAAC816CA44AF55DFF9533": "PC Engine-TurboGrafx-16/Puzzle Boy/Puzzle Boy (J).zip",
@@ -27026,9 +26572,7 @@
   ],
   "12825": [
     {
-      "2A025F1FD9404F6128C72C8E527A31FE": "SNES-Super Famicom/~Hack~ Hyper Street Kart - The Road Warrior/Hyper Street Kart (USA) (MSU) [Hack by PittStone & Qwertymodo & The Real Phoenix & Ten Shu v1.2].zip",
-      "55F3C18B1355C09DFAF9DD280193734A": "SNES-Super Famicom/~Hack~ Hyper Street Kart - The Road Warrior/Super Mario World (USA) - Hyper Street Kart - The Road Warriors (1.1).zip",
-      "8A9D98D6A25C938FE7144A8F98F3B87D": "SNES-Super Famicom/~Hack~ Hyper Street Kart - The Road Warrior/Hyper Street Kart (USA) (MSU) [Hack by Pittstone Mix v1.1 qwertymodo, Real Phoenix, Ten Shu, Pittstone].zip"
+      "55F3C18B1355C09DFAF9DD280193734A": "SNES-Super Famicom/~Hack~ Hyper Street Kart - The Road Warrior/Super Mario World (USA) - Hyper Street Kart - The Road Warriors (1.1).zip"
     }
   ],
   "12826": [
@@ -27564,13 +27108,6 @@
   "13065": [
     {
       "C1FDD44EFDA916414BE3527A47752C75": "Atari 2600/G.I. Joe - Cobra Strike/G.I. Joe - Cobra Strike (1983) (Parker Bros) [!].zip"
-    }
-  ],
-  "13067": [
-    {
-      "A7DB0B34A245CA1AC0240918339D365C": "SNES-Super Famicom/Laplace no Ma ! Demon of Laplace/Laplace's Demon (Japan) [T-En by Aeon Genesis v2.0] [n].zip",
-      "3593DF92FBA7BEDBB68F22F61F081D55": "SNES-Super Famicom/Laplace no Ma ! Demon of Laplace/Laplace no Ma (J).zip",
-      "5851748E50F4A345198BC99A3A270A22": "SNES-Super Famicom/Laplace no Ma ! Demon of Laplace/Laplace no Ma (Spanish v1.1)[semco].zip"
     }
   ],
   "13069": [
@@ -29550,11 +29087,6 @@
       "4202E3486B95AB9A5718830B2AA9B7F6": "Game Boy/Pingu - Sekai de Ichiban Genki na Penguin/Pingu - Sekai de 1ban Genki na Penguin (J).zip"
     }
   ],
-  "14342": [
-    {
-      "BB0FA93AE8CC623A339F484F586A3EED": "SNES-Super Famicom/~Hack~ Super Mario Logic/Super Mario World (USA) - Super Mario Logic.zip"
-    }
-  ],
   "14345": [
     {
       "26C44135FFBF8DD757D4B110C02A824E": "PlayStation/Apocalypse starring Bruce Willis/Apocalypse (USA).zip"
@@ -29993,11 +29525,6 @@
   "14476": [
     {
       "D130729BD57F4993EABAFE3DEE78EAED": "SNES-Super Famicom/~Hack~ Climb the Tower/Super Mario World (USA) - Climb The Tower.zip"
-    }
-  ],
-  "14477": [
-    {
-      "E80FF704F3AD0CE85915E4B644C4BFCA": "SNES-Super Famicom/~Hack~ Things.smc/Super Mario World (U) [!][Hack][Things.smc by Sweetdude](MSU).zip"
     }
   ],
   "14478": [
@@ -30716,11 +30243,6 @@
     {
       "302C418EDC3E9D4FF8430B9662A11D1B": "Pokemon Mini/Pokemon Puzzle Collection Vol. 2/Pokemon mini Puzzle Collection Vol.2 [tr En Mr.Blinky and Wa v1.2].zip",
       "66809741517A2F0809CACD6ACDD77B27": "Pokemon Mini/Pokemon Puzzle Collection Vol. 2/Pokemon Puzzle Collection Vol. 2 (Japan).zip"
-    }
-  ],
-  "14708": [
-    {
-      "40F3E4B0150E5C23CA410ACB0F4F6E4D": "SNES-Super Famicom/~Hack~ Super Stacey World/Super Mario World (USA) - Super Stacey World.zip"
     }
   ],
   "14710": [
@@ -31542,12 +31064,6 @@
       "50CCA5273CDB6D6DF36CBD29DBD3FF7F": "Genesis-Mega Drive/~Homebrew~ Xeno Crisis/Xeno Crisis (World) (En,Ja,Fr,De,Es,It,Nl,Pt) (Unl).zip"
     }
   ],
-  "15390": [
-    {
-      "146EB87E2B10801172E23E0BAEF432B2": "SNES-Super Famicom/~Hack~ Super SpongeBob Kart/Super SpongeBob Kart (2014) by Kempy (SMK Hack).zip",
-      "9365E4F357539C7D774D361790C4D7FD": "SNES-Super Famicom/~Hack~ Super SpongeBob Kart/Super SpongeBob Kart (2014) (MSU) [by Kempy (SMK Hack)].zip"
-    }
-  ],
   "15391": [
     {
       "02043F3B491DB09FB0567B891F2B7D9A": "Dreamcast/Toy Commander/Toy Commander (USA) (En,Fr,De,Es).zip"
@@ -31616,11 +31132,6 @@
   "15441": [
     {
       "FBE098C7AE413E3F5E75C6C7B899FD9C": "Saturn/Bishoujo Senshi Sailor Moon SuperS - Various Emotion/Bishoujo Senshi Sailor Moon SuperS - Various Emotion (Japan).zip"
-    }
-  ],
-  "15450": [
-    {
-      "55494247385E750B4623A7B87DEBACF7": "SNES-Super Famicom/~Hack~ Super NicoNico Kart/Super Mario Kart (J) - Super NikoNiko Cart.zip"
     }
   ],
   "15453": [
@@ -31858,11 +31369,6 @@
       "855EE5806CACF8CF8DABF3A43B7B3E1A": "PlayStation/NFL Blitz/NFL Blitz (USA).zip"
     }
   ],
-  "15720": [
-    {
-      "24DB127A6C833182CB5728065C01B810": "SNES-Super Famicom/~Hack~ Super Pika Land Ultra - Chocolate Version/Super Pika Land Ultra - Chocolate Version.zip"
-    }
-  ],
   "15722": [
     {
       "DB53AB1335E95DF2B33D4EF3735D7AF6": "Pokemon Mini/~Homebrew~ ~Prototype~ PokeMaze/Pokemaze by DarkFader (PD).zip"
@@ -31908,11 +31414,6 @@
   "15730": [
     {
       "FC837A8A99829A4879DC37ADB3435E5E": "Pokemon Mini/~Homebrew~ Petals Around the Rose/petals around the rose.zip"
-    }
-  ],
-  "15733": [
-    {
-      "E9A46430216CA4CBCC3D58DADB4E3FF1": "SNES-Super Famicom/NBA Hang Time/NBA Hang Time (U) [!].zip"
     }
   ],
   "15736": [
@@ -32192,11 +31693,6 @@
       "E6432A363B5E4C5FCD0B1901FAF1A3C2": "Sega CD/Android Assault - The Revenge of Bari-Arm/Android Assault - The Revenge of Bari-Arm (USA).zip"
     }
   ],
-  "16042": [
-    {
-      "4148C19139033F113397846FAF52146C": "SNES-Super Famicom/~Hack~ Super Sheffy World Deluxe/Super Mario World (USA) - Super Sheffy World Deluxe.zip"
-    }
-  ],
   "16047": [
     {
       "9CD4A754FCB6793D7470A6FA63903025": "Genesis-Mega Drive/Shadow of the Beast - Mashou no Okite/Shadow of the Beast (J) [!].zip"
@@ -32284,11 +31780,6 @@
   "16098": [
     {
       "6F9802A7094757A4E535F763FF9B7DE4": "Game Boy Advance/Medarot G - Kabuto Version/Medarot G - Kabuto Version (J).zip"
-    }
-  ],
-  "16113": [
-    {
-      "8CA3C70A836AA11CE527DCAE923E366E": "SNES-Super Famicom/~Hack~ Super Ryu World/Super Mario World (USA) - Super Sheffy Ryu World.zip"
     }
   ],
   "16120": [
@@ -32453,11 +31944,6 @@
       "85F54F655E1B82F79984C4DF3B35FCC9": "Nintendo DS/Pokemon White Version 2/Pokemon - White Version 2 (USA, Europe) (NDSi Enhanced)[Unova Link+].zip"
     }
   ],
-  "16201": [
-    {
-      "EAB4F960D66AE809DBF21186FB85E5B4": "SNES-Super Famicom/~Hack~ Super Swunsh World/Super Mario World (USA) - Super Swunsh World.zip"
-    }
-  ],
   "16205": [
     {
       "111689FA2A26CF5F2557DDA3B289E795": "PlayStation/Kingsley's Adventure/Kingsley's Adventure (USA).zip"
@@ -32510,11 +31996,6 @@
       "DE815E72755910AA3B1DB632DD439706": "Nintendo 64/~Hack~ SimpleFlips' 1st Hacking Competition - Nathaniel Bandy/Super Mario 64 (U) [!] [Hack] [Super Duper Bandy 64 by Buggy].zip"
     }
   ],
-  "16216": [
-    {
-      "863C121CA09121A8F7799FF49F17F715": "SNES-Super Famicom/~Hack~ Super Run World/Super Mario World (USA) - Super Run World.zip"
-    }
-  ],
   "16218": [
     {
       "20052C527795A4F332BE14AFF49D4D4B": "Game Boy Color/Smurfs' Nightmare, The/Smurfs Nightmare, The (U) [C][!].zip"
@@ -32528,11 +32009,6 @@
   "16222": [
     {
       "F421D0EAFCB2FF9D286157A84AC91F53": "Game Boy Advance/~Hack~ Pokemon Grand Dad Version/Pokemon - Fire Red Version (U) (V1.0) [!][Hack][Grand Dad Version].zip"
-    }
-  ],
-  "16223": [
-    {
-      "B0C16EA13D0FA06D7E3F4AAE01899A04": "SNES-Super Famicom/~Hack~ Xalabaias Adventure ! Uma Aventura Xalabaias/Super Mario World (USA) - Xalabaias Adventure.zip"
     }
   ],
   "16227": [
@@ -33125,11 +32601,6 @@
       "27A904EFAE2305550A0B459916ED87E6": "SNES-Super Famicom/~Hack~ Final Fantasy VI - Return of the Dark Sorcerer/Final Fantasy III (U) (V1.0) [!] [Hack][Return of the Dark Sorcerer OST-B v2.9.7].zip",
       "44256A22DE8A1E0C5F9D0DA465A15AC9": "SNES-Super Famicom/~Hack~ Final Fantasy VI - Return of the Dark Sorcerer/Final Fantasy III (U) (V1.0) [!] [Hack][Return of the Dark Sorcerer v2.9.8].zip",
       "6B57368EFE9EB260D0B9765AAF153875": "SNES-Super Famicom/~Hack~ Final Fantasy VI - Return of the Dark Sorcerer/Final Fantasy III (U) (V1.0) [!] [Hack][Return of the Dark Sorcerer OST-B v2.9.8].zip"
-    }
-  ],
-  "16497": [
-    {
-      "E0FF5E64DB4C7EC54E0E7CEC0FBC3567": "SNES-Super Famicom/~Hack~ Super Sheffy World 2 - The Quest for 5 Shells/Super Mario World (USA) - Super Sheffy World 2 - The Quest for 5 Shells.zip"
     }
   ],
   "16498": [
@@ -34004,11 +33475,6 @@
       "82D3C23CF9617174AA47BED8E76438DF": "Game Gear/GG Portrait - Yuuki Akira/GG Portrait - Yuuki Akira (J) [!].zip"
     }
   ],
-  "17038": [
-    {
-      "E20E1AB7490F256E5A45C5652E975BE4": "SNES-Super Famicom/~Hack~ Hack 1 2/Hack 1 2 by Golden Yoshi [2020-09-29] (SMW Hack).zip"
-    }
-  ],
   "17040": [
     {
       "359717C7E7173AFB0680B797F9EB3694": "PlayStation/Space Invaders/Space Invaders (USA).zip"
@@ -34665,11 +34131,6 @@
   "17442": [
     {
       "9A089D286039EE443E6967F5261430A4": "SNES-Super Famicom/~Hack~ Project Brutality/Super Mario World (USA) - Project Brutality.zip"
-    }
-  ],
-  "17443": [
-    {
-      "D653A53C2601553CAA26D6AB9A559B8F": "SNES-Super Famicom/~Hack~ Super Mario World - A Super Mario Adventure/Super Mario World (USA) - A Super Mario Adventure (3.0).zip"
     }
   ],
   "17444": [
@@ -36011,11 +35472,6 @@
       "34649D82DD0FD80C796DD2FEF3968473": "Nintendo 64/Legend of Zelda, The - Ocarina of Time - Master Quest [Subset - Bonus]/Legend of Zelda, The - Ocarina of Time - Master Quest (GameCube Edition) [Subset - Bonus].zip"
     }
   ],
-  "17929": [
-    {
-      "D9ADAF7F73949833B1219B1E11C6DB50": "SNES-Super Famicom/~Hack~ Super Slope Muncher/Super Slope Muncher (V1.1) by Team DICKS (Hiro-sofT et al) [2018-09-11] (SMW Hack).zip"
-    }
-  ],
   "17931": [
     {
       "2A46AFECDC07D35CCEC48AB1D599A9C1": "Apple II/King's Quest III - To Heir is Human/King's Quest 3 - Disk 3 - Front.zip",
@@ -36074,11 +35530,6 @@
     {
       "FA98781479353FFA8B6495BBA7D264DB": "SNES-Super Famicom/Aero Fighters ! Sonic Wings [Subset - Multi]/Sonic Wings (J) [Patch] [Multi].zip",
       "C8D71767BA8F2600412D217267643244": "SNES-Super Famicom/Aero Fighters ! Sonic Wings [Subset - Multi]/Aero Fighters (U) [Patch] [Multi].zip"
-    }
-  ],
-  "17957": [
-    {
-      "67FD0FE365A6B7AD5E4C39AAA4CA5288": "SNES-Super Famicom/~Homebrew~ Sure Instinct/SureInstinct NTSC (v1.0.2).zip"
     }
   ],
   "17959": [
@@ -36496,11 +35947,6 @@
       "8D032889A94F0E3203ACABC32D27058C": "PlayStation/Sesame Street - Elmo's Letter Adventure/Sesame Street - Elmo's Letter Adventure (USA).zip"
     }
   ],
-  "18188": [
-    {
-      "AD152D647911F9DA49621E4452DD9590": "SNES-Super Famicom/~Hack~ Super Mario World - The Great Sixth/Super Mario World (U) [!] [Hack] [The Great Sixth (2021-01-12)].zip"
-    }
-  ],
   "18189": [
     {
       "478DEBC8B8AC10F23A67196180DA8050": "Game Boy Advance/Sitting Ducks/Sitting Ducks (E) (M6) [hIRff].zip"
@@ -36691,11 +36137,6 @@
       "872B8EB18385ED6B1937B42436AF56FD": "Game Boy/Mini-Putt/Mini Putt (J).zip",
       "D21322204E66C5F40AB3A86CBB63FCCF": "Game Boy/Mini-Putt/Mini Putt (Europe) (Proto).zip",
       "DB9E4E9D4A4B9F4E282448284DDEA155": "Game Boy/Mini-Putt/Mini Putt (USA) (Proto).zip"
-    }
-  ],
-  "18328": [
-    {
-      "4A8DE110DBFB1DA24B029684266F7926": "SNES-Super Famicom/~Hack~ Donkey Kong Country Mania/DKC - Donkey Kong Country Mania (V2.0) (Hankhill89).zip"
     }
   ],
   "18330": [
@@ -37297,14 +36738,12 @@
   ],
   "18807": [
     {
-      "44A95AD23B31D1387DCCF5A1A3B8B15F": "SNES-Super Famicom/~Hack~ Super Metroid - Harvest/Super Metroid (JU) [!] [Hack][Harvest Final v1.9.2].zip",
       "9151BA6DF15CD2BD14665DCB6DF18684": "SNES-Super Famicom/~Hack~ Super Metroid - Harvest/Super Metroid (JU) [!] [Hack][Harvest Final v1.9.2,noCopyright].zip"
     }
   ],
   "18808": [
     {
-      "E36ECBB673BE7899436F94A73F5488B9": "SNES-Super Famicom/~Hack~ Super Metroid - Hotlands/Super Metroid (JU) (M2) [!] [Hack][Hotlands v.1.0].zip",
-      "EB92788FBCBEDCE202A2C012723BDA55": "SNES-Super Famicom/~Hack~ Super Metroid - Hotlands/Super Metroid (JU) (M2) [!] [Hack][Hotlands v.1.1].zip"
+      "E36ECBB673BE7899436F94A73F5488B9": "SNES-Super Famicom/~Hack~ Super Metroid - Hotlands/Super Metroid (JU) (M2) [!] [Hack][Hotlands v.1.0].zip"
     }
   ],
   "18810": [
@@ -38840,11 +38279,6 @@
   "19891": [
     {
       "40E8C5DA457AE846CD042346B1A98B35": "PlayStation 2/Over the Hedge/DreamWorks Over the Hedge (USA).zip"
-    }
-  ],
-  "19892": [
-    {
-      "4E976D0631D16FE17C57971FD82A62AE": "SNES-Super Famicom/~Hack~ Super Metroid - Ascent/Super Metroid (JU) (M2) [!] [Hack][Ascent v1.12].zip"
     }
   ],
   "19894": [
@@ -42450,11 +41884,6 @@
       "3A12C1FFBF5773F52A6D327CBFE0B214": "PC Engine-TurboGrafx-16/Tatsunoko Fighter/Tatsu no Ko Fighter (J).zip"
     }
   ],
-  "22825": [
-    {
-      "2FFD0C0BA457537619B4F2B186BCF3BA": "SNES-Super Famicom/~Hack~ Fly Me To The Stars/Fly Me to the Stars (V1.7) by CarlSagan42 [2018-12-31] (SMW Hack).zip"
-    }
-  ],
   "22826": [
     {
       "C56148E9B53C546C0D4B6B30A4E6D8ED": "PlayStation Portable/Crisis Core - Final Fantasy VII [Subset - Cursed - Lv.6]/Crisis Core - Final Fantasy VII (USA) [Subset - Cursed - Lv.6].zip"
@@ -42751,11 +42180,6 @@
   "23727": [
     {
       "1E37A373D3B073341F2D25B1AAA138EF": "SNES-Super Famicom/~Hack~ Windows Mario World/Windows Mario World (Demo) by BetaMaster64 (AirMario) [2015-01-01] (SMW Hack).zip"
-    }
-  ],
-  "23729": [
-    {
-      "34C8E693445CDE7CA1C39E8F7815C55E": "SNES-Super Famicom/~Homebrew~ Supercooked!/Supercooked! (J) (v1.2).zip"
     }
   ],
   "23733": [
@@ -43983,11 +43407,6 @@
       "02780B2EC982B56DD0D8B2310EF57503": "PlayStation 2/Metal Slug 5 [Subset - 1002 Soldiers]/Metal Slug 5 [Subset - 1002 Soldiers].zip"
     }
   ],
-  "24709": [
-    {
-      "4032F604F1E2A50508C563409FD39E75": "SNES-Super Famicom/~Hack~ Sure Shot ~ featuring Sonic the Hedgehog DELUXE EDITION/Super Mario World (U) [!] [Hack][featuring Sonic the Hedgehog DELUXE EDITION v1.3 Maddy, Margo].zip"
-    }
-  ],
   "24712": [
     {
       "181B1D7E3A4F349BC708C0BA27AA3AB6": "Uzebox/Bomber/bomber.zip"
@@ -44524,7 +43943,6 @@
   ],
   "25181": [
     {
-      "2E834EF58ED8F2C31D454BC4F60E7DEA": "SNES-Super Famicom/~Hack~ Super Metroid - Rotation/Super Metroid (JU) (M2) [!] [Hack][Rotation Beta 11 SMILEuser86].zip",
       "D75B56FF3082187E2CD20292767CBF6A": "SNES-Super Famicom/~Hack~ Super Metroid - Rotation/Super Metroid (JU) (M2) [!] [Hack][Rotation Beta 11 SMILEuser86][ReSpin].zip"
     }
   ],
@@ -44926,9 +44344,7 @@
       "0C395D0C546DB2F2802633F5CDD5A758": "SNES-Super Famicom/EarthBound [Subset - Camera Shy]/EarthBound [Subset - Camera Shy] (Pt) (EarthBound Brasil) (New Controls).zip",
       "C087C5D4C872C292457A13D928A6C656": "SNES-Super Famicom/EarthBound [Subset - Camera Shy]/EarthBound [Subset - Camera Shy] (Pt) (EarthBound Brasil).zip",
       "53387262EF248493C628180936FC5646": "SNES-Super Famicom/EarthBound [Subset - Camera Shy]/EarthBound [Subset - Camera Shy] (Ru) (MAGNAT2645).zip",
-      "DF8A5FAE164B07857561C017F9036407": "SNES-Super Famicom/EarthBound [Subset - Camera Shy]/EarthBound [Subset - Camera Shy] (Ru) (MAGNAT2645) (New Controls).zip",
-      "214224C3BD70D35FEF2BDCCFA618E3EF": "SNES-Super Famicom/EarthBound [Subset - Camera Shy]/EarthBound [Subset - Camera Shy] (It) (v1.47) (Vecna) (New Controls).zip",
-      "2905E6EAB431EF7A48CDD071C5E1F090": "SNES-Super Famicom/EarthBound [Subset - Camera Shy]/EarthBound [Subset - Camera Shy] (It) (v1.47) (Vecna) .zip"
+      "DF8A5FAE164B07857561C017F9036407": "SNES-Super Famicom/EarthBound [Subset - Camera Shy]/EarthBound [Subset - Camera Shy] (Ru) (MAGNAT2645) (New Controls).zip"
     }
   ],
   "25633": [
@@ -45955,11 +45371,6 @@
       "B0C6105DA3D5A7726FBE788E9913CAFA": "NES-Famicom/~Prototype~ Super Sushi Pinball/Super Sushi Pinball (USA) (Proto).zip"
     }
   ],
-  "28134": [
-    {
-      "FEA5DC2292CF872E27B8384D71D21ECF": "SNES-Super Famicom/~Hack~ #0 IGGY'S CASTLE/Super Mario World (U) [!][Hack][#0 IGGY'S CASTLE (v2.0.0) (Wakana)].zip"
-    }
-  ],
   "28135": [
     {
       "B054C9DAC8BCE10FBCF0FBB5D8545C5B": "Saturn/Gals Panic SS/Gals Panic SS (Japan).zip"
@@ -46321,20 +45732,6 @@
       "17FCE162C8AC66BAD21BB8E801BD8BB3": "PC-8000-8800/~Homebrew~ Hopman/hopman.zip"
     }
   ],
-  "28626": [
-    {
-      "1AAF57D8DCFC25064E6C6C42738D3D99": "SNES-Super Famicom/~Hack~ Nightmare Cafe I-X/Super Mario World (U) [!][Hack][Nightmare cafe I v1.1].zip",
-      "0D3FECAB61ED7D91FAD8BC3580B522E3": "SNES-Super Famicom/~Hack~ Nightmare Cafe I-X/Super Mario World (U) [!][Hack][Nightmare cafe II v1.3].zip",
-      "4E3C1946AA366FF03A90619266364EC4": "SNES-Super Famicom/~Hack~ Nightmare Cafe I-X/Super Mario World (U) [!][Hack][Nightmare cafe III v1.3].zip",
-      "9312DE9EEEDDB90FE32BFEDACAB15AA9": "SNES-Super Famicom/~Hack~ Nightmare Cafe I-X/Super Mario World (U) [!][Hack][Nightmare cafe IV v1.3].zip",
-      "1788DA82695C636ECDE270D297844D87": "SNES-Super Famicom/~Hack~ Nightmare Cafe I-X/Super Mario World (U) [!][Hack][Nightmare cafe V v1.3].zip",
-      "9F661CA491F64178C66626E0F2870844": "SNES-Super Famicom/~Hack~ Nightmare Cafe I-X/Super Mario World (U) [!][Hack][Nightmare cafe VI v1.3].zip",
-      "19DC9693E56839B6160EF7DBAA2CA960": "SNES-Super Famicom/~Hack~ Nightmare Cafe I-X/Super Mario World (U) [!][Hack][Nightmare cafe VII v1.3].zip",
-      "44FB92E435817CE2F19AC5750CC77B17": "SNES-Super Famicom/~Hack~ Nightmare Cafe I-X/Super Mario World (U) [!][Hack][Nightmare cafe VIII v1.3].zip",
-      "09B2A7E0D86A3D804E2525C45BDDBA5D": "SNES-Super Famicom/~Hack~ Nightmare Cafe I-X/Super Mario World (U) [!][Hack][Nightmare cafe IX v1.0].zip",
-      "8780521A6511F5B8562598C7338CDC3A": "SNES-Super Famicom/~Hack~ Nightmare Cafe I-X/Super Mario World (U) [!][Hack][Nightmare cafe X v1.0].zip"
-    }
-  ],
   "28635": [
     {
       "B1DCED3B9BFDA03D307A91BECD583AA9": "SNES-Super Famicom/~Hack~ Casio Mario World [Subset - Bonus]/SMW - Casio Mario World (En) (v1.2) [Subset - Bonus].zip"
@@ -46368,11 +45765,6 @@
   "28796": [
     {
       "A51E8561778943F794942070F137ECB6": "Game Boy Color/~Homebrew~ Days Without/Days Without - Elvies [More Endings].zip"
-    }
-  ],
-  "28799": [
-    {
-      "37F9467255FC91AF30B86B7728E9A9EA": "SNES-Super Famicom/~Hack~ Sprites Are 1derful/Super Mario World (U) [!][Hack][Sprites Are 1derful (v1.1) (NewPointless)].zip"
     }
   ],
   "28803": [
@@ -46421,11 +45813,6 @@
       "F5DCC53F5C05DCC099049BC4F52DD1FD": "PlayStation 2/Harry Potter and the Chamber of Secrets [Subset - Bonus]/Harry Potter and the Chamber of Secrets [Subset - Bonus] (60FPS).zip"
     }
   ],
-  "28857": [
-    {
-      "2AEF1292F8C10DACA3FFB2FBEBDBE188": "SNES-Super Famicom/~Hack~ Super Mario Flash - SMW Remake/SMW - Super Mario Flash - Super Mario World Remake (Final) (Dark Prince).zip"
-    }
-  ],
   "28879": [
     {
       "0CD9E555B4F26953E3FC4550DDE35D04": "PlayStation 2/Sega Rally Championship/Sega Rally Championship (Japan).zip"
@@ -46462,11 +45849,6 @@
   "28951": [
     {
       "BA504682F565B0A57DEB79D6A498E51C": "NES-Famicom/~Hack~ Castlevania II - Subotai's Hunt/Castlevania II - Subotai's Hunt - Tenth Anniversary Edition v1.05b rc.zip"
-    }
-  ],
-  "29003": [
-    {
-      "300D548532AAD29FE1C300FC4B94697F": "SNES-Super Famicom/~Hack~ Scary Bosses and Nice Sprites/Super Mario World (U) [!][Hack][Scary Bosses and Nice Sprites].zip"
     }
   ],
   "29024": [
@@ -46553,8 +45935,7 @@
   ],
   "29085": [
     {
-      "95E0D9DCCA5CA8795628B119EFD756C9": "SNES-Super Famicom/~Hack~ Marvel Quiz Quest/SMW - Marvel Quiz Quest (v2.0) (BillyTime! Games).zip",
-      "6CB79EF3C0EA4D7ACF11AACA84608179": "SNES-Super Famicom/~Hack~ Marvel Quiz Quest/Marvel Quiz Quest (V3) by Billy Time! Games (Negan) [2020-04-20] (SMW Hack).zip"
+      "95E0D9DCCA5CA8795628B119EFD756C9": "SNES-Super Famicom/~Hack~ Marvel Quiz Quest/SMW - Marvel Quiz Quest (v2.0) (BillyTime! Games).zip"
     }
   ],
   "29091": [
@@ -46605,11 +45986,6 @@
   "29324": [
     {
       "3788F49E16DDB70D0AF7B2CF63456246": "Game Gear/Crayon Shin-chan - Taiketsu! Kantam Panic!!/Crayon Shin-chan - Taiketsu! Kantam Panic!! (Japan)[T-Eng].zip"
-    }
-  ],
-  "29325": [
-    {
-      "7B776B9FF46D1D900B13D5EEBD27DC0C": "SNES-Super Famicom/~Hack~ UP The Romhack/Super Mario World (U) [!][Hack][UP The Romhack (Sweetdude)].zip"
     }
   ],
   "29579": [
@@ -46701,11 +46077,6 @@
       "D0C6DFBBF3E4AE661DEE17D2B39C89C2": "NES-Famicom/~Homebrew~ Famidash/Famidash.Demo.4.05.1.zip"
     }
   ],
-  "29748": [
-    {
-      "72B4DDCFF101280FC871466C126F4262": "SNES-Super Famicom/F-Zero [Subset - BS F-Zero Deluxe]/F-Zero (U) [!] [Subset - BS F-Zero Deluxe].zip"
-    }
-  ],
   "29751": [
     {
       "EA80B6A82333CAF3D5FCA7EFB21444DB": "PlayStation/~Hack~ Yu-Gi-Oh! GX Forbidden Memories/Yu-Gi-Oh! GX Forbidden Memories [Hack].zip"
@@ -46763,11 +46134,6 @@
       "02D5F8A622BA5255EB544FC38EF81728": "Game Boy Color/~Homebrew~ My Saturday Grounded/satgrnd_v2.zip"
     }
   ],
-  "29793": [
-    {
-      "A031683505A5DE86D95A23EB672ECE66": "SNES-Super Famicom/~Hack~ slurdgery/slurdgery by Sixcorby [2020-01-03] (SMW Hack).zip"
-    }
-  ],
   "29794": [
     {
       "C322FE4C7CE87654A429E149C8671F00": "Game Boy/~Homebrew~ Yoru no Kasou/yorunokasou.zip"
@@ -46788,19 +46154,9 @@
       "E54FCB0B39A197B22C470D188FAFB934": "Nintendo 64/Legend of Zelda, The - Majora's Mask [Subset - 4th Day]/Legend of Zelda, The - Majora's Mask 4th Day.zip"
     }
   ],
-  "29827": [
-    {
-      "C739FDBAB5EBD73716BCB8531D823CBE": "SNES-Super Famicom/~Hack~ Eikro - The Children of Darloum/Super Mario World (U) [!][Hack][Eikro - The Children of Darloum].zip"
-    }
-  ],
   "29828": [
     {
       "74A0AA4E80C058FCCCAD4B7BA130DA0A": "PlayStation/~Hack~ Yu-Gi-Oh! Forbidden Memories - Alpha Mod/Yu-Gi-Oh! Forbidden Memories - Alpha Mod (Drop x15) (Alpha Team).zip"
-    }
-  ],
-  "29829": [
-    {
-      "43E3B61A655B4AC5CA9AF3995C49B121": "SNES-Super Famicom/~Hack~ Grand Poo World 3/Super Mario World (U) [!][Hack][Grand Poo World 3 - 2023-11-17].zip"
     }
   ],
   "29831": [
@@ -46824,25 +46180,10 @@
       "A5E8C0C8D4ECF07BABF784E6AFAE382D": "Game Boy Advance/Sword of Mana [Subset - Black Enemy Variants]/Sword of Mana [Subset - Black Enemy Variants].zip"
     }
   ],
-  "29847": [
-    {
-      "3E23B07D429D7802B190AA1D2D3E110E": "SNES-Super Famicom/~Hack~ Final Fantasy V - Whirlwind/Final Fantasy V (Japan) [En by RPGe v1.1] - Whirlwind v0.47 by clymax.zip",
-      "53815BA6D7187964E947EEFE72A81DAA": "SNES-Super Famicom/~Hack~ Final Fantasy V - Whirlwind/Final Fantasy V (Japan) [En by RPGe v1.1] - Whirlwind v0.54 beta by clymax.zip",
-      "C791506AFBDF5BE6BE89CA9690E364CD": "SNES-Super Famicom/~Hack~ Final Fantasy V - Whirlwind/Final Fantasy V (Japan) [En by RPGe v1.1] - Whirlwind v0.49 release by clymax.zip",
-      "0936742BED256A6787B284F368FC67F3": "SNES-Super Famicom/~Hack~ Final Fantasy V - Whirlwind/Final Fantasy V (Japan) [En by RPGe v1.1] - Whirlwind v0.55 beta by clymax.zip",
-      "6BDA9F59C1DAA529CF416EE1D074D1FD": "SNES-Super Famicom/~Hack~ Final Fantasy V - Whirlwind/Final Fantasy V (Japan) [En by RPGe v1.1] - Whirlwind v0.75m merged by clymax (Core).zip",
-      "0CBFE230F763578E119A95491B81AD90": "SNES-Super Famicom/~Hack~ Final Fantasy V - Whirlwind/Final Fantasy V (Japan) [En by RPGe v1.1] - Whirlwind v0.77 by clymax (Core).zip"
-    }
-  ],
   "29854": [
     {
       "C64494995DDAF7849F1EA6934098EFD1": "PlayStation 2/Gran Turismo 4 [Subset - Bonus]/Gran Turismo 4 (Europe, Australia) (En,Fr,De,Es,It) [Subset - Bonus].zip",
       "8184EE230E74050F9711D8E6DDDA526D": "PlayStation 2/Gran Turismo 4 [Subset - Bonus]/Gran Turismo 4 (USA) (v1.01) [Subset - Bonus].zip"
-    }
-  ],
-  "29855": [
-    {
-      "0F114BCFC1E1B360E4A0C7B47EACFD7C": "SNES-Super Famicom/~Hack~ Lurn 2 Shell/Super Mario World (U) [!] [Hack][Lurn 2 Shell v1.1].zip"
     }
   ],
   "29858": [
@@ -46929,6 +46270,21 @@
   "30128": [
     {
       "70B4C73E34C53AC818D15DAA6682C396": "Game Boy Color/~Homebrew~ Enceladus/ENCELADUS_V3_jam.zip"
+    }
+  ],
+  "1418": [
+    {
+      "A8BC41B2B908AB67C923372B29328512": "SNES-Super Famicom/Front Mission - Gun Hazard [Subset - Bonus]/Front Mission - Gun Hazard [Subset - Bonus].zip"
+    }
+  ],
+  "3430": [
+    {
+      "CB802F27CAB677A9B5C1C7FA4258E259": "SNES-Super Famicom/Radical Psycho Machine Racing/Radical Psycho Machine Racing (USA).zip"
+    }
+  ],
+  "3808": [
+    {
+      "8FD2D0B42286B001E3EA5E779426CCCF": "SNES-Super Famicom/Super Off Road/Super Off Road (Europe).zip"
     }
   ]
 }
