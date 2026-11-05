@@ -1,0 +1,12 @@
+{
+  "name": "retroachievements-downloader",
+  "private": true,
+  "scripts": {
+    "dev:api": "python api/index.py",
+    "dev:web": "npm run dev --prefix web",
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev:api\" \"npm run dev:web\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

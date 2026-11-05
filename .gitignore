@@ -1,6 +1,16 @@
 # Deployment
 .vercel
 
+# Claude Code skills (personal tooling, no es parte del proyecto)
+.claude/
+.agents/
+skills-lock.json
+
+# Node / Next.js (web/)
+node_modules/
+.next/
+next-env.d.ts
+
 # Logs
 *.log
 *.out
@@ -29,6 +39,12 @@ venv.bak/
 *.swp
 *.swo
 
+# Claude Code: skills de uso personal, no para el repo
+.agents/
+.claude/
+.taste-skill/
+skills-lock.json
+
 # OS
 .DS_Store
 Thumbs.db
@@ -45,5 +61,6 @@ README_REFACTOR.md
 .env
 
 # Data files (keep structure but ignore if needed)
-# game_hashes.json
-# Data/*.json 
+game_hashes.json
+# Data/*.json
+.env*

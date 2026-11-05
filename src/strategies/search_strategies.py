@@ -8,6 +8,7 @@ from rich.prompt import Prompt
 
 from ..core.interfaces import HashSearchStrategy, GameInfo
 from ..core.data_manager import RetroAchievementsDataManager
+from ..core.rom_info import get_console_from_rom_path, extract_game_name
 
 
 class DirectHashSearchStrategy(HashSearchStrategy):
@@ -23,9 +24,9 @@ class DirectHashSearchStrategy(HashSearchStrategy):
         
         if rom_path:
             # Extraer información básica del rom_path
-            console_name = self._extract_console_name(rom_path)
-            game_name = self._extract_game_name(rom_path)
-            
+            console_name = get_console_from_rom_path(rom_path)
+            game_name = extract_game_name(rom_path)
+
             return GameInfo(
                 name=game_name,
                 console=console_name,
@@ -33,32 +34,6 @@ class DirectHashSearchStrategy(HashSearchStrategy):
                 rom_path=rom_path
             )
         return None
-    
-    def _extract_console_name(self, rom_path: str) -> str:
-        """Extrae el nombre de la consola del rom_path."""
-        if "SNES-Super Famicom" in rom_path:
-            return "SNES"
-        elif "NES-Famicom" in rom_path:
-            return "NES"
-        elif "PlayStation Portable" in rom_path:
-            return "PSP"
-        elif "PlayStation 2" in rom_path:
-            return "PS2"
-        elif "PlayStation" in rom_path:
-            return "PS1"
-        elif "Genesis-Mega Drive" in rom_path:
-            return "Genesis"
-        elif "Sega CD" in rom_path:
-            return "Sega CD"
-        elif "Arcade" in rom_path:
-            return "Arcade"
-        else:
-            return "Unknown"
-    
-    def _extract_game_name(self, rom_path: str) -> str:
-        """Extrae el nombre del juego del rom_path."""
-        # Tomar el último elemento del path como nombre del juego
-        return rom_path.split('/')[-1] if '/' in rom_path else rom_path
 
 
 class WantToPlaySearchStrategy(HashSearchStrategy):

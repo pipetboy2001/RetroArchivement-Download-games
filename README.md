@@ -2,43 +2,29 @@
 
 **RetroAchievements Downloader** es una aplicación en **Python** que facilita la descarga de ROMs compatibles con los logros de **RetroAchievements** 🏆.
 
-Permite buscar y descargar juegos de dos maneras: ingresando directamente el hash del juego o seleccionando desde tu lista personal de "Want to Play". Está disponible tanto en **versión web** como en **scripts de consola**. 
+Permite explorar un catálogo de más de 8.400 juegos, buscar por nombre o por hash, armar un carrito y descargar en lote — además del modo tradicional de "Want to Play" por consola. Está disponible tanto en **versión web** como en **scripts de consola**.
 
-## ❓ Preguntas Frecuentes
+## 🌐 Catálogo web
 
-###  **¿Dónde encuentro el hash de un juego?**
+![Catálogo de juegos](docs/screenshots/catalogo.jpg)
 
-En la página del juego en RetroAchievements, ve a la sección **"Supported Game Files"**. Ahí encontrarás los hashes compatibles.  
+Grid con portada, logros y versiones por juego; filtros rápidos por consola (y acceso al resto desde "+N más"); carrito persistido en tu navegador (`localStorage`, nunca en el servidor).
 
-###  **¿Necesito API Key para usar la aplicación?**
+![Búsqueda por hash](docs/screenshots/busqueda-por-hash.jpg)
 
--  **Búsqueda por hash**: ❌ No necesitas API Key
+Pegás un hash y te dice si es válido, si está reconocido por RetroAchievements y si el enlace de descarga responde — antes de agregarlo al carrito.
 
--  **Lista "Want to Play"**: ✅ Sí necesitas API Key para generar/gestionar la lista
+![Carrito de descarga](docs/screenshots/carrito.jpg)
 
-###  **¿Dónde obtengo mi API Key de RetroAchievements?**
-
-1.  Ve a: [retroachievements.org/controlpanel.php](https://retroachievements.org/controlpanel.php)
-
-2.  Inicia sesión en tu cuenta
-
-3.  En la sección "Web API Key", copia tu clave
-
-###  **¿Qué consolas están soportadas?**
-
-SNES, NES, PlayStation (1, 2, Portable), Genesis/Mega Drive, Sega CD, Arcade, y más.
-
-###  **¿Los archivos se descargan automáticamente?**
-
-No, la aplicación abre la URL de descarga en tu navegador. Desde ahí puedes descargar el archivo.
-  
+"Descargar todo" abre el enlace de cada juego del carrito. En desarrollo: espejos adicionales (CoolROM), exportar el carrito como ZIP con estructura de carpetas lista para RetroArch/OnionOS/Batocera, verificar el hash de un archivo local sin subirlo, y conectar tu cuenta de RetroAchievements para traer tu "Want to Play" directo al catálogo.
 
 ## 🚀 Características Principales
 
-✅ **Búsqueda por hash directo**: Ingresa el hash del juego y descarga inmediatamente  
-✅ **Lista de deseos**: Descarga juegos desde tu lista personal de "Want to Play"  
-✅ **Soporte multiplataforma**: SNES, NES, PSP, PS1, PS2, Genesis, Arcade y más  
-✅ **Generación automática** de URLs de descarga 🔗  
+✅ **Catálogo navegable**: más de 8.400 juegos, filtrables por consola  
+✅ **Búsqueda por hash directo**: pegás el hash y te dice si es válido y descargable  
+✅ **Carrito con descarga en lote**: armá una lista y descargá todo de una  
+✅ **Lista de deseos (consola)**: descargá juegos desde tu lista personal de "Want to Play"  
+✅ **Soporte multiplataforma**: SNES, NES, PSP, PS1, PS2, Genesis, Arcade y más de 50 consolas en total  
 ✅ **Versión web** disponible en [RetroAchievements Downloader](https://retroachievements.vercel.app/)  
 ✅ **Interfaz de consola** con múltiples modos de operación
 
@@ -56,7 +42,7 @@ No, la aplicación abre la URL de descarga en tu navegador. Desde ahí puedes de
 
 ### Versión Web
 - **URL**: [RetroAchievements Downloader](https://retroachievements.vercel.app/)
-- **Descripción**: Interfaz web simple para búsqueda rápida por hash
+- **Descripción**: Catálogo navegable con carrito y descarga en lote, más búsqueda directa por hash (ver capturas arriba)
 
 ### Versión de Consola
 - **Modo Unificado**: `python main.py` - Permite elegir entre búsqueda directa o lista de deseos
@@ -68,8 +54,9 @@ No, la aplicación abre la URL de descarga en tu navegador. Desde ahí puedes de
 ### Versión Web
 1. **Accede a la web**: [RetroAchievements Downloader](https://retroachievements.vercel.app/)
 2. **Inicia sesión en archive.org**: Antes de descargar, inicia sesión en <https://archive.org/>
-3. **Introduce el hash**: Ingresa el hash del juego en el campo correspondiente
-4. **Descarga**: Si el hash es encontrado, se abrirá la URL de descarga en archive.org
+3. **Buscá**: por nombre (navegás el catálogo filtrando por consola) o pegando un hash directamente
+4. **Agregá al carrito** los que quieras, o descargá uno a la vez con el botón "Descargar"
+5. **Descargá todo**: desde el carrito, un clic abre el enlace de cada juego seleccionado
 
 ### Versión de Consola
 
@@ -127,10 +114,12 @@ RetroArchivement-Download-games/
 │   ├── 📁 utils/              # Utilidades
 │   └── 📄 app.py              # Aplicación principal
 ├── 📁 Data/                   # Datos JSON principales
-├── 📁 api/                    # API web (Vercel)
+├── 📁 api/                    # Backend Flask (Vercel)
+├── 📁 web/                    # Frontend Next.js/TS (Vercel)
 ├── 📄 main.py                 # Punto de entrada unificado
 ├── 📄 console_mode.py         # Modo hash directo
 ├── 📄 want_to_play.py         # Modo lista de deseos
+├── 📄 sync_want_to_play.py    # Genera game_hashes.json desde la API de RA
 ├── 📄 config.py               # Configuraciones centralizadas
 ├── 📄 game_hashes.json        # Lista de juegos deseados
 ├── 📄 .env                    # Variables de entorno
@@ -145,8 +134,16 @@ Asegúrate de que existe `Data/TamperMonkeyRetroachievements.json` con los hashe
 
 ### Lista de deseos
 Para usar el modo "Want to Play":
-1. **Archivo de juegos**: `game_hashes.json` con tus juegos deseados
+1. **Archivo de juegos**: `game_hashes.json` con tus juegos deseados — se genera automáticamente con `python sync_want_to_play.py` (ver abajo), o se puede armar a mano.
 2. **Variables de entorno**: Configura `.env` con tu API Key de RetroAchievements
+
+#### Generar game_hashes.json automáticamente
+
+```bash
+python sync_want_to_play.py
+```
+
+Trae tu lista real de "Want to Play" desde la API de RetroAchievements, cruza cada hash contra `Data/TamperMonkeyRetroachievements.json` para quedarse solo con los que sí se pueden descargar, y sobreescribe `game_hashes.json`. Requiere `API_KEY` y `RETROACHIEVEMENTS_USERNAME` en `.env`.
 
 ### Configuración de API RetroAchievements (para modo "Want to Play")
 
@@ -167,7 +164,7 @@ cp ejemplo.env .env
 
 # 2. Edita .env con tus credenciales
 API_KEY=tu_api_key_de_retroachievements_aqui
-USERNAME=tu_nombre_de_usuario_de_retroachievements
+RETROACHIEVEMENTS_USERNAME=tu_nombre_de_usuario_de_retroachievements
 ```
 
 #### 📋 **Ejemplo de archivo .env:**
@@ -175,7 +172,7 @@ USERNAME=tu_nombre_de_usuario_de_retroachievements
 ```bash
 # Credenciales de RetroAchievements
 API_KEY=AbCdEf123456789
-USERNAME=MiUsuarioRetroAchievements
+RETROACHIEVEMENTS_USERNAME=MiUsuarioRetroAchievements
 ```
 
 > **💡 Nota**: La API Key es **opcional** para la búsqueda directa por hash. Solo se necesita para generar y gestionar tu lista personal de "Want to Play".

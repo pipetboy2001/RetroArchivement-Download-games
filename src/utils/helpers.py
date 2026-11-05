@@ -90,9 +90,15 @@ class ValidationHelper:
         """Valida si el hash tiene un formato válido."""
         if not hash_value or not isinstance(hash_value, str):
             return False
-        
-        # Un hash típico debe tener al menos 8 caracteres y ser hexadecimal
-        return len(hash_value) >= 8 and all(c in '0123456789ABCDEFabcdef' for c in hash_value)
+
+        try:
+            import config
+            min_length = config.MIN_HASH_LENGTH
+        except ImportError:
+            min_length = 8
+
+        # Un hash típico debe tener al menos min_length caracteres y ser hexadecimal
+        return len(hash_value) >= min_length and all(c in '0123456789ABCDEFabcdef' for c in hash_value)
     
     @staticmethod
     def is_valid_file_path(file_path: str) -> bool:
