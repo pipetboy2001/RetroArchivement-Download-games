@@ -1,0 +1,60 @@
+name: Chequeo de fuentes de descarga
+
+on:
+  schedule:
+    - cron: "17 9 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  issues: write
+
+jobs:
+  check-sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Correr chequeo de salud
+        id: health
+        continue-on-error: true
+        run: python check_sources_health.py
+
+      - name: Asegurar que exista la etiqueta fuente-rota
+        if: steps.health.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh label create fuente-rota --color B60205 --description "Una fuente de descarga parece caida" --force
+
+      - name: Abrir o actualizar issue si hay fuentes rotas
+        if: steps.health.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BODY=$(cat sources_health_report.md)
+          ISSUE=$(gh issue list --label fuente-rota --state open --json number --jq '.[0].number')
+          if [ -n "$ISSUE" ]; then
+            gh issue comment "$ISSUE" --body "$BODY"
+          else
+            gh issue create --title "Fuentes de descarga rotas detectadas" --label fuente-rota --body "$BODY"
+          fi
+
+      - name: Cerrar issue si ya no hay fuentes rotas
+        if: steps.health.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          ISSUE=$(gh issue list --label fuente-rota --state open --json number --jq '.[0].number')
+          if [ -n "$ISSUE" ]; then
+            gh issue comment "$ISSUE" --body "Ya no se detectan fuentes rotas en el ultimo chequeo."
+            gh issue close "$ISSUE"
+          fi
+
+      - name: Fallar el job si hay fuentes rotas (visibilidad en la pestaña Actions)
+        if: steps.health.outcome == 'failure'
+        run: exit 1
