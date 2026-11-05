@@ -1,9 +1,27 @@
 """
 Factory para crear generadores de URL según la consola/plataforma.
 """
+import json
+from typing import Dict
 from urllib.parse import quote
 
 from ..core.interfaces import URLGenerator
+
+_source_override_cache: Dict[str, dict] = {}
+
+
+def _load_source_override(path: str) -> dict:
+    """Carga (y cachea en memoria) un Data/<consola>_source_override.json
+    generado por sync_source.py -- mapea rom_path -> nombre de archivo en
+    la colección de reemplazo. Si no existe todavía, devuelve {} (la
+    consola sigue usando su BASE_URL de siempre, sin romper nada)."""
+    if path not in _source_override_cache:
+        try:
+            with open(path, encoding="utf-8") as f:
+                _source_override_cache[path] = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            _source_override_cache[path] = {}
+    return _source_override_cache[path]
 
 
 def _normalize_slashes(path: str) -> str:
@@ -35,14 +53,27 @@ def _strip_first_segment_if_matches(path: str, segment: str) -> str:
 
 
 class SNESURLGenerator(URLGenerator):
-    """Generador de URLs para SNES/Super Famicom."""
-    
+    """Generador de URLs para SNES/Super Famicom.
+
+    La colección vieja de archive.org (BASE_URL) murió. Hay una de
+    reemplazo, pero con nombres/estructura distintos -- sync_source.py
+    genera Data/snes_source_override.json (rom_path -> nombre de archivo
+    en la colección nueva) matcheando por hash real, no por nombre. Lo que
+    todavía no tiene match sigue cayendo en el BASE_URL viejo (roto, pero
+    es justo lo que queda listado en Data/snes_missing_sources.txt)."""
+
     BASE_URL = "https://archive.org/download/retroachievements_collection_SNES-Super_Famicom/"
-    
+    BASE_URL_REPLACEMENT = "https://archive.org/download/retroachievementscompatibleromsSNES/"
+    OVERRIDE_FILE = "Data/snes_source_override.json"
+
     def generate_url(self, rom_path: str) -> str:
         rel = _normalize_slashes(rom_path)
+        override = _load_source_override(self.OVERRIDE_FILE)
+        filename = override.get(rel)
+        if filename:
+            return self.BASE_URL_REPLACEMENT + _encode_rel_path(filename)
         return self.BASE_URL + _encode_rel_path(rel)
-    
+
     def can_handle(self, rom_path: str) -> bool:
         return "SNES-Super Famicom" in rom_path
 
@@ -120,16 +151,27 @@ class SegaURLGenerator(URLGenerator):
 
 
 class ArcadeURLGenerator(URLGenerator):
-    """Generador de URLs para Arcade."""
-    
+    """Generador de URLs para Arcade.
+
+    Bug encontrado (no es un problema de fuente muerta, como SNES): los
+    rom_path reales usan "arcade\\" en minúscula (ej. "arcade\\sailormn.zip"),
+    pero can_handle() comparaba contra "Arcade" con mayúscula -- ningún
+    juego de Arcade pasaba nunca por este generador, caían todos en el
+    DefaultURLGenerator (BASE_URL de v5, rotos). Y aunque entraran, BASE_URL
+    ya termina en ".../arcade/" y el rom_path también empieza con
+    "arcade/", así que sin strip quedaba duplicado
+    (".../arcade/arcade/...", también roto). Confirmado con la colección
+    real: https://archive.org/download/fbnarcade-fullnonmerged/arcade/<archivo>
+    sí funciona."""
+
     BASE_URL = "https://archive.org/download/fbnarcade-fullnonmerged/arcade/"
-    
+
     def generate_url(self, rom_path: str) -> str:
-        rel = _normalize_slashes(rom_path)
+        rel = _strip_first_segment_if_matches(rom_path, "arcade")
         return self.BASE_URL + _encode_rel_path(rel)
-    
+
     def can_handle(self, rom_path: str) -> bool:
-        return "Arcade" in rom_path
+        return "arcade" in rom_path.lower()
 
 
 class DefaultURLGenerator(URLGenerator):
