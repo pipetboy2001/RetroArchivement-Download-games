@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
 
 /* Modo oscuro único (como retroachievements.org, que tampoco tiene claro) --
    sin @media (prefers-color-scheme), los tokens van directo en :root.
@@ -27,6 +31,29 @@
   --warn-bg: #2c2210;
   --negative: #e5566f;
   --negative-bg: #2c1a20;
+
+  /* Tokens de shadcn/ui que no chocan de nombre con los de arriba --
+     apuntan a la paleta ya existente en vez de traer colores propios, para
+     que los componentes nuevos (Dialog, etc.) salgan con el mismo
+     dorado/negro de siempre. --card/--muted/--accent de shadcn SÍ chocan de
+     nombre con los de arriba (significan otra cosa: fondo vs texto) -- se
+     resuelve abajo en @theme inline, referenciando directo sin pasar por
+     una propiedad --card/--muted/--accent nueva. */
+  --background: var(--ground);
+  --foreground: var(--text);
+  --card-foreground: var(--text-bright);
+  --popover: var(--surface);
+  --popover-foreground: var(--text);
+  --primary-foreground: var(--ground);
+  --secondary: var(--raised);
+  --secondary-foreground: var(--text);
+  --muted-foreground: var(--muted);
+  --accent-foreground: var(--ground);
+  --destructive: var(--negative);
+  --border: var(--rule);
+  --input: var(--rule-strong);
+  --ring: var(--accent-border);
+  --radius: 10px;
 }
 
 * { box-sizing: border-box; }
@@ -261,3 +288,47 @@ main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding
 .empty-hint { margin-top: 24px; font-size: 13px; color: var(--faint); border-top: 1px dashed var(--rule-strong); padding-top: 16px; }
 .spinner { border: 3px solid var(--rule-strong); border-top-color: var(--accent); border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* Mapeo de los nombres de Tailwind (bg-muted, text-primary, etc.) a la
+   paleta real. El prefijo --color-* es justo lo que evita que --card/
+   --muted/--accent de shadcn pisen los de arriba: en vez de pasar por una
+   propiedad --card nueva, se referencia directo la que ya existe. --muted
+   y --accent de shadcn significan "fondo neutro de hover" y no coinciden
+   con lo que --muted/--accent ya significan en este proyecto (texto gris,
+   dorado de marca) -- por eso van a --raised, no a esos nombres. Un solo
+   tema (sin .dark, esta app no tiene claro/oscuro -- ver el comentario de
+   arriba), así que no hace falta el bloque .dark que trae shadcn por
+   default. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--raised);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--raised);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
