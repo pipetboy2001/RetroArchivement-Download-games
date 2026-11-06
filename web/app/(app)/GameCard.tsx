@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useCart } from "./CartContext";
+import { downloadGame } from "./download";
 import { BoltIcon, CopyIcon, PlusIcon, TrophyIcon } from "./icons";
 import type { Game, Version, VersionsResponse } from "./types";
 
@@ -102,9 +103,9 @@ export default function GameCard({ game }: { game: Game }) {
 
         <div className="gcard-actions">
           {active ? (
-            <a href={`/dl?hash=${encodeURIComponent(active.hash)}`} className="btn-ghost">
+            <button type="button" className="btn-ghost" onClick={() => downloadGame(active.hash, game.name)}>
               <BoltIcon /> Descargar
-            </a>
+            </button>
           ) : (
             <span className="btn-ghost" aria-disabled>
               <BoltIcon /> Descargar

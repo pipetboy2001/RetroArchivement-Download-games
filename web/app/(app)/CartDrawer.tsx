@@ -1,24 +1,46 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import { useCart } from "./CartContext";
+import { openDownload } from "./download";
 import { TrashIcon, XIcon } from "./icons";
+
+const EXIT_MS = 280;
 
 export default function CartDrawer({ open, onClose }: { open: boolean; onClose: () => void }) {
   const cart = useCart();
   const count = cart.items.length;
+  const [mounted, setMounted] = useState(open);
+  const [entered, setEntered] = useState(false);
 
-  if (!open) return null;
+  // Abrir: montar ya (durante el render, no en un efecto -- React lo aplica
+  // antes del paint) para que el frame siguiente pueda animar desde el
+  // estado "cerrado". Cerrar: desmontar recién después de EXIT_MS, para que
+  // la transición de salida llegue a verse antes de sacar el nodo del DOM.
+  if (open && !mounted) setMounted(true);
+  if (!open && entered) setEntered(false);
+
+  useEffect(() => {
+    if (open) {
+      const raf = requestAnimationFrame(() => setEntered(true));
+      return () => cancelAnimationFrame(raf);
+    }
+    const t = setTimeout(() => setMounted(false), EXIT_MS);
+    return () => clearTimeout(t);
+  }, [open]);
+
+  if (!mounted) return null;
 
   function downloadAll() {
-    cart.items.forEach((item) => {
-      window.open(`/dl?hash=${encodeURIComponent(item.hash)}`, "_blank");
-    });
+    cart.items.forEach((item) => openDownload(item.hash));
+    toast(`Descargando ${count} juego${count === 1 ? "" : "s"}…`);
   }
 
   return (
     <>
-      <div className="drawer-overlay" onClick={onClose} />
-      <aside className="drawer-panel">
+      <div className={`drawer-overlay${entered ? " open" : ""}`} onClick={onClose} />
+      <aside className={`drawer-panel${entered ? " open" : ""}`}>
         <div className="drawer-head">
           <div>
             <h2>Carrito de descarga</h2>
