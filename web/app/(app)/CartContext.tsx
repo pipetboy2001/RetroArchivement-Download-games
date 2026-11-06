@@ -16,6 +16,7 @@ interface CartContextValue {
   items: CartItem[];
   add: (item: CartItem) => void;
   remove: (id: string) => void;
+  clear: () => void;
   has: (id: string) => boolean;
 }
 
@@ -49,11 +50,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setItems((prev) => prev.filter((i) => i.id !== id));
   }
 
+  function clear() {
+    setItems([]);
+  }
+
   function has(id: string) {
     return items.some((i) => i.id === id);
   }
 
-  return <CartContext.Provider value={{ items, add, remove, has }}>{children}</CartContext.Provider>;
+  return <CartContext.Provider value={{ items, add, remove, clear, has }}>{children}</CartContext.Provider>;
 }
 
 export function useCart() {

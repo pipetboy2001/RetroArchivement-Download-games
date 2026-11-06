@@ -35,6 +35,7 @@ export default function CartDrawer({ open, onClose }: { open: boolean; onClose: 
   function downloadAll() {
     cart.items.forEach((item) => openDownload(item.hash));
     toast(`Descargando ${count} juego${count === 1 ? "" : "s"}…`);
+    cart.clear();
   }
 
   return (
