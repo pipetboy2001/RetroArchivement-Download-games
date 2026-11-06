@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState, type FormEvent, type ReactNode } from "react";
 import { CartProvider, useCart } from "./CartContext";
 import CartDrawer from "./CartDrawer";
+import Footer from "./Footer";
 import HasherModal from "./HasherModal";
 import NoticeModal from "./NoticeModal";
 import RaAccountModal from "./RaAccountModal";
@@ -59,6 +60,7 @@ function Shell({ children }: { children: ReactNode }) {
       </header>
 
       <main className="app-main">{children}</main>
+      <Footer />
       <NoticeModal />
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
       <HasherModal open={hasherOpen} onClose={() => setHasherOpen(false)} />

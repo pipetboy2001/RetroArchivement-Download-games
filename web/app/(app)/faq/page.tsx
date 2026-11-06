@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function FaqPage() {
   return (
-    <>
+    <div className="faq-page">
       <div className="title-row">
         <div>
           <h1>Preguntas frecuentes (FAQ)</h1>
@@ -75,11 +75,11 @@ export default function FaqPage() {
         </ul>
 
         <div style={{ marginTop: 24 }}>
-          <Link href="/" className="btn-primary" style={{ textDecoration: "none", display: "inline-block" }}>
+          <Link href="/" className="btn-primary">
             Volver al inicio
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
