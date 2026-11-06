@@ -5,7 +5,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import ConsoleFilterDropdown from "./ConsoleFilterDropdown";
 import GameCard from "./GameCard";
 import { useCart } from "./CartContext";
-import { BoltIcon, SearchIcon } from "./icons";
+import { downloadGame } from "./download";
+import { BoltIcon, CheckIcon, SearchIcon } from "./icons";
 import type { ConsoleCount, Game, GamesResponse, SearchResult } from "./types";
 import { lookupHash } from "./verifyHash";
 
@@ -183,16 +184,22 @@ export default function GamesView() {
                 </span>
               </div>
               <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
-                <a href={`/dl?hash=${encodeURIComponent(verifyHash)}`} className="btn-ghost">
+                <button type="button" className="btn-ghost" onClick={() => downloadGame(verifyHash, verify.name)}>
                   <BoltIcon /> Descargar
-                </a>
+                </button>
                 <button
                   type="button"
                   className="btn-ghost"
                   disabled={cart.has(verifyHash)}
                   onClick={addVerifyToCart}
                 >
-                  {cart.has(verifyHash) ? "En el carrito" : "Agregar al carrito"}
+                  {cart.has(verifyHash) ? (
+                    <span key="added" className="icon-pop" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                      <CheckIcon /> En el carrito
+                    </span>
+                  ) : (
+                    "Agregar al carrito"
+                  )}
                 </button>
               </div>
             </div>
