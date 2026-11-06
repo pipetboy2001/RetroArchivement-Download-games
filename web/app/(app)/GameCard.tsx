@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { toast } from "sonner";
 import { useCart } from "./CartContext";
-import { BoltIcon, CopyIcon, PlusIcon, TrophyIcon } from "./icons";
+import { downloadGame } from "./download";
+import { BoltIcon, CheckIcon, CopyIcon, PlusIcon, TrophyIcon } from "./icons";
 import type { Game, Version, VersionsResponse } from "./types";
 
 export default function GameCard({ game }: { game: Game }) {
   const cart = useCart();
   const [versions, setVersions] = useState<Version[] | null>(null);
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -44,8 +45,7 @@ export default function GameCard({ game }: { game: Game }) {
   function copyHash() {
     if (!active) return;
     navigator.clipboard.writeText(active.hash).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
+      toast("Hash copiado");
     });
   }
 
@@ -102,9 +102,9 @@ export default function GameCard({ game }: { game: Game }) {
 
         <div className="gcard-actions">
           {active ? (
-            <a href={`/dl?hash=${encodeURIComponent(active.hash)}`} className="btn-ghost">
+            <button type="button" className="btn-ghost" onClick={() => downloadGame(active.hash, game.name)}>
               <BoltIcon /> Descargar
-            </a>
+            </button>
           ) : (
             <span className="btn-ghost" aria-disabled>
               <BoltIcon /> Descargar
@@ -120,10 +120,9 @@ export default function GameCard({ game }: { game: Game }) {
             disabled={!active || inCart}
             title={inCart ? "En el carrito" : "Agregar al carrito"}
           >
-            <PlusIcon />
+            {inCart ? <CheckIcon key="check" className="icon-pop" /> : <PlusIcon key="plus" />}
           </button>
         </div>
-        {copied && <span style={{ fontSize: 11, color: "var(--ok)" }}>Hash copiado</span>}
       </div>
     </div>
   );

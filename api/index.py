@@ -272,17 +272,11 @@ def open_browser(download_url):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('404.html'), 404
+    return {'success': False, 'message': 'Not found'}, 404
 
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500
-
-# Página de FAQ y Aviso legal
-@app.route('/faq')
-def faq():
-    total_games = len(build_games_index()) if build_games_index() else 0
-    return render_template('faq.html', total_games=total_games)
 
 if __name__ == '__main__':
     app.run(debug=True)

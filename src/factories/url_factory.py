@@ -171,7 +171,8 @@ class ArcadeURLGenerator(URLGenerator):
         return self.BASE_URL + _encode_rel_path(rel)
 
     def can_handle(self, rom_path: str) -> bool:
-        return "arcade" in rom_path.lower()
+        first_segment = _normalize_slashes(rom_path).split("/", 1)[0]
+        return first_segment.lower() == "arcade"
 
 
 class DefaultURLGenerator(URLGenerator):
