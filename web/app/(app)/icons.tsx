@@ -1,9 +1,12 @@
 import {
+  AlertTriangle,
   Check,
+  CheckCircle2,
   Copy,
   Fingerprint,
   Plus,
   Search,
+  ShieldCheck,
   ShoppingCart,
   Trash2,
   Trophy,
@@ -26,3 +29,6 @@ export const FingerprintIcon = (props: LucideProps) => <Fingerprint size={14} {.
 export const UserIcon = (props: LucideProps) => <User size={14} {...props} />;
 export const CopyIcon = (props: LucideProps) => <Copy size={13} {...props} />;
 export const UploadIcon = (props: LucideProps) => <Upload size={28} {...props} />;
+export const ShieldCheckIcon = (props: LucideProps) => <ShieldCheck size={14} {...props} />;
+export const CheckCircleIcon = (props: LucideProps) => <CheckCircle2 size={16} {...props} />;
+export const WarningIcon = (props: LucideProps) => <AlertTriangle size={16} {...props} />;
