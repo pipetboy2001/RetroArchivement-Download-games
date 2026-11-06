@@ -6,6 +6,7 @@ import GameCard from "./GameCard";
 import { useCart } from "./CartContext";
 import { BoltIcon, SearchIcon } from "./icons";
 import type { ConsoleCount, Game, GamesResponse, SearchResult } from "./types";
+import { lookupHash } from "./verifyHash";
 
 const PAGE_SIZES = [10, 20, 50, 100];
 const PILL_COUNT = 6;
@@ -104,11 +105,7 @@ export default function GamesView() {
     setVerifyError("");
     setVerifyHash(q);
 
-    const form = new FormData();
-    form.append("search_term", q);
-
-    fetch("/search", { method: "POST", body: form })
-      .then((res) => res.json() as Promise<SearchResult>)
+    lookupHash(q)
       .then((data) => {
         if (data.success) setVerify(data);
         else setVerifyError(data.message || "No se encontró ese hash en la base de datos.");
