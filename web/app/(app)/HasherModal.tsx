@@ -2,7 +2,8 @@
 
 import { useRef, useState } from "react";
 import { useCart } from "./CartContext";
-import { BoltIcon, UploadIcon } from "./icons";
+import { downloadGame } from "./download";
+import { BoltIcon, CheckIcon, UploadIcon } from "./icons";
 import { computeRaHash } from "./raHash";
 import { lookupHash } from "./verifyHash";
 import type { SearchResult } from "./types";
@@ -142,11 +143,17 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
                 </span>
               </div>
               <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
-                <a href={`/dl?hash=${encodeURIComponent(hash)}`} className="btn-ghost">
+                <button type="button" className="btn-ghost" onClick={() => downloadGame(hash, result.name)}>
                   <BoltIcon /> Descargar
-                </a>
+                </button>
                 <button type="button" className="btn-ghost" disabled={cart.has(hash)} onClick={addToCart}>
-                  {cart.has(hash) ? "En el carrito" : "Agregar al carrito"}
+                  {cart.has(hash) ? (
+                    <span key="added" className="icon-pop" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                      <CheckIcon /> En el carrito
+                    </span>
+                  ) : (
+                    "Agregar al carrito"
+                  )}
                 </button>
               </div>
             </div>

@@ -53,7 +53,11 @@ function Shell({ children }: { children: ReactNode }) {
             </button>
             <button type="button" className="cart-trigger" onClick={() => setCartOpen(true)} aria-label="Abrir carrito">
               <CartIcon />
-              {items.length > 0 && <span className="count">{items.length}</span>}
+              {items.length > 0 && (
+                <span key={items.length} className="count">
+                  {items.length}
+                </span>
+              )}
             </button>
           </div>
         </div>
