@@ -90,7 +90,7 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
         }
       }}
     >
-      <div className="modal-panel" style={{ maxWidth: 420 }}>
+      <div className="modal-panel">
         <div className="modal-head">
           <h2>
             Verificar ROM <CheckCircleIcon className="title-badge" />
@@ -108,53 +108,55 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
           </button>
         </div>
         <div className="modal-body">
-          <div
-            className={`hasher-dropzone${dragOver ? " drag-over" : ""}`}
-            onClick={() => inputRef.current?.click()}
-            onDragOver={(e) => {
-              e.preventDefault();
-              setDragOver(true);
-            }}
-            onDragLeave={() => setDragOver(false)}
-            onDrop={(e) => {
-              e.preventDefault();
-              setDragOver(false);
-              const file = e.dataTransfer.files[0];
-              if (file) void handleFile(file);
-            }}
-          >
-            <UploadIcon className="upload-icon" />
-            <h3>Soltá tu ROM acá</h3>
-            <p className="hasher-dropzone-sub">o hacé clic para explorar tu equipo</p>
-            <button
-              type="button"
-              className="btn-ghost hasher-select-btn"
-              onClick={(e) => {
-                e.stopPropagation();
-                inputRef.current?.click();
+          {!result && (
+            <div
+              className={`hasher-dropzone${dragOver ? " drag-over" : ""}`}
+              onClick={() => inputRef.current?.click()}
+              onDragOver={(e) => {
+                e.preventDefault();
+                setDragOver(true);
+              }}
+              onDragLeave={() => setDragOver(false)}
+              onDrop={(e) => {
+                e.preventDefault();
+                setDragOver(false);
+                const file = e.dataTransfer.files[0];
+                if (file) void handleFile(file);
               }}
             >
-              <UploadIcon size={14} />
-              <span>Seleccionar archivo</span>
-            </button>
-            <div className="hasher-badges">
-              {[".zip", "NES", "SNES", "GBA", "N64", "Genesis"].map((label) => (
-                <span key={label} className="hasher-badge">
-                  {label}
-                </span>
-              ))}
+              <UploadIcon className="upload-icon" />
+              <h3>Soltá tu ROM acá</h3>
+              <p className="hasher-dropzone-sub">o hacé clic para explorar tu equipo</p>
+              <button
+                type="button"
+                className="btn-ghost hasher-select-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  inputRef.current?.click();
+                }}
+              >
+                <UploadIcon size={14} />
+                <span>Seleccionar archivo</span>
+              </button>
+              <div className="hasher-badges">
+                {[".zip", "NES", "SNES", "GBA", "N64", "Genesis"].map((label) => (
+                  <span key={label} className="hasher-badge">
+                    {label}
+                  </span>
+                ))}
+              </div>
+              <input
+                ref={inputRef}
+                type="file"
+                style={{ display: "none" }}
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (file) void handleFile(file);
+                  e.target.value = "";
+                }}
+              />
             </div>
-            <input
-              ref={inputRef}
-              type="file"
-              style={{ display: "none" }}
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                if (file) void handleFile(file);
-                e.target.value = "";
-              }}
-            />
-          </div>
+          )}
 
           <div className="hasher-note">
             <ShieldCheckIcon />
