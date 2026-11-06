@@ -85,8 +85,8 @@ body {
 .brand .mark { width: 28px; height: 28px; border-radius: 6px; background: var(--accent); color: var(--ground); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
 .brand .name { font-size: 14px; font-weight: 700; color: var(--text-bright); letter-spacing: -0.01em; white-space: nowrap; }
 
-.search { display: flex; align-items: center; gap: 8px; flex: 1; max-width: 420px; height: 36px; background: var(--surface); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 0 12px; }
-.search input { flex: 1; background: none; border: none; outline: none; color: var(--text); font-size: 13px; }
+.search { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; max-width: 420px; height: 36px; background: var(--surface); border: 1px solid var(--rule-strong); border-radius: 8px; padding: 0 12px; }
+.search input { flex: 1; min-width: 0; background: none; border: none; outline: none; color: var(--text); font-size: 13px; }
 .search input::placeholder { color: var(--faint); }
 .search svg { flex-shrink: 0; opacity: 0.7; color: var(--faint); }
 
@@ -195,6 +195,10 @@ main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding
 .page-size select { background: var(--surface); border: 1px solid var(--rule-strong); border-radius: 6px; padding: 4px 8px; color: var(--text); font-size: 12px; }
 .grid-foot { display: flex; justify-content: center; margin-top: 24px; }
 .games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+
+@media (max-width: 640px) {
+  .games-grid { grid-template-columns: 1fr; gap: 10px; }
+}
 
 .gcard { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
 .gcard-cover { position: relative; height: 140px; background: var(--ground); flex-shrink: 0; }
