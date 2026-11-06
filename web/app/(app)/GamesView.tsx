@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import ConsoleFilterDropdown from "./ConsoleFilterDropdown";
 import GameCard from "./GameCard";
 import { useCart } from "./CartContext";
 import { BoltIcon, SearchIcon } from "./icons";
@@ -226,15 +225,24 @@ export default function GamesView() {
                 </button>
               ))}
             {restConsoles.length > 0 && (
-              <ConsoleFilterDropdown
-                consoles={restConsoles}
-                value={consoleFilter}
-                selected={filterInRest}
-                onChange={(name) => {
-                  setConsoleFilter(name);
-                  setPage(1);
-                }}
-              />
+              <div className={`pill pill-more${filterInRest ? " active" : ""}`}>
+                <span>{filterInRest ? consoleFilter : `+${restConsoles.length} más`}</span>
+                <select
+                  value={filterInRest ? consoleFilter : ""}
+                  onChange={(e) => {
+                    setConsoleFilter(e.target.value);
+                    setPage(1);
+                  }}
+                  aria-label="Más consolas"
+                >
+                  <option value="">+{restConsoles.length} más</option>
+                  {restConsoles.map((c) => (
+                    <option key={c.name} value={c.name}>
+                      {c.name} ({c.count})
+                    </option>
+                  ))}
+                </select>
+              </div>
             )}
           </div>
 
