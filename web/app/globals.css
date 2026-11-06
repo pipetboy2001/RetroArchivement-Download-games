@@ -305,6 +305,29 @@ main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding
 .soon-panel h3 { margin: 0 0 8px; font-size: 14px; color: var(--text-bright); }
 .soon-panel p { margin: 0; font-size: 13px; color: var(--muted); max-width: 42ch; margin-inline: auto; }
 
+/* --- Verificar ROM: dropzone --- */
+.modal-head .title-badge { color: var(--accent); flex-shrink: 0; margin-left: 6px; }
+.hasher-dropzone {
+  text-align: center; padding: 28px 16px; border: 1.5px dashed var(--rule-strong); border-radius: 10px;
+  cursor: pointer; transition: border-color 150ms ease, background 150ms ease;
+}
+.hasher-dropzone:hover, .hasher-dropzone.drag-over { border-color: var(--accent-border); background: var(--accent-soft); }
+.hasher-dropzone svg.upload-icon { color: var(--faint); margin-bottom: 12px; }
+.hasher-dropzone h3 { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: var(--text-bright); }
+.hasher-dropzone-sub { margin: 0 0 16px; font-size: 12px; color: var(--muted); }
+.hasher-select-btn { margin: 0 auto 16px; }
+.hasher-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.hasher-badge {
+  padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600;
+  background: var(--raised); color: var(--muted); border: 1px solid var(--rule-strong);
+}
+.hasher-note {
+  display: flex; align-items: flex-start; gap: 8px; margin-top: 14px; padding: 10px 12px;
+  background: var(--raised); border-radius: 8px; font-size: 12px; color: var(--muted); line-height: 1.5;
+}
+.hasher-note svg { flex-shrink: 0; margin-top: 2px; color: var(--ok); }
+.hasher-disc-note { margin: 10px 2px 0; font-size: 12px; color: var(--faint); }
+
 /* --- Carrito: drawer lateral --- */
 .drawer-overlay {
   position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 50;

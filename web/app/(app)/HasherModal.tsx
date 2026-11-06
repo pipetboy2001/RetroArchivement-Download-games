@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { useCart } from "./CartContext";
 import { downloadGame } from "./download";
-import { BoltIcon, CheckIcon, UploadIcon } from "./icons";
+import { BoltIcon, CheckCircleIcon, CheckIcon, ShieldCheckIcon, UploadIcon } from "./icons";
 import { computeRaHash } from "./raHash";
 import { lookupHash } from "./verifyHash";
 import type { SearchResult } from "./types";
@@ -75,7 +75,9 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
     >
       <div className="modal-panel" style={{ maxWidth: 420 }}>
         <div className="modal-head">
-          <h2>Verificar ROM</h2>
+          <h2>
+            Verificar ROM <CheckCircleIcon className="title-badge" />
+          </h2>
           <button
             type="button"
             className="modal-close"
@@ -90,8 +92,7 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
         </div>
         <div className="modal-body">
           <div
-            className="soon-panel"
-            style={{ cursor: "pointer", opacity: dragOver ? 0.7 : 1 }}
+            className={`hasher-dropzone${dragOver ? " drag-over" : ""}`}
             onClick={() => inputRef.current?.click()}
             onDragOver={(e) => {
               e.preventDefault();
@@ -105,25 +106,26 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
               if (file) void handleFile(file);
             }}
           >
-            <UploadIcon />
+            <UploadIcon className="upload-icon" />
             <h3>Soltá tu ROM acá</h3>
-            <p>
-              Se calcula el hash MD5 en tu navegador, nunca se sube a ningún lado. Soporta .zip y las
-              consolas de cartucho más comunes (CD/disco todavía no).
-            </p>
-            <p style={{ fontSize: 12, color: "var(--faint)" }}>
-              ¿Necesitás verificar discos (PS1, PS2, Saturn...)? Probá{" "}
-              <a
-                href="https://github.com/Siallus/RetroAchievementsLibraryValidator"
-                target="_blank"
-                rel="noopener"
-                style={{ color: "var(--link)" }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                RetroAchievementsLibraryValidator
-              </a>
-              , corre en tu PC con el RAHasher oficial.
-            </p>
+            <p className="hasher-dropzone-sub">o hacé clic para explorar tu equipo</p>
+            <button
+              type="button"
+              className="btn-ghost hasher-select-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                inputRef.current?.click();
+              }}
+            >
+              <UploadIcon size={14} /> Seleccionar archivo
+            </button>
+            <div className="hasher-badges">
+              {[".zip", "NES", "SNES", "GBA", "N64", "Genesis"].map((label) => (
+                <span key={label} className="hasher-badge">
+                  {label}
+                </span>
+              ))}
+            </div>
             <input
               ref={inputRef}
               type="file"
@@ -135,6 +137,26 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
               }}
             />
           </div>
+
+          <div className="hasher-note">
+            <ShieldCheckIcon />
+            <span>
+              Se calcula el hash MD5 en tu navegador, nunca se sube a ningún lado. Soporta .zip y las
+              consolas de cartucho más comunes (CD/disco todavía no).
+            </span>
+          </div>
+          <p className="hasher-disc-note">
+            ¿Necesitás verificar discos (PS1, PS2, Saturn...)? Probá{" "}
+            <a
+              href="https://github.com/Siallus/RetroAchievementsLibraryValidator"
+              target="_blank"
+              rel="noopener"
+              style={{ color: "var(--link)" }}
+            >
+              RetroAchievementsLibraryValidator
+            </a>
+            , corre en tu PC con el RAHasher oficial.
+          </p>
 
           {loading && <p className="empty-hint">Verificando hash…</p>}
           {error && <p className="empty-hint">{error}</p>}
