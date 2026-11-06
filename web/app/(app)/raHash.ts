@@ -95,6 +95,14 @@ const RULES: Record<string, { consoleGuess: string; rule: Rule }> = {
   sg: { consoleGuess: "SG-1000", rule: { kind: "simple" } },
   ngp: { consoleGuess: "Neo Geo Pocket", rule: { kind: "simple" } },
   ngc: { consoleGuess: "Neo Geo Pocket Color", rule: { kind: "simple" } },
+  // Extensiones confirmadas por búsqueda (No-Intro), no a ojo -- a propósito
+  // se dejan afuera Channel F/Odyssey2/Intellivision/Watara Supervision:
+  // todas usan ".bin", que ya es ambiguo con otros sistemas.
+  col: { consoleGuess: "ColecoVision", rule: { kind: "simple" } },
+  vec: { consoleGuess: "Vectrex", rule: { kind: "simple" } },
+  min: { consoleGuess: "Pokemon Mini", rule: { kind: "simple" } },
+  vb: { consoleGuess: "Virtual Boy", rule: { kind: "simple" } },
+  vboy: { consoleGuess: "Virtual Boy", rule: { kind: "simple" } },
 
   // Header detectado por firma de bytes.
   nes: { consoleGuess: "NES", rule: { kind: "signature", offset: 0, signature: [0x4e, 0x45, 0x53, 0x1a], strip: 16 } },

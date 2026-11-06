@@ -111,6 +111,19 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
               Se calcula el hash MD5 en tu navegador, nunca se sube a ningún lado. Soporta .zip y las
               consolas de cartucho más comunes (CD/disco todavía no).
             </p>
+            <p style={{ fontSize: 12, color: "var(--faint)" }}>
+              ¿Necesitás verificar discos (PS1, PS2, Saturn...)? Probá{" "}
+              <a
+                href="https://github.com/Siallus/RetroAchievementsLibraryValidator"
+                target="_blank"
+                rel="noopener"
+                style={{ color: "var(--link)" }}
+                onClick={(e) => e.stopPropagation()}
+              >
+                RetroAchievementsLibraryValidator
+              </a>
+              , corre en tu PC con el RAHasher oficial.
+            </p>
             <input
               ref={inputRef}
               type="file"
