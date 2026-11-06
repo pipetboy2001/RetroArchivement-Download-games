@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Dialog, DialogContent, DialogTitle, DialogClose } from "@/components/ui/dialog";
 
 const STORAGE_KEY = "ra-downloader-notice-seen";
 
@@ -16,21 +17,14 @@ export default function NoticeModal() {
     setOpen(false);
   }
 
-  if (!open) return null;
-
   return (
-    <div
-      className="modal-overlay"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) dismiss();
-      }}
-    >
-      <div className="modal-panel">
+    <Dialog open={open} onOpenChange={(o: boolean) => !o && dismiss()}>
+      <DialogContent className="modal-panel" showCloseButton={false}>
         <div className="modal-head">
-          <h2>Antes de descargar</h2>
-          <button type="button" className="modal-close" onClick={dismiss} aria-label="Cerrar">
+          <DialogTitle>Antes de descargar</DialogTitle>
+          <DialogClose className="modal-close" aria-label="Cerrar">
             &times;
-          </button>
+          </DialogClose>
         </div>
         <div className="modal-body">
           <p style={{ margin: 0 }}>
@@ -51,7 +45,7 @@ export default function NoticeModal() {
             Entendido
           </button>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }

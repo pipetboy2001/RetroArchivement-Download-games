@@ -1,23 +1,17 @@
 "use client";
 
+import { Dialog, DialogContent, DialogTitle, DialogClose } from "@/components/ui/dialog";
 import { UserIcon } from "./icons";
 
 export default function RaAccountModal({ open, onClose }: { open: boolean; onClose: () => void }) {
-  if (!open) return null;
-
   return (
-    <div
-      className="modal-overlay"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
-      }}
-    >
-      <div className="modal-panel" style={{ maxWidth: 420 }}>
+    <Dialog open={open} onOpenChange={(o: boolean) => !o && onClose()}>
+      <DialogContent className="modal-panel" style={{ maxWidth: 420 }} showCloseButton={false}>
         <div className="modal-head">
-          <h2>Conectar RetroAchievements</h2>
-          <button type="button" className="modal-close" onClick={onClose} aria-label="Cerrar">
+          <DialogTitle>Conectar RetroAchievements</DialogTitle>
+          <DialogClose className="modal-close" aria-label="Cerrar">
             &times;
-          </button>
+          </DialogClose>
         </div>
         <div className="modal-body">
           <div className="soon-panel">
@@ -29,7 +23,7 @@ export default function RaAccountModal({ open, onClose }: { open: boolean; onClo
             </p>
           </div>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }
