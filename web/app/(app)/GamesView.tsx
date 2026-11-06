@@ -6,7 +6,7 @@ import ConsoleFilterDropdown from "./ConsoleFilterDropdown";
 import GameCard from "./GameCard";
 import { useCart } from "./CartContext";
 import { downloadGame } from "./download";
-import { BoltIcon, SearchIcon } from "./icons";
+import { BoltIcon, CheckIcon, SearchIcon } from "./icons";
 import type { ConsoleCount, Game, GamesResponse, SearchResult } from "./types";
 import { lookupHash } from "./verifyHash";
 
@@ -193,7 +193,13 @@ export default function GamesView() {
                   disabled={cart.has(verifyHash)}
                   onClick={addVerifyToCart}
                 >
-                  {cart.has(verifyHash) ? "En el carrito" : "Agregar al carrito"}
+                  {cart.has(verifyHash) ? (
+                    <span key="added" className="icon-pop" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                      <CheckIcon /> En el carrito
+                    </span>
+                  ) : (
+                    "Agregar al carrito"
+                  )}
                 </button>
               </div>
             </div>

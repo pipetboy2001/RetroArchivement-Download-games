@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { useCart } from "./CartContext";
 import { downloadGame } from "./download";
-import { BoltIcon, UploadIcon } from "./icons";
+import { BoltIcon, CheckIcon, UploadIcon } from "./icons";
 import { computeRaHash } from "./raHash";
 import { lookupHash } from "./verifyHash";
 import type { SearchResult } from "./types";
@@ -147,7 +147,13 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
                   <BoltIcon /> Descargar
                 </button>
                 <button type="button" className="btn-ghost" disabled={cart.has(hash)} onClick={addToCart}>
-                  {cart.has(hash) ? "En el carrito" : "Agregar al carrito"}
+                  {cart.has(hash) ? (
+                    <span key="added" className="icon-pop" style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+                      <CheckIcon /> En el carrito
+                    </span>
+                  ) : (
+                    "Agregar al carrito"
+                  )}
                 </button>
               </div>
             </div>

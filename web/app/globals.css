@@ -108,6 +108,15 @@ body {
   position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; padding: 0 4px;
   background: var(--accent); color: var(--ground); border-radius: 999px; font-size: 10px;
   font-weight: 700; display: flex; align-items: center; justify-content: center;
+  animation: badge-pop 280ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+@keyframes badge-pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cart-trigger .count { animation: none; }
 }
 
 main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding: 29px 32px 60px; }
@@ -239,6 +248,15 @@ main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding
   .btn-primary:active:not(:disabled), .btn-ghost:active:not(:disabled), .icon-btn:active:not(:disabled) { transform: none; }
 }
 .icon-btn.in-cart { color: var(--accent); border-color: var(--accent-border); background: var(--accent-soft); }
+.icon-pop { animation: icon-pop-in 280ms cubic-bezier(0.23, 1, 0.32, 1); }
+@keyframes icon-pop-in {
+  0% { transform: scale(0.5) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(1.15) rotate(4deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .icon-pop { animation: none; }
+}
 
 .pager { display: flex; gap: 6px; align-items: center; }
 .pager button { width: 26px; height: 26px; border-radius: 6px; border: 1px solid var(--rule-strong); background: transparent; color: var(--muted); font-size: 12px; cursor: pointer; }

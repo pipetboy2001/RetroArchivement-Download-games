@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useCart } from "./CartContext";
 import { downloadGame } from "./download";
-import { BoltIcon, CopyIcon, PlusIcon, TrophyIcon } from "./icons";
+import { BoltIcon, CheckIcon, CopyIcon, PlusIcon, TrophyIcon } from "./icons";
 import type { Game, Version, VersionsResponse } from "./types";
 
 export default function GameCard({ game }: { game: Game }) {
@@ -121,7 +121,7 @@ export default function GameCard({ game }: { game: Game }) {
             disabled={!active || inCart}
             title={inCart ? "En el carrito" : "Agregar al carrito"}
           >
-            <PlusIcon />
+            {inCart ? <CheckIcon key="check" className="icon-pop" /> : <PlusIcon key="plus" />}
           </button>
         </div>
         {copied && <span style={{ fontSize: 11, color: "var(--ok)" }}>Hash copiado</span>}
