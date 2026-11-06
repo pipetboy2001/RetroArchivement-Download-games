@@ -316,6 +316,7 @@ main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding
 .hasher-dropzone h3 { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: var(--text-bright); }
 .hasher-dropzone-sub { margin: 0 0 16px; font-size: 12px; color: var(--muted); }
 .hasher-select-btn { margin: 0 auto 16px; }
+.hasher-select-btn svg { flex-shrink: 0; }
 .hasher-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
 .hasher-badge {
   padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600;
@@ -327,6 +328,29 @@ main.app-main { flex: 1; width: 100%; max-width: 1312px; margin: 0 auto; padding
 }
 .hasher-note svg { flex-shrink: 0; margin-top: 2px; color: var(--ok); }
 .hasher-disc-note { margin: 10px 2px 0; font-size: 12px; color: var(--faint); }
+
+.hasher-result {
+  border-radius: 10px; padding: 16px; margin-top: 16px; border: 1px solid;
+  animation: verify-in 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.hasher-result.ok { border-color: var(--ok); background: var(--ok-bg); }
+.hasher-result.warn { border-color: var(--warn); background: var(--warn-bg); }
+.hasher-result-title { display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+.hasher-result.ok .hasher-result-title { color: var(--ok); }
+.hasher-result.warn .hasher-result-title { color: var(--warn); }
+.hasher-result-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 16px; }
+.hasher-result-grid h4 { margin: 0 0 8px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); font-weight: 700; }
+.hasher-result-grid dl { margin: 0; display: flex; flex-direction: column; gap: 5px; font-size: 12px; }
+.hasher-result-grid dl > div { display: flex; gap: 4px; flex-wrap: wrap; }
+.hasher-result-grid dt { color: var(--faint); flex-shrink: 0; }
+.hasher-result-grid dd { margin: 0; color: var(--text-bright); font-weight: 600; word-break: break-all; }
+.hasher-result-grid dd.mono { font-family: ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace; font-weight: 400; font-size: 11px; color: var(--muted); }
+.hasher-result-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.hasher-remove-btn { color: var(--negative); border-color: rgba(229, 86, 111, 0.35); }
+.hasher-remove-btn:hover { background: var(--negative-bg); color: var(--negative); border-color: var(--negative); }
+@media (prefers-reduced-motion: reduce) {
+  .hasher-result { animation: none; }
+}
 
 /* --- Carrito: drawer lateral --- */
 .drawer-overlay {

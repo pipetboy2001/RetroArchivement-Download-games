@@ -3,10 +3,22 @@
 import { useRef, useState } from "react";
 import { useCart } from "./CartContext";
 import { downloadGame } from "./download";
-import { BoltIcon, CheckCircleIcon, CheckIcon, ShieldCheckIcon, UploadIcon } from "./icons";
+import { BoltIcon, CheckCircleIcon, CheckIcon, ShieldCheckIcon, TrashIcon, UploadIcon, WarningIcon } from "./icons";
 import { computeRaHash } from "./raHash";
 import { lookupHash } from "./verifyHash";
 import type { SearchResult } from "./types";
+
+function formatBytes(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  const units = ["KB", "MB", "GB"];
+  let value = bytes;
+  let unitIndex = -1;
+  do {
+    value /= 1024;
+    unitIndex++;
+  } while (value >= 1024 && unitIndex < units.length - 1);
+  return `${value.toFixed(1)} ${units[unitIndex]}`;
+}
 
 export default function HasherModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const cart = useCart();
@@ -15,6 +27,7 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
   const [error, setError] = useState("");
   const [hash, setHash] = useState("");
   const [consoleGuess, setConsoleGuess] = useState("");
+  const [fileInfo, setFileInfo] = useState<{ name: string; size: number } | null>(null);
   const [result, setResult] = useState<SearchResult | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -24,11 +37,13 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
     setError("");
     setHash("");
     setConsoleGuess("");
+    setFileInfo(null);
     setResult(null);
   }
 
   async function handleFile(file: File) {
     reset();
+    setFileInfo({ name: file.name, size: file.size });
     const buffer = new Uint8Array(await file.arrayBuffer());
     const computed = computeRaHash(file.name, buffer);
     if ("error" in computed) {
@@ -62,6 +77,8 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
       rom_path: "",
     });
   }
+
+  const fullyVerified = !!result?.ra_recognized && !!result?.link_ok;
 
   return (
     <div
@@ -117,7 +134,8 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
                 inputRef.current?.click();
               }}
             >
-              <UploadIcon size={14} /> Seleccionar archivo
+              <UploadIcon size={14} />
+              <span>Seleccionar archivo</span>
             </button>
             <div className="hasher-badges">
               {[".zip", "NES", "SNES", "GBA", "N64", "Genesis"].map((label) => (
@@ -162,22 +180,47 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
           {error && <p className="empty-hint">{error}</p>}
 
           {result && (
-            <div className="verify">
-              <div className="icon" />
-              <div className="meta">
-                <div className="name">{result.name ?? "Juego encontrado"}</div>
-                <div className="sub">{result.console ?? consoleGuess ?? "Consola desconocida"}</div>
-                <div className="hash">{hash}</div>
+            <div className={`hasher-result ${fullyVerified ? "ok" : "warn"}`}>
+              <div className="hasher-result-title">
+                {fullyVerified ? <CheckCircleIcon /> : <WarningIcon />}
+                {fullyVerified ? "Archivo reconocido" : "Archivo encontrado"}
               </div>
-              <div className="checks">
-                <span className={`badge ${result.ra_recognized ? "ok" : "warn"}`}>
-                  {result.ra_recognized ? "reconocido por RA" : "no reconocido por RA"}
-                </span>
-                <span className={`badge ${result.link_ok ? "ok" : "warn"}`}>
-                  {result.link_ok ? "enlace verificado" : "enlace no verificado"}
-                </span>
+
+              <div className="hasher-result-grid">
+                <div>
+                  <h4>Archivo local</h4>
+                  <dl>
+                    <div>
+                      <dt>Nombre:</dt> <dd>{fileInfo?.name ?? "—"}</dd>
+                    </div>
+                    <div>
+                      <dt>Tamaño:</dt> <dd>{fileInfo ? formatBytes(fileInfo.size) : "—"}</dd>
+                    </div>
+                    <div>
+                      <dt>Hash MD5:</dt> <dd className="mono">{hash}</dd>
+                    </div>
+                  </dl>
+                </div>
+                <div>
+                  <h4>RetroAchievements</h4>
+                  <dl>
+                    <div>
+                      <dt>Juego:</dt> <dd>{result.name ?? "—"}</dd>
+                    </div>
+                    <div>
+                      <dt>Plataforma:</dt> <dd>{result.console ?? consoleGuess}</dd>
+                    </div>
+                    <div>
+                      <dt>Reconocido:</dt> <dd>{result.ra_recognized ? "Sí" : "No"}</dd>
+                    </div>
+                    <div>
+                      <dt>Enlace:</dt> <dd>{result.link_ok ? "Verificado" : "No verificado"}</dd>
+                    </div>
+                  </dl>
+                </div>
               </div>
-              <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+
+              <div className="hasher-result-actions">
                 <button type="button" className="btn-ghost" onClick={() => downloadGame(hash, result.name)}>
                   <BoltIcon /> Descargar
                 </button>
@@ -189,6 +232,9 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
                   ) : (
                     "Agregar al carrito"
                   )}
+                </button>
+                <button type="button" className="btn-ghost hasher-remove-btn" onClick={reset}>
+                  <TrashIcon /> Quitar archivo
                 </button>
               </div>
             </div>
