@@ -124,7 +124,7 @@ export default function HasherModal({ open, onClose }: { open: boolean; onClose:
                 if (file) void handleFile(file);
               }}
             >
-              <UploadIcon className="upload-icon" />
+              
               <h3>Soltá tu ROM acá</h3>
               <p className="hasher-dropzone-sub">o hacé clic para explorar tu equipo</p>
               <button
